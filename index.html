@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+
+
+<!--------------------------------------------------------
+Darling Jackson Portfolio
+Homepage
+
+Author: Darling Jackson
+Built with:
+- HTML
+- CSS
+- JavaScript
+- Git
+- GitHub
+
+This is the main homepage for my professional portfolio.
+---------------------------------------------------------->
+
 <html lang="en">
 
 <head>
@@ -6,70 +23,177 @@
     <!-- Character encoding -->
     <meta charset="UTF-8">
 
-    <!-- Makes the site responsive on phones -->
+    <!-- Makes the website responsive on phones -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Browser tab title -->
-    <title>Darling Jackson | Portfolio</title>
+    <title>Darling Jackson | Systems Engineer</title>
 
-    <!-- Connect our CSS file -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Connects our CSS file -->
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+    <!-- ==================================================
+         HEADER
+         ==================================================
 
-<!-- ========================================= -->
-<!-- NAVIGATION BAR                            -->
-<!-- ========================================= -->
+         The header contains the navigation bar.
 
-<header class="navbar">
+         Semantic HTML:
+         We use <header> because this is the top
+         section of the webpage.
 
-    <!--
-    Logo section.
-    The logo is made up of two parts:
-    1. A circle with the initials "DJ" in it.
-    2. The name and title of the person.
-    -->
+    =================================================== -->
 
-    <div class="logo">
+    <header class="navbar">
 
-        <div class="logo-circle">
-            DJ
+        <!-- ===============================
+             LOGO
+        ================================ -->
+
+        <div class="logo">
+
+            <!--
+            This is our animated DJ logo.
+
+            Later we'll add JavaScript so clicking
+            it scrolls back to the top.
+            -->
+
+            <button class="dj-button" aria-label="Home">
+
+                <span class="inner">
+                    DJ
+                </span>
+
+            </button>
+
+            <!-- Name -->
+
+            <div class="logo-text">
+
+                <h2>Darling Jackson</h2>
+
+                <p>Systems Engineer</p>
+
+            </div>
+
         </div>
 
-        <div class="logo-text">
+        <!-- ===============================
+             NAVIGATION
+        ================================ -->
 
-            <h2>Darling Jackson</h2>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Technologies</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
 
-            <p>Systems Engineer</p>
+
+    </header>
+
+
+    <!-- ==================================================
+
+         END OF NAVIGATION
+
+         The Hero Section will go below this.
+
+    =================================================== -->
+
+    <!-- ==================================================
+     HERO SECTION
+================================================== -->
+<main class="hero">
+
+    <section class="hero-content">
+
+        <p class="eyebrow">
+            SYSTEMS ENGINEER • CLOUD INFRASTRUCTURE • SECURITY
+        </p>
+
+        <h1>
+
+            Building
+
+            <span>Secure Cloud</span>
+
+            Infrastructure.
+
+        </h1>
+
+        <p class="hero-description">
+
+            I'm Darling Jackson, a Systems Engineer with experience
+            supporting enterprise and DoD environments.
+
+            My focus is cloud infrastructure, identity and access
+            management, security, and platform engineering.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#" class="primary-button">
+
+                View Projects
+
+            </a>
+
+            <a href="#" class="secondary-button">
+
+                Download Resume
+
+            </a>
 
         </div>
 
-    </div>
+        <div class="hero-tags">
 
-    <!--
-    Navigation links.
-    -->
+            <span>☁ Cloud</span>
 
-    <nav>
+            <span>🔐 IAM</span>
 
-        <ul class="nav-links">
+            <span>🛡 Security</span>
 
-            <li><a href="#">Home</a></li>
+            <span>⚙ Platform</span>
 
-            <li><a href="#">Projects</a></li>
+        </div>
 
-            <li><a href="#">Technologies</a></li>
+    </section>
 
-            <li><a href="#">Contact</a></li>
+    <section class="hero-image">
 
-        </ul>
+        <div class="glass-card">
 
-    </nav>
+            <img
+                src="assets/images/hero-cloud.png"
+                alt="Portrait of Darling Jackson"
+                class="hero-photo"
+            >
 
-</header>
+        </div>
+
+    </section>
+
+</main>
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
 
 </body>
 

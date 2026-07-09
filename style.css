@@ -1,0 +1,449 @@
+/* =========================
+   BRAND STYLE GUIDE
+========================= */
+
+:root {
+  --bg-dark: #050816;
+  --bg-navy: #0b1020;
+  --bg-card: rgba(255, 255, 255, 0.05);
+
+  --pink: #ff4fd8;
+  --purple: #7b61ff;
+  --blue: #00c2ff;
+
+  --text-white: #ffffff;
+  --text-soft: #c8c8e8;
+  --text-muted: #9aa4c5;
+
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --border-pink: rgba(255, 79, 216, 0.45);
+  --border-blue: rgba(0, 194, 255, 0.4);
+
+  --section-padding: 80px 8%;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+
+  --glow-pink: 0 0 30px rgba(255, 79, 216, 0.25);
+  --glow-blue: 0 0 30px rgba(0, 194, 255, 0.25);
+}
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+  background: var(--bg-dark);
+  color: var(--text-white);
+  font-family: "Inter", Arial, sans-serif;
+
+}
+
+/* =====================================================
+   NAVIGATION BAR
+===================================================== */
+
+/*
+The navigation bar sits at the very top of the page.
+
+It contains:
+- Logo
+- Navigation Links
+
+Later we'll add:
+- Blur effect
+- Scroll animation
+- Mobile menu
+*/
+
+.navbar {
+
+    width: 100%;
+
+    padding: 18px 8%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 999;
+
+    background: rgba(5, 8, 22, .82);
+
+    backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid var(--border-soft);
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+/*
+Eventually this will become
+your custom SVG logo.
+*/
+
+.dj-button{
+
+    all:unset;
+
+    cursor:pointer;
+
+    width:52px;
+
+    height:52px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:16px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--pink),
+        var(--purple),
+        var(--blue)
+    );
+
+    transition:.35s;
+
+}
+
+/*
+Inside square
+*/
+
+.dj-button .inner{
+
+    width:44px;
+
+    height:44px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:12px;
+
+    background:var(--bg-dark);
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+/*
+Hover Animation
+*/
+
+.dj-button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    var(--glow-pink),
+    var(--glow-blue);
+
+}
+
+
+/* =====================================================
+   LOGO TEXT
+===================================================== */
+
+.logo-text h2{
+
+    font-size:17px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+.logo-text p{
+
+    margin-top:3px;
+
+    color:var(--text-muted);
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   NAVIGATION LINKS
+===================================================== */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:38px;
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    color:var(--text-white);
+
+    text-decoration:none;
+
+    font-size:.92rem;
+
+    font-weight:500;
+
+    transition:.35s;
+
+    position:relative;
+
+}
+
+/*
+Underline Animation
+*/
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:
+    linear-gradient(
+        90deg,
+        var(--pink),
+        var(--blue)
+    );
+
+    transition:.35s;
+
+}
+
+.nav-links a:hover{
+
+    color:var(--pink);
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero {
+  min-height: calc(100vh - 89px);
+  padding: 55px 8% 80px;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 79, 216, 0.16), transparent 28%),
+    radial-gradient(circle at 90% 50%, rgba(0, 194, 255, 0.18), transparent 30%),
+    var(--bg-dark);
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.hero-welcome {
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 5.8rem);
+  line-height: 0.95;
+  margin-bottom: 26px;
+}
+
+.hero h1 span {
+  display: block;
+  background: linear-gradient(90deg, var(--pink), var(--purple), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  max-width: 600px;
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+/* Hero buttons */
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.primary-button,
+.secondary-button {
+  text-decoration: none;
+  padding: 15px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.primary-button {
+  color: var(--text-white);
+  background: linear-gradient(135deg, var(--pink), #276cff);
+  box-shadow: var(--glow-pink);
+}
+
+.secondary-button {
+  color: var(--text-white);
+  border: 1px solid var(--border-blue);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-3px);
+}
+
+/* Hero tags */
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-tags span {
+  padding: 10px 15px;
+  border: 1px solid var(--border-pink);
+  border-radius: 999px;
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.85rem;
+}
+
+/* Hero image card */
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+}
+
+.image-placeholder {
+  width: 100%;
+  max-width: 520px;
+  min-height: 430px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-blue);
+
+  color: var(--blue);
+  font-weight: 800;
+  letter-spacing: 3px;
+
+  background:
+    radial-gradient(circle at center, rgba(255, 79, 216, 0.24), transparent 32%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.01));
+
+  box-shadow:
+    0 0 35px rgba(255, 79, 216, 0.18),
+    0 0 45px rgba(0, 194, 255, 0.12);
+}
+
+
+
+/* =====================================================
+   HERO IMAGE CARD
+===================================================== */
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-photo {
+    width: 130%;
+    max-width: none;
+}
+
+/* =====================================================
+   HERO PHOTO
+===================================================== */
+
