@@ -1,0 +1,938 @@
+/* =====================================================
+   Darling Jackson Portfolio
+   Main Stylesheet
+
+   Author: Darling Jackson
+   Last Updated: 7/9/2026
+===================================================== */
+
+/* =====================================================
+   TABLE OF CONTENTS
+========================================================
+  01. CSS VARIABLES
+  02. RESET & BASE STYLES
+  03. NAVIGATION
+  04. HERO SECTION
+  05. CORE SKILL AREAS
+  06. FEATURED PROJECTS
+  07. CONTACT SECTION
+  08. FOOTER
+  09. CERTIFICATION ROADMAP
+
+===================================================== */
+
+/*======================================================
+  01. CSS VARIABLES
+======================================================*/
+
+/* :root goes here */
+
+:root {
+  --bg-dark: #050816;
+  --bg-navy: #0b1020;
+  --bg-card: rgba(255, 255, 255, 0.05);
+
+  --pink: #ff4fd8;
+  --purple: #7b61ff;
+  --blue: #00c2ff;
+
+  --text-white: #ffffff;
+  --text-soft: #c8c8e8;
+  --text-muted: #9aa4c5;
+
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --border-pink: rgba(255, 79, 216, 0.45);
+  --border-blue: rgba(0, 194, 255, 0.4);
+
+  --section-padding: 80px 8%;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+
+  --glow-pink: 0 0 30px rgba(255, 79, 216, 0.25);
+  --glow-blue: 0 0 30px rgba(0, 194, 255, 0.25);
+}
+
+
+
+
+/*======================================================
+  02. RESET & BASE STYLES
+======================================================*/
+
+/* reset*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body*/
+
+body {
+
+  background: var(--bg-dark);
+  color: var(--text-white);
+  font-family: "Inter", Arial, sans-serif;
+
+}
+
+/*======================================================
+  03. NAVIGATION
+======================================================*/
+
+.navbar {
+  width: 100%;
+  padding: 18px 8%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  background: rgba(5, 8, 22, 0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+/* Logo area */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-text h2 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo-text p {
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+/* LOGO Letters*/
+
+.dj-button{
+
+    all:unset;
+
+    cursor:pointer;
+
+    width:52px;
+
+    height:52px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:16px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--pink),
+        var(--purple),
+        var(--blue)
+    );
+
+    transition:.35s;
+
+}
+/*inner square*/
+.dj-button .inner{
+
+    width:44px;
+
+    height:44px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:12px;
+
+    background:var(--bg-dark);
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+/*Hover Animation*/
+.dj-button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    var(--glow-pink),
+    var(--glow-blue);
+
+}
+
+/* Navigation Links */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-white);
+  text-decoration: none;
+
+  font-size: 0.92rem;
+  font-weight: 500;
+
+  position: relative;
+  transition: 0.35s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+
+  background: linear-gradient(90deg, var(--pink), var(--blue));
+  transition: 0.35s ease;
+}
+
+.nav-links a:hover {
+  color: var(--pink);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* =====================================================
+    04. HERO SECTION
+===================================================== */
+
+.hero {
+  min-height: calc(100vh - 89px);
+  padding: 55px 8% 80px;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 79, 216, 0.16), transparent 28%),
+    radial-gradient(circle at 90% 50%, rgba(0, 194, 255, 0.18), transparent 30%),
+    var(--bg-dark);
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 5.8rem);
+  line-height: 0.95;
+  margin-bottom: 26px;
+}
+
+.hero h1 span {
+  display: block;
+  background: linear-gradient(90deg, var(--pink), var(--purple), var(--blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hero paragraph */
+.hero-description {
+  max-width: 600px;
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+/* Hero buttons */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.primary-button,
+.secondary-button {
+  text-decoration: none;
+  padding: 15px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.primary-button {
+  color: var(--text-white);
+  background: linear-gradient(135deg, var(--pink), #276cff);
+  box-shadow: var(--glow-pink);
+}
+
+.secondary-button {
+  color: var(--text-white);
+  border: 1px solid var(--border-blue);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-3px);
+}
+
+/* Hero skill tags */
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-tags span {
+  padding: 10px 15px;
+  border: 1px solid var(--border-pink);
+  border-radius: 999px;
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.85rem;
+}
+
+/* Hero image card */
+
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-photo {
+    width: 130%;
+    max-width: none;
+}
+
+
+/* =====================================================
+   05. CORE SKILL AREAS
+===================================================== */
+
+.skills {
+  padding: var(--section-padding);
+  background: var(--bg-dark);
+}
+
+/* Section Heading */
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 45px;
+}
+
+.section-eyebrow {
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  margin-bottom: 16px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.section-heading p {
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+/* Skills Grid */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 50px;
+}
+
+/* Skill Card */
+
+.skill-card {
+  padding: 35px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  transition: 0.35s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--blue);
+  box-shadow:
+    0 0 25px rgba(0, 194, 255, 0.18),
+    0 0 50px rgba(123, 97, 255, 0.08);
+}
+
+/* Skill Icon */
+
+.skill-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 24px;
+  object-fit: contain;
+}
+
+/* Skill Text */
+
+.skill-card h3 {
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+}
+
+.skill-card p {
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================
+   06. FEATURED PROJECTS
+===================================================== */
+
+.projects {
+  padding: var(--section-padding);
+  background: var(--bg-dark);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 50px;
+}
+
+.project-card {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  background: var(--bg-card);
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-blue);
+  box-shadow: var(--glow-blue);
+}
+
+/* Project Preview */
+
+.project-preview {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle, rgba(255, 79, 216, 0.22), transparent 35%),
+    linear-gradient(135deg, rgba(123, 97, 255, 0.25), rgba(0, 194, 255, 0.08));
+}
+
+.project-preview span {
+  color: var(--text-white);
+  font-size: 3rem;
+  font-weight: 800;
+  opacity: 0.35;
+}
+
+/* Project Content */
+
+.project-content {
+  padding: 28px;
+}
+
+.project-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.project-label {
+  color: var(--pink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.project-topline .project-label {
+  margin-bottom: 0;
+}
+
+.project-card h3 {
+  margin-bottom: 14px;
+  font-size: 1.25rem;
+}
+
+.project-card p {
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+/* Status Badges */
+
+.status {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status.in-progress {
+  color: #ffe9a6;
+  border: 1px solid rgba(255, 233, 166, 0.35);
+  background: rgba(255, 233, 166, 0.08);
+}
+
+.status.planned {
+  color: var(--blue);
+  border: 1px solid var(--border-blue);
+  background: rgba(0, 194, 255, 0.08);
+}
+
+/* Project Tags */
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.project-tags span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  color: var(--text-soft);
+  font-size: 0.8rem;
+}
+
+/* Project Actions */
+
+.project-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.project-actions a {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  color: var(--text-white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.project-actions a:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+/* =====================================================
+   07. CONTACT SECTION
+===================================================== */
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--section-padding);
+  background: var(--bg-dark);
+}
+
+/* Contact Card */
+
+.contact-card {
+  width: 100%;
+  max-width: 900px;
+  padding: 70px 50px;
+
+  text-align: center;
+
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+
+  background:
+    radial-gradient(circle at top left,
+      rgba(255, 79, 216, 0.16),
+      transparent 35%),
+    radial-gradient(circle at bottom right,
+      rgba(0, 194, 255, 0.14),
+      transparent 35%),
+    var(--bg-card);
+
+  box-shadow:
+    0 0 35px rgba(255, 79, 216, 0.10),
+    0 0 45px rgba(0, 194, 255, 0.08);
+}
+
+/* Contact Text */
+
+.contact-card h2 {
+  margin: 18px 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.contact-card p {
+  max-width: 650px;
+  margin: 0 auto 38px;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+/* Contact Actions */
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 55px 25px;
+  }
+}
+
+/* =====================================================
+   08. FOOTER
+===================================================== */
+
+.footer {
+  margin-top: 120px;
+  border-top: 1px solid var(--border-soft);
+  background: var(--bg-dark);
+}
+
+/* Footer Layout */
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 8% 50px;
+}
+
+/* Footer Brand */
+
+.footer-brand h2 {
+  margin: 20px 0 12px;
+  font-size: 2rem;
+}
+
+.footer-title {
+  margin-bottom: 18px;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.footer-description {
+  max-width: 420px;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+/* Footer Links */
+
+.footer-links-section h3,
+.footer-social h3 {
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+}
+
+.footer-links-section ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links-section li {
+  margin-bottom: 14px;
+}
+
+.footer-links-section a {
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-links-section a:hover {
+  color: var(--blue);
+}
+
+/* Social Icons */
+
+.social-icons {
+  display: flex;
+  gap: 18px;
+  margin-top: 15px;
+}
+
+.social-icons img {
+  width: 42px;
+  height: 42px;
+  transition: 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: translateY(-5px) scale(1.08);
+}
+
+/* Footer Bottom */
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 25px 8%;
+  border-top: 1px solid var(--border-soft);
+}
+
+.footer-bottom p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-bottom strong {
+  color: var(--text-white);
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-description {
+    margin: 0 auto;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+
+/* =====================================================
+   09. CERTIFICATION ROADMAP
+===================================================== */
+
+.roadmap {
+  padding: var(--section-padding);
+  background: var(--bg-dark);
+}
+
+/* Timeline */
+
+.timeline {
+  position: relative;
+  max-width: 850px;
+  margin: 60px auto 0;
+  padding-left: 40px;
+}
+
+/* Timeline Line */
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 13px;
+
+  width: 3px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--pink),
+    var(--purple),
+    var(--blue)
+  );
+}
+
+/* Timeline Item */
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  padding-left: 35px;
+  transition: 0.35s ease;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline Dot */
+
+.timeline-dot {
+  position: absolute;
+  top: 6px;
+  left: -40px;
+
+  width: 28px;
+  height: 28px;
+
+  border: 4px solid var(--bg-dark);
+  border-radius: 50%;
+}
+
+/* Status Dot Colors */
+
+.complete .timeline-dot {
+  background: #31d67b;
+  box-shadow: 0 0 20px rgba(49, 214, 123, 0.35);
+}
+
+.current .timeline-dot {
+  background: #ffd54a;
+  box-shadow: 0 0 20px rgba(255, 213, 74, 0.35);
+}
+
+.planned .timeline-dot {
+  background: var(--blue);
+  box-shadow: 0 0 20px rgba(0, 194, 255, 0.3);
+}
+
+/* Status Badge */
+
+.timeline-status {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Status Colors */
+
+.complete .timeline-status {
+  color: #31d67b;
+  background: rgba(49, 214, 123, 0.08);
+  border: 1px solid rgba(49, 214, 123, 0.25);
+}
+
+.current .timeline-status {
+  color: #ffd54a;
+  background: rgba(255, 213, 74, 0.08);
+  border: 1px solid rgba(255, 213, 74, 0.25);
+}
+
+.planned .timeline-status {
+  color: var(--blue);
+  background: rgba(0, 194, 255, 0.08);
+  border: 1px solid rgba(0, 194, 255, 0.25);
+}
+
+
+/* Timeline Content */
+
+.timeline-item h3 {
+  margin-bottom: 12px;
+  font-size: 1.35rem;
+}
+
+.timeline-item p {
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+/* Hover */
+
+.timeline-item:hover {
+  transform: translateX(8px);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-dot {
+    left: -31px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .timeline-item {
+    padding-left: 24px;
+  }
+
+  .timeline-item h3 {
+    font-size: 1.15rem;
+  }
+}

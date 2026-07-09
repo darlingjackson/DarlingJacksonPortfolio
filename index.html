@@ -1,200 +1,918 @@
 <!DOCTYPE html>
 
+<!-- ==================================================
+     Darling Jackson Portfolio
+     Homepage
 
-<!--------------------------------------------------------
-Darling Jackson Portfolio
-Homepage
+     Author: Darling Jackson
 
-Author: Darling Jackson
-Built with:
-- HTML
-- CSS
-- JavaScript
-- Git
-- GitHub
+     Built With:
+     - HTML
+     - CSS
+     - JavaScript
+     - Git
+     - GitHub
 
-This is the main homepage for my professional portfolio.
----------------------------------------------------------->
+     Main homepage for my professional portfolio.
+================================================== -->
 
 <html lang="en">
 
 <head>
 
-    <!-- Character encoding -->
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Makes the website responsive on phones -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darling Jackson | Systems Engineer</title>
 
-    <!-- Browser tab title -->
-    <title>Darling Jackson | Systems Engineer</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Connects our CSS file -->
-    <link rel="stylesheet" href="style.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-    <!-- ==================================================
-         HEADER
-         ==================================================
+  <!-- ==================================================
+       NAVIGATION
+  ================================================== -->
 
-         The header contains the navigation bar.
+  <header class="navbar">
 
-         Semantic HTML:
-         We use <header> because this is the top
-         section of the webpage.
+    <div class="logo">
 
-    =================================================== -->
+      <!-- Animated DJ Logo -->
 
-    <header class="navbar">
+      <button class="dj-button" aria-label="Home">
+        <span class="inner">DJ</span>
+      </button>
 
-        <!-- ===============================
-             LOGO
-        ================================ -->
+      <div class="logo-text">
+        <h2>Darling Jackson</h2>
+        <p>Systems Engineer</p>
+      </div>
 
-        <div class="logo">
+    </div>
 
-            <!--
-            This is our animated DJ logo.
+    <nav aria-label="Primary Navigation">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-            Later we'll add JavaScript so clicking
-            it scrolls back to the top.
-            -->
+  </header>
 
-            <button class="dj-button" aria-label="Home">
-
-                <span class="inner">
-                    DJ
-                </span>
-
-            </button>
-
-            <!-- Name -->
-
-            <div class="logo-text">
-
-                <h2>Darling Jackson</h2>
-
-                <p>Systems Engineer</p>
-
-            </div>
-
-        </div>
-
-        <!-- ===============================
-             NAVIGATION
-        ================================ -->
-
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Technologies</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-
-
-    </header>
-
+  <main>
 
     <!-- ==================================================
+         HERO SECTION
+    ================================================== -->
 
-         END OF NAVIGATION
+    <section class="hero" id="home">
 
-         The Hero Section will go below this.
-
-    =================================================== -->
-
-    <!-- ==================================================
-     HERO SECTION
-================================================== -->
-<main class="hero">
-
-    <section class="hero-content">
-
-        <p class="eyebrow">
-            SYSTEMS ENGINEER • CLOUD INFRASTRUCTURE • SECURITY
-        </p>
+      <div class="hero-content">
 
         <h1>
-
-            Building
-
-            <span>Secure Cloud</span>
-
-            Infrastructure.
-
+          Building
+          <span>Secure Cloud</span>
+          Infrastructure.
         </h1>
 
         <p class="hero-description">
+          I'm Darling Jackson, a Systems Engineer with experience
+          supporting enterprise and DoD environments.
 
-            I'm Darling Jackson, a Systems Engineer with experience
-            supporting enterprise and DoD environments.
-
-            My focus is cloud infrastructure, identity and access
-            management, security, and platform engineering.
-
+          My focus is cloud infrastructure, identity and access
+          management, security, and platform engineering.
         </p>
 
         <div class="hero-buttons">
 
-            <a href="#" class="primary-button">
+          <a href="#projects" class="primary-button">
+            View Projects
+          </a>
 
-                View Projects
-
-            </a>
-
-            <a href="#" class="secondary-button">
-
-                Download Resume
-
-            </a>
+          <a href="#" class="secondary-button">
+            Download Resume
+          </a>
 
         </div>
 
         <div class="hero-tags">
-
-            <span>☁ Cloud</span>
-
-            <span>🔐 IAM</span>
-
-            <span>🛡 Security</span>
-
-            <span>⚙ Platform</span>
-
+          <span>☁ Cloud</span>
+          <span>🔐 IAM</span>
+          <span>🛡 Security</span>
+          <span>⚙ Platform</span>
         </div>
 
-    </section>
+      </div>
 
-    <section class="hero-image">
+      <div class="hero-image">
 
         <div class="glass-card">
 
-            <img
-                src="assets/images/hero-cloud.png"
-                alt="Portrait of Darling Jackson"
-                class="hero-photo"
-            >
+          <img
+            src="assets/images/hero-cloud.png"
+            alt="Secure cloud infrastructure illustration"
+            class="hero-photo"
+          >
 
         </div>
 
+      </div>
+
+    </section>
+<!-- ==================================================
+     ENGINEERING PORTFOLIO
+================================================== -->
+
+<section class="projects" id="projects">
+
+  <div class="section-heading">
+
+    <p class="section-eyebrow">Engineering Portfolio</p>
+
+    <h2>Infrastructure, IAM, Security &amp; Platform Projects</h2>
+
+    <p>
+      A focused collection of hands-on projects that document my growth in
+      cloud infrastructure, platform engineering, identity and access management,
+      automation, and enterprise security compliance.
+    </p>
+
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- Project 01 -->
+
+    <article class="project-card">
+
+      <div class="project-preview">
+        <span>01</span>
+      </div>
+
+      <div class="project-content">
+
+        <div class="project-topline">
+          <p class="project-label">Current Project</p>
+          <span class="status in-progress">In Progress</span>
+        </div>
+
+        <h3>Cloud Infrastructure Portfolio</h3>
+
+        <p>
+          A professional portfolio built from scratch using HTML, CSS,
+          JavaScript, Git, GitHub, and GitHub Pages.
+        </p>
+
+        <div class="project-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>GitHub</span>
+        </div>
+
+        <div class="project-actions">
+          <a href="#">Visit Portfolio</a>
+          <a href="#">GitHub Repository</a>
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- Project 02 -->
+
+    <article class="project-card">
+
+      <div class="project-preview">
+        <span>02</span>
+      </div>
+
+      <div class="project-content">
+
+        <div class="project-topline">
+          <p class="project-label">Cloud Lab</p>
+          <span class="status planned">Planned</span>
+        </div>
+
+        <h3>AWS Cloud Environment</h3>
+
+        <p>
+          A planned AWS infrastructure lab focused on VPCs, EC2, IAM,
+          security groups, S3, CloudWatch, and cloud security fundamentals.
+        </p>
+
+        <div class="project-tags">
+          <span>AWS</span>
+          <span>VPC</span>
+          <span>EC2</span>
+          <span>IAM</span>
+        </div>
+
+        <div class="project-actions">
+          <a href="#">Architecture Plan</a>
+          <a href="#">Repository Soon</a>
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- Project 03 -->
+
+    <article class="project-card">
+
+      <div class="project-preview">
+        <span>03</span>
+      </div>
+
+      <div class="project-content">
+
+        <div class="project-topline">
+          <p class="project-label">Platform Lab</p>
+          <span class="status planned">Planned</span>
+        </div>
+
+        <h3>Kubernetes Platform Lab</h3>
+
+        <p>
+          A planned platform engineering lab focused on Docker, Kubernetes,
+          deployments, services, YAML, and containerized applications.
+        </p>
+
+        <div class="project-tags">
+          <span>Docker</span>
+          <span>Kubernetes</span>
+          <span>YAML</span>
+          <span>Platform</span>
+        </div>
+
+        <div class="project-actions">
+          <a href="#">Deployment Plan</a>
+          <a href="#">Repository Soon</a>
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- Project 04 -->
+
+    <article class="project-card">
+
+      <div class="project-preview">
+        <span>04</span>
+      </div>
+
+      <div class="project-content">
+
+        <div class="project-topline">
+          <p class="project-label">IAM Lab</p>
+          <span class="status planned">Planned</span>
+        </div>
+
+        <h3>Identity &amp; Access Management Lab</h3>
+
+        <p>
+          A planned IAM lab focused on users, groups, roles, MFA,
+          authentication, authorization, and SSO concepts.
+        </p>
+
+        <div class="project-tags">
+          <span>IAM</span>
+          <span>Keycloak</span>
+          <span>MFA</span>
+          <span>SSO</span>
+        </div>
+
+        <div class="project-actions">
+          <a href="#">Lab Plan</a>
+          <a href="#">Repository Soon</a>
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- Project 05 -->
+
+    <article class="project-card">
+
+      <div class="project-preview">
+        <span>05</span>
+      </div>
+
+      <div class="project-content">
+
+        <div class="project-topline">
+          <p class="project-label">Infrastructure as Code</p>
+          <span class="status planned">Planned</span>
+        </div>
+
+        <h3>Terraform Infrastructure</h3>
+
+        <p>
+          A planned infrastructure-as-code project focused on provisioning
+          cloud resources using Terraform, variables, modules, and GitHub.
+        </p>
+
+        <div class="project-tags">
+          <span>Terraform</span>
+          <span>AWS</span>
+          <span>IaC</span>
+          <span>GitHub</span>
+        </div>
+
+        <div class="project-actions">
+          <a href="#">Build Plan</a>
+          <a href="#">Repository Soon</a>
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- Project 06 -->
+
+    <article class="project-card">
+
+      <div class="project-preview">
+        <span>06</span>
+      </div>
+
+      <div class="project-content">
+
+        <div class="project-topline">
+          <p class="project-label">Security Compliance</p>
+          <span class="status planned">Planned</span>
+        </div>
+
+        <h3>Enterprise Security Compliance Lab</h3>
+
+        <p>
+          A planned security lab focused on RMF, NIST controls, STIGs,
+          POA&amp;M tracking, vulnerability management, and ATO documentation concepts.
+        </p>
+
+        <div class="project-tags">
+          <span>RMF</span>
+          <span>NIST</span>
+          <span>STIG</span>
+          <span>POA&amp;M</span>
+        </div>
+
+        <div class="project-actions">
+          <a href="#">Case Study Plan</a>
+          <a href="#">Repository Soon</a>
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ==================================================
+     CERTIFICATION ROADMAP
+================================================== -->
+
+<section class="roadmap" id="roadmap">
+  <div class="section-heading">
+    <p class="section-eyebrow">Certification Roadmap</p>
+
+    <h2>2026 Learning Roadmap</h2>
+
+    <p>
+      A focused certification path supporting my growth in cloud infrastructure,
+      Linux, security, automation, and platform engineering.
+    </p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item complete">
+      <span class="timeline-dot"></span>
+      <div>
+        <p class="timeline-status">Complete</p>
+        <h3>CompTIA Security+</h3>
+        <p>Security fundamentals, risk management, identity, and secure operations.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item complete">
+      <span class="timeline-dot"></span>
+      <div>
+        <p class="timeline-status">Complete</p>
+        <h3>Microsoft Azure Fundamentals AZ-900</h3>
+        <p>Cloud concepts, Azure services, governance, and cloud security basics.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item current">
+      <span class="timeline-dot"></span>
+      <div>
+        <p class="timeline-status">Current Focus</p>
+        <h3>AWS Cloud Practitioner</h3>
+        <p>AWS core services, IAM, billing, support, and shared responsibility.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item planned">
+      <span class="timeline-dot"></span>
+      <div>
+        <p class="timeline-status">Planned</p>
+        <h3>CompTIA Linux+</h3>
+        <p>Linux administration, command line, permissions, services, and networking.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item planned">
+      <span class="timeline-dot"></span>
+      <div>
+        <p class="timeline-status">Planned</p>
+        <h3>Terraform Associate</h3>
+        <p>Infrastructure as Code, providers, variables, state, modules, and automation.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item planned">
+      <span class="timeline-dot"></span>
+      <div>
+        <p class="timeline-status">Planned</p>
+        <h3>Kubernetes Certification Path</h3>
+        <p>Containers, Kubernetes architecture, deployments, services, and operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================
+     CERTIFICATION ROADMAP
+================================================== -->
+
+<section class="roadmap" id="roadmap">
+
+  <div class="section-heading">
+
+    <p class="section-eyebrow">Certification Roadmap</p>
+
+    <h2>2026 Learning Roadmap</h2>
+
+    <p>
+      A focused certification path supporting my growth in cloud infrastructure,
+      Linux, security, automation, and platform engineering.
+    </p>
+
+  </div>
+
+  <div class="timeline">
+
+    <!-- Certification 01 -->
+
+    <article class="timeline-item complete">
+
+      <span class="timeline-dot"></span>
+
+      <div>
+        <p class="timeline-status">Complete</p>
+
+        <h3>CompTIA Security+</h3>
+
+        <p>
+          Security fundamentals, risk management, identity,
+          and secure operations.
+        </p>
+      </div>
+
+    </article>
+
+    <!-- Certification 02 -->
+
+    <article class="timeline-item complete">
+
+      <span class="timeline-dot"></span>
+
+      <div>
+        <p class="timeline-status">Complete</p>
+
+        <h3>Microsoft Azure Fundamentals AZ-900</h3>
+
+        <p>
+          Cloud concepts, Azure services, governance,
+          and cloud security basics.
+        </p>
+      </div>
+
+    </article>
+
+    <!-- Certification 03 -->
+
+    <article class="timeline-item current">
+
+      <span class="timeline-dot"></span>
+
+      <div>
+        <p class="timeline-status">Current Focus</p>
+
+        <h3>AWS Cloud Practitioner</h3>
+
+        <p>
+          AWS core services, IAM, billing, support,
+          and shared responsibility.
+        </p>
+      </div>
+
+    </article>
+
+    <!-- Certification 04 -->
+
+    <article class="timeline-item planned">
+
+      <span class="timeline-dot"></span>
+
+      <div>
+        <p class="timeline-status">Planned</p>
+
+        <h3>CompTIA Linux+</h3>
+
+        <p>
+          Linux administration, command line, permissions,
+          services, and networking.
+        </p>
+      </div>
+
+    </article>
+
+    <!-- Certification 05 -->
+
+    <article class="timeline-item planned">
+
+      <span class="timeline-dot"></span>
+
+      <div>
+        <p class="timeline-status">Planned</p>
+
+        <h3>Terraform Associate</h3>
+
+        <p>
+          Infrastructure as Code, providers, variables,
+          state, modules, and automation.
+        </p>
+      </div>
+
+    </article>
+
+    <!-- Certification 06 -->
+
+    <article class="timeline-item planned">
+
+      <span class="timeline-dot"></span>
+
+      <div>
+        <p class="timeline-status">Planned</p>
+
+        <h3>Kubernetes Certification Path</h3>
+
+        <p>
+          Containers, Kubernetes architecture, deployments,
+          services, and operations.
+        </p>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- ==================================================
+     CORE SKILL AREAS
+================================================== -->
+
+<section class="skills" id="skills">
+
+  <div class="section-heading">
+
+    <p class="section-eyebrow">Core Skill Areas</p>
+
+    <h2>Building Expertise Across Modern Infrastructure</h2>
+
+    <p>
+      My engineering experience and continuous learning are focused on six
+      core disciplines that support secure, scalable, and reliable
+      enterprise environments.
+    </p>
+
+  </div>
+
+  <div class="skills-grid">
+
+    <!-- Skill 01 -->
+
+    <article class="skill-card">
+
+      <img
+        src="assets/icons/cloud.png"
+        alt="Cloud Infrastructure"
+      >
+
+      <h3>Cloud Infrastructure</h3>
+
+      <p>
+        Designing, deploying, and supporting cloud environments with a
+        focus on scalability, networking, monitoring, and security.
+      </p>
+
+    </article>
+
+    <!-- Skill 02 -->
+
+    <article class="skill-card">
+
+      <img
+        src="assets/icons/platform.png"
+        alt="Platform Engineering"
+      >
+
+      <h3>Platform Engineering</h3>
+
+      <p>
+        Building modern infrastructure using containers,
+        Kubernetes, automation, and cloud-native technologies.
+      </p>
+
+    </article>
+
+    <!-- Skill 03 -->
+
+    <article class="skill-card">
+
+      <img
+        src="assets/icons/iam.png"
+        alt="Identity and Access Management"
+      >
+
+      <h3>Identity &amp; Access Management</h3>
+
+      <p>
+        Managing authentication, authorization, RBAC,
+        SSO, MFA, and secure identity solutions.
+      </p>
+
+    </article>
+
+    <!-- Skill 04 -->
+
+    <article class="skill-card">
+
+      <img
+        src="assets/icons/security.png"
+        alt="Enterprise Security"
+      >
+
+      <h3>Enterprise Security</h3>
+
+      <p>
+        Supporting secure enterprise environments through RMF,
+        STIGs, compliance, vulnerability management,
+        and security best practices.
+      </p>
+
+    </article>
+
+    <!-- Skill 05 -->
+
+    <article class="skill-card">
+
+      <img
+        src="assets/icons/git.png"
+        alt="Automation"
+      >
+
+      <h3>Automation</h3>
+
+      <p>
+        Using Git, GitHub, Infrastructure as Code,
+        and automation tools to improve consistency
+        and deployment workflows.
+      </p>
+
+    </article>
+
+    <!-- Skill 06 -->
+
+    <article class="skill-card">
+
+      <img
+        src="assets/icons/learning.png"
+        alt="Continuous Learning"
+      >
+
+      <h3>Continuous Learning</h3>
+
+      <p>
+        Constantly expanding my knowledge through certifications,
+        engineering labs, documentation,
+        and real-world projects.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+    <!-- ==================================================
+         CONTACT
+    ================================================== -->
+
+    <section class="contact" id="contact">
+
+      <div class="contact-card">
+
+        <p class="section-eyebrow">Open to Opportunities</p>
+
+        <h2>Let's Connect</h2>
+
+        <p>
+          I am open to Systems Engineer, Cloud Infrastructure, IAM,
+          Security, and Platform Engineering opportunities.
+        </p>
+
+        <div class="contact-actions">
+
+          <a
+            href="mailto:your@email.com"
+            class="primary-button"
+          >
+            Email Me
+          </a>
+
+          <a
+            href="assets/resume/Darling-Jackson-Resume.pdf"
+            class="secondary-button"
+            download
+          >
+            Download Resume
+          </a>
+
+        </div>
+
+      </div>
+
     </section>
 
-</main>
+  </main>
 
-    <!-- JavaScript -->
+  <!-- ==================================================
+       FOOTER
+  ================================================== -->
 
-    <script src="script.js"></script>
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <!-- Brand -->
+
+      <div class="footer-brand">
+
+        <button class="dj-button" aria-label="Home">
+          <span class="inner">DJ</span>
+        </button>
+
+        <h2>Darling Jackson</h2>
+
+        <p class="footer-title">
+          Systems Engineer • Cloud Infrastructure • Platform Engineering
+        </p>
+
+        <p class="footer-description">
+          Passionate about building secure cloud infrastructure,
+          enterprise identity solutions, and modern platform
+          engineering environments.
+        </p>
+
+      </div>
+
+      <!-- Quick Links -->
+
+      <div class="footer-links-section">
+
+        <h3>Quick Links</h3>
+
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Engineering Portfolio</a></li>
+          <li><a href="#roadmap">Certification Roadmap</a></li>
+          <li><a href="#skills">Core Skill Areas</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+      </div>
+
+      <!-- Social Links -->
+
+      <div class="footer-social">
+
+        <h3>Connect</h3>
+
+        <div class="social-icons" aria-label="Social Links">
+
+          <a href="#">
+            <img
+              src="assets/icons/github.png"
+              alt="GitHub"
+            >
+          </a>
+
+          <a href="#">
+            <img
+              src="assets/icons/linkedin.png"
+              alt="LinkedIn"
+            >
+          </a>
+
+          <a href="mailto:your@email.com">
+            <img
+              src="assets/icons/contact.png"
+              alt="Email"
+            >
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <p>
+        Built with
+        <strong>HTML</strong>,
+        <strong>CSS</strong>,
+        <strong>JavaScript</strong>,
+        <strong>Git</strong>,
+        and
+        <strong>GitHub</strong>
+      </p>
+
+      <p>
+        &copy; 2026 Darling Jackson • All Rights Reserved
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- JavaScript -->
+
+  <script src="js/script.js"></script>
 
 </body>
 
 </html>
+
+
+
+
+
