@@ -1,0 +1,24 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/*
+!.vscode/launch.json
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+build/

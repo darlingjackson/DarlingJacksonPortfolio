@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+
+<!-- ==========================================================================
+     DARLING JACKSON PORTFOLIO
+     Resume Page
+     ==========================================================================
+
+     Author: Darling Jackson
+     Created: July 2026
+     Last Updated: July 2026
+     Version: 1.1
+
+     DESCRIPTION
+     --------------------------------------------------------------------------
+     This page gives visitors direct access to view or download my complete resume.
+
+     The page uses the shared portfolio navigation, hero components, buttons,
+     footer, theme controls, progress bar, and general design system.
+
+     Resume-specific layout and functionality are stored separately.
+
+     PAGE STRUCTURE
+     --------------------------------------------------------------------------
+     01. Document Head
+     02. Accessibility
+     03. Page Progress
+     04. Site Header
+     05. Mobile Navigation
+     06. Main Content
+         06.1 Resume Hero
+         06.2 Resume Viewer
+     07. Site Footer
+     08. Page Utilities
+     09. JavaScript
+
+========================================================================== -->
+
+<html lang="en" data-theme="dark">
+
+<head>
+
+    <!-- ==============================================================
+         01. DOCUMENT HEAD
+         ============================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="View and download the professional resume of Darling Jackson, a Systems Engineer and Army veteran specializing in cloud infrastructure, identity, platform technologies, and enterprise security."
+    >
+
+    <meta
+        name="author"
+        content="Darling Jackson"
+    >
+
+    <meta
+        name="theme-color"
+        content="#070912"
+    >
+
+    <title>Resume | Darling Jackson</title>
+
+
+    <!-- Theme Initialization
+         --------------------------------------------------------------
+         This prevents the page from flashing between light and dark mode
+         while loading.
+    -->
+
+    <script>
+        const savedTheme =
+            localStorage.getItem("portfolio-theme");
+
+        const systemPrefersDark =
+            window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+        const startingTheme =
+            savedTheme ||
+            (
+                systemPrefersDark
+                    ? "dark"
+                    : "light"
+            );
+
+        document.documentElement.setAttribute(
+            "data-theme",
+            startingTheme
+        );
+    </script>
+
+
+    <!-- Google Fonts -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Shared Portfolio Stylesheet -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- Resume Page Stylesheet -->
+
+    <link
+        rel="stylesheet"
+        href="css/resume.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- ==============================================================
+         02. ACCESSIBILITY
+         ============================================================== -->
+
+    <a
+        class="skip-link"
+        href="#main-content"
+    >
+        Skip to main content
+    </a>
+
+
+    <!-- ==============================================================
+         03. PAGE PROGRESS
+         ============================================================== -->
+
+    <div
+        class="page-progress"
+        aria-hidden="true"
+    >
+
+        <span
+            class="page-progress__bar"
+            id="pageProgressBar"
+        ></span>
+
+    </div>
+
+
+    <!-- ==============================================================
+         04. SITE HEADER
+         ============================================================== -->
+
+    <header
+        class="site-header"
+        id="siteHeader"
+    >
+
+        <div class="site-header__container">
+
+
+            <!-- Portfolio Brand -->
+
+            <a
+                class="brand"
+                href="index.html"
+                aria-label="Return to Darling Jackson portfolio homepage"
+            >
+
+                <span
+                    class="brand__logo"
+                    aria-hidden="true"
+                >
+                    DJ
+                </span>
+
+                <span class="brand__text">
+
+                    <strong class="brand__name">
+                        Darling Jackson
+                    </strong>
+
+                    <small class="brand__title">
+                        Systems Engineer
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+
+            <nav
+                class="site-navigation site-navigation--desktop"
+                aria-label="Primary navigation"
+            >
+
+                <ul class="site-navigation__list">
+
+                    <li class="site-navigation__item">
+
+                        <a
+                            class="site-navigation__link nav-link"
+                            href="index.html"
+                        >
+                            Home
+                        </a>
+
+                    </li>
+
+                    <li class="site-navigation__item">
+
+                        <a
+                            class="site-navigation__link nav-link"
+                            href="index.html#projects"
+                        >
+                            Projects
+                        </a>
+
+                    </li>
+
+                    <li class="site-navigation__item">
+
+                        <a
+                            class="site-navigation__link nav-link"
+                            href="index.html#roadmap"
+                        >
+                            Roadmap
+                        </a>
+
+                    </li>
+
+                    <li class="site-navigation__item">
+
+                        <a
+                            class="site-navigation__link nav-link"
+                            href="index.html#experience"
+                        >
+                            Experience
+                        </a>
+
+                    </li>
+
+                    <li class="site-navigation__item">
+
+                        <a
+                            class="site-navigation__link nav-link is-active"
+                            href="resume.html"
+                            aria-current="page"
+                        >
+                            Resume
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <!-- Header Actions -->
+
+            <div class="site-header__actions">
+
+
+                <!-- Theme Toggle -->
+
+                <button
+                    class="icon-button theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Toggle theme"
+                    aria-pressed="false"
+                >
+
+                    <span
+                        class="theme-toggle__icon theme-toggle__icon--sun"
+                        aria-hidden="true"
+                    >
+                        ☀
+                    </span>
+
+                    <span
+                        class="theme-toggle__icon theme-toggle__icon--moon"
+                        aria-hidden="true"
+                    >
+                        ☾
+                    </span>
+
+                </button>
+
+
+                <!-- Mobile Menu Button -->
+
+                <button
+                    class="icon-button menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mobileNavigation"
+                >
+
+                    <span
+                        class="menu-toggle__line"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span
+                        class="menu-toggle__line"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span
+                        class="menu-toggle__line"
+                        aria-hidden="true"
+                    ></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==============================================================
+         05. MOBILE NAVIGATION
+         ============================================================== -->
+
+    <nav
+        class="site-navigation site-navigation--mobile"
+        id="mobileNavigation"
+        aria-label="Mobile navigation"
+        aria-hidden="true"
+    >
+
+        <ul class="site-navigation__list">
+
+            <li class="site-navigation__item">
+
+                <a
+                    class="site-navigation__link"
+                    href="index.html"
+                >
+
+                    <span
+                        class="site-navigation__number"
+                        aria-hidden="true"
+                    >
+                        01
+                    </span>
+
+                    Home
+
+                </a>
+
+            </li>
+
+            <li class="site-navigation__item">
+
+                <a
+                    class="site-navigation__link"
+                    href="index.html#projects"
+                >
+
+                    <span
+                        class="site-navigation__number"
+                        aria-hidden="true"
+                    >
+                        02
+                    </span>
+
+                    Projects
+
+                </a>
+
+            </li>
+
+            <li class="site-navigation__item">
+
+                <a
+                    class="site-navigation__link"
+                    href="index.html#roadmap"
+                >
+
+                    <span
+                        class="site-navigation__number"
+                        aria-hidden="true"
+                    >
+                        03
+                    </span>
+
+                    Roadmap
+
+                </a>
+
+            </li>
+
+            <li class="site-navigation__item">
+
+                <a
+                    class="site-navigation__link"
+                    href="index.html#experience"
+                >
+
+                    <span
+                        class="site-navigation__number"
+                        aria-hidden="true"
+                    >
+                        04
+                    </span>
+
+                    Experience
+
+                </a>
+
+            </li>
+
+            <li class="site-navigation__item">
+
+                <a
+                    class="site-navigation__link is-active"
+                    href="resume.html"
+                    aria-current="page"
+                >
+
+                    <span
+                        class="site-navigation__number"
+                        aria-hidden="true"
+                    >
+                        05
+                    </span>
+
+                    Resume
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ==============================================================
+         06. MAIN CONTENT
+         ============================================================== -->
+
+    <main
+        id="main-content"
+        tabindex="-1"
+    >
+
+
+        <!-- ==========================================================
+             06.1 RESUME HERO
+             ==========================================================
+
+             This hero introduces my background and provides direct access
+             to the resume, email, and download actions.
+        -->
+
+        <section
+            class="section hero"
+            id="home"
+            aria-labelledby="heroTitle"
+        >
+
+
+            <!-- Decorative Background -->
+
+            <div
+                class="hero__grid"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="hero__orb hero__orb--pink"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="hero__orb hero__orb--blue"
+                aria-hidden="true"
+            ></div>
+
+
+            <!-- Hero Introduction -->
+
+            <div
+                class="hero__content reveal"
+                data-reveal="left"
+            >
+
+
+                <!-- Availability Status -->
+
+                <div class="status-badge status-badge--available">
+
+                    <span
+                        class="status-badge__indicator"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span class="status-badge__text">
+                        Open to systems, cloud, platform, IAM, and security roles
+                    </span>
+
+                </div>
+
+
+                <!-- Professional Focus -->
+
+                <p class="hero__eyebrow">
+
+                    <span>
+                        Systems Engineering
+                    </span>
+
+                    <span aria-hidden="true">
+                        /
+                    </span>
+
+                    <span>
+                        Cloud Infrastructure
+                    </span>
+
+                    <span aria-hidden="true">
+                        /
+                    </span>
+
+                    <span>
+                        Security
+                    </span>
+
+                </p>
+
+
+                <!-- Main Heading -->
+
+                <h1
+                    class="hero__title"
+                    id="heroTitle"
+                >
+
+                    Experience built.
+
+                    <span class="text-gradient">
+                        Take a look at my
+                    </span>
+
+                    resume.
+
+                </h1>
+
+
+                <!-- Hero Description -->
+
+                <p class="hero__description">
+                    I am Darling Jackson, a Systems Engineer and Army veteran
+                    with experience supporting enterprise and DoD systems.
+                    My background includes cloud infrastructure, identity and
+                    access management, systems administration, RMF, and
+                    platform technologies.
+                </p>
+
+
+                <!-- Hero Actions -->
+
+                <div class="action-group hero__actions">
+
+                    <a
+                        class="button button--primary"
+                        href="#resumeViewer"
+                    >
+                        <span>
+                            View Resume
+                        </span>
+                    </a>
+
+                    <a
+                        class="button button--secondary"
+                        href="assets/document/Darling_Jackson_Resume.pdf"
+                        download="Darling_Jackson_Resume.pdf"
+                    >
+
+                        <span>
+                            Download PDF
+                        </span>
+
+                        <span
+                            class="button__icon"
+                            aria-hidden="true"
+                        >
+                            ↓
+                        </span>
+
+                    </a>
+
+                    <a
+                        class="text-link"
+                        href="mailto:darling.jackson1@outlook.com"
+                    >
+
+                        Email Me
+
+                        <span
+                            class="text-link__icon"
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Professional Highlights -->
+
+                <div
+                    class="metric-list hero__metrics"
+                    aria-label="Professional highlights"
+                >
+
+                    <div class="metric-list__item">
+
+                        <strong class="metric-list__value">
+                            TS/SCI
+                        </strong>
+
+                        <span class="metric-list__label">
+                            Active clearance
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="metric-list__divider"
+                        aria-hidden="true"
+                    ></div>
+
+                    <div class="metric-list__item">
+
+                        <strong class="metric-list__value">
+                            Army Veteran
+                        </strong>
+
+                        <span class="metric-list__label">
+                            Signal and IT background
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="metric-list__divider"
+                        aria-hidden="true"
+                    ></div>
+
+                    <div class="metric-list__item">
+
+                        <strong class="metric-list__value">
+                            DoD Experience
+                        </strong>
+
+                        <span class="metric-list__label">
+                            Enterprise environments
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Engineering Console -->
+
+            <div
+                class="hero__visual reveal"
+                data-reveal="right"
+            >
+
+                <div
+                    class="console"
+                    id="engineeringConsole"
+                >
+
+
+                    <!-- Console Header -->
+
+                    <header class="console__header">
+
+                        <div
+                            class="console__controls"
+                            aria-hidden="true"
+                        >
+
+                            <span class="console__control console__control--pink"></span>
+
+                            <span class="console__control console__control--purple"></span>
+
+                            <span class="console__control console__control--blue"></span>
+
+                        </div>
+
+                        <p class="console__path">
+                            darling@portfolio:~
+                        </p>
+
+                        <span class="console__status">
+                            Open to Opportunities
+                        </span>
+
+                    </header>
+
+
+                    <!-- Console Body -->
+
+                    <div class="console__body">
+
+
+                        <!-- Profile Summary -->
+
+                        <p class="console__command">
+
+                            <span
+                                class="console__prompt"
+                                aria-hidden="true"
+                            >
+                                $
+                            </span>
+
+                            profile --summary
+
+                        </p>
+
+                        <div class="console__output">
+
+                            <div class="console__row">
+
+                                <span class="console__key">
+                                    role
+                                </span>
+
+                                <span class="console__value">
+                                    Systems Engineer
+                                </span>
+
+                            </div>
+
+                            <div class="console__row">
+
+                                <span class="console__key">
+                                    focus
+                                </span>
+
+                                <span
+                                    class="console__value console__value--typing"
+                                    id="typingText"
+                                >
+                                    Cloud Infrastructure
+                                </span>
+
+                            </div>
+
+                            <div class="console__row">
+
+                                <span class="console__key">
+                                    location
+                                </span>
+
+                                <span class="console__value">
+                                    Augusta, Georgia Area
+                                </span>
+
+                            </div>
+
+                            <div class="console__row">
+
+                                <span class="console__key">
+                                    work preference
+                                </span>
+
+                                <span class="console__value">
+                                    Remote, Hybrid, or Augusta Area
+                                </span>
+
+                            </div>
+
+                            <div class="console__row">
+
+                                <span class="console__key">
+                                    clearance
+                                </span>
+
+                                <span class="console__value console__value--success">
+                                    TS/SCI Active
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Technical Toolkit -->
+
+                        <div class="console__section">
+
+                            <p class="console__command">
+
+                                <span
+                                    class="console__prompt"
+                                    aria-hidden="true"
+                                >
+                                    $
+                                </span>
+
+                                technical-toolkit --list
+
+                            </p>
+
+                            <div
+                                class="tag-list tag-list--console"
+                                aria-label="Technical toolkit"
+                            >
+
+                                <span class="tag-list__item">
+                                    AWS
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Azure
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Linux
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Kubernetes
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Keycloak
+                                </span>
+
+                                <span class="tag-list__item">
+                                    RMF
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Git
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Terraform
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Current Development -->
+
+                        <div class="console__project">
+
+                            <div class="console__project-header">
+
+                                <span>
+                                    Current Development
+                                </span>
+
+                            </div>
+
+                            <div class="console__project-details">
+
+                                <div class="console__project-copy">
+
+                                    <strong class="console__project-name">
+                                        Hiring Our Heroes Fellowship
+                                    </strong>
+
+                                    <span class="console__project-description">
+                                        O2O certification and continued
+                                        professional development
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Console Footer -->
+
+                    <footer class="console__footer">
+
+                        <span>
+                            Secure
+                        </span>
+
+                        <span>
+                            Documented
+                        </span>
+
+                        <span>
+                            Built to Learn
+                        </span>
+
+                    </footer>
+
+                </div>
+
+
+                <!-- Decorative Accent -->
+
+                <div
+                    class="hero__accent"
+                    aria-hidden="true"
+                >
+                    DJ
+                </div>
+
+            </div>
+
+
+            <!-- Scroll Indicator -->
+
+            <a
+                class="scroll-indicator"
+                href="#resumeViewer"
+                aria-label="Continue to resume viewer"
+            >
+
+                <span class="scroll-indicator__text">
+                    View resume
+                </span>
+
+                <span
+                    class="scroll-indicator__line"
+                    aria-hidden="true"
+                ></span>
+
+            </a>
+
+        </section>
+
+
+        <!-- ==========================================================
+             06.2 RESUME VIEWER
+             ==========================================================
+
+             The sidebar provides direct professional actions while the main
+             panel embeds the resume PDF.
+        -->
+
+        <section
+            class="section resume-workspace-section"
+            id="resumeViewer"
+            aria-labelledby="resumeViewerTitle"
+        >
+
+            <div class="container">
+
+
+                <!-- Section Introduction -->
+
+                <header
+                    class="section-header reveal"
+                    data-reveal="up"
+                >
+
+                    <div class="section-header__label">
+
+                        <span class="section-header__number">
+                            ♥
+                        </span>
+
+                        <span class="section-header__eyebrow">
+                            Resume Viewer
+                        </span>
+
+                    </div>
+
+                    <h2
+                        class="section-header__title"
+                        id="resumeViewerTitle"
+                    >
+                        Review my complete professional background.
+                    </h2>
+
+                    <p class="section-header__description">
+                        View my resume directly from this page or use the quick
+                        actions to connect with me.
+                    </p>
+
+                </header>
+
+
+                <!-- Resume Workspace -->
+
+                <div
+                    class="resume-workspace reveal"
+                    data-reveal="up"
+                >
+
+
+                    <!-- Resume Sidebar -->
+
+                    <aside
+                        class="resume-sidebar"
+                        aria-label="Resume information and quick actions"
+                    >
+
+
+                        <!-- Sidebar Header -->
+
+                        <div class="resume-sidebar__header">
+
+                            <p class="resume-sidebar__eyebrow">
+                                Resume File
+                            </p>
+
+                            <h3 class="resume-sidebar__title">
+                                Darling Jackson
+                            </h3>
+
+                            <p class="resume-sidebar__subtitle">
+                                Systems Engineer
+                            </p>
+
+                        </div>
+
+
+                        <!-- Quick Actions -->
+
+                        <nav
+                            class="resume-sidebar__navigation"
+                            aria-label="Resume quick actions"
+                        >
+
+                            <p class="resume-sidebar__label">
+                                Quick Actions
+                            </p>
+
+                            <a
+                                class="resume-navigation__button"
+                                href="mailto:darling.jackson1@outlook.com"
+                            >
+                                Email Me
+                            </a>
+
+                            <a
+                                class="resume-navigation__button"
+                                href="https://www.linkedin.com/in/darlingjackson/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                            </a>
+
+                            <a
+                                class="resume-navigation__button"
+                                href="https://github.com/darlingjackson"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                            </a>
+
+                        </nav>
+
+                    </aside>
+
+
+                    <!-- Main Resume Panel -->
+
+                    <div class="resume-main-panel">
+
+
+                        <!-- Resume Toolbar -->
+
+                        <div class="resume-toolbar">
+
+                            <div class="resume-toolbar__information">
+
+                                <span
+                                    class="resume-toolbar__status"
+                                    aria-hidden="true"
+                                ></span>
+
+                                <div>
+
+                                    <strong>
+                                        Darling Jackson Resume
+                                    </strong>
+
+                                    <span>
+                                        PDF document
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Viewer Control -->
+
+                            <div
+                                class="resume-toolbar__actions"
+                                aria-label="Resume viewer controls"
+                            >
+
+                                <button
+                                    class="resume-toolbar__button"
+                                    id="resumeFullscreenButton"
+                                    type="button"
+                                    title="View resume in full screen"
+                                    aria-pressed="false"
+                                >
+                                    Full Screen
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Resume PDF Viewer -->
+
+                        <div
+                            class="resume-viewer"
+                            id="resumeDocumentViewer"
+                        >
+
+
+                            <!-- Loading State -->
+
+                            <div
+                                class="resume-viewer__loading"
+                                id="resumeLoadingState"
+                                role="status"
+                            >
+
+                                <span
+                                    class="resume-viewer__spinner"
+                                    aria-hidden="true"
+                                ></span>
+
+                                <span>
+                                    Loading resume…
+                                </span>
+
+                            </div>
+
+
+                            <!-- Embedded Resume -->
+
+                            <iframe
+                                class="resume-viewer__frame"
+                                id="resumeFrame"
+                                src="assets/document/Darling_Jackson_Resume.pdf"
+                                title="Darling Jackson professional resume"
+                                loading="lazy"
+                            ></iframe>
+
+
+                            <!-- No JavaScript Fallback -->
+
+                            <noscript>
+
+                                <div class="resume-viewer__fallback">
+
+                                    <p>
+                                        JavaScript is disabled in your browser.
+                                        Open the resume PDF using the link below.
+                                    </p>
+
+                                    <a
+                                        href="assets/document/Darling_Jackson_Resume.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Open Resume PDF
+                                    </a>
+
+                                </div>
+
+                            </noscript>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================================================
+         07. SITE FOOTER
+         ============================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="site-footer__grid">
+
+
+                <!-- Footer Brand -->
+
+                <section class="site-footer__brand">
+
+                    <a
+                        class="brand"
+                        href="index.html"
+                        aria-label="Return to Darling Jackson portfolio homepage"
+                    >
+
+                        <span
+                            class="brand__logo"
+                            aria-hidden="true"
+                        >
+                            DJ
+                        </span>
+
+                        <span class="brand__text">
+
+                            <strong class="brand__name">
+                                Darling Jackson
+                            </strong>
+
+                            <span class="brand__title">
+                                Systems Engineer
+                            </span>
+
+                        </span>
+
+                    </a>
+
+                    <p class="site-footer__description">
+                        Systems Engineer focused on cloud infrastructure,
+                        platform engineering, identity and access management,
+                        enterprise security, and continuous technical learning.
+                    </p>
+
+                </section>
+
+
+                <!-- Portfolio Navigation -->
+
+                <nav
+                    class="footer-navigation"
+                    aria-label="Footer portfolio navigation"
+                >
+
+                    <h3 class="footer-heading">
+                        Portfolio
+                    </h3>
+
+                    <ul class="footer-list">
+
+                        <li>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#projects">
+                                Engineering Portfolio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#roadmap">
+                                Professional Development
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#experience">
+                                Professional Experience
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="resume.html">
+                                Resume
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+
+                <!-- Engineering Labs -->
+
+                <section class="footer-column">
+
+                    <h3 class="footer-heading">
+                        Engineering Labs
+                    </h3>
+
+                    <ul class="footer-list">
+
+                        <li>
+                            <a href="lab/security-lab2.html">
+                                Enterprise Security Lab
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="lab/falcon-logistics.html">
+                                Blue Orbit
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#projects">
+                                AWS Environment
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#projects">
+                                Kubernetes Lab
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.html#projects">
+                                IAM Lab
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <!-- Connect -->
+
+                <section class="footer-column">
+
+                    <h3 class="footer-heading">
+                        Connect
+                    </h3>
+
+                    <ul class="footer-list">
+
+                        <li>
+                            <a
+                                href="assets/document/Darling_Jackson_Resume.pdf"
+                                download="Darling_Jackson_Resume.pdf"
+                            >
+                                Download Resume
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://github.com/darlingjackson"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.linkedin.com/in/darlingjackson/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="mailto:darling.jackson1@outlook.com">
+                                Email
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </section>
+
+            </div>
+
+
+            <!-- Footer Bottom -->
+
+            <div class="site-footer__bottom">
+
+                <p>
+                    ©
+                    <span id="currentYear"></span>
+                    Darling Jackson.
+                    Built with HTML, CSS, JavaScript, Git, and GitHub Pages.
+                </p>
+
+                <p>
+                    Always learning. Always building.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==============================================================
+         08. PAGE UTILITIES
+         ============================================================== -->
+
+    <button
+        class="back-to-top"
+        id="backToTop"
+        type="button"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+
+
+    <!-- ==============================================================
+         09. JAVASCRIPT
+         ============================================================== -->
+
+    <script src="js/script.js"></script>
+
+    <script src="js/resume.js"></script>
+
+</body>
+
+</html>

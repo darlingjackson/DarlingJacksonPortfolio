@@ -1,918 +1,3738 @@
 <!DOCTYPE html>
 
-<!-- ==================================================
-     Darling Jackson Portfolio
+<!-- ==========================================================================
+     DARLING JACKSON PORTFOLIO
      Homepage
+     ==========================================================================
 
      Author: Darling Jackson
+     Created: July 2026
+     Last Updated: July 2026
+     Version: 4.0
 
-     Built With:
-     - HTML
-     - CSS
-     - JavaScript
-     - Git
-     - GitHub
+     DESCRIPTION
+     --------------------------------------------------------------------------
+     This is the main landing page for my systems engineering portfolio.
 
-     Main homepage for my professional portfolio.
-================================================== -->
+     The homepage introduces my professional background, highlights my
+     engineering projects, documents my certification roadmap, summarizes my
+     professional experience, and provides direct access to my resume,
+     engineering labs, GitHub, LinkedIn, and email.
 
-<html lang="en">
+     CLASS NAMING SYSTEM
+     --------------------------------------------------------------------------
+     This page uses a component-based class system.
+
+     Components use the following pattern:
+
+     • component
+     • component__element
+     • component--variation
+     • is-state
+
+     Examples:
+
+     • site-header
+     • site-header__navigation
+     • button--primary
+     • project-card__content
+     • is-active
+
+     IDs are reserved for:
+
+     • Page anchors
+     • Accessibility relationships
+     • JavaScript functionality
+
+     FEATURES
+     --------------------------------------------------------------------------
+     • Responsive Design
+     • Light and Dark Themes
+     • Animated Hero Console
+     • Project Filtering
+     • Experience Tabs
+     • Scroll Reveal Animations
+     • Page Progress Bar
+     • Mobile Navigation
+     • Back-to-Top Button
+
+     PAGE STRUCTURE
+     --------------------------------------------------------------------------
+     01. Document Head
+     02. Accessibility
+     03. Page Progress
+     04. Site Header
+     05. Mobile Navigation
+     06. Main Content
+         06.1 Hero
+         06.2 Engineering Portfolio
+         06.3 Professional Development
+         06.4 Professional Experience
+     07. Site Footer
+     08. Page Utilities
+     09. JavaScript
+
+========================================================================== -->
+
+<html lang="en" data-theme="dark">
 
 <head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ==============================================================
+         01. DOCUMENT HEAD
+         ============================================================== -->
 
-  <title>Darling Jackson | Systems Engineer</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Page Metadata -->
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+    <meta charset="UTF-8">
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Darling Jackson's systems engineering, cloud infrastructure, identity, platform, and security portfolio."
+    >
+
+    <meta
+        name="author"
+        content="Darling Jackson"
+    >
+
+    <meta
+        name="theme-color"
+        content="#070912"
+    >
+
+    <title>Darling Jackson | Systems Engineer</title>
+
+
+    <!-- Theme Initialization
+         --------------------------------------------------------------
+         This script runs before the page is displayed.
+
+         It checks for a saved theme preference and prevents the page from
+         briefly flashing between light and dark mode while loading.
+    -->
+
+    <script>
+
+        const savedTheme =
+            localStorage.getItem("portfolio-theme");
+
+        const systemPrefersDark =
+            window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+        const startingTheme =
+            savedTheme ||
+            (
+                systemPrefersDark
+                    ? "dark"
+                    : "light"
+            );
+
+        document.documentElement.setAttribute(
+            "data-theme",
+            startingTheme
+        );
+
+    </script>
+
+
+    <!-- Google Fonts -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Main Stylesheet -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 
 </head>
 
 <body>
 
-  <!-- ==================================================
-       NAVIGATION
-  ================================================== -->
 
-  <header class="navbar">
+    <!-- ==============================================================
+         02. ACCESSIBILITY
+         ============================================================== -->
 
-    <div class="logo">
+    <a
+        class="skip-link"
+        href="#main-content"
+    >
+        Skip to main content
+    </a>
 
-      <!-- Animated DJ Logo -->
 
-      <button class="dj-button" aria-label="Home">
-        <span class="inner">DJ</span>
-      </button>
+    <!-- ==============================================================
+         03. PAGE PROGRESS
+         ============================================================== -->
 
-      <div class="logo-text">
-        <h2>Darling Jackson</h2>
-        <p>Systems Engineer</p>
-      </div>
+    <div
+        class="page-progress"
+        aria-hidden="true"
+    >
+
+        <span
+            class="page-progress__bar"
+            id="pageProgressBar"
+        ></span>
 
     </div>
 
-    <nav aria-label="Primary Navigation">
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
 
-  </header>
+    <!-- ==============================================================
+         04. SITE HEADER
+         ==============================================================
 
-  <main>
+         Purpose
+         --------------------------------------------------------------
+         Provides consistent portfolio branding, primary page navigation,
+         theme controls, and access to the mobile menu.
 
-    <!-- ==================================================
-         HERO SECTION
-    ================================================== -->
+         Components
+         --------------------------------------------------------------
+         • Portfolio Brand
+         • Desktop Navigation
+         • Theme Toggle
+         • Mobile Menu Button
+    -->
 
-    <section class="hero" id="home">
+    <header
+        class="site-header"
+        id="siteHeader"
+    >
 
-      <div class="hero-content">
+        <div class="site-header__container">
 
-        <h1>
-          Building
-          <span>Secure Cloud</span>
-          Infrastructure.
-        </h1>
 
-        <p class="hero-description">
-          I'm Darling Jackson, a Systems Engineer with experience
-          supporting enterprise and DoD environments.
+            <!-- Portfolio Brand -->
 
-          My focus is cloud infrastructure, identity and access
-          management, security, and platform engineering.
-        </p>
+            <a
+                class="brand"
+                href="#home"
+                aria-label="Darling Jackson portfolio homepage"
+            >
 
-        <div class="hero-buttons">
+                <span
+                    class="brand__logo"
+                    aria-hidden="true"
+                >
+                    DJ
+                </span>
 
-          <a href="#projects" class="primary-button">
-            View Projects
-          </a>
+                <span class="brand__text">
 
-          <a href="#" class="secondary-button">
-            Download Resume
-          </a>
+                    <strong class="brand__name">
+                        Darling Jackson
+                    </strong>
+
+                    <small class="brand__title">
+                        Systems Engineer
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+
+            <nav
+                class="site-navigation site-navigation--desktop"
+                aria-label="Primary navigation"
+            >
+
+                <ul class="site-navigation__list">
+
+                    <li class="site-navigation__item">
+
+                        <a
+                            class="site-navigation__link nav-link is-active"
+                            href="#home"
+                            aria-current="page"
+                        >
+                            Home
+                        </a>
+
+                    </li>
+
+                    <li class="site-navigation__item">
+
+                        <a
+                            class="site-navigation__link nav-link"
+                            href="#projects"
+                        >
+                            Projects
+                        </a>
+
+                    </li>
+
+                    <li class="site-navigation__item">
+
+                        <a
+                            class="site-navigation__link nav-link"
+                            href="#roadmap"
+                        >
+                            Roadmap
+                        </a>
+
+                    </li>
+
+                    <li class="site-navigation__item">
+
+                        <a
+                            class="site-navigation__link nav-link"
+                            href="#experience"
+                        >
+                            Experience
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <!-- Header Actions -->
+
+            <div class="site-header__actions">
+
+
+                <!-- Theme Toggle -->
+
+                <button
+                    class="icon-button theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Toggle theme"
+                    aria-pressed="false"
+                >
+
+                    <span
+                        class="theme-toggle__icon theme-toggle__icon--sun"
+                        aria-hidden="true"
+                    >
+                        ☀
+                    </span>
+
+                    <span
+                        class="theme-toggle__icon theme-toggle__icon--moon"
+                        aria-hidden="true"
+                    >
+                        ☾
+                    </span>
+
+                </button>
+
+
+                <!-- Mobile Menu Button -->
+
+                <button
+                    class="icon-button menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mobileNavigation"
+                >
+
+                    <span
+                        class="menu-toggle__line"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span
+                        class="menu-toggle__line"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span
+                        class="menu-toggle__line"
+                        aria-hidden="true"
+                    ></span>
+
+                </button>
+
+            </div>
 
         </div>
 
-        <div class="hero-tags">
-          <span>☁ Cloud</span>
-          <span>🔐 IAM</span>
-          <span>🛡 Security</span>
-          <span>⚙ Platform</span>
-        </div>
+    </header>
 
-      </div>
 
-      <div class="hero-image">
+    <!-- ==============================================================
+         05. MOBILE NAVIGATION
+         ============================================================== -->
 
-        <div class="glass-card">
+    <nav
+        class="site-navigation site-navigation--mobile"
+        id="mobileNavigation"
+        aria-label="Mobile navigation"
+        aria-hidden="true"
+    >
 
-          <img
-            src="assets/images/hero-cloud.png"
-            alt="Secure cloud infrastructure illustration"
-            class="hero-photo"
-          >
+        <ul class="site-navigation__list">
 
-        </div>
+            <li class="site-navigation__item">
 
-      </div>
+                <a
+                    class="site-navigation__link is-active"
+                    href="#home"
+                >
 
-    </section>
-<!-- ==================================================
-     ENGINEERING PORTFOLIO
-================================================== -->
+                    <span
+                        class="site-navigation__number"
+                        aria-hidden="true"
+                    >
+                        01
+                    </span>
 
-<section class="projects" id="projects">
+                    Home
 
-  <div class="section-heading">
+                </a>
 
-    <p class="section-eyebrow">Engineering Portfolio</p>
+            </li>
 
-    <h2>Infrastructure, IAM, Security &amp; Platform Projects</h2>
+            <li class="site-navigation__item">
 
-    <p>
-      A focused collection of hands-on projects that document my growth in
-      cloud infrastructure, platform engineering, identity and access management,
-      automation, and enterprise security compliance.
-    </p>
+                <a
+                    class="site-navigation__link"
+                    href="#projects"
+                >
 
-  </div>
+                    <span
+                        class="site-navigation__number"
+                        aria-hidden="true"
+                    >
+                        02
+                    </span>
 
-  <div class="projects-grid">
+                    Projects
 
-    <!-- Project 01 -->
+                </a>
 
-    <article class="project-card">
+            </li>
 
-      <div class="project-preview">
-        <span>01</span>
-      </div>
+            <li class="site-navigation__item">
 
-      <div class="project-content">
+                <a
+                    class="site-navigation__link"
+                    href="#roadmap"
+                >
 
-        <div class="project-topline">
-          <p class="project-label">Current Project</p>
-          <span class="status in-progress">In Progress</span>
-        </div>
+                    <span
+                        class="site-navigation__number"
+                        aria-hidden="true"
+                    >
+                        03
+                    </span>
 
-        <h3>Cloud Infrastructure Portfolio</h3>
+                    Roadmap
 
-        <p>
-          A professional portfolio built from scratch using HTML, CSS,
-          JavaScript, Git, GitHub, and GitHub Pages.
-        </p>
+                </a>
 
-        <div class="project-tags">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-          <span>GitHub</span>
-        </div>
+            </li>
 
-        <div class="project-actions">
-          <a href="#">Visit Portfolio</a>
-          <a href="#">GitHub Repository</a>
-        </div>
+            <li class="site-navigation__item">
 
-      </div>
+                <a
+                    class="site-navigation__link"
+                    href="#experience"
+                >
 
-    </article>
+                    <span
+                        class="site-navigation__number"
+                        aria-hidden="true"
+                    >
+                        04
+                    </span>
 
-    <!-- Project 02 -->
+                    Experience
 
-    <article class="project-card">
+                </a>
 
-      <div class="project-preview">
-        <span>02</span>
-      </div>
+            </li>
 
-      <div class="project-content">
-
-        <div class="project-topline">
-          <p class="project-label">Cloud Lab</p>
-          <span class="status planned">Planned</span>
-        </div>
-
-        <h3>AWS Cloud Environment</h3>
-
-        <p>
-          A planned AWS infrastructure lab focused on VPCs, EC2, IAM,
-          security groups, S3, CloudWatch, and cloud security fundamentals.
-        </p>
-
-        <div class="project-tags">
-          <span>AWS</span>
-          <span>VPC</span>
-          <span>EC2</span>
-          <span>IAM</span>
-        </div>
-
-        <div class="project-actions">
-          <a href="#">Architecture Plan</a>
-          <a href="#">Repository Soon</a>
-        </div>
-
-      </div>
-
-    </article>
-
-    <!-- Project 03 -->
-
-    <article class="project-card">
-
-      <div class="project-preview">
-        <span>03</span>
-      </div>
-
-      <div class="project-content">
-
-        <div class="project-topline">
-          <p class="project-label">Platform Lab</p>
-          <span class="status planned">Planned</span>
-        </div>
-
-        <h3>Kubernetes Platform Lab</h3>
-
-        <p>
-          A planned platform engineering lab focused on Docker, Kubernetes,
-          deployments, services, YAML, and containerized applications.
-        </p>
-
-        <div class="project-tags">
-          <span>Docker</span>
-          <span>Kubernetes</span>
-          <span>YAML</span>
-          <span>Platform</span>
-        </div>
-
-        <div class="project-actions">
-          <a href="#">Deployment Plan</a>
-          <a href="#">Repository Soon</a>
-        </div>
-
-      </div>
-
-    </article>
-
-    <!-- Project 04 -->
-
-    <article class="project-card">
-
-      <div class="project-preview">
-        <span>04</span>
-      </div>
-
-      <div class="project-content">
-
-        <div class="project-topline">
-          <p class="project-label">IAM Lab</p>
-          <span class="status planned">Planned</span>
-        </div>
-
-        <h3>Identity &amp; Access Management Lab</h3>
-
-        <p>
-          A planned IAM lab focused on users, groups, roles, MFA,
-          authentication, authorization, and SSO concepts.
-        </p>
-
-        <div class="project-tags">
-          <span>IAM</span>
-          <span>Keycloak</span>
-          <span>MFA</span>
-          <span>SSO</span>
-        </div>
-
-        <div class="project-actions">
-          <a href="#">Lab Plan</a>
-          <a href="#">Repository Soon</a>
-        </div>
-
-      </div>
-
-    </article>
-
-    <!-- Project 05 -->
-
-    <article class="project-card">
-
-      <div class="project-preview">
-        <span>05</span>
-      </div>
-
-      <div class="project-content">
-
-        <div class="project-topline">
-          <p class="project-label">Infrastructure as Code</p>
-          <span class="status planned">Planned</span>
-        </div>
-
-        <h3>Terraform Infrastructure</h3>
-
-        <p>
-          A planned infrastructure-as-code project focused on provisioning
-          cloud resources using Terraform, variables, modules, and GitHub.
-        </p>
-
-        <div class="project-tags">
-          <span>Terraform</span>
-          <span>AWS</span>
-          <span>IaC</span>
-          <span>GitHub</span>
-        </div>
-
-        <div class="project-actions">
-          <a href="#">Build Plan</a>
-          <a href="#">Repository Soon</a>
-        </div>
-
-      </div>
-
-    </article>
-
-    <!-- Project 06 -->
-
-    <article class="project-card">
-
-      <div class="project-preview">
-        <span>06</span>
-      </div>
-
-      <div class="project-content">
-
-        <div class="project-topline">
-          <p class="project-label">Security Compliance</p>
-          <span class="status planned">Planned</span>
-        </div>
-
-        <h3>Enterprise Security Compliance Lab</h3>
-
-        <p>
-          A planned security lab focused on RMF, NIST controls, STIGs,
-          POA&amp;M tracking, vulnerability management, and ATO documentation concepts.
-        </p>
-
-        <div class="project-tags">
-          <span>RMF</span>
-          <span>NIST</span>
-          <span>STIG</span>
-          <span>POA&amp;M</span>
-        </div>
-
-        <div class="project-actions">
-          <a href="#">Case Study Plan</a>
-          <a href="#">Repository Soon</a>
-        </div>
-
-      </div>
-
-    </article>
-
-  </div>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ==================================================
-     CERTIFICATION ROADMAP
-================================================== -->
-
-<section class="roadmap" id="roadmap">
-  <div class="section-heading">
-    <p class="section-eyebrow">Certification Roadmap</p>
-
-    <h2>2026 Learning Roadmap</h2>
-
-    <p>
-      A focused certification path supporting my growth in cloud infrastructure,
-      Linux, security, automation, and platform engineering.
-    </p>
-  </div>
-
-  <div class="timeline">
-    <div class="timeline-item complete">
-      <span class="timeline-dot"></span>
-      <div>
-        <p class="timeline-status">Complete</p>
-        <h3>CompTIA Security+</h3>
-        <p>Security fundamentals, risk management, identity, and secure operations.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item complete">
-      <span class="timeline-dot"></span>
-      <div>
-        <p class="timeline-status">Complete</p>
-        <h3>Microsoft Azure Fundamentals AZ-900</h3>
-        <p>Cloud concepts, Azure services, governance, and cloud security basics.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item current">
-      <span class="timeline-dot"></span>
-      <div>
-        <p class="timeline-status">Current Focus</p>
-        <h3>AWS Cloud Practitioner</h3>
-        <p>AWS core services, IAM, billing, support, and shared responsibility.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item planned">
-      <span class="timeline-dot"></span>
-      <div>
-        <p class="timeline-status">Planned</p>
-        <h3>CompTIA Linux+</h3>
-        <p>Linux administration, command line, permissions, services, and networking.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item planned">
-      <span class="timeline-dot"></span>
-      <div>
-        <p class="timeline-status">Planned</p>
-        <h3>Terraform Associate</h3>
-        <p>Infrastructure as Code, providers, variables, state, modules, and automation.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item planned">
-      <span class="timeline-dot"></span>
-      <div>
-        <p class="timeline-status">Planned</p>
-        <h3>Kubernetes Certification Path</h3>
-        <p>Containers, Kubernetes architecture, deployments, services, and operations.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================================================
-     CERTIFICATION ROADMAP
-================================================== -->
-
-<section class="roadmap" id="roadmap">
-
-  <div class="section-heading">
-
-    <p class="section-eyebrow">Certification Roadmap</p>
-
-    <h2>2026 Learning Roadmap</h2>
-
-    <p>
-      A focused certification path supporting my growth in cloud infrastructure,
-      Linux, security, automation, and platform engineering.
-    </p>
-
-  </div>
-
-  <div class="timeline">
-
-    <!-- Certification 01 -->
-
-    <article class="timeline-item complete">
-
-      <span class="timeline-dot"></span>
-
-      <div>
-        <p class="timeline-status">Complete</p>
-
-        <h3>CompTIA Security+</h3>
-
-        <p>
-          Security fundamentals, risk management, identity,
-          and secure operations.
-        </p>
-      </div>
-
-    </article>
-
-    <!-- Certification 02 -->
-
-    <article class="timeline-item complete">
-
-      <span class="timeline-dot"></span>
-
-      <div>
-        <p class="timeline-status">Complete</p>
-
-        <h3>Microsoft Azure Fundamentals AZ-900</h3>
-
-        <p>
-          Cloud concepts, Azure services, governance,
-          and cloud security basics.
-        </p>
-      </div>
-
-    </article>
-
-    <!-- Certification 03 -->
-
-    <article class="timeline-item current">
-
-      <span class="timeline-dot"></span>
-
-      <div>
-        <p class="timeline-status">Current Focus</p>
-
-        <h3>AWS Cloud Practitioner</h3>
-
-        <p>
-          AWS core services, IAM, billing, support,
-          and shared responsibility.
-        </p>
-      </div>
-
-    </article>
-
-    <!-- Certification 04 -->
-
-    <article class="timeline-item planned">
-
-      <span class="timeline-dot"></span>
-
-      <div>
-        <p class="timeline-status">Planned</p>
-
-        <h3>CompTIA Linux+</h3>
-
-        <p>
-          Linux administration, command line, permissions,
-          services, and networking.
-        </p>
-      </div>
-
-    </article>
-
-    <!-- Certification 05 -->
-
-    <article class="timeline-item planned">
-
-      <span class="timeline-dot"></span>
-
-      <div>
-        <p class="timeline-status">Planned</p>
-
-        <h3>Terraform Associate</h3>
-
-        <p>
-          Infrastructure as Code, providers, variables,
-          state, modules, and automation.
-        </p>
-      </div>
-
-    </article>
-
-    <!-- Certification 06 -->
-
-    <article class="timeline-item planned">
-
-      <span class="timeline-dot"></span>
-
-      <div>
-        <p class="timeline-status">Planned</p>
-
-        <h3>Kubernetes Certification Path</h3>
-
-        <p>
-          Containers, Kubernetes architecture, deployments,
-          services, and operations.
-        </p>
-      </div>
-
-    </article>
-
-  </div>
-
-</section>
-
-<!-- ==================================================
-     CORE SKILL AREAS
-================================================== -->
-
-<section class="skills" id="skills">
-
-  <div class="section-heading">
-
-    <p class="section-eyebrow">Core Skill Areas</p>
-
-    <h2>Building Expertise Across Modern Infrastructure</h2>
-
-    <p>
-      My engineering experience and continuous learning are focused on six
-      core disciplines that support secure, scalable, and reliable
-      enterprise environments.
-    </p>
-
-  </div>
-
-  <div class="skills-grid">
-
-    <!-- Skill 01 -->
-
-    <article class="skill-card">
-
-      <img
-        src="assets/icons/cloud.png"
-        alt="Cloud Infrastructure"
-      >
-
-      <h3>Cloud Infrastructure</h3>
-
-      <p>
-        Designing, deploying, and supporting cloud environments with a
-        focus on scalability, networking, monitoring, and security.
-      </p>
-
-    </article>
-
-    <!-- Skill 02 -->
-
-    <article class="skill-card">
-
-      <img
-        src="assets/icons/platform.png"
-        alt="Platform Engineering"
-      >
-
-      <h3>Platform Engineering</h3>
-
-      <p>
-        Building modern infrastructure using containers,
-        Kubernetes, automation, and cloud-native technologies.
-      </p>
-
-    </article>
-
-    <!-- Skill 03 -->
-
-    <article class="skill-card">
-
-      <img
-        src="assets/icons/iam.png"
-        alt="Identity and Access Management"
-      >
-
-      <h3>Identity &amp; Access Management</h3>
-
-      <p>
-        Managing authentication, authorization, RBAC,
-        SSO, MFA, and secure identity solutions.
-      </p>
-
-    </article>
-
-    <!-- Skill 04 -->
-
-    <article class="skill-card">
-
-      <img
-        src="assets/icons/security.png"
-        alt="Enterprise Security"
-      >
-
-      <h3>Enterprise Security</h3>
-
-      <p>
-        Supporting secure enterprise environments through RMF,
-        STIGs, compliance, vulnerability management,
-        and security best practices.
-      </p>
-
-    </article>
-
-    <!-- Skill 05 -->
-
-    <article class="skill-card">
-
-      <img
-        src="assets/icons/git.png"
-        alt="Automation"
-      >
-
-      <h3>Automation</h3>
-
-      <p>
-        Using Git, GitHub, Infrastructure as Code,
-        and automation tools to improve consistency
-        and deployment workflows.
-      </p>
-
-    </article>
-
-    <!-- Skill 06 -->
-
-    <article class="skill-card">
-
-      <img
-        src="assets/icons/learning.png"
-        alt="Continuous Learning"
-      >
-
-      <h3>Continuous Learning</h3>
-
-      <p>
-        Constantly expanding my knowledge through certifications,
-        engineering labs, documentation,
-        and real-world projects.
-      </p>
-
-    </article>
-
-  </div>
-
-</section>
-
-    <!-- ==================================================
-         CONTACT
-    ================================================== -->
-
-    <section class="contact" id="contact">
-
-      <div class="contact-card">
-
-        <p class="section-eyebrow">Open to Opportunities</p>
-
-        <h2>Let's Connect</h2>
-
-        <p>
-          I am open to Systems Engineer, Cloud Infrastructure, IAM,
-          Security, and Platform Engineering opportunities.
-        </p>
-
-        <div class="contact-actions">
-
-          <a
-            href="mailto:your@email.com"
-            class="primary-button"
-          >
-            Email Me
-          </a>
-
-          <a
-            href="assets/resume/Darling-Jackson-Resume.pdf"
-            class="secondary-button"
-            download
-          >
-            Download Resume
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- ==================================================
-       FOOTER
-  ================================================== -->
-
-  <footer class="footer">
-
-    <div class="footer-container">
-
-      <!-- Brand -->
-
-      <div class="footer-brand">
-
-        <button class="dj-button" aria-label="Home">
-          <span class="inner">DJ</span>
-        </button>
-
-        <h2>Darling Jackson</h2>
-
-        <p class="footer-title">
-          Systems Engineer • Cloud Infrastructure • Platform Engineering
-        </p>
-
-        <p class="footer-description">
-          Passionate about building secure cloud infrastructure,
-          enterprise identity solutions, and modern platform
-          engineering environments.
-        </p>
-
-      </div>
-
-      <!-- Quick Links -->
-
-      <div class="footer-links-section">
-
-        <h3>Quick Links</h3>
-
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#projects">Engineering Portfolio</a></li>
-          <li><a href="#roadmap">Certification Roadmap</a></li>
-          <li><a href="#skills">Core Skill Areas</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
 
-      </div>
+    </nav>
 
-      <!-- Social Links -->
 
-      <div class="footer-social">
+    <!-- ==============================================================
+         06. MAIN CONTENT
+         ============================================================== -->
 
-        <h3>Connect</h3>
+    <main
+        id="main-content"
+        tabindex="-1"
+    >
 
-        <div class="social-icons" aria-label="Social Links">
 
-          <a href="#">
-            <img
-              src="assets/icons/github.png"
-              alt="GitHub"
+        <!-- ==========================================================
+             06.1 HERO
+             ==========================================================
+
+             Purpose
+             ----------------------------------------------------------
+             Introduces who I am, summarizes my technical focus, and
+             directs visitors to my projects, resume, and email.
+
+             Components
+             ----------------------------------------------------------
+             • Decorative Background
+             • Availability Status
+             • Professional Introduction
+             • Primary Actions
+             • Professional Highlights
+             • Engineering Console
+             • Scroll Indicator
+        -->
+
+        <section
+            class="section hero"
+            id="home"
+            aria-labelledby="heroTitle"
+        >
+
+
+            <!-- Decorative Background -->
+
+            <div
+                class="hero__grid"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="hero__orb hero__orb--pink"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="hero__orb hero__orb--blue"
+                aria-hidden="true"
+            ></div>
+
+
+            <!-- Hero Introduction -->
+
+            <div
+                class="hero__content reveal"
+                data-reveal="left"
             >
-          </a>
 
-          <a href="#">
-            <img
-              src="assets/icons/linkedin.png"
-              alt="LinkedIn"
-            >
-          </a>
 
-          <a href="mailto:your@email.com">
-            <img
-              src="assets/icons/contact.png"
-              alt="Email"
+                <!-- Availability Status -->
+
+                <div class="status-badge status-badge--available">
+
+                    <span
+                        class="status-badge__indicator"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span class="status-badge__text">
+                        Open to systems, cloud, platform, IAM, and security roles
+                    </span>
+
+                </div>
+
+
+                <!-- Professional Focus -->
+
+                <p class="hero__eyebrow">
+
+                    <span>
+                        Systems Engineering
+                    </span>
+
+                    <span aria-hidden="true">
+                        /
+                    </span>
+
+                    <span>
+                        Cloud Infrastructure
+                    </span>
+
+                    <span aria-hidden="true">
+                        /
+                    </span>
+
+                    <span>
+                        Security
+                    </span>
+
+                </p>
+
+
+                <!-- Main Heading -->
+
+                <h1
+                    class="hero__title"
+                    id="heroTitle"
+                >
+
+                    I build and support
+
+                    <span class="text-gradient">
+                        secure infrastructure
+                    </span>
+
+                    for complex environments.
+
+                </h1>
+
+
+                <!-- Hero Description -->
+
+                <p class="hero__description">
+                    I am Darling Jackson, a Systems Engineer and Army veteran
+                    with experience supporting enterprise and DoD systems.
+                    My background includes cloud infrastructure, identity and
+                    access management, systems administration, RMF, and
+                    platform technologies.
+                </p>
+
+
+                <!-- Hero Actions -->
+
+                <div class="action-group hero__actions">
+
+                    <a
+                        class="button button--primary"
+                        href="#projects"
+                    >
+
+                        <span>
+                            Explore My Work
+                        </span>
+
+                        <span
+                            class="button__icon"
+                            aria-hidden="true"
+                        >
+                            ↗
+                        </span>
+
+                    </a>
+
+                    <a
+                        class="button button--secondary"
+                        href="resume.html"
+                    >
+                        View Resume
+                    </a>
+
+                    <a
+                        class="text-link"
+                        href="mailto:darling.jackson1@outlook.com"
+                    >
+
+                        Email Me
+
+                        <span
+                            class="text-link__icon"
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Professional Highlights -->
+
+                <div
+                    class="metric-list hero__metrics"
+                    aria-label="Professional highlights"
+                >
+
+                    <div class="metric-list__item">
+
+                        <strong class="metric-list__value">
+                            TS/SCI
+                        </strong>
+
+                        <span class="metric-list__label">
+                            Active clearance
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="metric-list__divider"
+                        aria-hidden="true"
+                    ></div>
+
+                    <div class="metric-list__item">
+
+                        <strong class="metric-list__value">
+                            Army Veteran
+                        </strong>
+
+                        <span class="metric-list__label">
+                            Signal and IT background
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="metric-list__divider"
+                        aria-hidden="true"
+                    ></div>
+
+                    <div class="metric-list__item">
+
+                        <strong class="metric-list__value">
+                            DoD Experience
+                        </strong>
+
+                        <span class="metric-list__label">
+                            Enterprise environments
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Engineering Console -->
+
+            <div
+                class="hero__visual reveal"
+                data-reveal="right"
             >
-          </a>
+
+                <div
+                    class="console"
+                    id="engineeringConsole"
+                >
+
+
+                    <!-- Console Header -->
+
+                    <header class="console__header">
+
+                        <div
+                            class="console__controls"
+                            aria-hidden="true"
+                        >
+
+                            <span class="console__control console__control--pink"></span>
+
+                            <span class="console__control console__control--purple"></span>
+
+                            <span class="console__control console__control--blue"></span>
+
+                        </div>
+
+                        <p class="console__path">
+                            darling@portfolio:~
+                        </p>
+
+                        <span class="console__status">
+                            Open to Opportunities
+                        </span>
+
+                    </header>
+
+
+                    <!-- Console Body -->
+
+                    <div class="console__body">
+
+
+                        <!-- Profile Summary -->
+
+                        <p class="console__command">
+
+                            <span
+                                class="console__prompt"
+                                aria-hidden="true"
+                            >
+                                $
+                            </span>
+
+                            profile --summary
+
+                        </p>
+
+                        <div class="console__output">
+
+                            <div class="console__row">
+
+                                <span class="console__key">
+                                    role
+                                </span>
+
+                                <span class="console__value">
+                                    Systems Engineer
+                                </span>
+
+                            </div>
+
+                            <div class="console__row">
+
+                                <span class="console__key">
+                                    focus
+                                </span>
+
+                                <span
+                                    class="console__value console__value--typing"
+                                    id="typingText"
+                                >
+                                    Cloud Infrastructure
+                                </span>
+
+                            </div>
+
+                            <div class="console__row">
+
+                                <span class="console__key">
+                                    location
+                                </span>
+
+                                <span class="console__value">
+                                    Augusta, Georgia Area
+                                </span>
+
+                            </div>
+
+                            <div class="console__row">
+
+                                <span class="console__key">
+                                    work preference
+                                </span>
+
+                                <span class="console__value">
+                                    Remote, Hybrid, or Augusta Area
+                                </span>
+
+                            </div>
+
+                            <div class="console__row">
+
+                                <span class="console__key">
+                                    clearance
+                                </span>
+
+                                <span class="console__value console__value--success">
+                                    TS/SCI Active
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Technical Toolkit -->
+
+                        <div class="console__section">
+
+                            <p class="console__command">
+
+                                <span
+                                    class="console__prompt"
+                                    aria-hidden="true"
+                                >
+                                    $
+                                </span>
+
+                                technical-toolkit --list
+
+                            </p>
+
+                            <div
+                                class="tag-list tag-list--console"
+                                aria-label="Technical toolkit"
+                            >
+
+                                <span class="tag-list__item">
+                                    AWS
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Azure
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Linux
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Kubernetes
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Keycloak
+                                </span>
+
+                                <span class="tag-list__item">
+                                    RMF
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Git
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Terraform
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Current Project -->
+
+                        <div class="console__project">
+
+                            <div class="console__project-header">
+
+                                <span>
+                                    Current Build
+                                </span>
+
+                                <span>
+                                    02 Active
+                                </span>
+
+                            </div>
+
+                            <div class="console__project-details">
+
+                                <div class="console__project-copy">
+
+                                    <strong class="console__project-name">
+                                        Security Compliance Lab
+                                    </strong>
+
+                                    <span class="console__project-description">
+                                        RMF documentation and artifacts
+                                    </span>
+
+                                </div>
+
+                                <span class="console__project-percentage">
+                                    42%
+                                </span>
+
+                            </div>
+
+                            <div
+                                class="progress-bar"
+                                role="progressbar"
+                                aria-label="Security Compliance Lab progress"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                aria-valuenow="42"
+                            >
+
+                                <span
+                                    class="progress-bar__fill"
+                                    style="--progress: 42%;"
+                                ></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Console Footer -->
+
+                    <footer class="console__footer">
+
+                        <span>
+                            Secure
+                        </span>
+
+                        <span>
+                            Documented
+                        </span>
+
+                        <span>
+                            Built to Learn
+                        </span>
+
+                    </footer>
+
+                </div>
+
+
+                <!-- Decorative Accent Card -->
+
+                <div
+                    class="hero__accent"
+                    aria-hidden="true"
+                >
+                    DJ
+                </div>
+
+            </div>
+
+
+            <!-- Scroll Indicator -->
+
+            <a
+                class="scroll-indicator"
+                href="#projects"
+                aria-label="Continue to engineering projects"
+            >
+
+                <span class="scroll-indicator__text">
+                    Scroll to explore
+                </span>
+
+                <span
+                    class="scroll-indicator__line"
+                    aria-hidden="true"
+                ></span>
+
+            </a>
+
+        </section>
+
+                <!-- ==========================================================
+             06.2 ENGINEERING PORTFOLIO
+             ==========================================================
+
+             Purpose
+             ----------------------------------------------------------
+             Showcases the projects I have completed, the labs I am
+             actively building, and the technical projects I plan to
+             build next.
+
+             Components
+             ----------------------------------------------------------
+             • Section Introduction
+             • Project Filters
+             • Project Grid
+             • Project Cards
+             • Project Count
+        -->
+
+        <section
+            class="section projects"
+            id="projects"
+            aria-labelledby="projectsTitle"
+        >
+
+            <div class="container">
+
+
+                <!-- Section Introduction -->
+
+                <header
+                    class="section-header reveal"
+                    data-reveal="up"
+                >
+
+                    <div class="section-header__label">
+
+                        <span class="section-header__number">
+                            01
+                        </span>
+
+                        <span class="section-header__eyebrow">
+                            Engineering Portfolio
+                        </span>
+
+                    </div>
+
+                    <h2
+                        class="section-header__title"
+                        id="projectsTitle"
+                    >
+                        Projects built around the work I want to keep doing.
+                    </h2>
+
+                    <p class="section-header__description">
+                        My portfolio is a working record of what I have
+                        completed, what I am currently building, and the
+                        technical areas I am continuing to strengthen.
+                    </p>
+
+                </header>
+
+
+                <!-- Project Filters -->
+
+                <div
+                    class="filter-group reveal"
+                    data-reveal="up"
+                    role="group"
+                    aria-label="Filter engineering projects"
+                >
+
+                    <button
+                        class="filter-button is-active"
+                        type="button"
+                        data-filter="all"
+                        aria-pressed="true"
+                    >
+                        All Projects
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        type="button"
+                        data-filter="cloud"
+                        aria-pressed="false"
+                    >
+                        Cloud
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        type="button"
+                        data-filter="platform"
+                        aria-pressed="false"
+                    >
+                        Platform
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        type="button"
+                        data-filter="iam"
+                        aria-pressed="false"
+                    >
+                        IAM
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        type="button"
+                        data-filter="security"
+                        aria-pressed="false"
+                    >
+                        Security
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        type="button"
+                        data-filter="automation"
+                        aria-pressed="false"
+                    >
+                        Automation
+                    </button>
+
+                </div>
+
+
+                <!-- Project Grid -->
+
+                <div
+                    class="project-grid"
+                    id="projectsGrid"
+                >
+
+
+                    <!-- ==================================================
+                         PROJECT 01
+                         Cloud Infrastructure Portfolio
+                         ================================================== -->
+
+                    <article
+                        class="project-card reveal"
+                        data-category="cloud automation"
+                        data-reveal="up"
+                    >
+
+
+                        <!-- Project Status -->
+
+                        <header class="project-card__header">
+
+                            <span class="project-card__number">
+                                01
+                            </span>
+
+                            <span class="status-badge status-badge--active">
+
+                                <span
+                                    class="status-badge__indicator"
+                                    aria-hidden="true"
+                                ></span>
+
+                                Active Build
+
+                            </span>
+
+                        </header>
+
+
+                        <!-- Project Visual -->
+
+                        <div class="project-card__visual project-card__visual--portfolio">
+
+                            <div class="browser-preview">
+
+                                <div class="browser-preview__bar">
+
+                                    <div
+                                        class="browser-preview__controls"
+                                        aria-hidden="true"
+                                    >
+
+                                        <span class="browser-preview__control browser-preview__control--pink"></span>
+
+                                        <span class="browser-preview__control browser-preview__control--purple"></span>
+
+                                        <span class="browser-preview__control browser-preview__control--blue"></span>
+
+                                    </div>
+
+                                    <div class="browser-preview__address">
+                                        darlingjackson.github.io
+                                    </div>
+
+                                </div>
+
+                                <div class="browser-preview__body">
+
+                                    <div class="browser-preview__sidebar">
+
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+
+                                    </div>
+
+                                    <div class="browser-preview__content">
+
+                                        <div class="browser-preview__heading"></div>
+
+                                        <div class="browser-preview__text"></div>
+
+                                        <div class="browser-preview__text browser-preview__text--short"></div>
+
+                                        <div class="browser-preview__cards">
+
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Project Content -->
+
+                        <div class="project-card__body">
+
+                            <div class="project-card__heading">
+
+                                <div>
+
+                                    <p class="project-card__type">
+                                        Web Development
+                                    </p>
+
+                                    <h3 class="project-card__title">
+                                        Cloud Infrastructure Portfolio
+                                    </h3>
+
+                                </div>
+
+                                <span
+                                    class="project-card__icon"
+                                    aria-hidden="true"
+                                >
+                                    ↗
+                                </span>
+
+                            </div>
+
+                            <p class="project-card__description">
+                                A professional engineering portfolio I built
+                                from scratch to document my technical projects,
+                                experience, certifications, and continued
+                                growth.
+                            </p>
+
+
+                            <!-- Project Details -->
+
+                            <div class="project-details">
+
+                                <p class="project-details__label">
+                                    What I worked on
+                                </p>
+
+                                <ul class="project-details__list">
+
+                                    <li class="project-details__item">
+                                        Responsive HTML and CSS structure
+                                    </li>
+
+                                    <li class="project-details__item">
+                                        Interactive JavaScript features
+                                    </li>
+
+                                    <li class="project-details__item">
+                                        Git, GitHub, and GitHub Pages
+                                    </li>
+
+                                    <li class="project-details__item">
+                                        Accessibility and reusable design
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <!-- Technology Tags -->
+
+                            <div
+                                class="tag-list project-card__tags"
+                                aria-label="Portfolio technologies"
+                            >
+
+                                <span class="tag-list__item">
+                                    HTML
+                                </span>
+
+                                <span class="tag-list__item">
+                                    CSS
+                                </span>
+
+                                <span class="tag-list__item">
+                                    JavaScript
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Git
+                                </span>
+
+                                <span class="tag-list__item">
+                                    GitHub Pages
+                                </span>
+
+                            </div>
+
+
+                            <!-- Project Actions -->
+
+                            <footer class="project-card__actions">
+
+                                <a
+                                    class="project-link project-link--primary"
+                                    href="#home"
+                                >
+
+                                    View Live Site
+
+                                    <span
+                                        class="project-link__icon"
+                                        aria-hidden="true"
+                                    >
+                                        ↗
+                                    </span>
+
+                                </a>
+
+                                <a
+                                    class="project-link"
+                                    href="https://github.com/darlingjackson"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+
+                                    GitHub
+
+                                    <span
+                                        class="project-link__icon"
+                                        aria-hidden="true"
+                                    >
+                                        ↗
+                                    </span>
+
+                                </a>
+
+                            </footer>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         PROJECT 02
+                         Enterprise Security Compliance Lab
+                         ================================================== -->
+
+                    <article
+                        class="project-card reveal"
+                        data-category="security cloud"
+                        data-reveal="up"
+                    >
+
+
+                        <!-- Project Status -->
+
+                        <header class="project-card__header">
+
+                            <span class="project-card__number">
+                                02
+                            </span>
+
+                            <span class="status-badge status-badge--active">
+
+                                <span
+                                    class="status-badge__indicator"
+                                    aria-hidden="true"
+                                ></span>
+
+                                Active Build
+
+                            </span>
+
+                        </header>
+
+
+                        <!-- Project Visual -->
+
+                        <div class="project-card__visual project-card__visual--security">
+
+                            <div class="security-cycle">
+
+                                <div class="security-cycle__center">
+
+                                    <span
+                                        class="security-cycle__icon"
+                                        aria-hidden="true"
+                                    >
+                                        ◈
+                                    </span>
+
+                                    <strong class="security-cycle__title">
+                                        RMF
+                                    </strong>
+
+                                    <small class="security-cycle__subtitle">
+                                        Security Lifecycle
+                                    </small>
+
+                                </div>
+
+                                <span class="security-cycle__node security-cycle__node--prepare">
+                                    Prepare
+                                </span>
+
+                                <span class="security-cycle__node security-cycle__node--categorize">
+                                    Categorize
+                                </span>
+
+                                <span class="security-cycle__node security-cycle__node--select">
+                                    Select
+                                </span>
+
+                                <span class="security-cycle__node security-cycle__node--implement">
+                                    Implement
+                                </span>
+
+                                <span class="security-cycle__node security-cycle__node--assess">
+                                    Assess
+                                </span>
+
+                                <span class="security-cycle__node security-cycle__node--authorize">
+                                    Authorize
+                                </span>
+
+                                <span class="security-cycle__node security-cycle__node--monitor">
+                                    Monitor
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Project Content -->
+
+                        <div class="project-card__body">
+
+                            <div class="project-card__heading">
+
+                                <div>
+
+                                    <p class="project-card__type">
+                                        Security Compliance
+                                    </p>
+
+                                    <h3 class="project-card__title">
+                                        Enterprise Security Compliance Lab
+                                    </h3>
+
+                                </div>
+
+                                <span
+                                    class="project-card__icon"
+                                    aria-hidden="true"
+                                >
+                                    ↗
+                                </span>
+
+                            </div>
+
+                            <p class="project-card__description">
+                                A hands-on RMF case study following the Falcon
+                                Employee Portal through the full security and
+                                authorization lifecycle.
+                            </p>
+
+
+                            <!-- Project Details -->
+
+                            <div class="project-details">
+
+                                <p class="project-details__label">
+                                    What I am documenting
+                                </p>
+
+                                <ul class="project-details__list">
+
+                                    <li class="project-details__item">
+                                        System preparation and stakeholder roles
+                                    </li>
+
+                                    <li class="project-details__item">
+                                        FIPS 199 security categorization
+                                    </li>
+
+                                    <li class="project-details__item">
+                                        Security control selection and tailoring
+                                    </li>
+
+                                    <li class="project-details__item">
+                                        Assessment, authorization, and monitoring
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <!-- Technology Tags -->
+
+                            <div
+                                class="tag-list project-card__tags"
+                                aria-label="Security lab technologies"
+                            >
+
+                                <span class="tag-list__item">
+                                    RMF
+                                </span>
+
+                                <span class="tag-list__item">
+                                    NIST SP 800-37
+                                </span>
+
+                                <span class="tag-list__item">
+                                    FIPS 199
+                                </span>
+
+                                <span class="tag-list__item">
+                                    STIGs
+                                </span>
+
+                                <span class="tag-list__item">
+                                    POA&amp;M
+                                </span>
+
+                            </div>
+
+
+                            <!-- Project Actions -->
+
+                            <footer class="project-card__actions">
+
+                                <a
+                                    class="project-link project-link--primary"
+                                    href="security-lab/security-lab.html"
+                                >
+
+                                    Enter Security Lab
+
+                                    <span
+                                        class="project-link__icon"
+                                        aria-hidden="true"
+                                    >
+                                        →
+                                    </span>
+
+                                </a>
+
+                                <a
+                                    class="project-link"
+                                    href="blue-fox-defense.html"
+                                >
+
+                                    Company Profile
+
+                                    <span
+                                        class="project-link__icon"
+                                        aria-hidden="true"
+                                    >
+                                        →
+                                    </span>
+
+                                </a>
+
+                            </footer>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         PROJECT 03
+                         AWS Cloud Environment
+                         ================================================== -->
+
+                    <article
+                        class="project-card reveal"
+                        data-category="cloud security"
+                        data-reveal="up"
+                    >
+
+                        <header class="project-card__header">
+
+                            <span class="project-card__number">
+                                03
+                            </span>
+
+                            <span class="status-badge status-badge--planned">
+                                Planned
+                            </span>
+
+                        </header>
+
+
+                        <!-- Project Visual -->
+
+                        <div class="project-card__visual project-card__visual--cloud">
+
+                            <div class="cloud-architecture">
+
+                                <div class="cloud-architecture__provider">
+                                    AWS
+                                </div>
+
+                                <div
+                                    class="cloud-architecture__connector"
+                                    aria-hidden="true"
+                                ></div>
+
+                                <div class="cloud-architecture__services">
+
+                                    <span class="cloud-architecture__service">
+                                        VPC
+                                    </span>
+
+                                    <span class="cloud-architecture__service">
+                                        EC2
+                                    </span>
+
+                                    <span class="cloud-architecture__service">
+                                        IAM
+                                    </span>
+
+                                    <span class="cloud-architecture__service">
+                                        S3
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Project Content -->
+
+                        <div class="project-card__body">
+
+                            <div class="project-card__heading">
+
+                                <div>
+
+                                    <p class="project-card__type">
+                                        Cloud Infrastructure
+                                    </p>
+
+                                    <h3 class="project-card__title">
+                                        AWS Cloud Environment
+                                    </h3>
+
+                                </div>
+
+                                <span
+                                    class="project-card__icon"
+                                    aria-hidden="true"
+                                >
+                                    03
+                                </span>
+
+                            </div>
+
+                            <p class="project-card__description">
+                                A planned AWS lab focused on building a secure
+                                cloud environment and documenting how each
+                                service supports the overall architecture.
+                            </p>
+
+
+                            <!-- Technology Tags -->
+
+                            <div
+                                class="tag-list project-card__tags"
+                                aria-label="AWS cloud technologies"
+                            >
+
+                                <span class="tag-list__item">
+                                    AWS
+                                </span>
+
+                                <span class="tag-list__item">
+                                    VPC
+                                </span>
+
+                                <span class="tag-list__item">
+                                    EC2
+                                </span>
+
+                                <span class="tag-list__item">
+                                    IAM
+                                </span>
+
+                                <span class="tag-list__item">
+                                    CloudWatch
+                                </span>
+
+                            </div>
+
+
+                            <!-- Project Status -->
+
+                            <footer class="project-card__actions">
+
+                                <span class="project-link project-link--disabled">
+                                    Architecture Coming Soon
+                                </span>
+
+                            </footer>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         PROJECT 04
+                         Kubernetes Platform Lab
+                         ================================================== -->
+
+                    <article
+                        class="project-card reveal"
+                        data-category="platform cloud"
+                        data-reveal="up"
+                    >
+
+                        <header class="project-card__header">
+
+                            <span class="project-card__number">
+                                04
+                            </span>
+
+                            <span class="status-badge status-badge--planned">
+                                Planned
+                            </span>
+
+                        </header>
+
+
+                        <!-- Project Visual -->
+
+                        <div class="project-card__visual project-card__visual--platform">
+
+                            <div class="cluster-diagram">
+
+                                <div class="cluster-diagram__center">
+                                    K8s
+                                </div>
+
+                                <span class="cluster-diagram__node cluster-diagram__node--top">
+                                    Pod
+                                </span>
+
+                                <span class="cluster-diagram__node cluster-diagram__node--right">
+                                    Pod
+                                </span>
+
+                                <span class="cluster-diagram__node cluster-diagram__node--bottom">
+                                    Pod
+                                </span>
+
+                                <span class="cluster-diagram__node cluster-diagram__node--left">
+                                    SVC
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Project Content -->
+
+                        <div class="project-card__body">
+
+                            <div class="project-card__heading">
+
+                                <div>
+
+                                    <p class="project-card__type">
+                                        Platform Engineering
+                                    </p>
+
+                                    <h3 class="project-card__title">
+                                        Kubernetes Platform Lab
+                                    </h3>
+
+                                </div>
+
+                                <span
+                                    class="project-card__icon"
+                                    aria-hidden="true"
+                                >
+                                    04
+                                </span>
+
+                            </div>
+
+                            <p class="project-card__description">
+                                A platform engineering lab focused on deploying
+                                and managing a containerized application in a
+                                Kubernetes environment.
+                            </p>
+
+
+                            <!-- Technology Tags -->
+
+                            <div
+                                class="tag-list project-card__tags"
+                                aria-label="Kubernetes lab technologies"
+                            >
+
+                                <span class="tag-list__item">
+                                    Docker
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Kubernetes
+                                </span>
+
+                                <span class="tag-list__item">
+                                    YAML
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Deployments
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Services
+                                </span>
+
+                            </div>
+
+
+                            <!-- Project Status -->
+
+                            <footer class="project-card__actions">
+
+                                <span class="project-link project-link--disabled">
+                                    Deployment Plan Coming Soon
+                                </span>
+
+                            </footer>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         PROJECT 05
+                         Keycloak IAM Lab
+                         ================================================== -->
+
+                    <article
+                        class="project-card reveal"
+                        data-category="iam security platform"
+                        data-reveal="up"
+                    >
+
+                        <header class="project-card__header">
+
+                            <span class="project-card__number">
+                                05
+                            </span>
+
+                            <span class="status-badge status-badge--planned">
+                                Planned
+                            </span>
+
+                        </header>
+
+
+                        <!-- Project Visual -->
+
+                        <div class="project-card__visual project-card__visual--iam">
+
+                            <div class="identity-flow">
+
+                                <div class="identity-flow__node">
+                                    User
+                                </div>
+
+                                <span
+                                    class="identity-flow__arrow"
+                                    aria-hidden="true"
+                                >
+                                    →
+                                </span>
+
+                                <div class="identity-flow__node identity-flow__node--primary">
+                                    MFA
+                                </div>
+
+                                <span
+                                    class="identity-flow__arrow"
+                                    aria-hidden="true"
+                                >
+                                    →
+                                </span>
+
+                                <div class="identity-flow__node">
+                                    Access
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Project Content -->
+
+                        <div class="project-card__body">
+
+                            <div class="project-card__heading">
+
+                                <div>
+
+                                    <p class="project-card__type">
+                                        Identity and Access Management
+                                    </p>
+
+                                    <h3 class="project-card__title">
+                                        Keycloak IAM Lab
+                                    </h3>
+
+                                </div>
+
+                                <span
+                                    class="project-card__icon"
+                                    aria-hidden="true"
+                                >
+                                    05
+                                </span>
+
+                            </div>
+
+                            <p class="project-card__description">
+                                A planned identity lab based on the IAM concepts
+                                I supported professionally, including
+                                authentication, authorization, roles, and SSO.
+                            </p>
+
+
+                            <!-- Technology Tags -->
+
+                            <div
+                                class="tag-list project-card__tags"
+                                aria-label="Identity lab technologies"
+                            >
+
+                                <span class="tag-list__item">
+                                    Keycloak
+                                </span>
+
+                                <span class="tag-list__item">
+                                    OIDC
+                                </span>
+
+                                <span class="tag-list__item">
+                                    SAML
+                                </span>
+
+                                <span class="tag-list__item">
+                                    RBAC
+                                </span>
+
+                                <span class="tag-list__item">
+                                    MFA
+                                </span>
+
+                                <span class="tag-list__item">
+                                    SSO
+                                </span>
+
+                            </div>
+
+
+                            <!-- Project Status -->
+
+                            <footer class="project-card__actions">
+
+                                <span class="project-link project-link--disabled">
+                                    Lab Plan Coming Soon
+                                </span>
+
+                            </footer>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         PROJECT 06
+                         Terraform Infrastructure
+                         ================================================== -->
+
+                    <article
+                        class="project-card reveal"
+                        data-category="automation cloud"
+                        data-reveal="up"
+                    >
+
+                        <header class="project-card__header">
+
+                            <span class="project-card__number">
+                                06
+                            </span>
+
+                            <span class="status-badge status-badge--planned">
+                                Planned
+                            </span>
+
+                        </header>
+
+
+                        <!-- Project Visual -->
+
+                        <div class="project-card__visual project-card__visual--automation">
+
+                            <div class="code-preview">
+
+                                <span class="code-preview__line">
+
+                                    resource
+
+                                    <strong>
+                                        "aws_instance"
+                                    </strong>
+
+                                    {
+
+                                </span>
+
+                                <span class="code-preview__line">
+
+                                    &nbsp;&nbsp;ami =
+
+                                    <strong>
+                                        var.ami_id
+                                    </strong>
+
+                                </span>
+
+                                <span class="code-preview__line">
+
+                                    &nbsp;&nbsp;instance_type =
+
+                                    <strong>
+                                        "t2.micro"
+                                    </strong>
+
+                                </span>
+
+                                <span class="code-preview__line">
+                                    }
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Project Content -->
+
+                        <div class="project-card__body">
+
+                            <div class="project-card__heading">
+
+                                <div>
+
+                                    <p class="project-card__type">
+                                        Infrastructure as Code
+                                    </p>
+
+                                    <h3 class="project-card__title">
+                                        Terraform Infrastructure
+                                    </h3>
+
+                                </div>
+
+                                <span
+                                    class="project-card__icon"
+                                    aria-hidden="true"
+                                >
+                                    06
+                                </span>
+
+                            </div>
+
+                            <p class="project-card__description">
+                                A planned Infrastructure as Code project for
+                                provisioning repeatable AWS resources with
+                                Terraform and version-controlled workflows.
+                            </p>
+
+
+                            <!-- Technology Tags -->
+
+                            <div
+                                class="tag-list project-card__tags"
+                                aria-label="Terraform project technologies"
+                            >
+
+                                <span class="tag-list__item">
+                                    Terraform
+                                </span>
+
+                                <span class="tag-list__item">
+                                    AWS
+                                </span>
+
+                                <span class="tag-list__item">
+                                    IaC
+                                </span>
+
+                                <span class="tag-list__item">
+                                    GitHub
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Automation
+                                </span>
+
+                            </div>
+
+
+                            <!-- Project Status -->
+
+                            <footer class="project-card__actions">
+
+                                <span class="project-link project-link--disabled">
+                                    Build Plan Coming Soon
+                                </span>
+
+                            </footer>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Project Count -->
+
+                <p
+                    class="project-results"
+                    aria-live="polite"
+                >
+
+                    Showing
+
+                    <strong id="visibleProjectCount">
+                        6
+                    </strong>
+
+                    projects
+
+                </p>
+
+            </div>
+
+        </section>
+                <!-- ==========================================================
+             06.3 PROFESSIONAL DEVELOPMENT
+             ==========================================================
+
+             Purpose
+             ----------------------------------------------------------
+             Shows the certifications I have completed, the certification
+             I am currently studying for, and the technical learning path
+             I plan to continue following.
+
+             Components
+             ----------------------------------------------------------
+             • Section Introduction
+             • Certification Timeline
+             • Completed Milestones
+             • Current Study Milestone
+             • Planned Milestones
+        -->
+
+        <section
+            class="section roadmap"
+            id="roadmap"
+            aria-labelledby="roadmapTitle"
+        >
+
+            <div class="container">
+
+
+                <!-- Section Introduction -->
+
+                <header
+                    class="section-header reveal"
+                    data-reveal="up"
+                >
+
+                    <div class="section-header__label">
+
+                        <span class="section-header__number">
+                            02
+                        </span>
+
+                        <span class="section-header__eyebrow">
+                            Professional Development
+                        </span>
+
+                    </div>
+
+                    <h2
+                        class="section-header__title"
+                        id="roadmapTitle"
+                    >
+                        A focused learning path, not a list of random certifications.
+                    </h2>
+
+                    <p class="section-header__description">
+                        I am building deeper knowledge in cloud, Linux,
+                        infrastructure automation, and platform engineering.
+                        My roadmap supports the type of systems and
+                        infrastructure work I want to continue doing.
+                    </p>
+
+                </header>
+
+
+                <!-- Certification Timeline -->
+
+                <div class="roadmap-timeline">
+
+
+                    <!-- ==================================================
+                         MILESTONE 01
+                         CompTIA Security+
+                         ================================================== -->
+
+                    <article
+                        class="roadmap-item roadmap-item--complete reveal"
+                        data-reveal="left"
+                    >
+
+                        <div class="roadmap-item__marker">
+
+                            <span
+                                class="roadmap-item__dot"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div class="roadmap-item__content">
+
+                            <div class="roadmap-item__meta">
+
+                                <span class="status-badge status-badge--complete">
+                                    Completed
+                                </span>
+
+                                <span class="roadmap-item__date">
+                                    Current
+                                </span>
+
+                            </div>
+
+                            <h3 class="roadmap-item__title">
+                                CompTIA Security+ ce
+                            </h3>
+
+                            <p class="roadmap-item__description">
+                                Validates my foundation in enterprise security,
+                                identity, access control, risk management,
+                                incident response, and secure operations.
+                            </p>
+
+                            <div
+                                class="tag-list roadmap-item__tags"
+                                aria-label="CompTIA Security Plus topics"
+                            >
+
+                                <span class="tag-list__item">
+                                    Security Controls
+                                </span>
+
+                                <span class="tag-list__item">
+                                    IAM
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Risk
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Operations
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         MILESTONE 02
+                         Microsoft Azure Fundamentals
+                         ================================================== -->
+
+                    <article
+                        class="roadmap-item roadmap-item--complete reveal"
+                        data-reveal="right"
+                    >
+
+                        <div class="roadmap-item__marker">
+
+                            <span
+                                class="roadmap-item__dot"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div class="roadmap-item__content">
+
+                            <div class="roadmap-item__meta">
+
+                                <span class="status-badge status-badge--complete">
+                                    Completed
+                                </span>
+
+                            </div>
+
+                            <h3 class="roadmap-item__title">
+                                Microsoft Certified: Azure Fundamentals
+                            </h3>
+
+                            <p class="roadmap-item__description">
+                                Covers cloud concepts, core Azure services,
+                                governance, security, pricing, and support.
+                            </p>
+
+                            <div
+                                class="tag-list roadmap-item__tags"
+                                aria-label="Azure Fundamentals topics"
+                            >
+
+                                <span class="tag-list__item">
+                                    Azure
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Cloud Concepts
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Governance
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         MILESTONE 03
+                         Microsoft Technology Associate
+                         ================================================== -->
+
+                    <article
+                        class="roadmap-item roadmap-item--complete reveal"
+                        data-reveal="left"
+                    >
+
+                        <div class="roadmap-item__marker">
+
+                            <span
+                                class="roadmap-item__dot"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div class="roadmap-item__content">
+
+                            <div class="roadmap-item__meta">
+
+                                <span class="status-badge status-badge--complete">
+                                    Completed
+                                </span>
+
+                            </div>
+
+                            <h3 class="roadmap-item__title">
+                                Microsoft Technology Associate
+                            </h3>
+
+                            <p class="roadmap-item__description">
+                                Software Development Fundamentals covering
+                                programming logic, application design, data,
+                                and foundational development concepts.
+                            </p>
+
+                            <div
+                                class="tag-list roadmap-item__tags"
+                                aria-label="Microsoft Technology Associate topics"
+                            >
+
+                                <span class="tag-list__item">
+                                    Programming Logic
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Application Design
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Development
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         MILESTONE 04
+                         AWS Cloud Practitioner
+                         ================================================== -->
+
+                    <article
+                        class="roadmap-item roadmap-item--current reveal"
+                        data-reveal="right"
+                    >
+
+                        <div class="roadmap-item__marker">
+
+                            <span
+                                class="roadmap-item__dot"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div class="roadmap-item__content">
+
+                            <div class="roadmap-item__meta">
+
+                                <span class="status-badge status-badge--current">
+                                    Current Focus
+                                </span>
+
+                                <span class="roadmap-item__activity">
+                                    Studying
+                                </span>
+
+                            </div>
+
+                            <h3 class="roadmap-item__title">
+                                AWS Cloud Practitioner
+                            </h3>
+
+                            <p class="roadmap-item__description">
+                                Strengthening my understanding of AWS services,
+                                IAM, networking, security, billing, support,
+                                and the shared responsibility model.
+                            </p>
+
+
+                            <!-- Study Progress -->
+
+                            <div class="roadmap-progress">
+
+                                <div class="roadmap-progress__header">
+
+                                    <span>
+                                        Study Progress
+                                    </span>
+
+                                    <span>
+                                        In Progress
+                                    </span>
+
+                                </div>
+
+                                <div
+                                    class="progress-bar"
+                                    role="progressbar"
+                                    aria-label="AWS Cloud Practitioner study progress"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    aria-valuenow="55"
+                                >
+
+                                    <span
+                                        class="progress-bar__fill"
+                                        style="--progress: 55%;"
+                                    ></span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Certification Topics -->
+
+                            <div
+                                class="tag-list roadmap-item__tags"
+                                aria-label="AWS Cloud Practitioner topics"
+                            >
+
+                                <span class="tag-list__item">
+                                    AWS
+                                </span>
+
+                                <span class="tag-list__item">
+                                    IAM
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Networking
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Cloud Security
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         MILESTONE 05
+                         CompTIA Linux+
+                         ================================================== -->
+
+                    <article
+                        class="roadmap-item roadmap-item--planned reveal"
+                        data-reveal="left"
+                    >
+
+                        <div class="roadmap-item__marker">
+
+                            <span
+                                class="roadmap-item__dot"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div class="roadmap-item__content">
+
+                            <div class="roadmap-item__meta">
+
+                                <span class="status-badge status-badge--planned">
+                                    Planned
+                                </span>
+
+                            </div>
+
+                            <h3 class="roadmap-item__title">
+                                CompTIA Linux+
+                            </h3>
+
+                            <p class="roadmap-item__description">
+                                Linux administration, command-line operations,
+                                permissions, networking, services, security,
+                                and troubleshooting.
+                            </p>
+
+                            <div
+                                class="tag-list roadmap-item__tags"
+                                aria-label="CompTIA Linux Plus topics"
+                            >
+
+                                <span class="tag-list__item">
+                                    Linux
+                                </span>
+
+                                <span class="tag-list__item">
+                                    CLI
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Administration
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Troubleshooting
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         MILESTONE 06
+                         HashiCorp Terraform Associate
+                         ================================================== -->
+
+                    <article
+                        class="roadmap-item roadmap-item--planned reveal"
+                        data-reveal="right"
+                    >
+
+                        <div class="roadmap-item__marker">
+
+                            <span
+                                class="roadmap-item__dot"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div class="roadmap-item__content">
+
+                            <div class="roadmap-item__meta">
+
+                                <span class="status-badge status-badge--planned">
+                                    Planned
+                                </span>
+
+                            </div>
+
+                            <h3 class="roadmap-item__title">
+                                HashiCorp Terraform Associate
+                            </h3>
+
+                            <p class="roadmap-item__description">
+                                Infrastructure as Code concepts, Terraform
+                                workflows, state, providers, variables,
+                                modules, and repeatable deployments.
+                            </p>
+
+                            <div
+                                class="tag-list roadmap-item__tags"
+                                aria-label="Terraform Associate topics"
+                            >
+
+                                <span class="tag-list__item">
+                                    Terraform
+                                </span>
+
+                                <span class="tag-list__item">
+                                    IaC
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Automation
+                                </span>
+
+                                <span class="tag-list__item">
+                                    State
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ==================================================
+                         MILESTONE 07
+                         Kubernetes Certification Path
+                         ================================================== -->
+
+                    <article
+                        class="roadmap-item roadmap-item--planned reveal"
+                        data-reveal="left"
+                    >
+
+                        <div class="roadmap-item__marker">
+
+                            <span
+                                class="roadmap-item__dot"
+                                aria-hidden="true"
+                            ></span>
+
+                        </div>
+
+                        <div class="roadmap-item__content">
+
+                            <div class="roadmap-item__meta">
+
+                                <span class="status-badge status-badge--planned">
+                                    Planned
+                                </span>
+
+                            </div>
+
+                            <h3 class="roadmap-item__title">
+                                Kubernetes Certification Path
+                            </h3>
+
+                            <p class="roadmap-item__description">
+                                Expanding my knowledge of containers,
+                                Kubernetes architecture, deployments, services,
+                                networking, storage, and cluster operations.
+                            </p>
+
+                            <div
+                                class="tag-list roadmap-item__tags"
+                                aria-label="Kubernetes certification topics"
+                            >
+
+                                <span class="tag-list__item">
+                                    Kubernetes
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Containers
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Deployments
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Platform
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+                <!-- ==========================================================
+             06.4 PROFESSIONAL EXPERIENCE
+             ==========================================================
+
+             Purpose
+             ----------------------------------------------------------
+             Summarizes my professional background and allows visitors
+             to explore each role without making the homepage feel too
+             long or overwhelming.
+
+             Components
+             ----------------------------------------------------------
+             • Section Introduction
+             • Experience Navigation
+             • Experience Panels
+             • Resume Call to Action
+        -->
+
+        <section
+            class="section experience"
+            id="experience"
+            aria-labelledby="experienceTitle"
+        >
+
+            <div class="container">
+
+
+                <!-- Section Introduction -->
+
+                <header
+                    class="section-header reveal"
+                    data-reveal="up"
+                >
+
+                    <div class="section-header__label">
+
+                        <span class="section-header__number">
+                            03
+                        </span>
+
+                        <span class="section-header__eyebrow">
+                            Professional Experience
+                        </span>
+
+                    </div>
+
+                    <h2
+                        class="section-header__title"
+                        id="experienceTitle"
+                    >
+                        Built through real systems, real users, and real mission requirements.
+                    </h2>
+
+                    <p class="section-header__description">
+                        My experience comes from supporting enterprise and DoD
+                        environments where security, reliability,
+                        documentation, and user support all matter.
+                    </p>
+
+                </header>
+
+
+                <!-- Experience Component -->
+
+                <div class="experience-browser">
+
+
+                    <!-- Experience Navigation -->
+
+                    <div
+                        class="experience-browser__navigation reveal"
+                        data-reveal="left"
+                        role="tablist"
+                        aria-label="Professional experience"
+                    >
+
+
+                        <!-- Booz Allen Tab -->
+
+                        <button
+                            class="experience-tab is-active"
+                            id="tab-booz"
+                            type="button"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="panel-booz"
+                            data-experience="booz"
+                        >
+
+                            <span
+                                class="experience-tab__indicator"
+                                aria-hidden="true"
+                            ></span>
+
+                            <span class="experience-tab__number">
+                                01
+                            </span>
+
+                            <span class="experience-tab__content">
+
+                                <strong class="experience-tab__company">
+                                    Booz Allen Hamilton
+                                </strong>
+
+                                <small class="experience-tab__role">
+                                    Systems Engineer / ISSO
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+                        <!-- GDIT Tab -->
+
+                        <button
+                            class="experience-tab"
+                            id="tab-gdit"
+                            type="button"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="panel-gdit"
+                            data-experience="gdit"
+                            tabindex="-1"
+                        >
+
+                            <span
+                                class="experience-tab__indicator"
+                                aria-hidden="true"
+                            ></span>
+
+                            <span class="experience-tab__number">
+                                02
+                            </span>
+
+                            <span class="experience-tab__content">
+
+                                <strong class="experience-tab__company">
+                                    GDIT / ARMA
+                                </strong>
+
+                                <small class="experience-tab__role">
+                                    Systems Administrator
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+                        <!-- Army Tab -->
+
+                        <button
+                            class="experience-tab"
+                            id="tab-army"
+                            type="button"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="panel-army"
+                            data-experience="army"
+                            tabindex="-1"
+                        >
+
+                            <span
+                                class="experience-tab__indicator"
+                                aria-hidden="true"
+                            ></span>
+
+                            <span class="experience-tab__number">
+                                03
+                            </span>
+
+                            <span class="experience-tab__content">
+
+                                <strong class="experience-tab__company">
+                                    United States Army
+                                </strong>
+
+                                <small class="experience-tab__role">
+                                    Signal Support Systems Specialist
+                                </small>
+
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- Experience Panels -->
+
+                    <div
+                        class="experience-browser__panels reveal"
+                        data-reveal="right"
+                    >
+
+
+                        <!-- ==================================================
+                             EXPERIENCE 01
+                             Booz Allen Hamilton
+                             ================================================== -->
+
+                        <article
+                            class="experience-panel is-active"
+                            id="panel-booz"
+                            role="tabpanel"
+                            aria-labelledby="tab-booz"
+                            data-panel="booz"
+                        >
+
+
+                            <!-- Panel Header -->
+
+                            <header class="experience-panel__header">
+
+                                <div class="experience-panel__heading">
+
+                                    <p class="experience-panel__company">
+                                        Booz Allen Hamilton
+                                    </p>
+
+                                    <h3 class="experience-panel__title">
+                                        Systems Engineer &amp; Information System Security Officer
+                                    </h3>
+
+                                </div>
+
+                                <p class="experience-panel__date">
+                                    April 2023 – September 2024
+                                </p>
+
+                            </header>
+
+
+                            <!-- Location -->
+
+                            <p class="experience-panel__location">
+                                Joint Special Operations Command Environment
+                            </p>
+
+
+                            <!-- Summary -->
+
+                            <div class="experience-panel__summary">
+
+                                <p>
+                                    Supported secure enterprise systems,
+                                    cloud authorization efforts,
+                                    Kubernetes-hosted applications,
+                                    identity services,
+                                    and RMF compliance activities.
+                                </p>
+
+                            </div>
+
+
+                            <!-- Responsibilities -->
+
+                            <ul class="experience-panel__list">
+
+                                <li class="experience-panel__item">
+                                    Managed Keycloak users, authentication flows,
+                                    MFA, OIDC, SAML, roles, and realm administration.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Supported Kubernetes deployments,
+                                    Helm upgrades, and application troubleshooting.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Performed ISSO responsibilities supporting
+                                    RMF documentation, STIG compliance,
+                                    ACAS findings, and ATO activities.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Supported AWS and Azure authorization packages,
+                                    including leading documentation for an Azure ATO.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Created SOPs, onboarding documentation,
+                                    access procedures, and technical guidance.
+                                </li>
+
+                            </ul>
+
+
+                            <!-- Technology Tags -->
+
+                            <div
+                                class="tag-list experience-panel__tags"
+                                aria-label="Booz Allen technologies and responsibilities"
+                            >
+
+                                <span class="tag-list__item">
+                                    Keycloak
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Kubernetes
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Helm
+                                </span>
+
+                                <span class="tag-list__item">
+                                    AWS
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Azure
+                                </span>
+
+                                <span class="tag-list__item">
+                                    RMF
+                                </span>
+
+                                <span class="tag-list__item">
+                                    STIGs
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- ==================================================
+                             EXPERIENCE 02
+                             GDIT / ARMA
+                             ================================================== -->
+
+                        <article
+                            class="experience-panel"
+                            id="panel-gdit"
+                            role="tabpanel"
+                            aria-labelledby="tab-gdit"
+                            data-panel="gdit"
+                            hidden
+                        >
+
+
+                            <!-- Panel Header -->
+
+                            <header class="experience-panel__header">
+
+                                <div class="experience-panel__heading">
+
+                                    <p class="experience-panel__company">
+                                        GDIT / ARMA Global
+                                    </p>
+
+                                    <h3 class="experience-panel__title">
+                                        Systems Administrator
+                                    </h3>
+
+                                </div>
+
+                            </header>
+
+
+                            <!-- Location -->
+
+                            <p class="experience-panel__location">
+                                Department of Defense Environment
+                            </p>
+
+
+                            <!-- Summary -->
+
+                            <div class="experience-panel__summary">
+
+                                <p>
+                                    Supported enterprise users across secure
+                                    government networks while troubleshooting
+                                    authentication, remote access, and
+                                    communication systems.
+                                </p>
+
+                            </div>
+
+
+                            <!-- Responsibilities -->
+
+                            <ul class="experience-panel__list">
+
+                                <li class="experience-panel__item">
+                                    Supported enterprise user accounts
+                                    and authentication.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Managed SIPR token and CAC access issues.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Assisted with VPN connectivity
+                                    and secure remote access.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Supported VTC systems
+                                    and communication services.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Documented recurring technical issues
+                                    and support procedures.
+                                </li>
+
+                            </ul>
+
+
+                            <!-- Technology Tags -->
+
+                            <div
+                                class="tag-list experience-panel__tags"
+                                aria-label="GDIT technologies and responsibilities"
+                            >
+
+                                <span class="tag-list__item">
+                                    Systems Administration
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Active Directory
+                                </span>
+
+                                <span class="tag-list__item">
+                                    VPN
+                                </span>
+
+                                <span class="tag-list__item">
+                                    CAC
+                                </span>
+
+                                <span class="tag-list__item">
+                                    SIPR
+                                </span>
+
+                                <span class="tag-list__item">
+                                    VTC
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- ==================================================
+                             EXPERIENCE 03
+                             United States Army
+                             ================================================== -->
+
+                        <article
+                            class="experience-panel"
+                            id="panel-army"
+                            role="tabpanel"
+                            aria-labelledby="tab-army"
+                            data-panel="army"
+                            hidden
+                        >
+
+
+                            <!-- Panel Header -->
+
+                            <header class="experience-panel__header">
+
+                                <div class="experience-panel__heading">
+
+                                    <p class="experience-panel__company">
+                                        United States Army
+                                    </p>
+
+                                    <h3 class="experience-panel__title">
+                                        Signal Support Systems Specialist
+                                    </h3>
+
+                                </div>
+
+                            </header>
+
+
+                            <!-- Location -->
+
+                            <p class="experience-panel__location">
+                                Military Communications &amp; IT Operations
+                            </p>
+
+
+                            <!-- Summary -->
+
+                            <div class="experience-panel__summary">
+
+                                <p>
+                                    Supported communications infrastructure,
+                                    network operations, technical users, and
+                                    mission systems while serving as an NCO.
+                                </p>
+
+                            </div>
+
+
+                            <!-- Responsibilities -->
+
+                            <ul class="experience-panel__list">
+
+                                <li class="experience-panel__item">
+                                    Installed and maintained
+                                    tactical communication systems.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Supported users, radios, networking,
+                                    and computer systems.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Led soldiers while maintaining accountability
+                                    for equipment and mission readiness.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Coordinated technical support
+                                    between teams and leadership.
+                                </li>
+
+                                <li class="experience-panel__item">
+                                    Built the troubleshooting and documentation
+                                    habits I still use today.
+                                </li>
+
+                            </ul>
+
+
+                            <!-- Technology Tags -->
+
+                            <div
+                                class="tag-list experience-panel__tags"
+                                aria-label="Army technologies and responsibilities"
+                            >
+
+                                <span class="tag-list__item">
+                                    Signal
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Networking
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Leadership
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Technical Support
+                                </span>
+
+                                <span class="tag-list__item">
+                                    Troubleshooting
+                                </span>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Resume Call to Action -->
+
+                <div
+                    class="section-cta reveal"
+                    data-reveal="up"
+                >
+
+                    <p class="section-cta__text">
+                        This is a high-level overview of my experience.
+                        My resume contains additional responsibilities,
+                        certifications, education, and technical details.
+                    </p>
+
+                    <a
+                        class="button button--secondary"
+                        href="resume.html"
+                    >
+
+                        View Full Resume
+
+                        <span
+                            class="button__icon"
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+            </main>
+
+    <!-- ==============================================================
+         07. SITE FOOTER
+         ==============================================================
+
+         Purpose
+         --------------------------------------------------------------
+         The footer serves as the closing section of the portfolio.
+
+         Since the homepage intentionally does not include a dedicated
+         Contact section, the footer becomes the central place for
+         visitors to connect with me.
+
+         Components
+         --------------------------------------------------------------
+         • Brand
+         • Professional Summary
+         • Quick Navigation
+         • Connect Links
+         • Copyright
+    -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="site-footer__grid">
+
+
+                <!-- ==================================================
+                     Brand
+                     ================================================== -->
+
+                <section class="site-footer__brand">
+
+                    <div class="brand">
+
+                        <span class="brand__logo">
+                            DJ
+                        </span>
+
+                        <div class="brand__text">
+
+                            <strong class="brand__name">
+                                Darling Jackson
+                            </strong>
+
+                            <span class="brand__title">
+                                Systems Engineer
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <p class="site-footer__description">
+
+                        Systems Engineer focused on cloud infrastructure,
+                        platform engineering, identity and access
+                        management, enterprise security, and continuous
+                        technical learning.
+
+                    </p>
+
+                </section>
+
+
+                <!-- ==================================================
+                     Portfolio Navigation
+                     ================================================== -->
+
+                <nav
+                    class="footer-navigation"
+                    aria-label="Footer navigation"
+                >
+
+                    <h3 class="footer-heading">
+                        Portfolio
+                    </h3>
+
+                    <ul class="footer-list">
+
+                        <li>
+
+                            <a href="#home">
+
+                                Home
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#projects">
+
+                                Engineering Portfolio
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#roadmap">
+
+                                Professional Development
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#experience">
+
+                                Professional Experience
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="resume.html">
+
+                                Resume
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+
+                <!-- ==================================================
+                     Engineering Labs
+                     ================================================== -->
+
+                <section class="footer-column">
+
+                    <h3 class="footer-heading">
+
+                        Engineering Labs
+
+                    </h3>
+
+                    <ul class="footer-list">
+
+
+                        <li>
+
+                            <a href="security-lab/security-lab.html">
+
+                                Blue Fox Defense
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#">
+
+                                AWS Environment
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#">
+
+                                Kubernetes Lab
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#">
+
+                                IAM Lab
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <!-- ==================================================
+                     Connect
+                     ================================================== -->
+
+                <section class="footer-column">
+
+                    <h3 class="footer-heading">
+
+                        Connect
+
+                    </h3>
+
+                    <ul class="footer-list">
+
+                        <li>
+
+                            <a href="resume.html">
+
+                                Resume
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a
+                                href="https://github.com/darlingjackson"
+                                target="_blank"
+                                rel="noopener"
+                            >
+
+                                GitHub
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a
+                                href="https://linkedin.com"
+                                target="_blank"
+                                rel="noopener"
+                            >
+
+                                LinkedIn
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a
+                                href="mailto:darling.jackson1@outlook.com"
+                            >
+
+                                Email
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+            </div>
+
+
+            <!-- ==================================================
+                 Footer Bottom
+                 ================================================== -->
+
+            <div class="site-footer__bottom">
+
+                <p>
+
+                    ©
+                    <span id="currentYear"></span>
+
+                    Darling Jackson.
+
+                    Built with HTML, CSS, JavaScript, Git, and GitHub Pages.
+
+                </p>
+
+                <p>
+
+                    Always learning. Always building.
+
+                </p>
+
+            </div>
 
         </div>
 
-      </div>
+    </footer>
 
-    </div>
 
-    <div class="footer-bottom">
 
-      <p>
-        Built with
-        <strong>HTML</strong>,
-        <strong>CSS</strong>,
-        <strong>JavaScript</strong>,
-        <strong>Git</strong>,
-        and
-        <strong>GitHub</strong>
-      </p>
+    <!-- ==============================================================
+         08. PAGE UTILITIES
+         ============================================================== -->
 
-      <p>
-        &copy; 2026 Darling Jackson • All Rights Reserved
-      </p>
 
-    </div>
+    <!-- Back To Top -->
 
-  </footer>
+    <button
+        class="back-to-top"
+        id="backToTop"
+        type="button"
+        aria-label="Back to top"
+    >
 
-  <!-- JavaScript -->
+        ↑
 
-  <script src="js/script.js"></script>
+    </button>
+
+
+
+    <!-- ==============================================================
+         09. JAVASCRIPT
+         ============================================================== -->
+
+    <script src="js/script.js"></script>
 
 </body>
 
 </html>
-
-
-
-
-
