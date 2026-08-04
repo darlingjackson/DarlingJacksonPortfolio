@@ -62,4 +62,4 @@ Whether you're a recruiter, hiring manager, fellow engineer, or someone who's ju
 
 Feel free to explore, and thanks again for visiting!
 
-— Darling
+— Darling Jackson

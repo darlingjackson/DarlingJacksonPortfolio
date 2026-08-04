@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Blue Fox Defense Foxhole Portal RMF Prepare Phase Project Charter."
+    >
+
+    <title>
+        BFD-PRE-001 | Foxhole Portal Project Charter
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="project-charter.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================================================
+         DOCUMENT VIEWER
+         This wrapper holds every printable document page.
+    ========================================================== -->
+    <main class="document-viewer">
+
+
+        <!-- =====================================================
+             PAGE 1: COVER PAGE
+        ====================================================== -->
+        <section class="document-page cover-page">
+
+            <div class="cover-topline">
+                <span>BLUE FOX DEFENSE</span>
+                <span>ENTERPRISE CYBERSECURITY PROGRAM</span>
+            </div>
+
+            <div class="cover-content">
+
+                <!-- Replace this temporary mark with the official
+                     Blue Fox Defense logo when ready. -->
+                <div
+                    class="brand-mark"
+                    aria-label="Blue Fox Defense logo placeholder"
+                >
+                    <svg
+                        viewBox="0 0 140 140"
+                        role="img"
+                        aria-label="Stylized Blue Fox Defense fox mark"
+                    >
+                        <path
+                            d="M26 24L48 36L70 23L92 36L114 24L106 64C104 88 89 106 70 116C51 106 36 88 34 64L26 24Z"
+                        />
+
+                        <path
+                            d="M47 57L62 66L52 75L42 65L47 57Z"
+                            class="brand-mark-detail"
+                        />
+
+                        <path
+                            d="M93 57L98 65L88 75L78 66L93 57Z"
+                            class="brand-mark-detail"
+                        />
+
+                        <path
+                            d="M58 88L70 96L82 88L77 103L70 108L63 103L58 88Z"
+                            class="brand-mark-detail"
+                        />
+                    </svg>
+                </div>
+
+                <p class="cover-eyebrow">
+                    Risk Management Framework
+                </p>
+
+                <h1 class="cover-title">
+                    Project Charter
+                </h1>
+
+                <p class="cover-subtitle">
+                    Foxhole Portal Authorization Effort
+                </p>
+
+                <div class="cover-accent-line"></div>
+
+                <div class="cover-metadata">
+
+                    <div class="cover-metadata-item">
+                        <span class="metadata-label">Document Number</span>
+                        <span class="metadata-value">BFD-PRE-001</span>
+                    </div>
+
+                    <div class="cover-metadata-item">
+                        <span class="metadata-label">RMF Phase</span>
+                        <span class="metadata-value">Prepare</span>
+                    </div>
+
+                    <div class="cover-metadata-item">
+                        <span class="metadata-label">Version</span>
+                        <span class="metadata-value">1.0</span>
+                    </div>
+
+                    <div class="cover-metadata-item">
+                        <span class="metadata-label">Status</span>
+                        <span class="metadata-value">Draft for Review</span>
+                    </div>
+
+                    <div class="cover-metadata-item">
+                        <span class="metadata-label">Prepared By</span>
+                        <span class="metadata-value">Systems Engineering</span>
+                    </div>
+
+                    <div class="cover-metadata-item">
+                        <span class="metadata-label">Document Date</span>
+                        <span class="metadata-value">July 2026</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="cover-footer">
+                <p>
+                    UNCLASSIFIED // FOR OFFICIAL USE
+                </p>
+
+                <p>
+                    Blue Fox Defense Proprietary Information
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 2: DOCUMENT CONTROL
+        ====================================================== -->
+        <section class="document-page">
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <div class="section-heading">
+                    <span class="section-kicker">
+                        Document Administration
+                    </span>
+
+                    <h2>
+                        Document Control
+                    </h2>
+                </div>
+
+                <div class="document-banner">
+                    <div class="document-banner-icon">
+                        01
+                    </div>
+
+                    <div>
+                        <p class="document-banner-label">
+                            RMF Prepare Phase
+                        </p>
+
+                        <p class="document-banner-title">
+                            Project Charter
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- DOCUMENT INFORMATION -->
+                <section class="content-section">
+
+                    <h3 class="subsection-title">
+                        Document Information
+                    </h3>
+
+                    <table class="professional-table metadata-table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Document Title</th>
+                                <td>Project Charter</td>
+
+                                <th scope="row">Document Number</th>
+                                <td>BFD-PRE-001</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Organization</th>
+                                <td>Blue Fox Defense</td>
+
+                                <th scope="row">System</th>
+                                <td>Foxhole Portal</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">RMF Phase</th>
+                                <td>Prepare</td>
+
+                                <th scope="row">Version</th>
+                                <td>1.0</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Status</th>
+                                <td>
+                                    <span class="status-badge">
+                                        Draft for Review
+                                    </span>
+                                </td>
+
+                                <th scope="row">Document Date</th>
+                                <td>July 2026</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Document Owner</th>
+                                <td>Systems Engineering</td>
+
+                                <th scope="row">Approval Authority</th>
+                                <td>System Owner</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Handling</th>
+                                <td colspan="3">
+                                    UNCLASSIFIED // FOR OFFICIAL USE
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </section>
+
+
+                <!-- REVISION HISTORY -->
+                <section class="content-section">
+
+                    <h3 class="subsection-title">
+                        Revision History
+                    </h3>
+
+                    <table class="professional-table">
+                        <thead>
+                            <tr>
+                                <th>Version</th>
+                                <th>Date</th>
+                                <th>Author</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>0.1</td>
+                                <td>July 2026</td>
+                                <td>Systems Engineering</td>
+                                <td>
+                                    Initial draft developed for internal review.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>1.0</td>
+                                <td>Pending</td>
+                                <td>Systems Engineering</td>
+                                <td>
+                                    Initial approved release.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </section>
+
+
+                <!-- DISTRIBUTION -->
+                <section class="content-section">
+
+                    <h3 class="subsection-title">
+                        Distribution
+                    </h3>
+
+                    <table class="professional-table">
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Distribution</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>System Owner</td>
+                                <td>Primary</td>
+                                <td>Review and approval</td>
+                            </tr>
+
+                            <tr>
+                                <td>Information System Security Manager</td>
+                                <td>Primary</td>
+                                <td>Security governance review</td>
+                            </tr>
+
+                            <tr>
+                                <td>Information System Security Officer</td>
+                                <td>Primary</td>
+                                <td>RMF coordination and maintenance</td>
+                            </tr>
+
+                            <tr>
+                                <td>Systems Engineering</td>
+                                <td>Primary</td>
+                                <td>Technical planning and document development</td>
+                            </tr>
+
+                            <tr>
+                                <td>Project Manager</td>
+                                <td>Supporting</td>
+                                <td>Schedule and milestone coordination</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 2</span>
+            </footer>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 3: TABLE OF CONTENTS
+        ====================================================== -->
+        <section class="document-page">
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <div class="section-heading">
+                    <span class="section-kicker">
+                        Document Navigation
+                    </span>
+
+                    <h2>
+                        Table of Contents
+                    </h2>
+                </div>
+
+                <nav
+                    class="table-of-contents"
+                    aria-label="Project Charter table of contents"
+                >
+                    <a href="#executive-summary" class="toc-row">
+                        <span class="toc-number">ES</span>
+                        <span class="toc-title">Executive Summary</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">4</span>
+                    </a>
+
+                    <a href="#purpose" class="toc-row">
+                        <span class="toc-number">1</span>
+                        <span class="toc-title">Purpose</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">5</span>
+                    </a>
+
+                    <a href="#background" class="toc-row">
+                        <span class="toc-number">2</span>
+                        <span class="toc-title">Project Background</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">5</span>
+                    </a>
+
+                    <a href="#business-need" class="toc-row">
+                        <span class="toc-number">3</span>
+                        <span class="toc-title">Business Need</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">6</span>
+                    </a>
+
+                    <a href="#objectives" class="toc-row">
+                        <span class="toc-number">4</span>
+                        <span class="toc-title">Project Objectives</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">6</span>
+                    </a>
+
+                    <a href="#scope" class="toc-row">
+                        <span class="toc-number">5</span>
+                        <span class="toc-title">Project Scope</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">7</span>
+                    </a>
+
+                    <a href="#governance" class="toc-row">
+                        <span class="toc-number">6</span>
+                        <span class="toc-title">Project Governance</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">8</span>
+                    </a>
+
+                    <a href="#assumptions" class="toc-row">
+                        <span class="toc-number">7</span>
+                        <span class="toc-title">Assumptions</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">8</span>
+                    </a>
+
+                    <a href="#constraints" class="toc-row">
+                        <span class="toc-number">8</span>
+                        <span class="toc-title">Constraints</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">9</span>
+                    </a>
+
+                    <a href="#success-criteria" class="toc-row">
+                        <span class="toc-number">9</span>
+                        <span class="toc-title">Success Criteria</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">9</span>
+                    </a>
+
+                    <a href="#deliverables" class="toc-row">
+                        <span class="toc-number">10</span>
+                        <span class="toc-title">Prepare Phase Deliverables</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">10</span>
+                    </a>
+
+                    <a href="#milestones" class="toc-row">
+                        <span class="toc-number">11</span>
+                        <span class="toc-title">Project Milestones</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">11</span>
+                    </a>
+
+                    <a href="#approval" class="toc-row">
+                        <span class="toc-number">12</span>
+                        <span class="toc-title">Approval</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">12</span>
+                    </a>
+
+                    <a href="#appendix-a" class="toc-row">
+                        <span class="toc-number">A</span>
+                        <span class="toc-title">Referenced Documents</span>
+                        <span class="toc-dots"></span>
+                        <span class="toc-page">12</span>
+                    </a>
+                </nav>
+
+                <aside class="information-callout">
+                    <div class="callout-icon">i</div>
+
+                    <div>
+                        <p class="callout-title">
+                            Document Navigation
+                        </p>
+
+                        <p>
+                            The table of contents is interactive when this
+                            document is viewed in a browser. Page numbers may
+                            be updated when the final PDF is generated.
+                        </p>
+                    </div>
+                </aside>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 3</span>
+            </footer>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 4: EXECUTIVE SUMMARY
+        ====================================================== -->
+        <section
+            class="document-page"
+            id="executive-summary"
+        >
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <div class="section-heading">
+                    <span class="section-kicker">
+                        Leadership Overview
+                    </span>
+
+                    <h2>
+                        Executive Summary
+                    </h2>
+                </div>
+
+                <div class="executive-summary-layout">
+
+                    <div class="executive-summary-main">
+
+                        <p class="lead-paragraph">
+                            This Project Charter formally establishes the
+                            Risk Management Framework authorization effort
+                            for the Blue Fox Defense Foxhole Portal.
+                        </p>
+
+                        <p>
+                            Foxhole Portal is an internal enterprise web
+                            application used by Blue Fox Defense employees
+                            to access human resources information, company
+                            policies, required training, employee
+                            self-service functions, internal announcements,
+                            organizational information, and shared
+                            documentation.
+                        </p>
+
+                        <p>
+                            Blue Fox Defense will prepare Foxhole Portal for
+                            an Authorization to Operate by completing the
+                            organizational and system-level planning
+                            activities required to begin the RMF process.
+                            This charter defines the initial project scope,
+                            establishes governance, identifies expected
+                            Prepare phase deliverables, and authorizes the
+                            project team to begin the effort.
+                        </p>
+
+                        <p>
+                            The charter does not establish a security
+                            categorization, identify security controls, or
+                            document implementation and assessment results.
+                            Those activities remain outside the scope of the
+                            Prepare phase.
+                        </p>
+
+                    </div>
+
+                    <aside class="executive-summary-sidebar">
+
+                        <div class="summary-stat">
+                            <span class="summary-stat-label">
+                                System
+                            </span>
+
+                            <strong>
+                                Foxhole Portal
+                            </strong>
+                        </div>
+
+                        <div class="summary-stat">
+                            <span class="summary-stat-label">
+                                Project Phase
+                            </span>
+
+                            <strong>
+                                RMF Prepare
+                            </strong>
+                        </div>
+
+                        <div class="summary-stat">
+                            <span class="summary-stat-label">
+                                Executive Sponsor
+                            </span>
+
+                            <strong>
+                                System Owner
+                            </strong>
+                        </div>
+
+                        <div class="summary-stat">
+                            <span class="summary-stat-label">
+                                Primary Outcome
+                            </span>
+
+                            <strong>
+                                Authorization effort initiated
+                            </strong>
+                        </div>
+
+                    </aside>
+
+                </div>
+
+                <aside class="project-statement-callout">
+                    <span class="callout-label">
+                        Project Statement
+                    </span>
+
+                    <p>
+                        Approval of this charter authorizes Blue Fox Defense
+                        personnel to perform the planning, coordination, and
+                        documentation activities necessary to complete the
+                        RMF Prepare phase for Foxhole Portal.
+                    </p>
+                </aside>
+
+
+                <!-- VISUAL RMF POSITION -->
+                <section class="content-section">
+
+                    <h3 class="subsection-title">
+                        Current RMF Position
+                    </h3>
+
+                    <div
+                        class="rmf-lifecycle"
+                        aria-label="RMF lifecycle with Prepare highlighted"
+                    >
+                        <div class="rmf-phase rmf-phase-active">
+                            <span class="rmf-phase-number">01</span>
+                            <span class="rmf-phase-name">Prepare</span>
+                        </div>
+
+                        <span class="rmf-arrow">→</span>
+
+                        <div class="rmf-phase">
+                            <span class="rmf-phase-number">02</span>
+                            <span class="rmf-phase-name">Categorize</span>
+                        </div>
+
+                        <span class="rmf-arrow">→</span>
+
+                        <div class="rmf-phase">
+                            <span class="rmf-phase-number">03</span>
+                            <span class="rmf-phase-name">Select</span>
+                        </div>
+
+                        <span class="rmf-arrow">→</span>
+
+                        <div class="rmf-phase">
+                            <span class="rmf-phase-number">04</span>
+                            <span class="rmf-phase-name">Implement</span>
+                        </div>
+
+                        <span class="rmf-arrow">→</span>
+
+                        <div class="rmf-phase">
+                            <span class="rmf-phase-number">05</span>
+                            <span class="rmf-phase-name">Assess</span>
+                        </div>
+
+                        <span class="rmf-arrow">→</span>
+
+                        <div class="rmf-phase">
+                            <span class="rmf-phase-number">06</span>
+                            <span class="rmf-phase-name">Authorize</span>
+                        </div>
+
+                        <span class="rmf-arrow">→</span>
+
+                        <div class="rmf-phase">
+                            <span class="rmf-phase-number">07</span>
+                            <span class="rmf-phase-name">Monitor</span>
+                        </div>
+                    </div>
+
+                    <p class="figure-caption">
+                        Figure 1. Foxhole Portal is currently within the RMF
+                        Prepare phase. Later RMF activities are shown only to
+                        provide lifecycle context.
+                    </p>
+
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 4</span>
+            </footer>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 5: PURPOSE AND BACKGROUND
+        ====================================================== -->
+        <section class="document-page">
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <!-- PURPOSE -->
+                <section
+                    class="numbered-section"
+                    id="purpose"
+                >
+                    <div class="numbered-section-heading">
+                        <span class="section-number">1</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Charter Authority
+                            </span>
+
+                            <h2>
+                                Purpose
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        This Project Charter formally establishes the RMF
+                        Prepare phase for the Foxhole Portal authorization
+                        effort. It documents the reason for initiating the
+                        project, identifies the expected outcomes, defines
+                        the initial scope, and establishes the governance
+                        structure under which Prepare phase activities will
+                        be performed.
+                    </p>
+
+                    <p>
+                        Approval of this charter provides the project team
+                        with organizational direction to coordinate
+                        stakeholders, collect system information, define the
+                        authorization approach, and develop the supporting
+                        Prepare phase documentation.
+                    </p>
+
+                    <aside class="definition-callout">
+                        <span class="definition-label">
+                            Charter Authority
+                        </span>
+
+                        <p>
+                            This document authorizes planning and
+                            documentation activities. It does not constitute
+                            an authorization decision or permit operational
+                            use of the system.
+                        </p>
+                    </aside>
+                </section>
+
+
+                <!-- BACKGROUND -->
+                <section
+                    class="numbered-section section-divider"
+                    id="background"
+                >
+                    <div class="numbered-section-heading">
+                        <span class="section-number">2</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                System Context
+                            </span>
+
+                            <h2>
+                                Project Background
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        Blue Fox Defense operates Foxhole Portal as an
+                        internal enterprise web application supporting
+                        routine employee and organizational business
+                        processes.
+                    </p>
+
+                    <p>
+                        The portal provides a centralized location for
+                        employees to access:
+                    </p>
+
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <span class="feature-number">01</span>
+                            <span>Human resources information</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-number">02</span>
+                            <span>Company policies and procedures</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-number">03</span>
+                            <span>Required employee training</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-number">04</span>
+                            <span>Employee self-service functions</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-number">05</span>
+                            <span>Internal announcements</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-number">06</span>
+                            <span>Organizational information</span>
+                        </div>
+
+                        <div class="feature-item feature-item-wide">
+                            <span class="feature-number">07</span>
+                            <span>Internal document repository</span>
+                        </div>
+                    </div>
+
+                    <p>
+                        Foxhole Portal has been identified as requiring a
+                        formal authorization effort under the Blue Fox
+                        Defense cybersecurity governance program. The
+                        project begins with the RMF Prepare phase to
+                        establish the organizational, technical, and
+                        administrative foundation required for later
+                        lifecycle activities.
+                    </p>
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 5</span>
+            </footer>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 6: BUSINESS NEED AND OBJECTIVES
+        ====================================================== -->
+        <section class="document-page">
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <!-- BUSINESS NEED -->
+                <section
+                    class="numbered-section"
+                    id="business-need"
+                >
+                    <div class="numbered-section-heading">
+                        <span class="section-number">3</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Authorization Driver
+                            </span>
+
+                            <h2>
+                                Business Need
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        Foxhole Portal supports business functions used
+                        across Blue Fox Defense and provides employees with
+                        access to internal resources and organizational
+                        information. A formal authorization effort is needed
+                        to ensure that cybersecurity risk is identified,
+                        documented, evaluated, and communicated through an
+                        established governance process.
+                    </p>
+
+                    <p>
+                        Completing the RMF process will provide Blue Fox
+                        Defense leadership with the information needed to
+                        make a risk-based authorization decision regarding
+                        the operation of Foxhole Portal.
+                    </p>
+
+                    <div class="business-drivers">
+                        <div class="driver-item">
+                            <span class="driver-icon">G</span>
+
+                            <div>
+                                <strong>Governance</strong>
+                                <p>
+                                    Establish accountable oversight for
+                                    system cybersecurity risk.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="driver-item">
+                            <span class="driver-icon">R</span>
+
+                            <div>
+                                <strong>Risk Visibility</strong>
+                                <p>
+                                    Provide leadership with documented
+                                    information supporting risk decisions.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="driver-item">
+                            <span class="driver-icon">A</span>
+
+                            <div>
+                                <strong>Authorization</strong>
+                                <p>
+                                    Prepare the system for a formal
+                                    Authorization to Operate decision.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- OBJECTIVES -->
+                <section
+                    class="numbered-section section-divider"
+                    id="objectives"
+                >
+                    <div class="numbered-section-heading">
+                        <span class="section-number">4</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Intended Outcomes
+                            </span>
+
+                            <h2>
+                                Project Objectives
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        The objectives of the Foxhole Portal RMF Prepare
+                        phase are to:
+                    </p>
+
+                    <ol class="objective-list">
+                        <li>
+                            <span class="objective-number">01</span>
+
+                            <span>
+                                Formally initiate the Foxhole Portal
+                                authorization effort.
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="objective-number">02</span>
+
+                            <span>
+                                Establish executive sponsorship and project
+                                governance.
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="objective-number">03</span>
+
+                            <span>
+                                Identify participating stakeholders and
+                                responsible organizational functions.
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="objective-number">04</span>
+
+                            <span>
+                                Develop an accurate initial description of
+                                the system and its operating environment.
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="objective-number">05</span>
+
+                            <span>
+                                Define the proposed authorization boundary
+                                and supporting authorization strategy.
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="objective-number">06</span>
+
+                            <span>
+                                Identify information types processed,
+                                stored, or transmitted by the system.
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="objective-number">07</span>
+
+                            <span>
+                                Produce the planning artifacts needed to
+                                conclude the Prepare phase.
+                            </span>
+                        </li>
+                    </ol>
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 6</span>
+            </footer>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 7: SCOPE
+        ====================================================== -->
+        <section
+            class="document-page"
+            id="scope"
+        >
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <section class="numbered-section">
+
+                    <div class="numbered-section-heading">
+                        <span class="section-number">5</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Project Boundaries
+                            </span>
+
+                            <h2>
+                                Project Scope
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        This charter applies to the planning, coordination,
+                        and documentation activities conducted during the
+                        RMF Prepare phase for Foxhole Portal.
+                    </p>
+
+                    <div class="scope-comparison">
+
+                        <div class="scope-panel scope-panel-in">
+
+                            <div class="scope-panel-heading">
+                                <span class="scope-symbol">✓</span>
+
+                                <div>
+                                    <span class="scope-label">
+                                        Included
+                                    </span>
+
+                                    <h3>
+                                        In Scope
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <ul class="check-list">
+                                <li>Formal project initiation</li>
+                                <li>Executive sponsorship</li>
+                                <li>Prepare phase project planning</li>
+                                <li>Stakeholder identification</li>
+                                <li>Responsibility assignment</li>
+                                <li>System information collection</li>
+                                <li>System description development</li>
+                                <li>Authorization boundary planning</li>
+                                <li>Information type identification</li>
+                                <li>Authorization strategy development</li>
+                                <li>Prepare phase meeting documentation</li>
+                            </ul>
+
+                        </div>
+
+                        <div class="scope-panel scope-panel-out">
+
+                            <div class="scope-panel-heading">
+                                <span class="scope-symbol">—</span>
+
+                                <div>
+                                    <span class="scope-label">
+                                        Excluded
+                                    </span>
+
+                                    <h3>
+                                        Out of Scope
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <ul class="dash-list">
+                                <li>Final security categorization</li>
+                                <li>Security control selection</li>
+                                <li>Control tailoring</li>
+                                <li>Control implementation</li>
+                                <li>Security assessment activities</li>
+                                <li>Plan of Action and Milestones development</li>
+                                <li>Authorization decision</li>
+                                <li>Continuous monitoring execution</li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <aside class="information-callout">
+                        <div class="callout-icon">i</div>
+
+                        <div>
+                            <p class="callout-title">
+                                Scope Control
+                            </p>
+
+                            <p>
+                                Changes that materially affect the purpose,
+                                ownership, operating environment, or
+                                proposed authorization boundary of Foxhole
+                                Portal require review by the System Owner
+                                and coordination with the ISSM.
+                            </p>
+                        </div>
+                    </aside>
+
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 7</span>
+            </footer>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 8: GOVERNANCE AND ASSUMPTIONS
+        ====================================================== -->
+        <section class="document-page">
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <!-- GOVERNANCE -->
+                <section
+                    class="numbered-section"
+                    id="governance"
+                >
+                    <div class="numbered-section-heading">
+                        <span class="section-number">6</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Oversight Structure
+                            </span>
+
+                            <h2>
+                                Project Governance
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        The Foxhole Portal authorization effort will be
+                        conducted under the direction of the System Owner.
+                        Cybersecurity governance and RMF oversight will be
+                        provided by the Information System Security Manager.
+                        Day-to-day RMF coordination will be performed by the
+                        Information System Security Officer with technical
+                        support from Systems Engineering and designated
+                        subject matter experts.
+                    </p>
+
+                    <div class="governance-flow">
+
+                        <div class="governance-node governance-node-primary">
+                            <span class="governance-level">
+                                Executive Direction
+                            </span>
+
+                            <strong>System Owner</strong>
+
+                            <p>
+                                Provides sponsorship, resources, direction,
+                                and approval.
+                            </p>
+                        </div>
+
+                        <div class="governance-connector"></div>
+
+                        <div class="governance-node">
+                            <span class="governance-level">
+                                Security Oversight
+                            </span>
+
+                            <strong>ISSM</strong>
+
+                            <p>
+                                Oversees cybersecurity governance and RMF
+                                alignment.
+                            </p>
+                        </div>
+
+                        <div class="governance-connector"></div>
+
+                        <div class="governance-row">
+
+                            <div class="governance-node">
+                                <span class="governance-level">
+                                    RMF Coordination
+                                </span>
+
+                                <strong>ISSO</strong>
+
+                                <p>
+                                    Coordinates activities, records, and
+                                    document reviews.
+                                </p>
+                            </div>
+
+                            <div class="governance-node">
+                                <span class="governance-level">
+                                    Technical Support
+                                </span>
+
+                                <strong>Systems Engineering</strong>
+
+                                <p>
+                                    Develops and validates technical
+                                    documentation.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <p class="supporting-reference">
+                        Detailed stakeholder information is maintained in
+                        BFD-PRE-002, Stakeholder Register. Responsibility
+                        assignments are maintained in BFD-PRE-006,
+                        Responsibility Matrix.
+                    </p>
+                </section>
+
+
+                <!-- ASSUMPTIONS -->
+                <section
+                    class="numbered-section section-divider"
+                    id="assumptions"
+                >
+                    <div class="numbered-section-heading">
+                        <span class="section-number">7</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Planning Basis
+                            </span>
+
+                            <h2>
+                                Assumptions
+                            </h2>
+                        </div>
+                    </div>
+
+                    <ul class="numbered-statement-list">
+                        <li>
+                            Executive sponsorship will remain available
+                            throughout the Prepare phase.
+                        </li>
+
+                        <li>
+                            Required stakeholders and subject matter experts
+                            will participate in scheduled planning and
+                            review activities.
+                        </li>
+
+                        <li>
+                            Existing technical and business documentation
+                            will be made available to the project team.
+                        </li>
+
+                        <li>
+                            Information provided by business owners and
+                            technical personnel accurately represents the
+                            current operating environment.
+                        </li>
+
+                        <li>
+                            No major system redesign is expected during the
+                            Prepare phase.
+                        </li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 8</span>
+            </footer>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 9: CONSTRAINTS AND SUCCESS CRITERIA
+        ====================================================== -->
+        <section class="document-page">
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <!-- CONSTRAINTS -->
+                <section
+                    class="numbered-section"
+                    id="constraints"
+                >
+                    <div class="numbered-section-heading">
+                        <span class="section-number">8</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Project Limitations
+                            </span>
+
+                            <h2>
+                                Constraints
+                            </h2>
+                        </div>
+                    </div>
+
+                    <table class="professional-table">
+                        <thead>
+                            <tr>
+                                <th>Constraint</th>
+                                <th>Potential Effect</th>
+                                <th>Management Approach</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Stakeholder availability</td>
+                                <td>
+                                    Delays in interviews, reviews, or
+                                    decisions
+                                </td>
+                                <td>
+                                    Schedule working sessions and reviews in
+                                    advance.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Source documentation quality</td>
+                                <td>
+                                    Incomplete or inaccurate project
+                                    artifacts
+                                </td>
+                                <td>
+                                    Validate information with responsible
+                                    technical and business personnel.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Scope changes</td>
+                                <td>
+                                    Rework or changes to the planned
+                                    authorization approach
+                                </td>
+                                <td>
+                                    Require System Owner review before
+                                    incorporating material changes.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Prepare phase limitation</td>
+                                <td>
+                                    Later RMF decisions cannot be finalized
+                                    under this project scope
+                                </td>
+                                <td>
+                                    Clearly identify items requiring
+                                    resolution during later RMF phases.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+
+                <!-- SUCCESS CRITERIA -->
+                <section
+                    class="numbered-section section-divider"
+                    id="success-criteria"
+                >
+                    <div class="numbered-section-heading">
+                        <span class="section-number">9</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Completion Conditions
+                            </span>
+
+                            <h2>
+                                Success Criteria
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        The project will be considered ready to conclude the
+                        Prepare phase when the following conditions have
+                        been met:
+                    </p>
+
+                    <div class="criteria-grid">
+
+                        <div class="criteria-item">
+                            <span class="criteria-check">✓</span>
+                            <span>
+                                Executive sponsorship and governance are
+                                established.
+                            </span>
+                        </div>
+
+                        <div class="criteria-item">
+                            <span class="criteria-check">✓</span>
+                            <span>
+                                Required stakeholders are identified.
+                            </span>
+                        </div>
+
+                        <div class="criteria-item">
+                            <span class="criteria-check">✓</span>
+                            <span>
+                                Roles and responsibilities are documented.
+                            </span>
+                        </div>
+
+                        <div class="criteria-item">
+                            <span class="criteria-check">✓</span>
+                            <span>
+                                The initial system description is complete.
+                            </span>
+                        </div>
+
+                        <div class="criteria-item">
+                            <span class="criteria-check">✓</span>
+                            <span>
+                                The proposed authorization boundary is
+                                documented.
+                            </span>
+                        </div>
+
+                        <div class="criteria-item">
+                            <span class="criteria-check">✓</span>
+                            <span>
+                                Information types are identified and
+                                inventoried.
+                            </span>
+                        </div>
+
+                        <div class="criteria-item">
+                            <span class="criteria-check">✓</span>
+                            <span>
+                                The authorization strategy is documented.
+                            </span>
+                        </div>
+
+                        <div class="criteria-item">
+                            <span class="criteria-check">✓</span>
+                            <span>
+                                Prepare phase artifacts have completed
+                                internal review.
+                            </span>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 9</span>
+            </footer>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 10: DELIVERABLES
+        ====================================================== -->
+        <section
+            class="document-page"
+            id="deliverables"
+        >
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <section class="numbered-section">
+
+                    <div class="numbered-section-heading">
+                        <span class="section-number">10</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Required Artifacts
+                            </span>
+
+                            <h2>
+                                Prepare Phase Deliverables
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        The Foxhole Portal Prepare phase will produce the
+                        following controlled documents. Each artifact
+                        supports a distinct planning or governance
+                        requirement and will be maintained as part of the
+                        authorization record.
+                    </p>
+
+                    <div class="deliverable-list">
+
+                        <article class="deliverable-item">
+                            <span class="deliverable-id">BFD-PRE-001</span>
+
+                            <div>
+                                <h3>Project Charter</h3>
+                                <p>
+                                    Establishes the project, scope,
+                                    objectives, governance, and authorization
+                                    to begin Prepare phase activities.
+                                </p>
+                            </div>
+
+                            <span class="deliverable-status">
+                                Current Document
+                            </span>
+                        </article>
+
+                        <article class="deliverable-item">
+                            <span class="deliverable-id">BFD-PRE-002</span>
+
+                            <div>
+                                <h3>Stakeholder Register</h3>
+                                <p>
+                                    Identifies participating personnel,
+                                    organizations, roles, interests, and
+                                    communication requirements.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="deliverable-item">
+                            <span class="deliverable-id">BFD-PRE-003</span>
+
+                            <div>
+                                <h3>System Description</h3>
+                                <p>
+                                    Documents the system purpose, users,
+                                    capabilities, environment, and major
+                                    components.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="deliverable-item">
+                            <span class="deliverable-id">BFD-PRE-004</span>
+
+                            <div>
+                                <h3>Authorization Boundary Diagram</h3>
+                                <p>
+                                    Visually represents the proposed system
+                                    boundary, major components, connections,
+                                    and external dependencies.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="deliverable-item">
+                            <span class="deliverable-id">BFD-PRE-005</span>
+
+                            <div>
+                                <h3>Information Type Inventory</h3>
+                                <p>
+                                    Identifies the information processed,
+                                    stored, or transmitted by Foxhole Portal.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="deliverable-item">
+                            <span class="deliverable-id">BFD-PRE-006</span>
+
+                            <div>
+                                <h3>Responsibility Matrix</h3>
+                                <p>
+                                    Documents responsible, accountable,
+                                    consulted, and informed parties for
+                                    Prepare phase activities.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="deliverable-item">
+                            <span class="deliverable-id">BFD-PRE-007</span>
+
+                            <div>
+                                <h3>Authorization Strategy</h3>
+                                <p>
+                                    Establishes the proposed authorization
+                                    approach, dependencies, assumptions, and
+                                    coordination requirements.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="deliverable-item">
+                            <span class="deliverable-id">BFD-PRE-008</span>
+
+                            <div>
+                                <h3>Meeting Minutes</h3>
+                                <p>
+                                    Records decisions, actions, issues, and
+                                    stakeholder coordination conducted
+                                    during Prepare.
+                                </p>
+                            </div>
+                        </article>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 10</span>
+            </footer>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 11: MILESTONES
+        ====================================================== -->
+        <section
+            class="document-page"
+            id="milestones"
+        >
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <section class="numbered-section">
+
+                    <div class="numbered-section-heading">
+                        <span class="section-number">11</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Project Sequence
+                            </span>
+
+                            <h2>
+                                Project Milestones
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        Prepare phase activities will be managed using the
+                        following high-level milestone sequence. Specific
+                        meeting dates and action items will be tracked
+                        separately in the project schedule and meeting
+                        minutes.
+                    </p>
+
+                    <div class="milestone-timeline">
+
+                        <article class="milestone-item">
+                            <div class="milestone-marker">
+                                <span>01</span>
+                            </div>
+
+                            <div class="milestone-content">
+                                <span class="milestone-phase">
+                                    Initiation
+                                </span>
+
+                                <h3>Project Charter Approval</h3>
+
+                                <p>
+                                    Establish executive sponsorship,
+                                    project scope, and authority to begin
+                                    Prepare phase activities.
+                                </p>
+
+                                <span class="milestone-output">
+                                    Output: Approved Project Charter
+                                </span>
+                            </div>
+                        </article>
+
+                        <article class="milestone-item">
+                            <div class="milestone-marker">
+                                <span>02</span>
+                            </div>
+
+                            <div class="milestone-content">
+                                <span class="milestone-phase">
+                                    Coordination
+                                </span>
+
+                                <h3>RMF Kickoff Meeting</h3>
+
+                                <p>
+                                    Confirm project expectations,
+                                    stakeholders, working methods, and
+                                    documentation requirements.
+                                </p>
+
+                                <span class="milestone-output">
+                                    Output: Kickoff Meeting Record
+                                </span>
+                            </div>
+                        </article>
+
+                        <article class="milestone-item">
+                            <div class="milestone-marker">
+                                <span>03</span>
+                            </div>
+
+                            <div class="milestone-content">
+                                <span class="milestone-phase">
+                                    Discovery
+                                </span>
+
+                                <h3>Information Collection</h3>
+
+                                <p>
+                                    Conduct business and technical discovery
+                                    activities required to establish the
+                                    initial system baseline.
+                                </p>
+
+                                <span class="milestone-output">
+                                    Output: Validated Planning Information
+                                </span>
+                            </div>
+                        </article>
+
+                        <article class="milestone-item">
+                            <div class="milestone-marker">
+                                <span>04</span>
+                            </div>
+
+                            <div class="milestone-content">
+                                <span class="milestone-phase">
+                                    Documentation
+                                </span>
+
+                                <h3>Artifact Development</h3>
+
+                                <p>
+                                    Develop, review, and update all required
+                                    Prepare phase documents.
+                                </p>
+
+                                <span class="milestone-output">
+                                    Output: Draft Prepare Package
+                                </span>
+                            </div>
+                        </article>
+
+                        <article class="milestone-item">
+                            <div class="milestone-marker">
+                                <span>05</span>
+                            </div>
+
+                            <div class="milestone-content">
+                                <span class="milestone-phase">
+                                    Review
+                                </span>
+
+                                <h3>Prepare Phase Review</h3>
+
+                                <p>
+                                    Resolve comments, confirm deliverable
+                                    completeness, and document outstanding
+                                    issues.
+                                </p>
+
+                                <span class="milestone-output">
+                                    Output: Reviewed Prepare Package
+                                </span>
+                            </div>
+                        </article>
+
+                        <article class="milestone-item">
+                            <div class="milestone-marker">
+                                <span>06</span>
+                            </div>
+
+                            <div class="milestone-content">
+                                <span class="milestone-phase">
+                                    Completion
+                                </span>
+
+                                <h3>Prepare Phase Closeout</h3>
+
+                                <p>
+                                    Obtain acceptance of Prepare artifacts
+                                    and confirm readiness for the next RMF
+                                    activity.
+                                </p>
+
+                                <span class="milestone-output">
+                                    Output: Prepare Phase Completion Record
+                                </span>
+                            </div>
+                        </article>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 11</span>
+            </footer>
+
+        </section>
+
+
+        <!-- =====================================================
+             PAGE 12: APPROVAL AND REFERENCES
+        ====================================================== -->
+        <section class="document-page">
+
+            <header class="page-header">
+                <div>
+                    <span class="header-company">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="header-program">
+                        Enterprise Cybersecurity Program
+                    </span>
+                </div>
+
+                <div class="header-document">
+                    <span>Foxhole Portal</span>
+                    <span>BFD-PRE-001</span>
+                    <span>Version 1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <!-- APPROVAL -->
+                <section
+                    class="numbered-section"
+                    id="approval"
+                >
+                    <div class="numbered-section-heading">
+                        <span class="section-number">12</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Formal Acceptance
+                            </span>
+
+                            <h2>
+                                Approval
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p>
+                        Approval of this Project Charter authorizes the Blue
+                        Fox Defense project team to initiate and perform the
+                        RMF Prepare phase activities described in this
+                        document for Foxhole Portal.
+                    </p>
+
+                    <div class="approval-callout">
+                        <span class="approval-callout-label">
+                            Approval Statement
+                        </span>
+
+                        <p>
+                            By signing below, the approving officials
+                            acknowledge the project purpose, scope,
+                            governance structure, planned deliverables, and
+                            responsibilities established by this charter.
+                        </p>
+                    </div>
+
+                    <div class="signature-grid">
+
+                        <div class="signature-block">
+                            <div class="signature-line"></div>
+                            <strong>System Owner</strong>
+                            <span>Signature</span>
+
+                            <div class="signature-details">
+                                <span>Name: __________________________</span>
+                                <span>Date: __________________________</span>
+                            </div>
+                        </div>
+
+                        <div class="signature-block">
+                            <div class="signature-line"></div>
+                            <strong>
+                                Information System Security Manager
+                            </strong>
+                            <span>Signature</span>
+
+                            <div class="signature-details">
+                                <span>Name: __________________________</span>
+                                <span>Date: __________________________</span>
+                            </div>
+                        </div>
+
+                        <div class="signature-block">
+                            <div class="signature-line"></div>
+                            <strong>Systems Engineering Lead</strong>
+                            <span>Signature</span>
+
+                            <div class="signature-details">
+                                <span>Name: __________________________</span>
+                                <span>Date: __________________________</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <!-- APPENDIX -->
+                <section
+                    class="numbered-section appendix-section section-divider"
+                    id="appendix-a"
+                >
+                    <div class="numbered-section-heading">
+                        <span class="section-number">A</span>
+
+                        <div>
+                            <span class="section-kicker">
+                                Supporting Material
+                            </span>
+
+                            <h2>
+                                Referenced Documents
+                            </h2>
+                        </div>
+                    </div>
+
+                    <table class="professional-table">
+                        <thead>
+                            <tr>
+                                <th>Reference</th>
+                                <th>Title</th>
+                                <th>Relationship to This Charter</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>BFD-PRE-002</td>
+                                <td>Stakeholder Register</td>
+                                <td>
+                                    Identifies project participants and
+                                    communication requirements.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>BFD-PRE-003</td>
+                                <td>System Description</td>
+                                <td>
+                                    Provides detailed system and operating
+                                    environment information.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>BFD-PRE-006</td>
+                                <td>Responsibility Matrix</td>
+                                <td>
+                                    Defines project accountability and
+                                    participation.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>BFD-PRE-007</td>
+                                <td>Authorization Strategy</td>
+                                <td>
+                                    Documents the planned authorization
+                                    approach.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>UNCLASSIFIED // FOR OFFICIAL USE</span>
+                <span>Blue Fox Defense</span>
+                <span>Page 12</span>
+            </footer>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

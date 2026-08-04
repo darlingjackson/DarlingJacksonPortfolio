@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <!-- =========================================================
+         BLUE FOX DEFENSE
+         ENTERPRISE SECURITY COMPLIANCE LAB
+
+         PAGE:
+         Prepare Document Library
+
+         Page Location:
+         labs/rmf/documentation/prepare/prepare-library.html
+
+         PDF Location:
+         labs/rmf/documentation/prepare/pdfs/
+
+         Shared Styles:
+         ../../css/security-lab.css
+         ../../css/phase.css
+         ../../css/docs.css
+
+         Shared JavaScript:
+         ../../js/security-lab.js
+         ../../js/phase.js
+         ../../js/documentation.js
+    ========================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Review the Blue Fox Defense Prepare phase artifacts supporting the Foxhole Portal authorization effort."
+    >
+
+    <meta
+        name="author"
+        content="Darling Jackson"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050812"
+    >
+
+    <title>
+        Prepare Document Library | Blue Fox Defense Security Lab
+    </title>
+
+
+    <!--
+        Apply the saved theme before the page becomes visible.
+        This helps prevent a flash between dark and light mode.
+    -->
+    <script>
+        (() => {
+            const savedTheme =
+                localStorage.getItem("bfd-theme");
+
+            const systemPrefersLight =
+                window.matchMedia(
+                    "(prefers-color-scheme: light)"
+                ).matches;
+
+            const initialTheme =
+                savedTheme ||
+                (systemPrefersLight ? "light" : "dark");
+
+            document.documentElement.setAttribute(
+                "data-theme",
+                initialTheme
+            );
+        })();
+    </script>
+
+
+    <!-- Shared Security Lab Styles -->
+    <link
+        rel="stylesheet"
+        href="../../css/security-lab.css"
+    >
+
+
+    <!-- Shared RMF Phase Styles -->
+    <link
+        rel="stylesheet"
+        href="../../css/phase.css"
+    >
+
+
+    <!-- Shared Documentation Styles -->
+    <link
+        rel="stylesheet"
+        href="../../css/docs.css"
+    >
+
+
+    <!-- Shared Security Lab JavaScript -->
+    <script
+        src="../../js/security-lab.js"
+        defer
+    ></script>
+
+
+    <!-- Shared RMF Phase JavaScript -->
+    <script
+        src="../../js/phase.js"
+        defer
+    ></script>
+
+
+    <!-- Shared Documentation JavaScript -->
+    <script
+        src="../../js/documentation.js"
+        defer
+    ></script>
+</head>
+
+
+<body
+    data-current-phase="prepare"
+    data-current-document="prepare-library"
+>
+
+    <!-- =========================================================
+         ACCESSIBILITY
+    ========================================================== -->
+
+    <a
+        class="skip-link"
+        href="#document-viewer"
+    >
+        Skip to document viewer
+    </a>
+
+
+    <!-- =========================================================
+         GLOBAL SECURITY LAB HEADER
+    ========================================================== -->
+
+    <header
+        class="site-header"
+        data-site-header
+    >
+        <div class="site-header__inner site-container">
+
+            <!-- Lab Brand -->
+            <a
+                class="site-brand"
+                href="../../index.html"
+                aria-label="Blue Fox Defense Enterprise Security Compliance Lab home"
+            >
+                <span
+                    class="site-brand__mark"
+                    aria-hidden="true"
+                >
+                    <img
+                        class="site-brand__logo"
+                        src="../../assets/images/blue-fox-logo.png"
+                        alt=""
+                    >
+                </span>
+
+                <span class="site-brand__content">
+                    <span class="site-brand__name">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="site-brand__descriptor">
+                        Enterprise Security Compliance Lab
+                    </span>
+                </span>
+            </a>
+
+
+            <!-- Desktop Navigation -->
+            <nav
+                class="site-nav"
+                aria-label="Document library navigation"
+            >
+                <a
+                    class="site-nav__link"
+                    href="../../index.html"
+                >
+                    RMF Lab
+                </a>
+
+                <a
+                    class="site-nav__link"
+                    href="../../prepare.html"
+                >
+                    Prepare
+                </a>
+
+                <a
+                    class="site-nav__link is-active"
+                    href="prepare-library.html"
+                    aria-current="page"
+                >
+                    Documentation
+                </a>
+
+                <a
+                    class="site-nav__link"
+                    href="../../../../index.html"
+                >
+                    Portfolio
+                </a>
+            </nav>
+
+
+            <!-- Header Controls -->
+            <div class="site-header__actions">
+
+                <!-- Theme Toggle -->
+                <button
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Switch to light mode"
+                    aria-pressed="false"
+                    data-theme-toggle
+                >
+                    <span
+                        class="theme-toggle__track"
+                        aria-hidden="true"
+                    >
+                        <span
+                            class="theme-toggle__icon theme-toggle__icon--sun"
+                        >
+                            <svg viewBox="0 0 24 24">
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="3.5"
+                                ></circle>
+
+                                <path d="M12 2v2"></path>
+                                <path d="M12 20v2"></path>
+                                <path d="m4.93 4.93 1.42 1.42"></path>
+                                <path d="m17.65 17.65 1.42 1.42"></path>
+                                <path d="M2 12h2"></path>
+                                <path d="M20 12h2"></path>
+                                <path d="m4.93 19.07 1.42-1.42"></path>
+                                <path d="m17.65 6.35 1.42-1.42"></path>
+                            </svg>
+                        </span>
+
+                        <span class="theme-toggle__thumb"></span>
+
+                        <span
+                            class="theme-toggle__icon theme-toggle__icon--moon"
+                        >
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"
+                                ></path>
+                            </svg>
+                        </span>
+                    </span>
+                </button>
+
+
+                <!-- Mobile Menu Toggle -->
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-navigation"
+                    data-menu-toggle
+                >
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Mobile Navigation -->
+        <div
+            class="mobile-nav"
+            id="mobile-navigation"
+            data-mobile-nav
+        >
+            <nav
+                class="mobile-nav__inner site-container"
+                aria-label="Mobile document library navigation"
+            >
+                <a
+                    class="mobile-nav__link"
+                    href="../../index.html"
+                >
+                    RMF Lab
+                </a>
+
+                <a
+                    class="mobile-nav__link"
+                    href="../../prepare.html"
+                >
+                    Prepare
+                </a>
+
+                <a
+                    class="mobile-nav__link is-active"
+                    href="prepare-library.html"
+                    aria-current="page"
+                >
+                    Documentation
+                </a>
+
+                <a
+                    class="mobile-nav__link"
+                    href="../../../../index.html"
+                >
+                    Portfolio
+                </a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =========================================================
+         PDF DOCUMENT LIBRARY
+    ========================================================== -->
+
+    <main
+        class="pdf-library"
+        id="document-viewer"
+    >
+        <div class="pdf-library__layout site-container">
+
+            <!-- =================================================
+                 PREPARE DOCUMENT SIDEBAR
+            ================================================== -->
+
+            <aside
+                class="pdf-library__sidebar"
+                aria-label="Prepare document library"
+            >
+                <div class="pdf-library__sidebar-header">
+                    <p class="document-sidebar__eyebrow">
+                        RMF Phase 01
+                    </p>
+
+                    <h1 class="document-sidebar__title">
+                        Prepare Documents
+                    </h1>
+
+                    <p class="document-sidebar__summary">
+                        Select an artifact to review it directly in the
+                        document viewer.
+                    </p>
+                </div>
+
+
+                <nav
+                    class="document-library-nav"
+                    aria-label="Prepare artifact navigation"
+                >
+
+                    <!-- 001 Project Charter -->
+                    <a
+                        class="document-library-nav__link is-active"
+                        href="pdfs/project-charter.pdf"
+                        data-pdf-document
+                        data-document-id="BFD-PRE-001"
+                        data-document-name="Project Charter"
+                        aria-current="page"
+                    >
+                        <span class="document-library-nav__number">
+                            001
+                        </span>
+
+                        <span class="document-library-nav__content">
+                            <span class="document-library-nav__name">
+                                Project Charter
+                            </span>
+
+                            <span class="document-library-nav__type">
+                                Governance
+                            </span>
+                        </span>
+                    </a>
+
+
+                    <!-- 002 Stakeholder Register -->
+                    <a
+                        class="document-library-nav__link"
+                        href="pdfs/stakeholder-register.pdf"
+                        data-pdf-document
+                        data-document-id="BFD-PRE-002"
+                        data-document-name="Stakeholder Register"
+                    >
+                        <span class="document-library-nav__number">
+                            002
+                        </span>
+
+                        <span class="document-library-nav__content">
+                            <span class="document-library-nav__name">
+                                Stakeholder Register
+                            </span>
+
+                            <span class="document-library-nav__type">
+                                Governance
+                            </span>
+                        </span>
+                    </a>
+
+
+                    <!-- 003 System Description -->
+                    <a
+                        class="document-library-nav__link"
+                        href="pdfs/system-description.pdf"
+                        data-pdf-document
+                        data-document-id="BFD-PRE-003"
+                        data-document-name="System Description"
+                    >
+                        <span class="document-library-nav__number">
+                            003
+                        </span>
+
+                        <span class="document-library-nav__content">
+                            <span class="document-library-nav__name">
+                                System Description
+                            </span>
+
+                            <span class="document-library-nav__type">
+                                System
+                            </span>
+                        </span>
+                    </a>
+
+
+                    <!-- 004 Authorization Boundary -->
+                    <a
+                        class="document-library-nav__link"
+                        href="pdfs/authorization-boundary.pdf"
+                        data-pdf-document
+                        data-document-id="BFD-PRE-004"
+                        data-document-name="Authorization Boundary"
+                    >
+                        <span class="document-library-nav__number">
+                            004
+                        </span>
+
+                        <span class="document-library-nav__content">
+                            <span class="document-library-nav__name">
+                                Authorization Boundary
+                            </span>
+
+                            <span class="document-library-nav__type">
+                                Architecture
+                            </span>
+                        </span>
+                    </a>
+
+
+                    <!-- 005 Information Type Inventory -->
+                    <a
+                        class="document-library-nav__link"
+                        href="pdfs/information-type-inventory.pdf"
+                        data-pdf-document
+                        data-document-id="BFD-PRE-005"
+                        data-document-name="Information Type Inventory"
+                    >
+                        <span class="document-library-nav__number">
+                            005
+                        </span>
+
+                        <span class="document-library-nav__content">
+                            <span class="document-library-nav__name">
+                                Information Type Inventory
+                            </span>
+
+                            <span class="document-library-nav__type">
+                                Information
+                            </span>
+                        </span>
+                    </a>
+
+
+                    <!-- 006 Responsibility Matrix -->
+                    <a
+                        class="document-library-nav__link"
+                        href="pdfs/responsibility-matrix.pdf"
+                        data-pdf-document
+                        data-document-id="BFD-PRE-006"
+                        data-document-name="Responsibility Matrix"
+                    >
+                        <span class="document-library-nav__number">
+                            006
+                        </span>
+
+                        <span class="document-library-nav__content">
+                            <span class="document-library-nav__name">
+                                Responsibility Matrix
+                            </span>
+
+                            <span class="document-library-nav__type">
+                                Governance
+                            </span>
+                        </span>
+                    </a>
+
+
+                    <!-- 007 Authorization Strategy -->
+                    <a
+                        class="document-library-nav__link"
+                        href="pdfs/authorization-strategy.pdf"
+                        data-pdf-document
+                        data-document-id="BFD-PRE-007"
+                        data-document-name="Authorization Strategy"
+                    >
+                        <span class="document-library-nav__number">
+                            007
+                        </span>
+
+                        <span class="document-library-nav__content">
+                            <span class="document-library-nav__name">
+                                Authorization Strategy
+                            </span>
+
+                            <span class="document-library-nav__type">
+                                Strategy
+                            </span>
+                        </span>
+                    </a>
+
+
+                    <!-- 008 Meeting Minutes -->
+                    <a
+                        class="document-library-nav__link"
+                        href="pdfs/meeting-minutes.pdf"
+                        data-pdf-document
+                        data-document-id="BFD-PRE-008"
+                        data-document-name="Meeting Minutes"
+                    >
+                        <span class="document-library-nav__number">
+                            008
+                        </span>
+
+                        <span class="document-library-nav__content">
+                            <span class="document-library-nav__name">
+                                Meeting Minutes
+                            </span>
+
+                            <span class="document-library-nav__type">
+                                Project Record
+                            </span>
+                        </span>
+                    </a>
+                </nav>
+            </aside>
+
+
+            <!-- =================================================
+                 MAIN PDF VIEWER
+            ================================================== -->
+
+            <section
+                class="pdf-viewer"
+                aria-labelledby="active-document-title"
+            >
+
+                <!-- Viewer Header -->
+                <header class="pdf-viewer__toolbar">
+                    <div class="pdf-viewer__identity">
+                        <p class="pdf-viewer__eyebrow">
+                            Prepare Document Library
+                        </p>
+
+                        <div class="pdf-viewer__title-row">
+                            <h2
+                                class="pdf-viewer__title"
+                                id="active-document-title"
+                                data-active-document-title
+                            >
+                                Project Charter
+                            </h2>
+
+                            <span
+                                class="pdf-viewer__document-id"
+                                data-active-document-id
+                            >
+                                BFD-PRE-001
+                            </span>
+                        </div>
+                    </div>
+                </header>
+
+
+                <!-- Embedded Browser PDF Viewer -->
+                <div class="pdf-viewer__frame-shell">
+                    <iframe
+                        class="pdf-viewer__frame"
+                        src="pdfs/project-charter.pdf"
+                        title="Project Charter PDF"
+                        data-pdf-frame
+                    >
+                        <p>
+                            Your browser cannot display this PDF.
+
+                            <a href="pdfs/project-charter.pdf">
+                                Open the Project Charter PDF.
+                            </a>
+                        </p>
+                    </iframe>
+                </div>
+
+
+                <!-- Document Navigation -->
+                <nav
+                    class="pdf-viewer__pagination"
+                    aria-label="Prepare document navigation"
+                >
+                    <a
+                        class="pdf-viewer__pagination-link"
+                        href="../../prepare.html#prepare-deliverables"
+                    >
+                        <span class="pdf-viewer__pagination-direction">
+                            Back to
+                        </span>
+
+                        <strong>
+                            Prepare Artifacts
+                        </strong>
+                    </a>
+
+
+                    <button
+                        class="pdf-viewer__pagination-link pdf-viewer__pagination-link--next"
+                        type="button"
+                        data-next-document
+                    >
+                        <span class="pdf-viewer__pagination-direction">
+                            Next Document
+                        </span>
+
+                        <strong data-next-document-name>
+                            Stakeholder Register
+                        </strong>
+                    </button>
+                </nav>
+            </section>
+        </div>
+    </main>
+
+
+    <!-- =========================================================
+         GLOBAL FOOTER
+    ========================================================== -->
+
+    <footer class="site-footer">
+        <div class="site-footer__inner site-container">
+
+            <!-- Footer Brand -->
+            <div class="site-footer__brand">
+                <a
+                    class="site-brand site-brand--footer"
+                    href="../../index.html"
+                    aria-label="Blue Fox Defense Enterprise Security Compliance Lab home"
+                >
+                    <span
+                        class="site-brand__mark"
+                        aria-hidden="true"
+                    >
+                        <img
+                            class="site-brand__logo"
+                            src="../../assets/images/blue-fox-logo.png"
+                            alt=""
+                        >
+                    </span>
+
+                    <span class="site-brand__content">
+                        <span class="site-brand__name">
+                            Blue Fox Defense
+                        </span>
+
+                        <span class="site-brand__descriptor">
+                            Enterprise Security Compliance Lab
+                        </span>
+                    </span>
+                </a>
+
+                <p class="site-footer__description">
+                    A fictional enterprise case study demonstrating the NIST
+                    Risk Management Framework through the authorization
+                    lifecycle of the Foxhole Portal.
+                </p>
+            </div>
+
+
+            <!-- Footer Navigation -->
+            <div class="site-footer__navigation">
+
+                <div class="site-footer__group">
+                    <p class="site-footer__heading">
+                        RMF Lab
+                    </p>
+
+                    <a href="../../index.html">
+                        Lab Home
+                    </a>
+
+                    <a href="../../prepare.html">
+                        Prepare
+                    </a>
+
+                    <a href="prepare-library.html">
+                        Documentation
+                    </a>
+                </div>
+
+
+                <div class="site-footer__group">
+                    <p class="site-footer__heading">
+                        RMF Lifecycle
+                    </p>
+
+                    <a href="../../categorize.html">
+                        Categorize
+                    </a>
+
+                    <a href="../../select.html">
+                        Select
+                    </a>
+
+                    <a href="../../implement.html">
+                        Implement
+                    </a>
+
+                    <a href="../../assess.html">
+                        Assess
+                    </a>
+                </div>
+
+
+                <div class="site-footer__group">
+                    <p class="site-footer__heading">
+                        Portfolio
+                    </p>
+
+                    <a href="../../../../index.html">
+                        Main Portfolio
+                    </a>
+
+                    <a href="../../../../resume.html">
+                        Resume
+                    </a>
+
+                    <a href="../../../../index.html#projects">
+                        Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="site-footer__bottom">
+            <div class="site-container site-footer__bottom-inner">
+                <p>
+                    ©
+                    <span data-current-year>
+                        2026
+                    </span>
+                    Darling Jackson. Built as a professional portfolio project.
+                </p>
+
+                <p>
+                    Blue Fox Defense and Foxhole Portal are fictional.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================== -->
+
+    <button
+        class="back-to-top"
+        type="button"
+        aria-label="Back to the top of the page"
+        data-back-to-top
+    >
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
+            <path d="m6 15 6-6 6 6"></path>
+        </svg>
+    </button>
+
+</body>
+
+</html>

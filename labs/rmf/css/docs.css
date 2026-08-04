@@ -1,0 +1,1037 @@
+/*==============================================================
+BLUE FOX DEFENSE
+ENTERPRISE SECURITY COMPLIANCE LAB
+
+RMF DOCUMENT VIEWER
+
+---------------------------------------------------------------
+Used by:
+
+• Prepare Document Library
+• Categorize Document Library
+• Select Document Library
+• Implement Document Library
+• Assess Document Library
+• Authorize Document Library
+• Monitor Document Library
+
+This stylesheet is only responsible for the RMF PDF
+document-library experience.
+==============================================================*/
+
+
+/*==============================================================
+TABLE OF CONTENTS
+
+01. Viewer Page Foundation
+02. Main Viewer Layout
+03. Document Library Sidebar
+04. Document Navigation
+05. PDF Viewer Shell
+06. Viewer Toolbar
+07. Embedded PDF Frame
+08. Bottom Document Navigation
+09. Footer Refinements
+10. Focus and Accessibility
+11. Large Screens
+12. Small Desktop
+13. Tablet
+14. Mobile
+15. Small Mobile
+16. Light Theme
+17. Reduced Motion
+18. High Contrast
+19. Print
+
+==============================================================*/
+
+
+/*==============================================================
+01. VIEWER PAGE FOUNDATION
+==============================================================*/
+
+.pdf-library {
+    position: relative;
+    min-height: 100vh;
+
+    /*
+        The first value clears the fixed site header.
+        The remaining values create the page spacing.
+    */
+    padding:
+        calc(var(--header-height) + 2rem)
+        0
+        5rem;
+
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(16, 145, 255, 0.08),
+            transparent 28%
+        ),
+        var(--color-background);
+}
+.pdf-library::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        );
+    background-size: 44px 44px;
+    content: "";
+    mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.45),
+            transparent 55%
+        );
+}
+
+
+/*==============================================================
+02. MAIN VIEWER LAYOUT
+==============================================================*/
+
+.pdf-library__layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+
+/*==============================================================
+03. DOCUMENT LIBRARY SIDEBAR
+==============================================================*/
+
+.pdf-library__sidebar {
+    position: sticky;
+
+    /*
+        Once the page is below the fixed header, this keeps
+        the document list visible while the PDF is reviewed.
+    */
+    top: calc(var(--header-height) + 1.25rem);
+
+    min-width: 0;
+    max-height:
+        calc(
+            100vh -
+            var(--header-height) -
+            2.5rem
+        );
+
+    overflow-y: auto;
+    padding: 1.15rem;
+    border: 1px solid var(--color-divider);
+    border-radius: 1.35rem;
+
+    background:
+        linear-gradient(
+            155deg,
+            rgba(18, 142, 255, 0.055),
+            transparent 38%
+        ),
+        var(--color-background-soft);
+
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.16);
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        var(--color-border)
+        transparent;
+}
+
+.pdf-library__sidebar::-webkit-scrollbar {
+    width: 7px;
+}
+
+.pdf-library__sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.pdf-library__sidebar::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: var(--color-border);
+}
+
+.pdf-library__sidebar-header {
+    padding: 0.25rem 0.25rem 1.25rem;
+    border-bottom: 1px solid var(--color-divider);
+}
+
+.document-sidebar__eyebrow {
+    margin: 0 0 0.5rem;
+    color: var(--color-brand-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.document-sidebar__title {
+    margin: 0 0 0.65rem;
+    color: var(--color-text-primary);
+    font-size: clamp(1.35rem, 2vw, 1.65rem);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+}
+
+.document-sidebar__summary {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.84rem;
+    line-height: 1.65;
+}
+
+
+/*==============================================================
+04. DOCUMENT NAVIGATION
+==============================================================*/
+
+.document-library-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 1rem;
+}
+
+.document-library-nav__link {
+    position: relative;
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 0.95rem;
+    background: transparent;
+    color: inherit;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.document-library-nav__link::after {
+    position: absolute;
+    top: 50%;
+    right: 0.8rem;
+    width: 5px;
+    height: 5px;
+    border-top: 1.5px solid currentColor;
+    border-right: 1.5px solid currentColor;
+    color: var(--color-text-muted);
+    content: "";
+    opacity: 0;
+    transform:
+        translateY(-50%)
+        rotate(45deg)
+        translateX(-4px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.document-library-nav__link:hover {
+    border-color: var(--color-border);
+    background: var(--gradient-brand-soft);
+    transform: translateX(3px);
+}
+
+.document-library-nav__link:hover::after {
+    opacity: 1;
+    transform:
+        translateY(-50%)
+        rotate(45deg)
+        translateX(0);
+}
+
+.document-library-nav__link.is-active {
+    border-color: var(--color-brand-cyan);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(27, 161, 255, 0.14),
+            rgba(27, 161, 255, 0.045)
+        );
+    box-shadow:
+        inset 3px 0 0 var(--color-brand-cyan),
+        0 8px 22px rgba(0, 0, 0, 0.11);
+}
+
+.document-library-nav__link.is-active::after {
+    opacity: 1;
+    color: var(--color-brand-cyan);
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+}
+
+.document-library-nav__number {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    background: var(--color-background);
+    color: var(--color-brand-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 750;
+    letter-spacing: 0.03em;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.document-library-nav__link.is-active
+.document-library-nav__number {
+    border-color: transparent;
+    background: var(--gradient-brand);
+    color: #ffffff;
+}
+
+.document-library-nav__content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.18rem;
+    padding-right: 0.7rem;
+}
+
+.document-library-nav__name {
+    overflow: hidden;
+    color: var(--color-text-primary);
+    font-size: 0.82rem;
+    font-weight: 720;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+}
+
+.document-library-nav__type {
+    color: var(--color-text-muted);
+    font-size: 0.66rem;
+    line-height: 1.3;
+}
+
+
+/*==============================================================
+05. PDF VIEWER SHELL
+==============================================================*/
+
+.pdf-viewer {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-divider);
+    border-radius: 1.4rem;
+    background: var(--color-background-soft);
+    box-shadow:
+        0 28px 75px rgba(0, 0, 0, 0.2);
+}
+
+
+/*==============================================================
+06. VIEWER TOOLBAR
+==============================================================*/
+
+.pdf-viewer__toolbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 82px;
+    padding: 1rem 1.35rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-divider);
+    background:
+        linear-gradient(
+            120deg,
+            rgba(19, 150, 255, 0.11),
+            transparent 48%
+        ),
+        var(--color-background-soft);
+}
+
+.pdf-viewer__toolbar::after {
+    position: absolute;
+    top: -70px;
+    right: -55px;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(77, 194, 255, 0.12);
+    border-radius: 50%;
+    content: "";
+    box-shadow:
+        0 0 60px rgba(43, 169, 255, 0.08);
+}
+
+.pdf-viewer__identity {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.pdf-viewer__eyebrow {
+    margin: 0 0 0.4rem;
+    color: var(--color-brand-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.pdf-viewer__title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.pdf-viewer__title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+}
+
+.pdf-viewer__document-id {
+    display: inline-flex;
+    align-items: center;
+    min-height: 27px;
+    padding: 0.25rem 0.55rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: rgba(10, 35, 58, 0.58);
+    color: var(--color-brand-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.59rem;
+    font-weight: 750;
+    letter-spacing: 0.04em;
+}
+
+
+/*==============================================================
+07. EMBEDDED PDF FRAME
+==============================================================*/
+
+.pdf-viewer__frame-shell {
+    position: relative;
+    width: 100%;
+    height: clamp(720px, 80vh, 1050px);
+    overflow: hidden;
+    background: #202124;
+}
+
+.pdf-viewer__frame-shell::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: grid;
+    place-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    content: "DOCUMENT VIEWER";
+}
+
+.pdf-viewer__frame {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #202124;
+}
+
+
+/*==============================================================
+08. BOTTOM DOCUMENT NAVIGATION
+==============================================================*/
+
+.pdf-viewer__pagination {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--color-divider);
+    background: var(--color-background-soft);
+}
+
+.pdf-viewer__pagination-link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    min-width: 0;
+    min-height: 84px;
+    justify-content: center;
+    padding: 1rem 1.4rem;
+    border: 0;
+    background: transparent;
+    color: var(--color-text-primary);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.pdf-viewer__pagination-link:first-child {
+    border-right: 1px solid var(--color-divider);
+}
+
+.pdf-viewer__pagination-link::before {
+    position: absolute;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-bottom: 1.5px solid currentColor;
+    border-left: 1.5px solid currentColor;
+    color: var(--color-brand-cyan);
+    content: "";
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+}
+
+.pdf-viewer__pagination-link:first-child {
+    padding-left: 3rem;
+}
+
+.pdf-viewer__pagination-link:first-child::before {
+    left: 1.4rem;
+}
+
+.pdf-viewer__pagination-link--next {
+    align-items: flex-end;
+    padding-right: 3rem;
+    text-align: right;
+}
+
+.pdf-viewer__pagination-link--next::before {
+    right: 1.4rem;
+    left: auto;
+    transform:
+        translateY(-50%)
+        rotate(225deg);
+}
+
+.pdf-viewer__pagination-link:hover {
+    background: var(--gradient-brand-soft);
+}
+
+.pdf-viewer__pagination-direction {
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.59rem;
+    font-weight: 750;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.pdf-viewer__pagination-link strong {
+    overflow: hidden;
+    max-width: 100%;
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+    font-weight: 720;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+}
+
+
+/*==============================================================
+09. FOOTER REFINEMENTS
+
+The full shared footer remains available, but it is kept
+visually secondary while the visitor is reviewing documents.
+==============================================================*/
+
+.pdf-library + .site-footer {
+    border-top: 1px solid var(--color-divider);
+}
+
+.pdf-library + .site-footer .site-footer__inner {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+
+/*==============================================================
+10. FOCUS AND ACCESSIBILITY
+==============================================================*/
+
+.document-library-nav__link:focus-visible,
+.pdf-viewer__pagination-link:focus-visible {
+    outline: 3px solid var(--color-brand-cyan);
+    outline-offset: 3px;
+}
+
+.document-library-nav__link:focus-visible {
+    border-color: var(--color-brand-cyan);
+}
+
+
+/*==============================================================
+11. LARGE SCREENS
+==============================================================*/
+
+@media (min-width: 1500px) {
+    .pdf-library__layout {
+        grid-template-columns: 285px minmax(0, 1fr);
+        gap: 1.75rem;
+    }
+
+    .pdf-viewer__frame-shell {
+        height: min(84vh, 1120px);
+    }
+}
+
+
+/*==============================================================
+12. SMALL DESKTOP
+==============================================================*/
+
+@media (max-width: 1180px) {
+    .pdf-library__layout {
+        grid-template-columns: 235px minmax(0, 1fr);
+        gap: 1.15rem;
+    }
+
+    .pdf-library__sidebar {
+        padding: 0.9rem;
+    }
+
+    .document-library-nav__link {
+        grid-template-columns: 32px minmax(0, 1fr);
+        gap: 0.6rem;
+        padding: 0.65rem;
+    }
+
+    .document-library-nav__number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.56rem;
+    }
+
+    .document-library-nav__name {
+        font-size: 0.76rem;
+    }
+
+    .document-library-nav__type {
+        font-size: 0.61rem;
+    }
+}
+
+
+/*==============================================================
+13. TABLET
+==============================================================*/
+
+@media (max-width: 900px) {
+    .pdf-library {
+        padding:
+            calc(var(--header-height) + 1.5rem)
+            0
+            4rem;
+    }
+
+    .pdf-library__layout {
+        display: block;
+    }
+
+    .pdf-library__sidebar {
+        position: static;
+        max-height: none;
+        margin-bottom: 1.25rem;
+        overflow: visible;
+    }
+
+    .pdf-library__sidebar-header {
+        max-width: 620px;
+    }
+
+    .document-library-nav {
+        display: grid;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+
+    .document-library-nav__link:hover {
+        transform: translateY(-2px);
+    }
+
+    .pdf-viewer__frame-shell {
+        height: 74vh;
+        min-height: 620px;
+    }
+}
+
+/*==============================================================
+14. MOBILE
+==============================================================*/
+
+@media (max-width: 650px) {
+    .pdf-library {
+        padding:
+            calc(var(--header-height) + 1rem)
+            0
+            3.5rem;
+    }
+
+    .pdf-library__sidebar {
+        border-right: 0;
+        border-left: 0;
+        border-radius: 0;
+    }
+
+    .document-library-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .pdf-viewer {
+        border-right: 0;
+        border-left: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .pdf-viewer__toolbar {
+        min-height: 76px;
+        padding: 0.9rem 1rem;
+    }
+
+    .pdf-viewer__title-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .pdf-viewer__title {
+        font-size: 1.35rem;
+    }
+
+    .pdf-viewer__frame-shell {
+        height: 68vh;
+        min-height: 520px;
+    }
+
+    .pdf-viewer__pagination {
+        grid-template-columns: 1fr;
+    }
+
+    .pdf-viewer__pagination-link:first-child {
+        border-right: 0;
+        border-bottom: 1px solid var(--color-divider);
+    }
+
+    .pdf-viewer__pagination-link--next {
+        align-items: flex-start;
+        padding-right: 1rem;
+        padding-left: 3rem;
+        text-align: left;
+    }
+
+    .pdf-viewer__pagination-link--next::before {
+        right: auto;
+        left: 1.4rem;
+
+        transform:
+            translateY(-50%)
+            rotate(225deg);
+    }
+}
+
+/*==============================================================
+15. SMALL MOBILE
+==============================================================*/
+
+@media (max-width: 420px) {
+    .pdf-library__sidebar {
+        padding: 0.8rem;
+    }
+
+    .document-sidebar__title {
+        font-size: 1.35rem;
+    }
+
+    .document-library-nav__link {
+        padding: 0.65rem;
+    }
+
+    .pdf-viewer__document-id {
+        font-size: 0.55rem;
+    }
+
+    .pdf-viewer__frame-shell {
+        min-height: 470px;
+    }
+}
+
+
+/*==============================================================
+16. LIGHT THEME
+==============================================================*/
+
+html[data-theme="light"] .pdf-library {
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(28, 139, 231, 0.09),
+            transparent 30%
+        ),
+        var(--color-background);
+}
+
+html[data-theme="light"] .pdf-library::before {
+    background-image:
+        linear-gradient(
+            rgba(24, 64, 101, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(24, 64, 101, 0.035) 1px,
+            transparent 1px
+        );
+}
+
+html[data-theme="light"] .pdf-library__sidebar,
+html[data-theme="light"] .pdf-viewer {
+    box-shadow:
+        0 24px 55px rgba(35, 67, 102, 0.1);
+}
+
+html[data-theme="light"] .pdf-viewer__document-id {
+    background: rgba(226, 242, 255, 0.82);
+}
+
+html[data-theme="light"] .pdf-viewer__frame-shell,
+html[data-theme="light"] .pdf-viewer__frame {
+    background: #e5e7eb;
+}
+
+
+/*==============================================================
+17. REDUCED MOTION
+==============================================================*/
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/*==============================================================
+18. HIGH CONTRAST
+==============================================================*/
+
+@media (forced-colors: active) {
+    .pdf-library__sidebar,
+    .document-library-nav__link,
+    .pdf-viewer,
+    .pdf-viewer__pagination-link {
+        border: 1px solid CanvasText;
+    }
+
+    .document-library-nav__link.is-active {
+        outline: 2px solid Highlight;
+    }
+
+    .document-library-nav__link::after,
+    .pdf-viewer__pagination-link::before {
+        border-color: CanvasText;
+    }
+}
+
+
+/*==============================================================
+19. PRINT
+
+The embedded PDF should be printed using the browser's PDF
+viewer controls. The surrounding site interface is hidden.
+==============================================================*/
+
+@media print {
+    .site-header,
+    .mobile-nav,
+    .pdf-library__sidebar,
+    .pdf-viewer__toolbar,
+    .pdf-viewer__pagination,
+    .site-footer,
+    .back-to-top {
+        display: none !important;
+    }
+
+    .pdf-library {
+        padding: 0;
+        background: #ffffff;
+    }
+
+    .pdf-library::before {
+        display: none;
+    }
+
+    .pdf-library__layout {
+        display: block;
+        width: 100%;
+        max-width: none;
+    }
+
+    .pdf-viewer {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .pdf-viewer__frame-shell,
+    .pdf-viewer__frame {
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+/*==============================================================
+PDF VIEWER STATUS MESSAGE
+
+This replaces the browser's Cannot GET message when a PDF
+has not been added to the document library yet.
+==============================================================*/
+
+.pdf-viewer__message {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 2rem;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(20, 145, 235, 0.09),
+            transparent 42%
+        ),
+        var(--color-background-soft);
+    text-align: left;
+}
+
+.pdf-viewer__message-icon {
+    display: grid;
+    width: 62px;
+    height: 62px;
+    flex: 0 0 62px;
+    place-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: 1.1rem;
+    background: var(--gradient-brand-soft);
+    color: var(--color-brand-cyan);
+}
+
+.pdf-viewer__message-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.pdf-viewer__message--loading
+.pdf-viewer__message-icon svg {
+    animation: document-loading 1s linear infinite;
+}
+
+.pdf-viewer__message-content {
+    max-width: 520px;
+}
+
+.pdf-viewer__message-eyebrow {
+    margin: 0 0 0.45rem;
+    color: var(--color-brand-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.pdf-viewer__message-title {
+    margin: 0 0 0.7rem;
+    color: var(--color-text-primary);
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    line-height: 1.15;
+}
+
+.pdf-viewer__message-description {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.pdf-viewer__message-id {
+    display: inline-flex;
+    margin-top: 1rem;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-brand-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 750;
+}
+
+.pdf-viewer__message-path {
+    display: block;
+    max-width: 100%;
+    margin-top: 1rem;
+    overflow-wrap: anywhere;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+}
+
+@keyframes document-loading {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .pdf-viewer__message {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
