@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Interactive Kubernetes Platform Engineering Lab showcasing deployment, networking, reliability, security, observability, Helm, CI/CD, and troubleshooting."
+    >
+
+    <title>Kubernetes Platform Engineering Lab | Darling Jackson</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         BACKGROUND EFFECTS
+         ========================================================= -->
+
+    <div class="page-grid"></div>
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
+    <header class="site-header" id="siteHeader">
+
+        <div class="shell header-inner">
+
+            <!-- Brand -->
+            <a
+                class="brand"
+                href="#home"
+                aria-label="Kubernetes Platform Engineering Lab"
+            >
+
+                <span class="brand-symbol">
+                    K8
+                </span>
+
+                <span class="brand-text">
+
+                    <strong>
+                        Kubernetes Lab
+                    </strong>
+
+                    <small>
+                        Platform Engineering
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+            <nav
+                class="desktop-nav"
+                id="desktopNav"
+                aria-label="Main navigation"
+            >
+
+                <a href="#overview">
+                    Overview
+                </a>
+
+                <a href="#mission">
+                    Mission
+                </a>
+
+                <a href="#journey">
+                    Journey
+                </a>
+
+                <a href="#architecture">
+                    Architecture
+                </a>
+
+                <a href="#evidence">
+                    Evidence
+                </a>
+
+                <a href="#stack">
+                    Stack
+                </a>
+
+            </nav>
+
+
+            <!-- Header Controls -->
+            <div class="header-controls">
+
+                <!-- Theme Toggle -->
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Switch between dark and light mode"
+                >
+
+                    <span class="theme-track">
+
+                        <span class="theme-icon">
+                            ☀
+                        </span>
+
+                        <span class="theme-icon">
+                            ◐
+                        </span>
+
+                        <span class="theme-thumb"></span>
+
+                    </span>
+
+                </button>
+
+
+                <!-- Return to main portfolio -->
+                <a
+                    class="portfolio-return desktop-only"
+                    href="../../index.html"
+                    aria-label="Return to main portfolio"
+                >
+                    <span class="portfolio-return-arrow">
+                        ←
+                    </span>
+
+                    <span>
+                        Portfolio
+                    </span>
+                </a>
+
+                <!-- Mobile Navigation -->
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Mobile Navigation Panel -->
+        <nav
+            class="mobile-nav"
+            id="mobileNav"
+            aria-label="Mobile navigation"
+        >
+
+            <a href="#overview">
+                Overview
+            </a>
+
+            <a href="#mission">
+                Mission
+            </a>
+
+            <a href="#journey">
+                Journey
+            </a>
+
+            <a href="#architecture">
+                Architecture
+            </a>
+
+            <a href="#evidence">
+                Evidence
+            </a>
+
+            <a href="#stack">
+                Stack
+            </a>
+
+            <a
+                href="../../index.html"
+                class="mobile-portfolio-return"
+            >
+                <span>←</span>
+                Back to Portfolio
+            </a>
+
+            <div class="mobile-nav-divider"></div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- =====================================================
+             HERO
+             ===================================================== -->
+
+        <section
+            class="hero"
+            id="home"
+        >
+
+            <div class="shell hero-layout">
+
+                <!-- Hero Copy -->
+                <div class="hero-copy">
+
+
+                    <p class="eyebrow">
+                        KUBERNETES PLATFORM ENGINEERING
+                    </p>
+
+
+                    <h1>
+                        Learn it.
+                        <span>Build it.</span>
+                        Break it.
+                    </h1>
+
+
+                    <p class="hero-description">
+                        A hands-on Kubernetes engineering environment
+                        built to deepen my understanding of container
+                        orchestration through deployment, networking,
+                        security, reliability, observability,
+                        automation, and troubleshooting.
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a
+                            class="button button-primary"
+                            href="#journey"
+                        >
+                            Enter Lab
+
+                            <span>
+                                ↓
+                            </span>
+                        </a>
+
+
+                        <a
+                            class="button button-secondary"
+                            href="#architecture"
+                        >
+                            View Architecture
+                        </a>
+
+                    </div>
+
+
+                    <!-- Hero telemetry -->
+                    <div class="telemetry-row">
+
+                        <div class="telemetry-item">
+
+                            <span class="telemetry-label">
+                                WORKLOAD
+                            </span>
+
+                            <strong>
+                                PODINFO
+                            </strong>
+
+                        </div>
+
+
+                        <div class="telemetry-line"></div>
+
+
+                        <div class="telemetry-item">
+
+                            <span class="telemetry-label">
+                                ENVIRONMENT
+                            </span>
+
+                            <strong>
+                                LOCAL / KIND
+                            </strong>
+
+                        </div>
+
+
+                        <div class="telemetry-line"></div>
+
+
+                        <div class="telemetry-item">
+
+                            <span class="telemetry-label">
+                                SOURCE
+                            </span>
+
+                            <strong>
+                                GITHUB
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Hero Dashboard -->
+                <aside class="command-card">
+
+                    <div class="command-card-header">
+
+                        <div>
+
+                            <span class="micro-label">
+                                LAB CONTROL
+                            </span>
+
+                            <h2>
+                                Platform Status
+                            </h2>
+
+                        </div>
+
+
+                        <div class="live-badge">
+                            <span></span>
+                            LIVE
+                        </div>
+
+                    </div>
+
+
+                    <!-- Progress -->
+                    <div class="command-progress">
+
+                        <div
+                            class="progress-ring"
+                            id="progressRing"
+                        >
+
+                            <div class="progress-ring-center">
+
+                                <strong id="progressPercentage">
+                                    0%
+                                </strong>
+
+                                <span>
+                                    COMPLETE
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="current-phase">
+
+                            <span class="micro-label">
+                                CURRENT PHASE
+                            </span>
+
+                            <strong id="currentPhaseTitle">
+                                Kubernetes Foundations
+                            </strong>
+
+                            <p id="currentPhaseSummary">
+                                Build a working mental model of how
+                                Kubernetes operates.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Status Metrics -->
+                    <div class="command-stats">
+
+                        <div>
+
+                            <span>
+                                COMPLETED
+                            </span>
+
+                            <strong>
+                                <span id="completedCount">0</span>
+                                /
+                                <span id="totalCount">12</span>
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                CLUSTER
+                            </span>
+
+                            <strong id="clusterState">
+                                PLANNED
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                WORKLOAD
+                            </span>
+
+                            <strong>
+                                PODINFO
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                ADVANCED
+                            </span>
+
+                            <strong>
+                                KEYCLOAK
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        class="command-footer"
+                        href="#journey"
+                    >
+                        View build sequence
+
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </aside>
+
+            </div>
+
+
+            <!-- Decorative system coordinates -->
+            <div class="hero-coordinate coordinate-left">
+                SYS.NODE.01
+            </div>
+
+            <div class="hero-coordinate coordinate-right">
+                PLATFORM://K8S
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             OVERVIEW
+             ===================================================== -->
+
+        <section
+            class="section"
+            id="overview"
+        >
+
+            <div class="shell">
+
+                <div class="section-heading reveal">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            01 / OVERVIEW
+                        </p>
+
+                        <h2>
+                            A Kubernetes lab built around
+                            <span>understanding.</span>
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+                        The goal is not simply to get an application
+                        running. Each phase is designed to show what
+                        Kubernetes is doing, why the resource exists,
+                        how to inspect it, and how to troubleshoot it.
+                    </p>
+
+                </div>
+
+
+                <div class="overview-grid reveal">
+
+                    <article class="overview-card featured-card">
+
+                        <span class="card-index">
+                            01
+                        </span>
+
+                        <div class="overview-icon">
+                            ◈
+                        </div>
+
+                        <div>
+
+                            <span class="card-label">
+                                UNDERSTAND
+                            </span>
+
+                            <h3>
+                                Learn the system before automating it.
+                            </h3>
+
+                            <p>
+                                The lab begins with cluster architecture,
+                                desired state, controllers, scheduling,
+                                workloads, networking, and Kubernetes
+                                behavior before introducing abstraction.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="overview-card">
+
+                        <span class="card-index">
+                            02
+                        </span>
+
+                        <div class="overview-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <div>
+
+                            <span class="card-label">
+                                IMPLEMENT
+                            </span>
+
+                            <h3>
+                                Build resources manually.
+                            </h3>
+
+                            <p>
+                                YAML manifests are created and inspected
+                                before moving into Helm or CI/CD.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="overview-card">
+
+                        <span class="card-index">
+                            03
+                        </span>
+
+                        <div class="overview-icon">
+                            !
+                        </div>
+
+                        <div>
+
+                            <span class="card-label">
+                                TROUBLESHOOT
+                            </span>
+
+                            <h3>
+                                Break the platform on purpose.
+                            </h3>
+
+                            <p>
+                                Controlled failures help develop a
+                                repeatable Kubernetes troubleshooting
+                                workflow.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="overview-card">
+
+                        <span class="card-index">
+                            04
+                        </span>
+
+                        <div class="overview-icon">
+                            GIT
+                        </div>
+
+                        <div>
+
+                            <span class="card-label">
+                                DOCUMENT
+                            </span>
+
+                            <h3>
+                                Preserve the engineering story.
+                            </h3>
+
+                            <p>
+                                GitHub stores the code, YAML, technical
+                                notes, architecture, evidence, and
+                                troubleshooting history.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MISSION / PODINFO
+             ===================================================== -->
+
+        <section
+            class="section mission-section"
+            id="mission"
+        >
+
+            <div class="shell mission-layout">
+
+                <div class="mission-copy reveal">
+
+                    <p class="eyebrow">
+                        02 / PRIMARY WORKLOAD
+                    </p>
+
+
+                    <h2>
+                        Meet
+                        <span>Podinfo.</span>
+                    </h2>
+
+
+                    <p class="mission-intro">
+                        Podinfo is the application workload used
+                        throughout the lab. Using an existing
+                        Kubernetes-focused workload keeps the emphasis
+                        on platform engineering instead of application
+                        development.
+                    </p>
+
+
+                    <div class="capability-tags">
+
+                        <span>
+                            Deployments
+                        </span>
+
+                        <span>
+                            Services
+                        </span>
+
+                        <span>
+                            Probes
+                        </span>
+
+                        <span>
+                            Ingress
+                        </span>
+
+                        <span>
+                            HPA
+                        </span>
+
+                        <span>
+                            Metrics
+                        </span>
+
+                        <span>
+                            Helm
+                        </span>
+
+                        <span>
+                            Configuration
+                        </span>
+
+                    </div>
+
+
+                    <div class="mission-note">
+
+                        <span class="mission-note-icon">
+                            +
+                        </span>
+
+                        <p>
+                            Keycloak is planned as an advanced workload
+                            after the core Kubernetes concepts are
+                            understood.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Terminal -->
+                <div class="terminal reveal">
+
+                    <div class="terminal-topbar">
+
+                        <div class="terminal-controls">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+
+                        <span>
+                            cluster://podinfo
+                        </span>
+
+                    </div>
+
+
+                    <div class="terminal-body">
+
+                        <div class="terminal-command">
+
+                            <span class="prompt">
+                                $
+                            </span>
+
+                            <span>
+                                kubectl get pods -n platform
+                            </span>
+
+                        </div>
+
+
+                        <div class="terminal-output dim">
+                            NAME
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            READY&nbsp;&nbsp;STATUS
+                        </div>
+
+
+                        <div class="terminal-output success">
+                            podinfo-6d7f9bc7f5-x8q2r
+                            &nbsp;&nbsp;1/1&nbsp;&nbsp;&nbsp;&nbsp;Running
+                        </div>
+
+
+                        <div class="terminal-output success">
+                            podinfo-6d7f9bc7f5-j9d6m
+                            &nbsp;&nbsp;1/1&nbsp;&nbsp;&nbsp;&nbsp;Running
+                        </div>
+
+
+                        <div class="terminal-output success">
+                            podinfo-6d7f9bc7f5-w3v1k
+                            &nbsp;&nbsp;1/1&nbsp;&nbsp;&nbsp;&nbsp;Running
+                        </div>
+
+
+                        <div class="terminal-command spaced">
+
+                            <span class="prompt">
+                                $
+                            </span>
+
+                            <span>
+                                kubectl get svc podinfo
+                            </span>
+
+                        </div>
+
+
+                        <div class="terminal-output dim">
+                            NAME&nbsp;&nbsp;&nbsp;&nbsp;
+                            TYPE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            CLUSTER-IP
+                        </div>
+
+
+                        <div class="terminal-output success">
+                            podinfo&nbsp;&nbsp;
+                            ClusterIP&nbsp;&nbsp;
+                            10.96.x.x
+                        </div>
+
+
+                        <div class="terminal-command spaced">
+
+                            <span class="prompt">
+                                $
+                            </span>
+
+                            <span class="cursor"></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LAB JOURNEY
+             ===================================================== -->
+
+        <section
+            class="section"
+            id="journey"
+        >
+
+            <div class="shell">
+
+                <div class="section-heading reveal">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            03 / LAB JOURNEY
+                        </p>
+
+                        <h2>
+                            Follow the platform
+                            <span>build sequence.</span>
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+                        Every phase adds a new Kubernetes capability.
+                        Select a card to inspect the objective, concepts,
+                        implementation tasks, and evidence.
+                    </p>
+
+                </div>
+
+
+                <!-- Filters -->
+                <div
+                    class="phase-filter-bar reveal"
+                    id="phaseFilterBar"
+                >
+
+                    <button
+                        type="button"
+                        class="phase-filter active"
+                        data-filter="all"
+                    >
+                        All Phases
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="phase-filter"
+                        data-filter="complete"
+                    >
+                        Complete
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="phase-filter"
+                        data-filter="current"
+                    >
+                        Active
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="phase-filter"
+                        data-filter="upcoming"
+                    >
+                        Upcoming
+                    </button>
+
+                </div>
+
+
+                <!-- Generated by JavaScript -->
+                <div
+                    class="phase-grid reveal"
+                    id="phaseGrid"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ARCHITECTURE
+             ===================================================== -->
+
+        <section
+            class="section architecture-section"
+            id="architecture"
+        >
+
+            <div class="shell">
+
+                <div class="section-heading reveal">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            04 / PLATFORM ARCHITECTURE
+                        </p>
+
+                        <h2>
+                            Follow the
+                            <span>traffic path.</span>
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+                        Select a platform component to understand what
+                        role it plays and why it exists within the
+                        Kubernetes environment.
+                    </p>
+
+                </div>
+
+
+                <div class="architecture-layout reveal">
+
+                    <!-- Architecture Canvas -->
+                    <div class="architecture-panel">
+
+                        <div class="architecture-label">
+                            REQUEST FLOW
+                        </div>
+
+
+                        <div class="architecture-chain">
+
+                            <button
+                                class="architecture-node"
+                                type="button"
+                                data-component="client"
+                            >
+
+                                <span class="node-code">
+                                    01
+                                </span>
+
+                                <span class="node-category">
+                                    CLIENT
+                                </span>
+
+                                <strong>
+                                    User
+                                </strong>
+
+                            </button>
+
+
+                            <div class="connection-line">
+                                <span></span>
+                            </div>
+
+
+                            <button
+                                class="architecture-node"
+                                type="button"
+                                data-component="ingress"
+                            >
+
+                                <span class="node-code">
+                                    02
+                                </span>
+
+                                <span class="node-category">
+                                    EDGE
+                                </span>
+
+                                <strong>
+                                    Ingress
+                                </strong>
+
+                            </button>
+
+
+                            <div class="connection-line">
+                                <span></span>
+                            </div>
+
+
+                            <button
+                                class="architecture-node"
+                                type="button"
+                                data-component="service"
+                            >
+
+                                <span class="node-code">
+                                    03
+                                </span>
+
+                                <span class="node-category">
+                                    NETWORK
+                                </span>
+
+                                <strong>
+                                    Service
+                                </strong>
+
+                            </button>
+
+
+                            <div class="connection-line">
+                                <span></span>
+                            </div>
+
+
+                            <button
+                                class="architecture-node architecture-node-wide"
+                                type="button"
+                                data-component="deployment"
+                            >
+
+                                <span class="node-code">
+                                    04
+                                </span>
+
+                                <span class="node-category">
+                                    CONTROLLER
+                                </span>
+
+                                <strong>
+                                    Deployment
+                                </strong>
+
+                            </button>
+
+
+                            <div class="connection-line">
+                                <span></span>
+                            </div>
+
+
+                            <div class="pod-row">
+
+                                <button
+                                    class="architecture-node pod-node"
+                                    type="button"
+                                    data-component="pod"
+                                >
+
+                                    <span class="node-code">
+                                        P1
+                                    </span>
+
+                                    <span class="node-category">
+                                        POD
+                                    </span>
+
+                                    <strong>
+                                        Podinfo
+                                    </strong>
+
+                                </button>
+
+
+                                <button
+                                    class="architecture-node pod-node"
+                                    type="button"
+                                    data-component="pod"
+                                >
+
+                                    <span class="node-code">
+                                        P2
+                                    </span>
+
+                                    <span class="node-category">
+                                        POD
+                                    </span>
+
+                                    <strong>
+                                        Podinfo
+                                    </strong>
+
+                                </button>
+
+
+                                <button
+                                    class="architecture-node pod-node"
+                                    type="button"
+                                    data-component="pod"
+                                >
+
+                                    <span class="node-code">
+                                        P3
+                                    </span>
+
+                                    <span class="node-category">
+                                        POD
+                                    </span>
+
+                                    <strong>
+                                        Podinfo
+                                    </strong>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Architecture Inspector -->
+                    <aside class="architecture-inspector">
+
+                        <div class="inspector-status">
+
+                            <span></span>
+
+                            COMPONENT INSPECTOR
+
+                        </div>
+
+
+                        <span
+                            class="inspector-category"
+                            id="inspectorCategory"
+                        >
+                            SELECT COMPONENT
+                        </span>
+
+
+                        <h3 id="inspectorTitle">
+                            Platform Architecture
+                        </h3>
+
+
+                        <p
+                            class="inspector-description"
+                            id="inspectorDescription"
+                        >
+                            Select a node in the architecture diagram to
+                            inspect its purpose within the Kubernetes
+                            request flow.
+                        </p>
+
+
+                        <div class="inspector-divider"></div>
+
+
+                        <span class="inspector-label">
+                            WHY IT EXISTS
+                        </span>
+
+
+                        <p
+                            class="inspector-purpose"
+                            id="inspectorPurpose"
+                        >
+                            This panel will explain the engineering reason
+                            behind each resource.
+                        </p>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EVIDENCE
+             ===================================================== -->
+
+        <section
+            class="section"
+            id="evidence"
+        >
+
+            <div class="shell">
+
+                <div class="section-heading reveal">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            05 / ENGINEERING EVIDENCE
+                        </p>
+
+                        <h2>
+                            The work will
+                            <span>speak for itself.</span>
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+                        These placeholders will be replaced with real
+                        screenshots, command output, YAML, dashboards,
+                        failure scenarios, and validation results as
+                        the lab progresses.
+                    </p>
+
+                </div>
+
+
+                <div class="evidence-grid reveal">
+
+                    <article class="evidence-card">
+
+                        <div class="evidence-visual">
+
+                            <span class="evidence-symbol">
+                                NODE
+                            </span>
+
+                            <div class="evidence-scan"></div>
+
+                        </div>
+
+
+                        <div class="evidence-copy">
+
+                            <span class="evidence-type">
+                                CLUSTER
+                            </span>
+
+                            <h3>
+                                Multi-Node Environment
+                            </h3>
+
+                            <p>
+                                Cluster health, control plane, and worker
+                                node validation.
+                            </p>
+
+                            <span class="pending-label">
+                                AWAITING IMPLEMENTATION
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="evidence-card">
+
+                        <div class="evidence-visual">
+
+                            <span class="evidence-symbol">
+                                YAML
+                            </span>
+
+                            <div class="evidence-scan"></div>
+
+                        </div>
+
+
+                        <div class="evidence-copy">
+
+                            <span class="evidence-type">
+                                WORKLOAD
+                            </span>
+
+                            <h3>
+                                Podinfo Deployment
+                            </h3>
+
+                            <p>
+                                Deployment, ReplicaSet, Pod, and
+                                reconciliation evidence.
+                            </p>
+
+                            <span class="pending-label">
+                                AWAITING IMPLEMENTATION
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="evidence-card">
+
+                        <div class="evidence-visual">
+
+                            <span class="evidence-symbol">
+                                HPA
+                            </span>
+
+                            <div class="evidence-scan"></div>
+
+                        </div>
+
+
+                        <div class="evidence-copy">
+
+                            <span class="evidence-type">
+                                SCALING
+                            </span>
+
+                            <h3>
+                                Load & Autoscaling
+                            </h3>
+
+                            <p>
+                                Pod replicas automatically scaling in
+                                response to generated load.
+                            </p>
+
+                            <span class="pending-label">
+                                AWAITING IMPLEMENTATION
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="evidence-card">
+
+                        <div class="evidence-visual">
+
+                            <span class="evidence-symbol">
+                                403
+                            </span>
+
+                            <div class="evidence-scan"></div>
+
+                        </div>
+
+
+                        <div class="evidence-copy">
+
+                            <span class="evidence-type">
+                                SECURITY
+                            </span>
+
+                            <h3>
+                                RBAC Validation
+                            </h3>
+
+                            <p>
+                                Proof of allowed and denied Kubernetes
+                                operations under least privilege.
+                            </p>
+
+                            <span class="pending-label">
+                                AWAITING IMPLEMENTATION
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TECHNOLOGY STACK
+             ===================================================== -->
+
+        <section
+            class="section stack-section"
+            id="stack"
+        >
+
+            <div class="shell">
+
+                <div class="section-heading reveal">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            06 / PLATFORM STACK
+                        </p>
+
+                        <h2>
+                            Tools introduced
+                            <span>with purpose.</span>
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+                        Each tool enters the lab only when the concept
+                        underneath it has been understood manually.
+                    </p>
+
+                </div>
+
+
+                <div class="stack-grid reveal">
+
+                    <article>
+                        <span>K8S</span>
+                        <strong>Kubernetes</strong>
+                        <small>Orchestration</small>
+                    </article>
+
+                    <article>
+                        <span>KND</span>
+                        <strong>kind</strong>
+                        <small>Local cluster</small>
+                    </article>
+
+                    <article>
+                        <span>CTL</span>
+                        <strong>kubectl</strong>
+                        <small>Cluster control</small>
+                    </article>
+
+                    <article>
+                        <span>CTR</span>
+                        <strong>Docker</strong>
+                        <small>Container runtime</small>
+                    </article>
+
+                    <article>
+                        <span>APP</span>
+                        <strong>Podinfo</strong>
+                        <small>Primary workload</small>
+                    </article>
+
+                    <article>
+                        <span>NGX</span>
+                        <strong>NGINX</strong>
+                        <small>Ingress</small>
+                    </article>
+
+                    <article>
+                        <span>PRM</span>
+                        <strong>Prometheus</strong>
+                        <small>Metrics</small>
+                    </article>
+
+                    <article>
+                        <span>GRF</span>
+                        <strong>Grafana</strong>
+                        <small>Visualization</small>
+                    </article>
+
+                    <article>
+                        <span>HLM</span>
+                        <strong>Helm</strong>
+                        <small>Packaging</small>
+                    </article>
+
+                    <article>
+                        <span>GIT</span>
+                        <strong>GitHub</strong>
+                        <small>Source control</small>
+                    </article>
+
+                    <article>
+                        <span>CI</span>
+                        <strong>GitHub Actions</strong>
+                        <small>Automation</small>
+                    </article>
+
+                    <article>
+                        <span>IAM</span>
+                        <strong>Keycloak</strong>
+                        <small>Advanced workload</small>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ENGINEERING METHOD
+             ===================================================== -->
+
+        <section class="section methodology-section">
+
+            <div class="shell">
+
+                <div class="methodology-heading reveal">
+
+                    <p class="eyebrow">
+                        ENGINEERING METHOD
+                    </p>
+
+                    <h2>
+                        Understand
+                        <span>before</span>
+                        abstracting.
+                    </h2>
+
+                </div>
+
+
+                <div class="methodology-flow reveal">
+
+                    <article>
+
+                        <span>
+                            01
+                        </span>
+
+                        <strong>
+                            Understand
+                        </strong>
+
+                        <p>
+                            Learn what the Kubernetes resource solves
+                            and where it sits in the architecture.
+                        </p>
+
+                    </article>
+
+
+                    <div class="method-line"></div>
+
+
+                    <article>
+
+                        <span>
+                            02
+                        </span>
+
+                        <strong>
+                            Build
+                        </strong>
+
+                        <p>
+                            Implement the resource manually and inspect
+                            what Kubernetes creates.
+                        </p>
+
+                    </article>
+
+
+                    <div class="method-line"></div>
+
+
+                    <article>
+
+                        <span>
+                            03
+                        </span>
+
+                        <strong>
+                            Break
+                        </strong>
+
+                        <p>
+                            Intentionally create failures and diagnose
+                            them through logs, events, and state.
+                        </p>
+
+                    </article>
+
+
+                    <div class="method-line"></div>
+
+
+                    <article>
+
+                        <span>
+                            04
+                        </span>
+
+                        <strong>
+                            Automate
+                        </strong>
+
+                        <p>
+                            Introduce Helm and CI/CD only after the
+                            underlying workflow is understood.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             REPOSITORY
+             ===================================================== -->
+
+        <section
+            class="section repository-section"
+            id="repository"
+        >
+
+            <div class="shell repository-layout">
+
+                <div class="repository-copy reveal">
+
+                    <p class="eyebrow">
+                        07 / SOURCE OF TRUTH
+                    </p>
+
+
+                    <h2>
+                        Every milestone
+                        <span>versioned.</span>
+                    </h2>
+
+
+                    <p>
+                        GitHub tracks the progression of the lab from
+                        foundational Kubernetes concepts through a
+                        complete platform engineering workflow.
+                    </p>
+
+
+                    <!--
+                        Replace "#" with the repository URL later.
+                    -->
+                    <a
+                        href="#"
+                        class="button button-primary"
+                    >
+                        View GitHub Repository
+
+                        <span>
+                            ↗
+                        </span>
+                    </a>
+
+                </div>
+
+
+                <div class="repo-tree reveal">
+
+                    <div class="repo-tree-header">
+
+                        <div>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <small>
+                            labs/k8s
+                        </small>
+
+                    </div>
+
+
+<pre><code>k8s/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── app.js
+├── assets/
+│   └── screenshots/
+├── docs/
+│   ├── learning-notes/
+│   ├── architecture/
+│   └── troubleshooting/
+├── kubernetes/
+│   ├── namespaces/
+│   ├── deployments/
+│   ├── services/
+│   ├── configmaps/
+│   ├── ingress/
+│   ├── rbac/
+│   └── autoscaling/
+├── helm/
+├── monitoring/
+└── README.md</code></pre>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         PHASE DRAWER
+         ========================================================= -->
+
+    <div
+        class="drawer-overlay"
+        id="drawerOverlay"
+        hidden
+    ></div>
+
+
+    <aside
+        class="phase-drawer"
+        id="phaseDrawer"
+        aria-hidden="true"
+    >
+
+        <div class="drawer-header">
+
+            <div>
+
+                <span
+                    class="drawer-number"
+                    id="drawerNumber"
+                >
+                    PHASE 01
+                </span>
+
+                <h2 id="drawerTitle">
+                    Kubernetes Foundations
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="drawer-close"
+                id="drawerClose"
+                aria-label="Close phase details"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="drawer-content">
+
+            <span
+                class="drawer-status"
+                id="drawerStatus"
+            >
+                IN PROGRESS
+            </span>
+
+
+            <p
+                class="drawer-summary"
+                id="drawerSummary"
+            ></p>
+
+
+            <section class="drawer-section">
+
+                <span class="drawer-label">
+                    OBJECTIVE
+                </span>
+
+                <p id="drawerObjective"></p>
+
+            </section>
+
+
+            <section class="drawer-section">
+
+                <span class="drawer-label">
+                    CONCEPTS
+                </span>
+
+                <div
+                    class="drawer-tags"
+                    id="drawerConcepts"
+                ></div>
+
+            </section>
+
+
+            <section class="drawer-section">
+
+                <span class="drawer-label">
+                    LAB WORK
+                </span>
+
+                <ul
+                    class="drawer-list"
+                    id="drawerTasks"
+                ></ul>
+
+            </section>
+
+
+            <section class="drawer-section">
+
+                <span class="drawer-label">
+                    ENGINEERING EVIDENCE
+                </span>
+
+                <ul
+                    class="drawer-list"
+                    id="drawerEvidence"
+                ></ul>
+
+            </section>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         BACK TO TOP
+         ========================================================= -->
+
+    <button
+        class="back-to-top"
+        id="backToTop"
+        type="button"
+        aria-label="Back to top"
+    >
+
+        <span class="back-top-arrow">
+            ↑
+        </span>
+
+        <span class="back-top-copy">
+            TOP
+        </span>
+
+    </button>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="site-footer">
+
+        <div class="shell footer-inner">
+
+            <div>
+
+                <strong>
+                    Kubernetes Platform Engineering Lab
+                </strong>
+
+                <p>
+                    Hands-on Kubernetes learning, engineering,
+                    documentation, and troubleshooting.
+                </p>
+
+            </div>
+
+
+            <div class="footer-status">
+
+                <span></span>
+
+                LAB ACTIVE
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

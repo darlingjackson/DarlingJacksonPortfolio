@@ -1787,9 +1787,17 @@
                                 04
                             </span>
 
-                            <span class="status-badge status-badge--planned">
-                                Planned
+                            <span class="status-badge status-badge--active">
+
+                                <span
+                                    class="status-badge__indicator"
+                                    aria-hidden="true"
+                                ></span>
+
+                                Active Build
+
                             </span>
+
 
                         </header>
 
@@ -1890,12 +1898,25 @@
 
 
                             <!-- Project Status -->
-
                             <footer class="project-card__actions">
 
-                                <span class="project-link project-link--disabled">
-                                    Deployment Plan Coming Soon
-                                </span>
+                                <a
+                                    class="project-link project-link--primary"
+                                    href="labs/k8s/index.html"
+                                >
+
+                                    Enter K8s Lab
+
+                                    <span
+                                        class="project-link__icon"
+                                        aria-hidden="true"
+                                    >
+                                        →
+                                    </span>
+
+                                </a>
+
+                                </a>
 
                             </footer>
 
