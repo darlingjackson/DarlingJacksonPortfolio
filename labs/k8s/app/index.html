@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!--
+        Ensures the application scales correctly on mobile devices.
+    -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Blue Fox Defense Kubernetes Platform Operations Portal"
+    >
+
+    <title>Blue Fox | Platform Operations</title>
+
+    <!-- Main application stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         APPLICATION HEADER
+         ========================================================= -->
+    <header class="app-header">
+
+        <div class="container header-inner">
+
+            <!-- Brand -->
+            <a href="#" class="brand" aria-label="Blue Fox home">
+
+                <div class="brand-mark" aria-hidden="true">
+                    BF
+                </div>
+
+                <div class="brand-copy">
+                    <span class="brand-name">
+                        Blue Fox Defense
+                    </span>
+
+                    <span class="brand-subtitle">
+                        Platform Operations
+                    </span>
+                </div>
+
+            </a>
+
+
+            <!-- Current lab environment -->
+            <div class="environment-badge">
+                <span class="environment-dot"></span>
+                <span id="environmentBadge">Local</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN APPLICATION
+         ========================================================= -->
+    <main>
+
+        <!-- =====================================================
+             HERO
+             ===================================================== -->
+        <section class="hero">
+
+            <div class="container hero-layout">
+
+                <!-- Main hero content -->
+                <div class="hero-copy">
+
+                    <p class="eyebrow">
+                        KUBERNETES PLATFORM LAB
+                    </p>
+
+                    <h1>
+                        Platform Operations Portal
+                    </h1>
+
+                    <p class="hero-description">
+                        A lightweight internal application used to
+                        demonstrate containerization, Kubernetes
+                        deployment, networking, reliability, security,
+                        observability, and automation.
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <button
+                            id="healthCheckButton"
+                            class="button button-primary"
+                            type="button"
+                        >
+                            Run Health Check
+                        </button>
+
+                        <a
+                            href="#services"
+                            class="button button-secondary"
+                        >
+                            View Services
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     APPLICATION INFORMATION
+                     ================================================= -->
+                <aside class="system-card">
+
+                    <div class="system-card-header">
+
+                        <div>
+                            <span class="card-label">
+                                APPLICATION STATUS
+                            </span>
+
+                            <h2>System Overview</h2>
+                        </div>
+
+                        <div class="health-badge">
+                            <span class="health-dot"></span>
+                            Healthy
+                        </div>
+
+                    </div>
+
+
+                    <div class="system-details">
+
+                        <div class="system-row">
+                            <span class="system-label">
+                                Application
+                            </span>
+
+                            <span class="system-value">
+                                bluefox-web
+                            </span>
+                        </div>
+
+
+                        <div class="system-row">
+                            <span class="system-label">
+                                Version
+                            </span>
+
+                            <span
+                                id="applicationVersion"
+                                class="system-value"
+                            >
+                                v1.0.0
+                            </span>
+                        </div>
+
+
+                        <div class="system-row">
+                            <span class="system-label">
+                                Environment
+                            </span>
+
+                            <span
+                                id="applicationEnvironment"
+                                class="system-value"
+                            >
+                                Local Development
+                            </span>
+                        </div>
+
+
+                        <div class="system-row">
+                            <span class="system-label">
+                                Web Server
+                            </span>
+
+                            <span class="system-value">
+                                NGINX
+                            </span>
+                        </div>
+
+
+                        <div class="system-row">
+                            <span class="system-label">
+                                Platform
+                            </span>
+
+                            <span
+                                id="platformValue"
+                                class="system-value"
+                            >
+                                Local
+                            </span>
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SERVICE STATUS
+             ===================================================== -->
+        <section
+            id="services"
+            class="section"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="eyebrow">
+                            SERVICE STATUS
+                        </p>
+
+                        <h2>
+                            Platform Services
+                        </h2>
+                    </div>
+
+                    <p class="section-description">
+                        These services will evolve as capabilities are
+                        added throughout the Kubernetes lab.
+                    </p>
+
+                </div>
+
+
+                <div class="service-grid">
+
+                    <!-- Web application -->
+                    <article class="service-card">
+
+                        <div class="service-number">
+                            01
+                        </div>
+
+                        <div class="service-content">
+
+                            <div class="service-heading">
+
+                                <h3>
+                                    Web Application
+                                </h3>
+
+                                <span class="status status-healthy">
+                                    Healthy
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Static application served through NGINX.
+                                This will become our first Kubernetes
+                                workload.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Authentication -->
+                    <article class="service-card">
+
+                        <div class="service-number">
+                            02
+                        </div>
+
+                        <div class="service-content">
+
+                            <div class="service-heading">
+
+                                <h3>
+                                    Authentication
+                                </h3>
+
+                                <span class="status status-planned">
+                                    Planned
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Keycloak authentication will be added
+                                later in the lab to demonstrate identity
+                                integration.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Monitoring -->
+                    <article class="service-card">
+
+                        <div class="service-number">
+                            03
+                        </div>
+
+                        <div class="service-content">
+
+                            <div class="service-heading">
+
+                                <h3>
+                                    Monitoring
+                                </h3>
+
+                                <span class="status status-planned">
+                                    Planned
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Prometheus and Grafana will provide
+                                metrics and platform observability.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CI/CD -->
+                    <article class="service-card">
+
+                        <div class="service-number">
+                            04
+                        </div>
+
+                        <div class="service-content">
+
+                            <div class="service-heading">
+
+                                <h3>
+                                    CI/CD
+                                </h3>
+
+                                <span class="status status-planned">
+                                    Planned
+                                </span>
+
+                            </div>
+
+                            <p>
+                                GitHub Actions will later automate
+                                validation and container build workflows.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PLATFORM CAPABILITIES
+             ===================================================== -->
+        <section class="section section-muted">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="eyebrow">
+                            PLATFORM ROADMAP
+                        </p>
+
+                        <h2>
+                            Engineering Capabilities
+                        </h2>
+                    </div>
+
+                    <p class="section-description">
+                        The application starts simple and gains these
+                        capabilities as the Kubernetes environment grows.
+                    </p>
+
+                </div>
+
+
+                <div class="capability-grid">
+
+                    <article class="capability-card">
+                        <span class="capability-tag">
+                            CONTAINER
+                        </span>
+
+                        <h3>
+                            Containerization
+                        </h3>
+
+                        <p>
+                            Package the application into a reusable
+                            Docker image.
+                        </p>
+                    </article>
+
+
+                    <article class="capability-card">
+                        <span class="capability-tag">
+                            KUBERNETES
+                        </span>
+
+                        <h3>
+                            Orchestration
+                        </h3>
+
+                        <p>
+                            Deploy and maintain application workloads
+                            using Kubernetes.
+                        </p>
+                    </article>
+
+
+                    <article class="capability-card">
+                        <span class="capability-tag">
+                            NETWORK
+                        </span>
+
+                        <h3>
+                            Networking
+                        </h3>
+
+                        <p>
+                            Route application traffic using Services
+                            and Ingress.
+                        </p>
+                    </article>
+
+
+                    <article class="capability-card">
+                        <span class="capability-tag">
+                            SECURITY
+                        </span>
+
+                        <h3>
+                            Access Control
+                        </h3>
+
+                        <p>
+                            Apply ServiceAccounts, RBAC, Secrets, and
+                            identity controls.
+                        </p>
+                    </article>
+
+
+                    <article class="capability-card">
+                        <span class="capability-tag">
+                            RELIABILITY
+                        </span>
+
+                        <h3>
+                            Self-Healing
+                        </h3>
+
+                        <p>
+                            Use replicas and health probes to maintain
+                            application availability.
+                        </p>
+                    </article>
+
+
+                    <article class="capability-card">
+                        <span class="capability-tag">
+                            OBSERVABILITY
+                        </span>
+
+                        <h3>
+                            Monitoring
+                        </h3>
+
+                        <p>
+                            Collect and visualize platform metrics with
+                            Prometheus and Grafana.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             HEALTH CHECK RESULT
+
+             Hidden when the page initially loads.
+             JavaScript displays this after the user runs the check.
+             ===================================================== -->
+        <section class="health-section">
+
+            <div class="container">
+
+                <div
+                    id="healthResult"
+                    class="health-result"
+                    hidden
+                >
+
+                    <div class="health-result-icon">
+                        ✓
+                    </div>
+
+                    <div class="health-result-content">
+
+                        <span class="health-result-title">
+                            Application Healthy
+                        </span>
+
+                        <p id="healthMessage">
+                            The application responded successfully.
+                        </p>
+
+                    </div>
+
+                    <span
+                        id="healthTimestamp"
+                        class="health-timestamp"
+                    ></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer class="app-footer">
+
+        <div class="container footer-inner">
+
+            <div>
+                <strong>
+                    Blue Fox Defense
+                </strong>
+
+                <span>
+                    Kubernetes Platform Engineering Lab
+                </span>
+            </div>
+
+            <span id="footerVersion">
+                v1.0.0
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Main application JavaScript -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
