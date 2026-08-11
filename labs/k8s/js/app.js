@@ -1,632 +1,324 @@
-/* =========================================================
-   KUBERNETES PLATFORM ENGINEERING LAB
-   Interactive Mission Control
-   ========================================================= */
+/* ============================================================
+   KUBERNETES PLATFORM LAB
+   Darling Jackson Portfolio
+
+   TABLE OF CONTENTS
+   ------------------------------------------------------------
+   01. Theme
+   02. Roadmap Data
+   03. Roadmap Rendering
+   04. Lab Evidence Drawer
+   05. Accordion
+   06. Command Copy
+   07. Build Flow Animation
+   08. Reveal on Scroll
+   09. Hero Terminal Animation
+   ============================================================ */
 
 
-/* =========================================================
-   LAB PHASE DATA
+/* ============================================================
+   01. THEME
+   ============================================================ */
 
-   Change the "status" value as the lab progresses.
+const root = document.documentElement;
 
-   Allowed values:
+const themeToggle = document.getElementById("themeToggle");
 
-   complete
-   current
-   upcoming
+const savedTheme = localStorage.getItem("portfolio-theme");
 
-   The progress dashboard automatically updates.
-   ========================================================= */
+const prefersDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+).matches;
 
-const labPhases = [
+
+if (savedTheme) {
+
+    root.dataset.theme = savedTheme;
+
+} else {
+
+    root.dataset.theme = prefersDark
+        ? "dark"
+        : "light";
+
+}
+
+
+themeToggle?.addEventListener(
+    "click",
+    () => {
+
+        const currentTheme =
+            root.dataset.theme;
+
+        const newTheme =
+            currentTheme === "dark"
+                ? "light"
+                : "dark";
+
+        root.dataset.theme =
+            newTheme;
+
+        localStorage.setItem(
+            "portfolio-theme",
+            newTheme
+        );
+
+    }
+);
+
+
+/* ============================================================
+   02. ROADMAP DATA
+   ============================================================ */
+
+const roadmapData = [
 
     {
-        number: 1,
-        category: "FOUNDATIONS",
+        number: "00",
+        phase: "Environment",
+        title: "Tooling & Local Setup",
+        description:
+            "Docker Desktop, WSL 2, Visual Studio Code, container tooling, and Docker CLI.",
+        status: "complete",
+        statusLabel: "Validated"
+    },
+
+    {
+        number: "01",
+        phase: "Docker Foundations",
+        title: "First Container",
+        description:
+            "Built an image and ran a containerized Node.js web application on localhost:3000.",
+        status: "complete",
+        statusLabel: "Validated",
+        labId: "first-container"
+    },
+
+    {
+        number: "02",
+        phase: "Docker Foundations",
+        title: "Images & Containers",
+        description:
+            "Working with image layers, container lifecycle, management commands, and build behavior.",
+        status: "active",
+        statusLabel: "Next"
+    },
+
+    {
+        number: "03",
+        phase: "Docker",
+        title: "Data & Volumes",
+        description:
+            "Persistent data, volumes, bind mounts, and container filesystem behavior.",
+        status: "planned",
+        statusLabel: "Planned"
+    },
+
+    {
+        number: "04",
+        phase: "Docker",
+        title: "Container Networking",
+        description:
+            "Container-to-container communication, networks, ports, and application connectivity.",
+        status: "planned",
+        statusLabel: "Planned"
+    },
+
+    {
+        number: "05",
+        phase: "Docker",
+        title: "Multi-Container Applications",
+        description:
+            "Running application components across multiple coordinated containers.",
+        status: "planned",
+        statusLabel: "Planned"
+    },
+
+    {
+        number: "06",
+        phase: "Docker",
+        title: "Docker Compose",
+        description:
+            "Defining and running multi-container environments with Compose.",
+        status: "planned",
+        statusLabel: "Planned"
+    },
+
+    {
+        number: "07",
+        phase: "Containers",
+        title: "Container Deployment",
+        description:
+            "Preparing and deploying containerized applications beyond the local workstation.",
+        status: "planned",
+        statusLabel: "Planned"
+    },
+
+    {
+        number: "08",
+        phase: "Kubernetes",
         title: "Kubernetes Foundations",
-        status: "current",
-
-        summary:
-            "Build a working mental model of Kubernetes before creating platform resources.",
-
-        objective:
-            "Understand how the control plane, API server, scheduler, worker nodes, kubelet, container runtime, Pods, desired state, and reconciliation work together.",
-
-        concepts: [
-            "Cluster",
-            "Control Plane",
-            "Worker Node",
-            "API Server",
-            "Scheduler",
-            "kubelet",
-            "Desired State",
-            "Reconciliation"
-        ],
-
-        tasks: [
-            "Understand Kubernetes cluster architecture.",
-            "Trace what happens when kubectl sends a request.",
-            "Understand desired state versus actual state.",
-            "Understand reconciliation.",
-            "Document Kubernetes foundational concepts."
-        ],
-
-        evidence: [
-            "Architecture learning notes.",
-            "Control plane workflow documentation.",
-            "Kubernetes architecture diagram.",
-            "Git commit preserving foundational notes."
-        ]
+        description:
+            "Clusters, Pods, kubectl, desired state, and Kubernetes architecture.",
+        status: "planned",
+        statusLabel: "Planned"
     },
 
-
     {
-        number: 2,
-        category: "CLUSTER",
-        title: "Build the Cluster",
-        status: "upcoming",
-
-        summary:
-            "Create and inspect a local multi-node Kubernetes environment.",
-
-        objective:
-            "Build the local Kubernetes environment with kind and understand nodes, namespaces, contexts, and Kubernetes system workloads.",
-
-        concepts: [
-            "kind",
-            "kubectl",
-            "Control Plane Node",
-            "Worker Nodes",
-            "Namespace",
-            "Context"
-        ],
-
-        tasks: [
-            "Verify Docker.",
-            "Install and verify kubectl.",
-            "Install kind.",
-            "Create a multi-node cluster.",
-            "Inspect nodes.",
-            "Inspect Kubernetes system Pods."
-        ],
-
-        evidence: [
-            "Cluster configuration.",
-            "kubectl cluster-info output.",
-            "kubectl get nodes output.",
-            "Healthy cluster screenshot."
-        ]
+        number: "09",
+        phase: "Kubernetes",
+        title: "Workloads & Core Concepts",
+        description:
+            "Deployments, ReplicaSets, Services, scaling, and workload management.",
+        status: "planned",
+        statusLabel: "Planned"
     },
 
-
     {
-        number: 3,
-        category: "WORKLOAD",
-        title: "Deploy Podinfo",
-        status: "upcoming",
-
-        summary:
-            "Deploy Podinfo and inspect the Kubernetes resources responsible for running it.",
-
-        objective:
-            "Understand Deployments, ReplicaSets, Pods, labels, selectors, container images, and reconciliation.",
-
-        concepts: [
-            "Pod",
-            "Deployment",
-            "ReplicaSet",
-            "Image",
-            "Labels",
-            "Selectors",
-            "Replicas"
-        ],
-
-        tasks: [
-            "Create the Podinfo Deployment YAML.",
-            "Deploy Podinfo.",
-            "Inspect the Deployment.",
-            "Inspect the ReplicaSet.",
-            "Inspect Pod state.",
-            "Delete a Pod and watch Kubernetes replace it."
-        ],
-
-        evidence: [
-            "Deployment YAML.",
-            "Running Pod output.",
-            "ReplicaSet output.",
-            "Self-healing demonstration."
-        ]
+        number: "10",
+        phase: "Kubernetes",
+        title: "Storage",
+        description:
+            "Persistent storage and data management for Kubernetes workloads.",
+        status: "planned",
+        statusLabel: "Planned"
     },
 
-
     {
-        number: 4,
-        category: "NETWORK",
-        title: "Services & Ingress",
-        status: "upcoming",
-
-        summary:
-            "Expose Podinfo and understand how traffic moves through Kubernetes networking.",
-
-        objective:
-            "Understand Services, endpoints, DNS, Ingress, and why Pods should not be addressed directly.",
-
-        concepts: [
-            "ClusterIP",
-            "Service",
-            "Endpoints",
-            "DNS",
-            "Ingress",
-            "Ingress Controller"
-        ],
-
-        tasks: [
-            "Create a ClusterIP Service.",
-            "Inspect endpoints.",
-            "Test internal connectivity.",
-            "Install NGINX Ingress.",
-            "Create an Ingress resource.",
-            "Access Podinfo through a hostname."
-        ],
-
-        evidence: [
-            "Service YAML.",
-            "Ingress YAML.",
-            "Endpoint validation.",
-            "Working browser request."
-        ]
+        number: "11",
+        phase: "Kubernetes",
+        title: "Networking",
+        description:
+            "Service communication, traffic routing, and Kubernetes networking.",
+        status: "planned",
+        statusLabel: "Planned"
     },
 
-
     {
-        number: 5,
-        category: "CONFIGURATION",
-        title: "Configuration",
-        status: "upcoming",
-
-        summary:
-            "Separate workload configuration from the application deployment.",
-
-        objective:
-            "Use ConfigMaps and Secrets to manage application configuration without baking environment-specific values into workloads.",
-
-        concepts: [
-            "ConfigMap",
-            "Secret",
-            "Environment Variables",
-            "Mounted Configuration"
-        ],
-
-        tasks: [
-            "Create a ConfigMap.",
-            "Inject configuration into Podinfo.",
-            "Create a safe Secret example.",
-            "Protect local secret files from Git."
-        ],
-
-        evidence: [
-            "ConfigMap YAML.",
-            "Secret example YAML.",
-            "Configured application output.",
-            ".gitignore validation."
-        ]
-    },
-
-
-    {
-        number: 6,
-        category: "RELIABILITY",
-        title: "Health & Self-Healing",
-        status: "upcoming",
-
-        summary:
-            "Teach Kubernetes how to determine whether Podinfo is alive and ready.",
-
-        objective:
-            "Configure health probes and observe how Kubernetes responds when the application becomes unhealthy.",
-
-        concepts: [
-            "Liveness Probe",
-            "Readiness Probe",
-            "Restart",
-            "Self-Healing",
-            "Traffic Removal"
-        ],
-
-        tasks: [
-            "Configure liveness probes.",
-            "Configure readiness probes.",
-            "Trigger a liveness failure.",
-            "Trigger a readiness failure.",
-            "Observe Kubernetes response."
-        ],
-
-        evidence: [
-            "Probe configuration.",
-            "Pod restart evidence.",
-            "Readiness failure.",
-            "kubectl describe output."
-        ]
-    },
-
-
-    {
-        number: 7,
-        category: "SCALING",
-        title: "Resources & Autoscaling",
-        status: "upcoming",
-
-        summary:
-            "Manage workload resources and automatically scale Podinfo under load.",
-
-        objective:
-            "Understand CPU and memory requests, limits, scheduling implications, and Horizontal Pod Autoscaling.",
-
-        concepts: [
-            "CPU",
-            "Memory",
-            "Requests",
-            "Limits",
-            "Metrics Server",
-            "HPA"
-        ],
-
-        tasks: [
-            "Configure resource requests.",
-            "Configure limits.",
-            "Install metrics support.",
-            "Create an HPA.",
-            "Generate load.",
-            "Observe replicas scale."
-        ],
-
-        evidence: [
-            "Resource configuration.",
-            "HPA YAML.",
-            "Metrics output.",
-            "Autoscaling screenshot."
-        ]
-    },
-
-
-    {
-        number: 8,
-        category: "SECURITY",
-        title: "RBAC & Security",
-        status: "upcoming",
-
-        summary:
-            "Apply Kubernetes least privilege and workload security controls.",
-
-        objective:
-            "Use ServiceAccounts, Roles, RoleBindings, and security contexts to control access to Kubernetes resources.",
-
-        concepts: [
-            "ServiceAccount",
-            "Role",
-            "RoleBinding",
-            "ClusterRole",
-            "Least Privilege",
-            "Security Context"
-        ],
-
-        tasks: [
-            "Create a ServiceAccount.",
-            "Create a Role.",
-            "Bind the Role.",
-            "Test allowed access.",
-            "Test denied access.",
-            "Apply workload security settings."
-        ],
-
-        evidence: [
-            "RBAC YAML.",
-            "kubectl auth can-i output.",
-            "Forbidden operation.",
-            "Security context configuration."
-        ]
-    },
-
-
-    {
-        number: 9,
-        category: "OBSERVABILITY",
-        title: "Observability",
-        status: "upcoming",
-
-        summary:
-            "Collect metrics and visualize Kubernetes workload behavior.",
-
-        objective:
-            "Use Prometheus and Grafana to understand cluster and workload health through metrics and dashboards.",
-
-        concepts: [
-            "Prometheus",
-            "Grafana",
-            "Metrics",
-            "Logs",
-            "Events",
-            "Observability"
-        ],
-
-        tasks: [
-            "Deploy Prometheus.",
-            "Deploy Grafana.",
-            "Validate metric collection.",
-            "Explore Podinfo metrics.",
-            "Build or configure dashboards."
-        ],
-
-        evidence: [
-            "Prometheus targets.",
-            "Grafana dashboard.",
-            "Pod metrics.",
-            "Observability screenshots."
-        ]
-    },
-
-
-    {
-        number: 10,
-        category: "PACKAGING",
-        title: "Helm",
-        status: "upcoming",
-
-        summary:
-            "Convert understood Kubernetes resources into a reusable Helm deployment.",
-
-        objective:
-            "Package the Podinfo Kubernetes deployment into a Helm chart without hiding the resources underneath.",
-
-        concepts: [
-            "Chart",
-            "Template",
-            "values.yaml",
-            "Release",
-            "Upgrade",
-            "Rollback"
-        ],
-
-        tasks: [
-            "Install Helm.",
-            "Create a Helm chart.",
-            "Template existing YAML.",
-            "Create values.yaml.",
-            "Install the release.",
-            "Upgrade the release.",
-            "Test rollback."
-        ],
-
-        evidence: [
-            "Helm chart.",
-            "helm install output.",
-            "Release history.",
-            "Rollback test."
-        ]
-    },
-
-
-    {
-        number: 11,
-        category: "AUTOMATION",
-        title: "GitHub Actions",
-        status: "upcoming",
-
-        summary:
-            "Automate validation after the manual deployment workflow is understood.",
-
-        objective:
-            "Use GitHub Actions to validate Kubernetes YAML and Helm configuration while keeping GitHub as the source of truth.",
-
-        concepts: [
-            "CI/CD",
-            "GitHub Actions",
-            "Workflow",
-            "Validation",
-            "Secrets"
-        ],
-
-        tasks: [
-            "Create a workflow.",
-            "Validate Kubernetes manifests.",
-            "Validate Helm templates.",
-            "Run automated checks.",
-            "Protect workflow secrets."
-        ],
-
-        evidence: [
-            "Workflow YAML.",
-            "Successful workflow run.",
-            "Validation output.",
-            "GitHub Actions history."
-        ]
-    },
-
-
-    {
-        number: 12,
-        category: "OPERATIONS",
-        title: "Troubleshooting",
-        status: "upcoming",
-
-        summary:
-            "Create controlled Kubernetes failures and diagnose them systematically.",
-
-        objective:
-            "Demonstrate operational understanding by investigating failures using logs, events, resource descriptions, and network inspection.",
-
-        concepts: [
-            "CrashLoopBackOff",
-            "ImagePullBackOff",
-            "Events",
-            "Logs",
-            "Service Failure",
-            "RBAC Failure"
-        ],
-
-        tasks: [
-            "Create ImagePullBackOff.",
-            "Create CrashLoopBackOff.",
-            "Break a Service selector.",
-            "Break readiness.",
-            "Trigger RBAC Forbidden.",
-            "Document remediation."
-        ],
-
-        evidence: [
-            "Failure screenshots.",
-            "Troubleshooting commands.",
-            "Root-cause analysis.",
-            "Remediation validation."
-        ]
+        number: "12",
+        phase: "AWS",
+        title: "Amazon EKS",
+        description:
+            "Applying the Kubernetes concepts in a managed AWS Kubernetes environment.",
+        status: "planned",
+        statusLabel: "Target"
     }
 
 ];
 
 
-/* =========================================================
-   ARCHITECTURE DATA
-   ========================================================= */
+/* ============================================================
+   03. ROADMAP RENDERING
+   ============================================================ */
 
-const architectureData = {
-
-    client: {
-
-        category:
-            "CLIENT",
-
-        title:
-            "User / Client",
-
-        description:
-            "The external client initiates the HTTP request that enters the Kubernetes environment.",
-
-        purpose:
-            "Every application request begins outside the cluster. The client represents the source of traffic before Kubernetes routing begins."
-
-    },
+const roadmap =
+    document.getElementById("roadmap");
 
 
-    ingress: {
+function createRoadmapCard(item) {
 
-        category:
-            "EDGE ROUTING",
-
-        title:
-            "Ingress",
-
-        description:
-            "Ingress defines HTTP routing rules that direct requests toward Services inside the cluster.",
-
-        purpose:
-            "Ingress provides a clean entry point for external HTTP traffic without exposing individual Pods directly."
-
-    },
+    const card =
+        document.createElement(
+            item.labId
+                ? "button"
+                : "article"
+        );
 
 
-    service: {
+    card.className =
+        [
+            "roadmap-card",
 
-        category:
-            "NETWORKING",
+            item.status === "complete"
+                ? "roadmap-card--complete"
+                : "",
 
-        title:
-            "Kubernetes Service",
+            item.status === "active"
+                ? "roadmap-card--active"
+                : ""
 
-        description:
-            "The Service provides a stable network endpoint and sends requests to Pods that match its label selector.",
-
-        purpose:
-            "Pod IP addresses are temporary. The Service allows clients and other workloads to reach the application through a stable address."
-
-    },
-
-
-    deployment: {
-
-        category:
-            "WORKLOAD CONTROLLER",
-
-        title:
-            "Deployment",
-
-        description:
-            "The Deployment defines the desired application state and manages the ReplicaSet responsible for maintaining Pod replicas.",
-
-        purpose:
-            "The Deployment continuously works to maintain the requested number of application instances and supports controlled application updates."
-
-    },
+        ]
+        .filter(Boolean)
+        .join(" ");
 
 
-    pod: {
+    if (item.labId) {
 
-        category:
-            "WORKLOAD",
+        card.type =
+            "button";
 
-        title:
-            "Podinfo Pod",
-
-        description:
-            "Each Pod contains a running instance of the Podinfo workload.",
-
-        purpose:
-            "Pods are Kubernetes' smallest deployable units. They are disposable, which is why higher-level controllers and Services are required."
+        card.dataset.openLab =
+            item.labId;
 
     }
 
-};
+
+    const statusClass =
+        item.status === "complete"
+            ? "roadmap-status--complete"
+            : item.status === "active"
+                ? "roadmap-status--active"
+                : "";
 
 
-/* =========================================================
-   DOM REFERENCES
-   ========================================================= */
+    card.innerHTML = `
 
-const root =
-    document.documentElement;
+        <span class="roadmap-card__number">
+            ${item.number}
+        </span>
 
-const siteHeader =
+        <div class="roadmap-card__content">
+
+            <span class="roadmap-card__phase">
+                ${item.phase}
+            </span>
+
+            <h3>
+                ${item.title}
+            </h3>
+
+            <p>
+                ${item.description}
+            </p>
+
+        </div>
+
+        <span class="roadmap-status ${statusClass}">
+            ${item.statusLabel}
+        </span>
+
+    `;
+
+
+    return card;
+
+}
+
+
+roadmapData.forEach(
+    item => {
+
+        roadmap?.appendChild(
+            createRoadmapCard(item)
+        );
+
+    }
+);
+
+
+/* ============================================================
+   04. LAB EVIDENCE DRAWER
+   ============================================================ */
+
+const labDrawer =
     document.getElementById(
-        "siteHeader"
+        "labDrawer"
     );
 
-const themeToggle =
+const drawerBackdrop =
     document.getElementById(
-        "themeToggle"
-    );
-
-const mobileMenuButton =
-    document.getElementById(
-        "mobileMenuButton"
-    );
-
-const mobileNav =
-    document.getElementById(
-        "mobileNav"
-    );
-
-const backToTop =
-    document.getElementById(
-        "backToTop"
-    );
-
-const phaseGrid =
-    document.getElementById(
-        "phaseGrid"
-    );
-
-const phaseFilters =
-    document.querySelectorAll(
-        ".phase-filter"
-    );
-
-const phaseDrawer =
-    document.getElementById(
-        "phaseDrawer"
-    );
-
-const drawerOverlay =
-    document.getElementById(
-        "drawerOverlay"
+        "drawerBackdrop"
     );
 
 const drawerClose =
@@ -634,469 +326,30 @@ const drawerClose =
         "drawerClose"
     );
 
-const progressRing =
-    document.getElementById(
-        "progressRing"
-    );
 
-const progressPercentage =
-    document.getElementById(
-        "progressPercentage"
-    );
+function openLabDrawer() {
 
-const completedCount =
-    document.getElementById(
-        "completedCount"
-    );
-
-const totalCount =
-    document.getElementById(
-        "totalCount"
-    );
-
-const currentPhaseTitle =
-    document.getElementById(
-        "currentPhaseTitle"
-    );
-
-const currentPhaseSummary =
-    document.getElementById(
-        "currentPhaseSummary"
-    );
-
-
-/* =========================================================
-   THEME
-   ========================================================= */
-
-function initializeTheme() {
-
-    const savedTheme =
-        localStorage.getItem(
-            "k8s-lab-theme"
-        );
-
-
-    if (savedTheme) {
-
-        root.dataset.theme =
-            savedTheme;
+    if (!labDrawer) {
 
         return;
 
     }
 
 
-    const systemPrefersLight =
-        window.matchMedia(
-            "(prefers-color-scheme: light)"
-        ).matches;
-
-
-    root.dataset.theme =
-        systemPrefersLight
-            ? "light"
-            : "dark";
-
-}
-
-
-function toggleTheme() {
-
-    const currentTheme =
-        root.dataset.theme;
-
-
-    const newTheme =
-        currentTheme === "dark"
-            ? "light"
-            : "dark";
-
-
-    root.dataset.theme =
-        newTheme;
-
-
-    localStorage.setItem(
-        "k8s-lab-theme",
-        newTheme
+    labDrawer.classList.add(
+        "is-open"
     );
 
-}
-
-
-themeToggle.addEventListener(
-    "click",
-    toggleTheme
-);
-
-
-/* =========================================================
-   MOBILE NAVIGATION
-   ========================================================= */
-
-mobileMenuButton.addEventListener(
-    "click",
-    () => {
-
-        const isOpen =
-            mobileNav.classList.toggle(
-                "open"
-            );
-
-
-        mobileMenuButton.setAttribute(
-            "aria-expanded",
-            String(isOpen)
-        );
-
-    }
-);
-
-
-mobileNav
-    .querySelectorAll("a")
-    .forEach((link) => {
-
-        link.addEventListener(
-            "click",
-            () => {
-
-                mobileNav.classList.remove(
-                    "open"
-                );
-
-
-                mobileMenuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
-   HEADER + BACK TO TOP
-   ========================================================= */
-
-function updateScrollUI() {
-
-    const scrollPosition =
-        window.scrollY;
-
-
-    siteHeader.classList.toggle(
-        "scrolled",
-        scrollPosition > 20
+    drawerBackdrop?.classList.add(
+        "is-visible"
     );
 
-
-    backToTop.classList.toggle(
-        "visible",
-        scrollPosition > 550
-    );
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    updateScrollUI
-);
-
-
-backToTop.addEventListener(
-    "click",
-    () => {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
-
-
-/* =========================================================
-   PHASE CARDS
-   ========================================================= */
-
-function renderPhases(
-    filter = "all"
-) {
-
-    phaseGrid.innerHTML = "";
-
-
-    const filteredPhases =
-        labPhases.filter(
-            (phase) => {
-
-                if (filter === "all") {
-                    return true;
-                }
-
-
-                return (
-                    phase.status === filter
-                );
-
-            }
-        );
-
-
-    filteredPhases.forEach(
-        (phase) => {
-
-            const card =
-                document.createElement(
-                    "button"
-                );
-
-
-            card.type =
-                "button";
-
-
-            card.className =
-                "phase-card";
-
-
-            card.dataset.status =
-                phase.status;
-
-
-            const statusText =
-                getStatusText(
-                    phase.status
-                );
-
-
-            card.innerHTML = `
-
-                <div class="phase-card-header">
-
-                    <span class="phase-number">
-                        PHASE ${String(
-                            phase.number
-                        ).padStart(
-                            2,
-                            "0"
-                        )}
-                    </span>
-
-                    <span
-                        class="phase-state ${phase.status}"
-                        title="${statusText}"
-                    ></span>
-
-                </div>
-
-
-                <div class="phase-card-content">
-
-                    <span class="phase-category">
-                        ${phase.category}
-                    </span>
-
-                    <h3>
-                        ${phase.title}
-                    </h3>
-
-                    <p>
-                        ${phase.summary}
-                    </p>
-
-
-                    <div class="phase-card-footer">
-
-                        <span>
-                            ${statusText}
-                        </span>
-
-                        <span>
-                            →
-                        </span>
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-            card.addEventListener(
-                "click",
-                () => {
-
-                    openPhaseDrawer(
-                        phase
-                    );
-
-                }
-            );
-
-
-            phaseGrid.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   FILTERING
-   ========================================================= */
-
-phaseFilters.forEach(
-    (button) => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                phaseFilters.forEach(
-                    (filterButton) => {
-
-                        filterButton
-                            .classList
-                            .remove(
-                                "active"
-                            );
-
-                    }
-                );
-
-
-                button.classList.add(
-                    "active"
-                );
-
-
-                renderPhases(
-                    button.dataset.filter
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   PHASE DRAWER
-   ========================================================= */
-
-function openPhaseDrawer(
-    phase
-) {
-
-    document.getElementById(
-        "drawerNumber"
-    ).textContent =
-        `PHASE ${String(
-            phase.number
-        ).padStart(
-            2,
-            "0"
-        )}`;
-
-
-    document.getElementById(
-        "drawerTitle"
-    ).textContent =
-        phase.title;
-
-
-    const drawerStatus =
-        document.getElementById(
-            "drawerStatus"
-        );
-
-
-    drawerStatus.textContent =
-        getStatusText(
-            phase.status
-        ).toUpperCase();
-
-
-    drawerStatus.className =
-        `drawer-status ${phase.status}`;
-
-
-    document.getElementById(
-        "drawerSummary"
-    ).textContent =
-        phase.summary;
-
-
-    document.getElementById(
-        "drawerObjective"
-    ).textContent =
-        phase.objective;
-
-
-    populateTags(
-        phase.concepts
-    );
-
-
-    populateList(
-        "drawerTasks",
-        phase.tasks
-    );
-
-
-    populateList(
-        "drawerEvidence",
-        phase.evidence
-    );
-
-
-    drawerOverlay.hidden =
-        false;
-
-
-    phaseDrawer.classList.add(
-        "open"
-    );
-
-
-    phaseDrawer.setAttribute(
+    labDrawer.setAttribute(
         "aria-hidden",
         "false"
     );
 
-
     document.body.classList.add(
-        "drawer-open"
-    );
-
-}
-
-
-function closePhaseDrawer() {
-
-    phaseDrawer.classList.remove(
-        "open"
-    );
-
-
-    phaseDrawer.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-
-    document.body.classList.remove(
         "drawer-open"
     );
 
@@ -1104,40 +357,95 @@ function closePhaseDrawer() {
     setTimeout(
         () => {
 
-            drawerOverlay.hidden =
-                true;
+            drawerClose?.focus();
 
         },
-        280
+        300
     );
 
 }
 
 
-drawerClose.addEventListener(
+function closeLabDrawer() {
+
+    labDrawer?.classList.remove(
+        "is-open"
+    );
+
+    drawerBackdrop?.classList.remove(
+        "is-visible"
+    );
+
+    labDrawer?.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.classList.remove(
+        "drawer-open"
+    );
+
+}
+
+
+document.addEventListener(
     "click",
-    closePhaseDrawer
+    event => {
+
+        const trigger =
+            event.target.closest(
+                "[data-open-lab]"
+            );
+
+
+        if (!trigger) {
+
+            return;
+
+        }
+
+
+        const labId =
+            trigger.dataset.openLab;
+
+
+        if (
+            labId ===
+            "first-container"
+        ) {
+
+            openLabDrawer();
+
+        }
+
+    }
 );
 
 
-drawerOverlay.addEventListener(
+drawerClose?.addEventListener(
     "click",
-    closePhaseDrawer
+    closeLabDrawer
+);
+
+
+drawerBackdrop?.addEventListener(
+    "click",
+    closeLabDrawer
 );
 
 
 document.addEventListener(
     "keydown",
-    (event) => {
+    event => {
 
         if (
             event.key === "Escape" &&
-            phaseDrawer.classList.contains(
-                "open"
+            labDrawer?.classList.contains(
+                "is-open"
             )
         ) {
 
-            closePhaseDrawer();
+            closeLabDrawer();
 
         }
 
@@ -1145,311 +453,57 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   DRAWER CONTENT
-   ========================================================= */
-
-function populateTags(
-    concepts
-) {
-
-    const container =
-        document.getElementById(
-            "drawerConcepts"
-        );
-
-
-    container.innerHTML = "";
-
-
-    concepts.forEach(
-        (concept) => {
-
-            const tag =
-                document.createElement(
-                    "span"
-                );
-
-
-            tag.textContent =
-                concept;
-
-
-            container.appendChild(
-                tag
-            );
-
-        }
-    );
-
-}
-
-
-function populateList(
-    elementId,
-    items
-) {
-
-    const list =
-        document.getElementById(
-            elementId
-        );
-
-
-    list.innerHTML = "";
-
-
-    items.forEach(
-        (item) => {
-
-            const li =
-                document.createElement(
-                    "li"
-                );
-
-
-            li.textContent =
-                item;
-
-
-            list.appendChild(
-                li
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   PROGRESS
-   ========================================================= */
-
-function updateProgress() {
-
-    const completedPhases =
-        labPhases.filter(
-            (phase) =>
-                phase.status ===
-                "complete"
-        );
-
-
-    const currentPhase =
-        labPhases.find(
-            (phase) =>
-                phase.status ===
-                "current"
-        );
-
-
-    const total =
-        labPhases.length;
-
-
-    const completed =
-        completedPhases.length;
-
-
-    const percentage =
-        Math.round(
-            (
-                completed /
-                total
-            ) *
-            100
-        );
-
-
-    completedCount.textContent =
-        completed;
-
-
-    totalCount.textContent =
-        total;
-
-
-    progressPercentage.textContent =
-        `${percentage}%`;
-
-
-    const degrees =
-        (
-            percentage /
-            100
-        ) *
-        360;
-
-
-    progressRing.style.setProperty(
-        "--progress",
-        `${degrees}deg`
-    );
-
-
-    if (currentPhase) {
-
-        currentPhaseTitle.textContent =
-            currentPhase.title;
-
-
-        currentPhaseSummary.textContent =
-            currentPhase.summary;
-
-    }
-    else {
-
-        currentPhaseTitle.textContent =
-            "Lab Complete";
-
-
-        currentPhaseSummary.textContent =
-            "All planned Kubernetes engineering phases are complete.";
-
-    }
-
-}
-
-
-/* =========================================================
-   STATUS TEXT
-   ========================================================= */
-
-function getStatusText(
-    status
-) {
-
-    const labels = {
-
-        complete:
-            "Complete",
-
-        current:
-            "Active",
-
-        upcoming:
-            "Upcoming"
-
-    };
-
-
-    return (
-        labels[status] ||
-        status
-    );
-
-}
-
-
-/* =========================================================
-   ARCHITECTURE INTERACTION
-   ========================================================= */
-
-const architectureNodes =
+/* ============================================================
+   05. ACCORDION
+   ============================================================ */
+
+const accordionTriggers =
     document.querySelectorAll(
-        ".architecture-node"
+        ".accordion-trigger"
     );
 
 
-const inspectorCategory =
-    document.getElementById(
-        "inspectorCategory"
-    );
+accordionTriggers.forEach(
+    trigger => {
 
-const inspectorTitle =
-    document.getElementById(
-        "inspectorTitle"
-    );
-
-const inspectorDescription =
-    document.getElementById(
-        "inspectorDescription"
-    );
-
-const inspectorPurpose =
-    document.getElementById(
-        "inspectorPurpose"
-    );
-
-
-architectureNodes.forEach(
-    (node) => {
-
-        node.addEventListener(
+        trigger.addEventListener(
             "click",
             () => {
 
-                const key =
-                    node.dataset.component;
+                const item =
+                    trigger.closest(
+                        ".accordion-item"
+                    );
 
 
-                const component =
-                    architectureData[key];
+                const alreadyOpen =
+                    item.classList.contains(
+                        "is-open"
+                    );
 
 
-                if (!component) {
-                    return;
-                }
+                document
+                    .querySelectorAll(
+                        ".accordion-item"
+                    )
+                    .forEach(
+                        otherItem => {
 
-
-                architectureNodes.forEach(
-                    (architectureNode) => {
-
-                        architectureNode
-                            .classList
-                            .remove(
-                                "active"
+                            otherItem.classList.remove(
+                                "is-open"
                             );
 
-                    }
-                );
+                        }
+                    );
 
 
-                if (
-                    key === "pod"
-                ) {
+                if (!alreadyOpen) {
 
-                    document
-                        .querySelectorAll(
-                            '[data-component="pod"]'
-                        )
-                        .forEach(
-                            (pod) => {
-
-                                pod
-                                    .classList
-                                    .add(
-                                        "active"
-                                    );
-
-                            }
-                        );
-
-                }
-                else {
-
-                    node.classList.add(
-                        "active"
+                    item.classList.add(
+                        "is-open"
                     );
 
                 }
-
-
-                inspectorCategory.textContent =
-                    component.category;
-
-
-                inspectorTitle.textContent =
-                    component.title;
-
-
-                inspectorDescription.textContent =
-                    component.description;
-
-
-                inspectorPurpose.textContent =
-                    component.purpose;
 
             }
         );
@@ -1458,83 +512,120 @@ architectureNodes.forEach(
 );
 
 
-/* =========================================================
-   ACTIVE DESKTOP NAV
-   ========================================================= */
+/* ============================================================
+   06. COPY COMMANDS
+   ============================================================ */
 
-const desktopLinks =
+const copyButtons =
     document.querySelectorAll(
-        ".desktop-nav a"
+        ".copy-command"
     );
 
 
-const trackedSections = [
-    "overview",
-    "mission",
-    "journey",
-    "architecture",
-    "evidence",
-    "stack"
-];
+copyButtons.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            async () => {
+
+                const command =
+                    button.dataset.command;
 
 
-function updateActiveNavigation() {
+                if (!command) {
 
-    let activeSection =
-        "";
+                    return;
 
-
-    trackedSections.forEach(
-        (sectionId) => {
-
-            const section =
-                document.getElementById(
-                    sectionId
-                );
+                }
 
 
-            if (!section) {
-                return;
-            }
+                const decodedCommand =
+                    command
+                        .replaceAll(
+                            "&lt;",
+                            "<"
+                        )
+                        .replaceAll(
+                            "&gt;",
+                            ">"
+                        );
 
 
-            const bounds =
-                section
-                    .getBoundingClientRect();
+                try {
 
-
-            if (
-                bounds.top <= 170 &&
-                bounds.bottom >= 170
-            ) {
-
-                activeSection =
-                    sectionId;
-
-            }
-
-        }
-    );
-
-
-    desktopLinks.forEach(
-        (link) => {
-
-            const target =
-                link
-                    .getAttribute(
-                        "href"
-                    )
-                    .replace(
-                        "#",
-                        ""
+                    await navigator.clipboard.writeText(
+                        decodedCommand
                     );
 
 
-            link.classList.toggle(
-                "active",
-                target ===
-                    activeSection
+                    const oldHTML =
+                        button.innerHTML;
+
+
+                    button.innerHTML = `
+
+                        <iconify-icon
+                            icon="solar:check-circle-linear"
+                        ></iconify-icon>
+
+                        Copied
+
+                    `;
+
+
+                    setTimeout(
+                        () => {
+
+                            button.innerHTML =
+                                oldHTML;
+
+                        },
+                        1500
+                    );
+
+                } catch {
+
+                    console.warn(
+                        "Clipboard access was unavailable."
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* ============================================================
+   07. BUILD FLOW ANIMATION
+   ============================================================ */
+
+const buildNodes =
+    Array.from(
+        document.querySelectorAll(
+            "[data-flow-step]"
+        )
+    );
+
+const replayFlow =
+    document.getElementById(
+        "replayFlow"
+    );
+
+let buildFlowTimer =
+    null;
+
+
+function clearBuildFlow() {
+
+    buildNodes.forEach(
+        node => {
+
+            node.classList.remove(
+                "is-active"
             );
 
         }
@@ -1543,15 +634,85 @@ function updateActiveNavigation() {
 }
 
 
-window.addEventListener(
-    "scroll",
-    updateActiveNavigation
+function runBuildFlow() {
+
+    clearTimeout(
+        buildFlowTimer
+    );
+
+    clearBuildFlow();
+
+
+    let index =
+        0;
+
+
+    function activateNext() {
+
+        if (
+            index >
+            0
+        ) {
+
+            buildNodes[
+                index - 1
+            ]?.classList.remove(
+                "is-active"
+            );
+
+        }
+
+
+        if (
+            index >=
+            buildNodes.length
+        ) {
+
+            buildNodes[
+                buildNodes.length - 1
+            ]?.classList.add(
+                "is-active"
+            );
+
+            return;
+
+        }
+
+
+        buildNodes[
+            index
+        ]?.classList.add(
+            "is-active"
+        );
+
+
+        index +=
+            1;
+
+
+        buildFlowTimer =
+            setTimeout(
+                activateNext,
+                900
+            );
+
+    }
+
+
+    activateNext();
+
+}
+
+
+replayFlow?.addEventListener(
+    "click",
+    runBuildFlow
 );
 
 
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
+/* ============================================================
+   08. REVEAL ON SCROLL
+   ============================================================ */
 
 const revealElements =
     document.querySelectorAll(
@@ -1562,29 +723,28 @@ const revealElements =
 const revealObserver =
     new IntersectionObserver(
 
-        (entries) => {
+        entries => {
 
             entries.forEach(
-                (entry) => {
+                entry => {
 
                     if (
-                        entry.isIntersecting
+                        !entry.isIntersecting
                     ) {
 
-                        entry
-                            .target
-                            .classList
-                            .add(
-                                "visible"
-                            );
-
-
-                        revealObserver
-                            .unobserve(
-                                entry.target
-                            );
+                        return;
 
                     }
+
+
+                    entry.target.classList.add(
+                        "is-visible"
+                    );
+
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
 
                 }
             );
@@ -1592,14 +752,15 @@ const revealObserver =
         },
 
         {
-            threshold: 0.10
+            threshold:
+                0.12
         }
 
     );
 
 
 revealElements.forEach(
-    (element) => {
+    element => {
 
         revealObserver.observe(
             element
@@ -1609,23 +770,166 @@ revealElements.forEach(
 );
 
 
-/* =========================================================
-   INITIALIZE
-   ========================================================= */
+/* ============================================================
+   AUTO-RUN BUILD FLOW WHEN VISIBLE
+   ============================================================ */
 
-function initializeLab() {
+const buildFlow =
+    document.getElementById(
+        "buildFlow"
+    );
 
-    initializeTheme();
 
-    renderPhases();
+if (buildFlow) {
 
-    updateProgress();
+    const flowObserver =
+        new IntersectionObserver(
 
-    updateScrollUI();
+            entries => {
 
-    updateActiveNavigation();
+                entries.forEach(
+                    entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            runBuildFlow();
+
+                            flowObserver.disconnect();
+
+                        }
+
+                    }
+                );
+
+            },
+
+            {
+                threshold:
+                    0.35
+            }
+
+        );
+
+
+    flowObserver.observe(
+        buildFlow
+    );
 
 }
 
 
-initializeLab();
+/* ============================================================
+   09. HERO TERMINAL ANIMATION
+   ============================================================ */
+
+const typingCommand =
+    document.getElementById(
+        "typingCommand"
+    );
+
+
+const terminalCommands = [
+
+    "docker build .",
+
+    "docker images",
+
+    "docker run -p 3000:3000 <IMAGE_ID>",
+
+    "localhost:3000 ✓"
+
+];
+
+
+let terminalCommandIndex =
+    0;
+
+
+function cycleTerminalCommand() {
+
+    if (!typingCommand) {
+
+        return;
+
+    }
+
+
+    terminalCommandIndex =
+        (
+            terminalCommandIndex + 1
+        )
+        %
+        terminalCommands.length;
+
+
+    typingCommand.animate(
+
+        [
+            {
+                opacity: 1,
+                transform: "translateY(0)"
+            },
+
+            {
+                opacity: 0,
+                transform: "translateY(-5px)"
+            }
+
+        ],
+
+        {
+            duration:
+                180,
+
+            fill:
+                "forwards"
+        }
+
+    )
+    .finished
+    .then(
+        () => {
+
+            typingCommand.textContent =
+                terminalCommands[
+                    terminalCommandIndex
+                ];
+
+
+            typingCommand.animate(
+
+                [
+                    {
+                        opacity: 0,
+                        transform: "translateY(5px)"
+                    },
+
+                    {
+                        opacity: 1,
+                        transform: "translateY(0)"
+                    }
+
+                ],
+
+                {
+                    duration:
+                        220,
+
+                    fill:
+                        "forwards"
+                }
+
+            );
+
+        }
+    );
+
+}
+
+
+setInterval(
+    cycleTerminalCommand,
+    3000
+);

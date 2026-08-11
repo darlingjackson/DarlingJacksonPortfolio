@@ -1,0 +1,3068 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Interactive Docker, Kubernetes, and AWS EKS theory explorer by Darling Jackson."
+    >
+
+    <title>
+        Docker + Kubernetes Theory | Darling Jackson
+    </title>
+
+
+    <!-- =========================================================
+         FONTS
+         ========================================================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================================
+         ICONIFY
+         ========================================================= -->
+
+    <script
+        src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
+        defer
+    ></script>
+
+
+    <!-- =========================================================
+         STYLES
+         ========================================================= -->
+
+    <link
+        rel="stylesheet"
+        href="css/theory.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         AMBIENT EFFECTS
+         ========================================================= -->
+
+    <canvas
+        id="ambientCanvas"
+        class="ambient-canvas"
+        aria-hidden="true"
+    ></canvas>
+
+
+    <div
+        class="page-glow page-glow--one"
+        aria-hidden="true"
+    ></div>
+
+
+    <div
+        class="page-glow page-glow--two"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
+    <header
+        class="site-header"
+        id="siteHeader"
+    >
+
+        <div class="site-header__inner">
+
+
+            <!-- Brand -->
+
+            <a
+                class="brand"
+                href="../../index.html"
+                aria-label="Return to portfolio"
+            >
+
+                <span class="brand__mark">
+                    DJ
+                </span>
+
+                <span class="brand__name">
+                    Darling Jackson
+                </span>
+
+            </a>
+
+
+            <!-- Mobile Menu -->
+
+            <button
+                class="mobile-menu"
+                id="mobileMenu"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+            <!-- Navigation -->
+
+            <nav
+                class="site-nav"
+                id="siteNav"
+                aria-label="Theory navigation"
+            >
+
+                <a href="../../index.html">
+                    Portfolio
+                </a>
+
+                <a
+                    href="#overview"
+                    class="is-active"
+                >
+                    Theory
+                </a>
+
+                <a href="index.html">
+                    Lab
+                </a>
+
+                <a
+                    href="https://github.com/darlingjackson/kubernetes-platform-lab"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+            </nav>
+
+
+            <!-- Theme Toggle -->
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle light and dark mode"
+            >
+
+                <iconify-icon
+                    class="theme-toggle__moon"
+                    icon="solar:moon-linear"
+                ></iconify-icon>
+
+
+                <iconify-icon
+                    class="theme-toggle__sun"
+                    icon="solar:sun-2-linear"
+                ></iconify-icon>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO
+             ===================================================== -->
+
+        <section
+            class="hero"
+            id="overview"
+        >
+
+            <div class="shell hero__grid">
+
+
+                <!-- =============================================
+                     HERO COPY
+                     ============================================= -->
+
+                <div class="hero__copy reveal">
+
+
+                    <div class="eyebrow">
+
+                        <span class="signal-dot"></span>
+
+                        THEORY EXPLORER
+
+                        <span class="eyebrow__line"></span>
+
+                        CONTAINER SYSTEMS
+
+                    </div>
+
+
+                    <h1>
+
+                        See how the
+
+                        <span class="gradient-text">
+                            system moves.
+                        </span>
+
+                    </h1>
+
+
+                    <p>
+
+                        An interactive engineering view of how application
+                        code becomes a Docker image, how images become
+                        running containers, how Kubernetes manages workloads,
+                        and how those same concepts move into Amazon EKS.
+
+                    </p>
+
+
+                    <div class="hero__actions">
+
+
+                        <button
+                            class="button button--primary"
+                            id="runHeroFlow"
+                            type="button"
+                        >
+
+                            <iconify-icon
+                                icon="solar:play-circle-linear"
+                            ></iconify-icon>
+
+                            Run System Flow
+
+                        </button>
+
+
+                        <a
+                            class="button button--ghost"
+                            href="#docker"
+                        >
+
+                            Start with Docker
+
+                            <iconify-icon
+                                icon="solar:arrow-down-linear"
+                            ></iconify-icon>
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero__legend">
+
+                        <span>
+
+                            <i class="dot dot--docker"></i>
+
+                            Docker
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="dot dot--k8s"></i>
+
+                            Kubernetes
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="dot dot--aws"></i>
+
+                            AWS
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="dot dot--active"></i>
+
+                            Active Flow
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     HERO SYSTEM MAP
+                     ============================================= -->
+
+                <div
+                    class="hero-system reveal"
+                    id="heroSystem"
+                >
+
+
+                    <div
+                        class="hud-corners"
+                        aria-hidden="true"
+                    ></div>
+
+
+                    <div class="hero-system__bar">
+
+                        <span>
+                            SYSTEM TOPOLOGY
+                        </span>
+
+                        <strong id="heroSystemState">
+                            IDLE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="hero-system__field">
+
+
+                        <!-- Paths -->
+
+                        <svg
+                            class="hero-system__lines"
+                            viewBox="0 0 700 520"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                data-hero-path="0"
+                                d="M105 110 C180 110, 180 185, 250 185"
+                            ></path>
+
+                            <path
+                                data-hero-path="1"
+                                d="M305 185 C390 185, 390 100, 470 100"
+                            ></path>
+
+                            <path
+                                data-hero-path="2"
+                                d="M505 130 C505 230, 430 250, 430 325"
+                            ></path>
+
+                            <path
+                                data-hero-path="3"
+                                d="M395 350 C290 350, 290 425, 195 425"
+                            ></path>
+
+                        </svg>
+
+
+
+                        <!-- Source -->
+
+                        <button
+                            class="system-node system-node--source"
+                            data-hero-node="source"
+                            type="button"
+                        >
+
+                            <span class="system-node__icon">
+                                &lt;/&gt;
+                            </span>
+
+                            <small>
+                                SOURCE
+                            </small>
+
+                            <strong>
+                                Application
+                            </strong>
+
+                        </button>
+
+
+
+                        <!-- Docker -->
+
+                        <button
+                            class="system-node system-node--docker"
+                            data-hero-node="docker"
+                            type="button"
+                        >
+
+                            <span class="system-node__icon">
+
+                                <iconify-icon
+                                    icon="logos:docker-icon"
+                                ></iconify-icon>
+
+                            </span>
+
+                            <small>
+                                BUILD
+                            </small>
+
+                            <strong>
+                                Docker
+                            </strong>
+
+                        </button>
+
+
+
+                        <!-- Image -->
+
+                        <button
+                            class="system-node system-node--image"
+                            data-hero-node="image"
+                            type="button"
+                        >
+
+                            <span class="system-node__icon">
+                                ◇
+                            </span>
+
+                            <small>
+                                ARTIFACT
+                            </small>
+
+                            <strong>
+                                Image
+                            </strong>
+
+                        </button>
+
+
+
+                        <!-- Kubernetes -->
+
+                        <button
+                            class="system-node system-node--k8s"
+                            data-hero-node="kubernetes"
+                            type="button"
+                        >
+
+                            <span class="system-node__icon">
+
+                                <iconify-icon
+                                    icon="logos:kubernetes"
+                                ></iconify-icon>
+
+                            </span>
+
+                            <small>
+                                ORCHESTRATE
+                            </small>
+
+                            <strong>
+                                Kubernetes
+                            </strong>
+
+                        </button>
+
+
+
+                        <!-- AWS -->
+
+                        <button
+                            class="system-node system-node--aws"
+                            data-hero-node="eks"
+                            type="button"
+                        >
+
+                            <span class="system-node__icon">
+
+                                <iconify-icon
+                                    icon="logos:aws"
+                                ></iconify-icon>
+
+                            </span>
+
+                            <small>
+                                CLOUD
+                            </small>
+
+                            <strong>
+                                Amazon EKS
+                            </strong>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div
+                        class="hero-system__readout"
+                        id="heroSystemReadout"
+                    >
+
+                        <span>
+                            SYS://READY
+                        </span>
+
+                        <p>
+                            Select a component or run the system flow.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 SYSTEM LAYER STRIP
+                 ============================================= -->
+
+            <div class="tech-strip">
+
+                <div class="shell tech-strip__inner">
+
+
+                    <span class="tech-strip__label">
+                        SYSTEM LAYERS
+                    </span>
+
+
+                    <span>
+
+                        <iconify-icon
+                            icon="logos:docker-icon"
+                        ></iconify-icon>
+
+                        Build + Runtime
+
+                    </span>
+
+
+                    <i></i>
+
+
+                    <span>
+
+                        <iconify-icon
+                            icon="logos:kubernetes"
+                        ></iconify-icon>
+
+                        Orchestration
+
+                    </span>
+
+
+                    <i></i>
+
+
+                    <span>
+
+                        <iconify-icon
+                            icon="logos:aws"
+                        ></iconify-icon>
+
+                        Cloud Platform
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             DOCKER
+             ===================================================== -->
+
+        <section
+            class="section"
+            id="docker"
+        >
+
+            <div class="shell">
+
+
+                <header class="section-heading reveal">
+
+
+                    <div class="section-heading__number">
+                        01
+                    </div>
+
+
+                    <div>
+
+                        <span class="section-kicker">
+                            CONTAINERIZATION
+                        </span>
+
+                        <h2>
+                            Docker: code becomes a runnable artifact.
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+
+                        Source is transformed into an image; the image
+                        remains reusable; containers are running instances
+                        created from it.
+
+                    </p>
+
+                </header>
+
+
+
+                <!-- =============================================
+                     DOCKER PIPELINE
+                     ============================================= -->
+
+                <section
+                    class="neon-console reveal"
+                    aria-labelledby="pipelineTitle"
+                >
+
+
+                    <div class="neon-console__header">
+
+
+                        <div class="console-title">
+
+                            <iconify-icon
+                                icon="logos:docker-icon"
+                            ></iconify-icon>
+
+
+                            <div>
+
+                                <span>
+                                    DOCKER BUILD PIPELINE
+                                </span>
+
+                                <strong id="pipelineTitle">
+                                    Source → Image → Container
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="pipeline-controls">
+
+
+                            <button
+                                class="mini-control mini-control--primary"
+                                id="runPipeline"
+                                type="button"
+                            >
+
+                                <iconify-icon
+                                    icon="solar:play-linear"
+                                ></iconify-icon>
+
+                                Run
+
+                            </button>
+
+
+                            <button
+                                class="mini-control"
+                                id="pausePipeline"
+                                type="button"
+                                disabled
+                            >
+
+                                <iconify-icon
+                                    icon="solar:pause-linear"
+                                ></iconify-icon>
+
+                                Pause
+
+                            </button>
+
+
+                            <button
+                                class="mini-control"
+                                id="nextPipeline"
+                                type="button"
+                            >
+
+                                <iconify-icon
+                                    icon="solar:skip-next-linear"
+                                ></iconify-icon>
+
+                                Next
+
+                            </button>
+
+
+                            <button
+                                class="mini-control"
+                                id="resetPipeline"
+                                type="button"
+                            >
+
+                                <iconify-icon
+                                    icon="solar:restart-linear"
+                                ></iconify-icon>
+
+                                Reset
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Progress -->
+
+                    <div class="pipeline-progress">
+
+                        <span id="pipelineStatus">
+                            READY
+                        </span>
+
+
+                        <div class="pipeline-progress__track">
+
+                            <i id="pipelineProgress"></i>
+
+                        </div>
+
+
+                        <strong id="pipelineStep">
+                            0 / 6
+                        </strong>
+
+                    </div>
+
+
+
+                    <!-- Pipeline -->
+
+                    <div
+                        class="pipeline-track"
+                        id="pipelineTrack"
+                    >
+
+
+                        <!-- 01 -->
+
+                        <button
+                            class="pipeline-stage"
+                            data-pipeline-stage="source"
+                            type="button"
+                        >
+
+                            <b>01</b>
+
+                            <span class="pipeline-stage__glyph">
+                                &lt;/&gt;
+                            </span>
+
+                            <small>
+                                SOURCE
+                            </small>
+
+                            <strong>
+                                Application
+                            </strong>
+
+                            <em>
+                                app/
+                            </em>
+
+                        </button>
+
+
+                        <span class="pipeline-link">
+                            <i></i>
+                        </span>
+
+
+
+                        <!-- 02 -->
+
+                        <button
+                            class="pipeline-stage"
+                            data-pipeline-stage="dockerfile"
+                            type="button"
+                        >
+
+                            <b>02</b>
+
+                            <span class="pipeline-stage__glyph">
+                                ▤
+                            </span>
+
+                            <small>
+                                INSTRUCTIONS
+                            </small>
+
+                            <strong>
+                                Dockerfile
+                            </strong>
+
+                            <em>
+                                build recipe
+                            </em>
+
+                        </button>
+
+
+                        <span class="pipeline-link">
+                            <i></i>
+                        </span>
+
+
+
+                        <!-- 03 -->
+
+                        <button
+                            class="pipeline-stage"
+                            data-pipeline-stage="build"
+                            type="button"
+                        >
+
+                            <b>03</b>
+
+                            <span class="pipeline-stage__glyph">
+                                ⌁
+                            </span>
+
+                            <small>
+                                COMMAND
+                            </small>
+
+                            <strong>
+                                docker build
+                            </strong>
+
+                            <em>
+                                assemble
+                            </em>
+
+                        </button>
+
+
+                        <span class="pipeline-link">
+                            <i></i>
+                        </span>
+
+
+
+                        <!-- 04 -->
+
+                        <button
+                            class="pipeline-stage pipeline-stage--image"
+                            data-pipeline-stage="image"
+                            type="button"
+                        >
+
+                            <b>04</b>
+
+                            <span class="pipeline-stage__glyph">
+                                ◇
+                            </span>
+
+                            <small>
+                                ARTIFACT
+                            </small>
+
+                            <strong>
+                                Image
+                            </strong>
+
+                            <em>
+                                app:v1
+                            </em>
+
+                        </button>
+
+
+                        <span class="pipeline-link">
+                            <i></i>
+                        </span>
+
+
+
+                        <!-- 05 -->
+
+                        <button
+                            class="pipeline-stage"
+                            data-pipeline-stage="run"
+                            type="button"
+                        >
+
+                            <b>05</b>
+
+                            <span class="pipeline-stage__glyph">
+                                ▶
+                            </span>
+
+                            <small>
+                                COMMAND
+                            </small>
+
+                            <strong>
+                                docker run
+                            </strong>
+
+                            <em>
+                                create instance
+                            </em>
+
+                        </button>
+
+
+                        <span class="pipeline-link">
+                            <i></i>
+                        </span>
+
+
+
+                        <!-- 06 -->
+
+                        <button
+                            class="pipeline-stage pipeline-stage--container"
+                            data-pipeline-stage="container"
+                            type="button"
+                        >
+
+                            <b>06</b>
+
+                            <span class="pipeline-stage__glyph">
+                                ⬡
+                            </span>
+
+                            <small>
+                                RUNTIME
+                            </small>
+
+                            <strong>
+                                Container
+                            </strong>
+
+                            <em>
+                                running
+                            </em>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- Readout -->
+
+                    <div
+                        class="pipeline-readout"
+                        id="pipelineReadout"
+                    >
+
+                        <span>
+                            PIPELINE://READY
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                Walk through the process at reading speed.
+                            </strong>
+
+                            <p>
+                                Use Run for automatic playback, Pause to stop
+                                on a concept, or Next to move one stage at a time.
+                            </p>
+
+                        </div>
+
+
+                        <code>
+                            waiting...
+                        </code>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =============================================
+                     IMAGE → CONTAINER
+                     ============================================= -->
+
+                <section class="image-runtime reveal">
+
+
+                    <div class="image-runtime__header">
+
+
+                        <div>
+
+                            <span class="section-kicker">
+                                IMAGE / CONTAINER RELATIONSHIP
+                            </span>
+
+                            <h3>
+                                One image can launch many independent containers.
+                            </h3>
+
+                            <p>
+
+                                The image is the reusable packaged artifact.
+                                It does not disappear when a container is
+                                created from it.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="image-runtime__controls">
+
+
+                            <button
+                                class="button button--primary"
+                                id="spawnContainer"
+                                type="button"
+                            >
+
+                                <iconify-icon
+                                    icon="solar:play-circle-linear"
+                                ></iconify-icon>
+
+                                Run Image
+
+                            </button>
+
+
+                            <button
+                                class="button button--ghost"
+                                id="resetContainers"
+                                type="button"
+                            >
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="image-runtime__field">
+
+
+                        <!-- =====================================
+                             IMAGE CORE
+                             ===================================== -->
+
+                        <div class="image-core">
+
+
+                            <div class="orbit orbit--one"></div>
+
+                            <div class="orbit orbit--two"></div>
+
+                            <div class="image-core__halo"></div>
+
+
+
+                            <div
+                                class="image-core__body"
+                                id="imageCore"
+                            >
+
+
+                                <div class="image-core__top">
+
+
+                                    <iconify-icon
+                                        icon="logos:docker-icon"
+                                    ></iconify-icon>
+
+
+                                    <div>
+
+                                        <small>
+                                            LOCAL IMAGE
+                                        </small>
+
+                                        <strong>
+                                            app:v1
+                                        </strong>
+
+                                    </div>
+
+
+                                    <span>
+                                        READY
+                                    </span>
+
+                                </div>
+
+
+
+                                <div class="image-stack">
+
+
+                                    <div>
+
+                                        <b>05</b>
+
+                                        <span>
+                                            CMD
+                                        </span>
+
+                                        <strong>
+                                            node app.mjs
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <b>04</b>
+
+                                        <span>
+                                            CODE
+                                        </span>
+
+                                        <strong>
+                                            app.mjs + helpers.mjs
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <b>03</b>
+
+                                        <span>
+                                            DEPS
+                                        </span>
+
+                                        <strong>
+                                            npm / Express
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <b>02</b>
+
+                                        <span>
+                                            META
+                                        </span>
+
+                                        <strong>
+                                            package.json
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <b>01</b>
+
+                                        <span>
+                                            BASE
+                                        </span>
+
+                                        <strong>
+                                            node:14
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="image-core__caption">
+
+                                <span>
+                                    PACKAGED
+                                </span>
+
+                                <span>
+                                    REUSABLE
+                                </span>
+
+                                <span>
+                                    NOT RUNNING
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =====================================
+                             RUNTIME RAIL
+                             ===================================== -->
+
+                        <div class="runtime-rail">
+
+
+                            <div class="runtime-rail__beam"></div>
+
+
+                            <div
+                                class="runtime-packet"
+                                id="runtimePacket"
+                            ></div>
+
+
+                            <div class="runtime-command">
+
+                                <small>
+                                    COMMAND
+                                </small>
+
+                                <code>
+                                    docker run app:v1
+                                </code>
+
+                            </div>
+
+
+                            <span class="runtime-rail__arrow">
+                                →
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- =====================================
+                             CONTAINER BAY
+                             ===================================== -->
+
+                        <div class="container-bay">
+
+
+                            <div class="container-bay__title">
+
+                                <span>
+                                    RUNTIME BAY
+                                </span>
+
+                                <strong id="containerCount">
+                                    0 RUNNING
+                                </strong>
+
+                            </div>
+
+
+
+                            <svg
+                                class="container-bay__wires"
+                                viewBox="0 0 500 300"
+                                preserveAspectRatio="none"
+                                aria-hidden="true"
+                            >
+
+                                <path
+                                    d="M0 150 C100 150 100 55 210 55"
+                                ></path>
+
+                                <path
+                                    d="M0 150 C100 150 100 150 210 150"
+                                ></path>
+
+                                <path
+                                    d="M0 150 C100 150 100 245 210 245"
+                                ></path>
+
+                            </svg>
+
+
+
+                            <div
+                                class="container-slots"
+                                id="containerSlots"
+                            >
+
+
+                                <div
+                                    class="container-slot"
+                                    data-slot="1"
+                                >
+
+                                    <span>
+                                        01
+                                    </span>
+
+                                    <strong>
+                                        EMPTY
+                                    </strong>
+
+                                    <small>
+                                        waiting for image
+                                    </small>
+
+                                </div>
+
+
+
+                                <div
+                                    class="container-slot"
+                                    data-slot="2"
+                                >
+
+                                    <span>
+                                        02
+                                    </span>
+
+                                    <strong>
+                                        EMPTY
+                                    </strong>
+
+                                    <small>
+                                        waiting for image
+                                    </small>
+
+                                </div>
+
+
+
+                                <div
+                                    class="container-slot"
+                                    data-slot="3"
+                                >
+
+                                    <span>
+                                        03
+                                    </span>
+
+                                    <strong>
+                                        EMPTY
+                                    </strong>
+
+                                    <small>
+                                        waiting for image
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div
+                        class="image-runtime__readout"
+                        id="imageRuntimeReadout"
+                    >
+
+                        <span>
+                            RELATIONSHIP://READY
+                        </span>
+
+                        <strong>
+                            Image = reusable artifact. Container = running instance.
+                        </strong>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CONTAINER VS VM
+             ===================================================== -->
+
+        <section
+            class="section section--alt"
+            id="compute"
+        >
+
+            <div class="shell">
+
+
+                <header class="section-heading reveal">
+
+
+                    <div class="section-heading__number">
+                        02
+                    </div>
+
+
+                    <div>
+
+                        <span class="section-kicker">
+                            COMPUTE MODEL
+                        </span>
+
+                        <h2>
+                            Containers and VMs isolate differently.
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+
+                        The difference becomes clearer when the
+                        operating-system layer is visible. Containers
+                        share a host kernel; each VM carries its own
+                        guest operating system.
+
+                    </p>
+
+                </header>
+
+
+
+                <div class="compute-lab reveal">
+
+
+                    <div
+                        class="compute-lab__controls"
+                        role="tablist"
+                        aria-label="Compute model"
+                    >
+
+
+                        <button
+                            class="compute-tab is-active"
+                            data-compute="container"
+                            type="button"
+                        >
+                            Container Model
+                        </button>
+
+
+                        <button
+                            class="compute-tab"
+                            data-compute="vm"
+                            type="button"
+                        >
+                            Virtual Machine Model
+                        </button>
+
+                    </div>
+
+
+
+                    <div
+                        class="compute-schematic"
+                        id="computeSchematic"
+                    ></div>
+
+
+
+                    <div
+                        class="compute-lab__readout"
+                        id="computeReadout"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             KUBERNETES
+             ===================================================== -->
+
+        <section
+            class="section"
+            id="kubernetes"
+        >
+
+            <div class="shell">
+
+
+                <header class="section-heading reveal">
+
+
+                    <div class="section-heading__number">
+                        03
+                    </div>
+
+
+                    <div>
+
+                        <span class="section-kicker section-kicker--k8s">
+                            ORCHESTRATION
+                        </span>
+
+                        <h2>
+                            Kubernetes is a control system, not a container builder.
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+
+                        Kubernetes keeps declared workload state aligned
+                        with what is actually running. Click the architecture
+                        components to inspect what each part owns.
+
+                    </p>
+
+                </header>
+
+
+
+                <!-- =============================================
+                     CLUSTER ARCHITECTURE
+                     ============================================= -->
+
+                <section class="cluster-console reveal">
+
+
+                    <div class="cluster-console__header">
+
+
+                        <div class="console-title">
+
+
+                            <iconify-icon
+                                icon="logos:kubernetes"
+                            ></iconify-icon>
+
+
+                            <div>
+
+                                <span>
+                                    KUBERNETES CLUSTER
+                                </span>
+
+                                <strong>
+                                    Control plane → Worker nodes → Pods
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <span class="health-pill">
+
+                            <i></i>
+
+                            HEALTHY
+
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="cluster-console__grid">
+
+
+                        <!-- =====================================
+                             MAP
+                             ===================================== -->
+
+                        <div class="cluster-map">
+
+
+                            <div class="control-plane">
+
+
+                                <div class="zone-label">
+                                    CONTROL PLANE / DECISION LAYER
+                                </div>
+
+
+                                <div class="control-core">
+
+
+                                    <button
+                                        class="k8s-node k8s-node--api"
+                                        data-k8s="api"
+                                        type="button"
+                                    >
+
+                                        <span>
+                                            API
+                                        </span>
+
+                                        <strong>
+                                            API Server
+                                        </strong>
+
+                                    </button>
+
+
+                                    <button
+                                        class="k8s-node"
+                                        data-k8s="etcd"
+                                        type="button"
+                                    >
+
+                                        <span>
+                                            DB
+                                        </span>
+
+                                        <strong>
+                                            etcd
+                                        </strong>
+
+                                    </button>
+
+
+                                    <button
+                                        class="k8s-node"
+                                        data-k8s="scheduler"
+                                        type="button"
+                                    >
+
+                                        <span>
+                                            SCH
+                                        </span>
+
+                                        <strong>
+                                            Scheduler
+                                        </strong>
+
+                                    </button>
+
+
+                                    <button
+                                        class="k8s-node"
+                                        data-k8s="controller"
+                                        type="button"
+                                    >
+
+                                        <span>
+                                            CTL
+                                        </span>
+
+                                        <strong>
+                                            Controller
+                                        </strong>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="cluster-bus">
+
+                                <span></span>
+
+                                <strong>
+                                    CLUSTER COMMUNICATION BUS
+                                </strong>
+
+                                <span></span>
+
+                            </div>
+
+
+
+                            <div class="worker-grid">
+
+
+                                <!-- Worker 01 -->
+
+                                <article class="worker-node">
+
+
+                                    <div class="worker-node__top">
+
+                                        <span>
+                                            WORKER 01
+                                        </span>
+
+                                        <i>
+                                            READY
+                                        </i>
+
+                                    </div>
+
+
+                                    <button
+                                        data-k8s="kubelet"
+                                        type="button"
+                                    >
+                                        kubelet
+                                    </button>
+
+
+                                    <button
+                                        data-k8s="runtime"
+                                        type="button"
+                                    >
+                                        container runtime
+                                    </button>
+
+
+                                    <div class="pod-row">
+
+
+                                        <button
+                                            data-k8s="pod"
+                                            type="button"
+                                        >
+
+                                            <span>
+                                                POD
+                                            </span>
+
+                                            web
+
+                                        </button>
+
+
+                                        <button
+                                            data-k8s="pod"
+                                            type="button"
+                                        >
+
+                                            <span>
+                                                POD
+                                            </span>
+
+                                            api
+
+                                        </button>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <!-- Worker 02 -->
+
+                                <article class="worker-node">
+
+
+                                    <div class="worker-node__top">
+
+                                        <span>
+                                            WORKER 02
+                                        </span>
+
+                                        <i>
+                                            READY
+                                        </i>
+
+                                    </div>
+
+
+                                    <button
+                                        data-k8s="kubelet"
+                                        type="button"
+                                    >
+                                        kubelet
+                                    </button>
+
+
+                                    <button
+                                        data-k8s="runtime"
+                                        type="button"
+                                    >
+                                        container runtime
+                                    </button>
+
+
+                                    <div class="pod-row">
+
+
+                                        <button
+                                            data-k8s="pod"
+                                            type="button"
+                                        >
+
+                                            <span>
+                                                POD
+                                            </span>
+
+                                            worker
+
+                                        </button>
+
+
+                                        <button
+                                            data-k8s="pod"
+                                            type="button"
+                                        >
+
+                                            <span>
+                                                POD
+                                            </span>
+
+                                            cache
+
+                                        </button>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =====================================
+                             INSPECTOR
+                             ===================================== -->
+
+                        <aside class="system-inspector">
+
+
+                            <span class="inspector-label">
+                                COMPONENT INSPECTOR
+                            </span>
+
+
+                            <div class="system-inspector__icon">
+
+                                <iconify-icon
+                                    icon="logos:kubernetes"
+                                ></iconify-icon>
+
+                            </div>
+
+
+                            <h3 id="k8sInspectorTitle">
+                                Kubernetes Cluster
+                            </h3>
+
+
+                            <p id="k8sInspectorText">
+
+                                Select any component in the schematic
+                                to inspect its responsibility.
+
+                            </p>
+
+
+                            <div
+                                class="inspector-facts"
+                                id="k8sInspectorFacts"
+                            ></div>
+
+                        </aside>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =============================================
+                     DESIRED STATE
+                     ============================================= -->
+
+                <section class="reconcile-system reveal">
+
+
+                    <div class="reconcile-system__header">
+
+
+                        <div>
+
+                            <span class="section-kicker">
+                                DESIRED STATE SIMULATOR
+                            </span>
+
+                            <h3>
+                                Break a Pod. Watch the controller respond.
+                            </h3>
+
+                        </div>
+
+
+
+                        <div class="reconcile-actions">
+
+
+                            <button
+                                class="button button--danger"
+                                id="terminatePod"
+                                type="button"
+                            >
+                                Terminate Pod
+                            </button>
+
+
+                            <button
+                                class="button button--ghost"
+                                id="resetPods"
+                                type="button"
+                            >
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="reconcile-metrics">
+
+
+                        <div>
+
+                            <span>
+                                DESIRED
+                            </span>
+
+                            <strong id="desiredCount">
+                                3
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                ACTUAL
+                            </span>
+
+                            <strong id="actualCount">
+                                3
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                CONTROLLER
+                            </span>
+
+                            <strong
+                                class="status-ok"
+                                id="controllerState"
+                            >
+                                SYNCHRONIZED
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div
+                        class="pod-field"
+                        id="podField"
+                    ></div>
+
+
+
+                    <div
+                        class="controller-log"
+                        id="controllerLog"
+                    >
+
+                        <span>
+                            controller-manager $
+                        </span>
+
+                        desired state matches actual state
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =============================================
+                     KUBECTL
+                     ============================================= -->
+
+                <section class="cli-system reveal">
+
+
+                    <div class="cli-system__menu">
+
+
+                        <span>
+                            KUBECTL THEORY CONSOLE
+                        </span>
+
+
+                        <button
+                            data-cli="nodes"
+                            type="button"
+                        >
+                            kubectl get nodes
+                        </button>
+
+
+                        <button
+                            data-cli="pods"
+                            type="button"
+                        >
+                            kubectl get pods
+                        </button>
+
+
+                        <button
+                            data-cli="deployments"
+                            type="button"
+                        >
+                            kubectl get deployments
+                        </button>
+
+
+                        <button
+                            data-cli="services"
+                            type="button"
+                        >
+                            kubectl get services
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="terminal">
+
+
+                        <div class="terminal__bar">
+
+                            <span>
+
+                                <i></i>
+                                <i></i>
+                                <i></i>
+
+                            </span>
+
+                            darling@DarlingPC
+
+                        </div>
+
+
+                        <div
+                            class="terminal__body"
+                            id="cliTerminal"
+                        >
+
+                            <span class="terminal-muted">
+
+                                Select a command to inspect what it asks
+                                Kubernetes for.
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SYSTEM HANDOFF
+             ===================================================== -->
+
+        <section
+            class="section section--alt"
+            id="together"
+        >
+
+            <div class="shell">
+
+
+                <header class="section-heading reveal">
+
+
+                    <div class="section-heading__number">
+                        04
+                    </div>
+
+
+                    <div>
+
+                        <span class="section-kicker">
+                            SYSTEM HANDOFF
+                        </span>
+
+                        <h2>
+                            The image is the handoff artifact.
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+
+                        Docker creates the image. A registry distributes
+                        it. Kubernetes references that image and operates
+                        the resulting workload.
+
+                    </p>
+
+                </header>
+
+
+
+                <section class="handoff-system reveal">
+
+
+                    <div class="handoff-system__header">
+
+
+                        <span>
+                            END-TO-END DELIVERY PATH
+                        </span>
+
+
+                        <button
+                            class="mini-control mini-control--primary"
+                            id="runHandoff"
+                            type="button"
+                        >
+
+                            <iconify-icon
+                                icon="solar:play-linear"
+                            ></iconify-icon>
+
+                            Run Flow
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="handoff-track">
+
+
+                        <button
+                            data-handoff="source"
+                            type="button"
+                        >
+
+                            <small>
+                                01
+                            </small>
+
+                            <strong>
+                                Source
+                            </strong>
+
+                            <span>
+                                Application code
+                            </span>
+
+                        </button>
+
+
+                        <i></i>
+
+
+                        <button
+                            data-handoff="docker"
+                            type="button"
+                        >
+
+                            <small>
+                                02
+                            </small>
+
+                            <iconify-icon
+                                icon="logos:docker-icon"
+                            ></iconify-icon>
+
+                            <strong>
+                                Docker
+                            </strong>
+
+                        </button>
+
+
+                        <i></i>
+
+
+                        <button
+                            data-handoff="image"
+                            type="button"
+                        >
+
+                            <small>
+                                03
+                            </small>
+
+                            <strong>
+                                Image
+                            </strong>
+
+                            <span>
+                                app:v1
+                            </span>
+
+                        </button>
+
+
+                        <i></i>
+
+
+                        <button
+                            data-handoff="registry"
+                            type="button"
+                        >
+
+                            <small>
+                                04
+                            </small>
+
+                            <strong>
+                                Registry
+                            </strong>
+
+                            <span>
+                                Store / distribute
+                            </span>
+
+                        </button>
+
+
+                        <i></i>
+
+
+                        <button
+                            data-handoff="deployment"
+                            type="button"
+                        >
+
+                            <small>
+                                05
+                            </small>
+
+                            <iconify-icon
+                                icon="logos:kubernetes"
+                            ></iconify-icon>
+
+                            <strong>
+                                Deployment
+                            </strong>
+
+                        </button>
+
+
+                        <i></i>
+
+
+                        <button
+                            data-handoff="pods"
+                            type="button"
+                        >
+
+                            <small>
+                                06
+                            </small>
+
+                            <strong>
+                                Pods
+                            </strong>
+
+                            <span>
+                                Running workload
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div
+                        class="handoff-system__readout"
+                        id="handoffReadout"
+                    >
+
+                        <span>
+                            FLOW://READY
+                        </span>
+
+                        <strong>
+                            Select a stage or run the complete handoff.
+                        </strong>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             AMAZON EKS
+             ===================================================== -->
+
+        <section
+            class="section"
+            id="eks"
+        >
+
+            <div class="shell">
+
+
+                <header class="section-heading reveal">
+
+
+                    <div class="section-heading__number">
+                        05
+                    </div>
+
+
+                    <div>
+
+                        <span class="section-kicker section-kicker--aws">
+                            AMAZON EKS
+                        </span>
+
+                        <h2>
+                            Move the Kubernetes control system into AWS.
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+
+                        EKS connects Kubernetes to AWS networking,
+                        registries, load balancing, storage, monitoring,
+                        and managed control-plane infrastructure.
+
+                    </p>
+
+                </header>
+
+
+
+                <section class="eks-console reveal">
+
+
+                    <div class="eks-console__header">
+
+
+                        <div class="console-title">
+
+
+                            <iconify-icon
+                                icon="logos:aws"
+                            ></iconify-icon>
+
+
+                            <div>
+
+                                <span>
+                                    AWS / EKS ARCHITECTURE
+                                </span>
+
+                                <strong>
+                                    Application delivery inside a VPC
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <span class="region-pill">
+                            us-east-1
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="eks-console__grid">
+
+
+                        <!-- =====================================
+                             DELIVERY RAIL
+                             ===================================== -->
+
+                        <aside class="delivery-rail">
+
+
+                            <span>
+                                DELIVERY
+                            </span>
+
+
+                            <button
+                                data-aws="developer"
+                                type="button"
+                            >
+                                Developer
+                            </button>
+
+
+                            <i></i>
+
+
+                            <button
+                                data-aws="github"
+                                type="button"
+                            >
+
+                                <iconify-icon
+                                    icon="logos:github-icon"
+                                ></iconify-icon>
+
+                                GitHub
+
+                            </button>
+
+
+                            <i></i>
+
+
+                            <button
+                                data-aws="cicd"
+                                type="button"
+                            >
+                                CI/CD
+                            </button>
+
+
+                            <i></i>
+
+
+                            <button
+                                data-aws="ecr"
+                                type="button"
+                            >
+                                Amazon ECR
+                            </button>
+
+                        </aside>
+
+
+
+                        <!-- =====================================
+                             AWS CLOUD
+                             ===================================== -->
+
+                        <div class="aws-cloud">
+
+
+                            <div class="aws-cloud__label">
+
+                                <span>
+                                    AWS CLOUD / VPC
+                                </span>
+
+                                <code>
+                                    10.0.0.0/16
+                                </code>
+
+                            </div>
+
+
+
+                            <!-- Control Plane -->
+
+                            <div class="eks-control">
+
+
+                                <iconify-icon
+                                    icon="logos:kubernetes"
+                                ></iconify-icon>
+
+
+                                <div>
+
+                                    <small>
+                                        AMAZON EKS
+                                    </small>
+
+                                    <strong>
+                                        Managed Control Plane
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- Public Subnet -->
+
+                            <div class="subnet subnet--public">
+
+
+                                <span>
+                                    PUBLIC SUBNET
+                                </span>
+
+
+                                <button
+                                    data-aws="alb"
+                                    type="button"
+                                >
+                                    Application Load Balancer
+                                </button>
+
+                            </div>
+
+
+
+                            <!-- Private Subnets -->
+
+                            <div class="private-subnets">
+
+
+                                <div class="subnet subnet--private">
+
+
+                                    <span>
+                                        PRIVATE SUBNET A
+                                    </span>
+
+
+                                    <article class="eks-worker">
+
+
+                                        <small>
+                                            WORKER NODE
+                                        </small>
+
+
+                                        <div>
+
+
+                                            <button
+                                                data-aws="pod"
+                                                type="button"
+                                            >
+                                                POD
+                                            </button>
+
+
+                                            <button
+                                                data-aws="pod"
+                                                type="button"
+                                            >
+                                                POD
+                                            </button>
+
+                                        </div>
+
+                                    </article>
+
+                                </div>
+
+
+
+                                <div class="subnet subnet--private">
+
+
+                                    <span>
+                                        PRIVATE SUBNET B
+                                    </span>
+
+
+                                    <article class="eks-worker">
+
+
+                                        <small>
+                                            WORKER NODE
+                                        </small>
+
+
+                                        <div>
+
+
+                                            <button
+                                                data-aws="pod"
+                                                type="button"
+                                            >
+                                                POD
+                                            </button>
+
+
+                                            <button
+                                                data-aws="pod"
+                                                type="button"
+                                            >
+                                                POD
+                                            </button>
+
+                                        </div>
+
+                                    </article>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- Services -->
+
+                            <div class="aws-service-rail">
+
+
+                                <button
+                                    data-aws="route53"
+                                    type="button"
+                                >
+
+                                    <strong>
+                                        Route 53
+                                    </strong>
+
+                                    <span>
+                                        DNS
+                                    </span>
+
+                                </button>
+
+
+                                <button
+                                    data-aws="storage"
+                                    type="button"
+                                >
+
+                                    <strong>
+                                        EBS / EFS
+                                    </strong>
+
+                                    <span>
+                                        Storage
+                                    </span>
+
+                                </button>
+
+
+                                <button
+                                    data-aws="cloudwatch"
+                                    type="button"
+                                >
+
+                                    <strong>
+                                        CloudWatch
+                                    </strong>
+
+                                    <span>
+                                        Observability
+                                    </span>
+
+                                </button>
+
+
+                                <button
+                                    data-aws="secrets"
+                                    type="button"
+                                >
+
+                                    <strong>
+                                        Secrets Manager
+                                    </strong>
+
+                                    <span>
+                                        Secrets
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =====================================
+                             TRAFFIC RAIL
+                             ===================================== -->
+
+                        <aside class="traffic-rail">
+
+
+                            <span>
+                                TRAFFIC
+                            </span>
+
+
+                            <button
+                                data-aws="users"
+                                type="button"
+                            >
+                                Users
+                            </button>
+
+
+                            <i></i>
+
+
+                            <button
+                                data-aws="route53"
+                                type="button"
+                            >
+                                Route 53
+                            </button>
+
+
+                            <i></i>
+
+
+                            <button
+                                data-aws="alb"
+                                type="button"
+                            >
+                                ALB
+                            </button>
+
+
+                            <i></i>
+
+
+                            <button
+                                data-aws="service"
+                                type="button"
+                            >
+                                K8s Service
+                            </button>
+
+
+                            <i></i>
+
+
+                            <button
+                                data-aws="pod"
+                                type="button"
+                            >
+                                Pod
+                            </button>
+
+                        </aside>
+
+                    </div>
+
+
+
+                    <div
+                        class="eks-console__readout"
+                        id="awsReadout"
+                    >
+
+                        <span>
+                            AWS://INSPECTOR
+                        </span>
+
+                        <strong>
+                            Select a component to inspect its role in the architecture.
+                        </strong>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FINAL SUMMARY
+             ===================================================== -->
+
+        <section class="section final-section">
+
+            <div class="shell">
+
+
+                <div class="final-system reveal">
+
+
+                    <span class="section-kicker">
+                        SYSTEM SUMMARY
+                    </span>
+
+
+                    <h2>
+                        Build → Package → Run → Orchestrate → Deploy
+                    </h2>
+
+
+
+                    <div class="final-flow">
+
+
+                        <div>
+
+                            <iconify-icon
+                                icon="logos:docker-icon"
+                            ></iconify-icon>
+
+                            <strong>
+                                Docker
+                            </strong>
+
+                            <span>
+                                Build image
+                            </span>
+
+                        </div>
+
+
+                        <i>
+                            →
+                        </i>
+
+
+                        <div>
+
+                            <b>
+                                ◇
+                            </b>
+
+                            <strong>
+                                Image
+                            </strong>
+
+                            <span>
+                                Reusable artifact
+                            </span>
+
+                        </div>
+
+
+                        <i>
+                            →
+                        </i>
+
+
+                        <div>
+
+                            <b>
+                                ⬡
+                            </b>
+
+                            <strong>
+                                Container
+                            </strong>
+
+                            <span>
+                                Running instance
+                            </span>
+
+                        </div>
+
+
+                        <i>
+                            →
+                        </i>
+
+
+                        <div>
+
+                            <iconify-icon
+                                icon="logos:kubernetes"
+                            ></iconify-icon>
+
+                            <strong>
+                                Kubernetes
+                            </strong>
+
+                            <span>
+                                Operate workload
+                            </span>
+
+                        </div>
+
+
+                        <i>
+                            →
+                        </i>
+
+
+                        <div>
+
+                            <iconify-icon
+                                icon="logos:aws"
+                            ></iconify-icon>
+
+                            <strong>
+                                EKS
+                            </strong>
+
+                            <span>
+                                Cloud Kubernetes
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <a
+                        class="button button--primary"
+                        href="index.html"
+                    >
+
+                        Continue to Hands-On Lab
+
+                        <iconify-icon
+                            icon="solar:arrow-right-linear"
+                        ></iconify-icon>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="site-footer">
+
+        <div class="shell site-footer__inner">
+
+
+            <div>
+
+                <strong>
+                    Kubernetes Platform Lab
+                </strong>
+
+                <span>
+                    Docker → Kubernetes → Amazon EKS
+                </span>
+
+            </div>
+
+
+            <nav aria-label="Footer navigation">
+
+                <a href="../../index.html">
+                    Portfolio
+                </a>
+
+                <a href="index.html">
+                    Lab
+                </a>
+
+                <a href="#overview">
+                    Back to Top ↑
+                </a>
+
+            </nav>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
+    <script
+        src="js/theory.js"
+        defer
+    ></script>
+
+</body>
+
+</html>
