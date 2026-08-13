@@ -2,21 +2,6 @@
 <html lang="en" data-theme="dark">
 
 <head>
-    <!-- =========================================================
-         BLUE FOX DEFENSE
-         ENTERPRISE SECURITY COMPLIANCE LAB
-
-         Main case study landing page
-
-         Stylesheet:
-         css/lab/security-lab.css
-
-         JavaScript:
-         js/security-lab.js
-
-         Logo:
-         assets/images/blue-fox-logo.png
-    ========================================================== -->
 
     <meta charset="UTF-8">
 
@@ -44,74 +29,119 @@
         Blue Fox Defense | Enterprise Security Compliance Lab
     </title>
 
-    <!--
-        Apply the saved theme before the page becomes visible.
-        This helps prevent a flash between dark and light mode.
-    -->
-    <script>
-        (() => {
-            const savedTheme = localStorage.getItem("bfd-theme");
 
-            const systemPrefersLight = window.matchMedia(
-                "(prefers-color-scheme: light)"
-            ).matches;
+    <!-- Favicon -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/images/blue-fox-logo.png"
+    >
+
+
+    <!-- Apply saved theme before page renders -->
+
+    <script>
+
+        (() => {
+
+            const savedTheme =
+                localStorage.getItem(
+                    "bfd-theme"
+                );
+
+
+            const systemPrefersLight =
+                window.matchMedia(
+                    "(prefers-color-scheme: light)"
+                ).matches;
+
 
             const initialTheme =
-                savedTheme || (systemPrefersLight ? "light" : "dark");
+                savedTheme ||
+                (
+                    systemPrefersLight
+                        ? "light"
+                        : "dark"
+                );
 
-            document.documentElement.setAttribute(
-                "data-theme",
-                initialTheme
-            );
+
+            document.documentElement
+                .setAttribute(
+                    "data-theme",
+                    initialTheme
+                );
+
         })();
+
     </script>
+
+
+    <!-- Styles -->
 
     <link
         rel="stylesheet"
         href="css/security-lab.css"
     >
 
+
+    <!-- JavaScript -->
+
     <script
         src="js/security-lab.js"
         defer
     ></script>
+
 </head>
 
+
+
 <body>
+
 
     <!-- =========================================================
          ACCESSIBILITY
     ========================================================== -->
 
-    <a class="skip-link" href="#main-content">
+    <a
+        class="skip-link"
+        href="#main-content"
+    >
         Skip to main content
     </a>
 
 
+
     <!-- =========================================================
          GLOBAL HEADER
-
-         Reuse this header on every page in the security lab.
     ========================================================== -->
 
-    <header class="site-header" data-site-header>
+    <header
+        class="site-header"
+        data-site-header
+    >
+
         <div class="site-header__inner site-container">
 
-            <!-- Lab Brand -->
+
+            <!-- Blue Fox Brand -->
+
             <a
                 class="site-brand"
                 href="index.html"
                 aria-label="Blue Fox Defense Enterprise Security Compliance Lab home"
             >
-                <span class="site-brand__mark" aria-hidden="true">
-                    <img
-                        class="site-brand__logo"
-                        src="assets/images/blue-fox-logo.png"
-                        alt=""
-                    >
-                </span>
+
+                <img
+                    class="site-brand__logo site-brand__logo--standalone"
+                    src="assets/images/blue-fox-logo.png"
+                    alt=""
+                    aria-hidden="true"
+                >
+
 
                 <span class="site-brand__content">
+
                     <span class="site-brand__name">
                         Blue Fox Defense
                     </span>
@@ -119,90 +149,110 @@
                     <span class="site-brand__descriptor">
                         Enterprise Security Compliance Lab
                     </span>
+
                 </span>
+
             </a>
 
 
+
             <!-- Desktop Navigation -->
+
             <nav
                 class="site-nav"
-                aria-label="Primary navigation"
+                aria-label="Security lab navigation"
             >
+
+                <a
+                    class="site-nav__link"
+                    href="#case-study-introduction"
+                >
+                    Overview
+                </a>
+
+
                 <a
                     class="site-nav__link"
                     href="#blue-fox-defense"
                 >
-                    Blue Fox Defense
+                    Organization
                 </a>
+
 
                 <a
                     class="site-nav__link"
                     href="#foxhole-portal"
                 >
-                    Foxhole Portal
+                    System
                 </a>
+
 
                 <a
                     class="site-nav__link"
-                    href="../../index.html"
+                    href="#rmf-lifecycle"
                 >
-                    Portfolio
+                    RMF Lifecycle
                 </a>
+
             </nav>
 
 
-            <!-- Header Controls -->
+
+            <!-- Header Actions -->
+
             <div class="site-header__actions">
 
+
                 <!-- Theme Toggle -->
+
                 <button
-                    class="theme-toggle"
+                    class="theme-toggle lab-theme-toggle"
                     type="button"
                     aria-label="Switch to light mode"
                     aria-pressed="false"
                     data-theme-toggle
                 >
+
                     <span
-                        class="theme-toggle__track"
+                        class="lab-theme-toggle__sun"
                         aria-hidden="true"
                     >
-                        <span
-                            class="theme-toggle__icon theme-toggle__icon--sun"
-                        >
-                            <svg viewBox="0 0 24 24">
-                                <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="3.5"
-                                ></circle>
-
-                                <path d="M12 2v2"></path>
-                                <path d="M12 20v2"></path>
-                                <path d="m4.93 4.93 1.42 1.42"></path>
-                                <path d="m17.65 17.65 1.42 1.42"></path>
-                                <path d="M2 12h2"></path>
-                                <path d="M20 12h2"></path>
-                                <path d="m4.93 19.07 1.42-1.42"></path>
-                                <path d="m17.65 6.35 1.42-1.42"></path>
-                            </svg>
-                        </span>
-
-                        <span class="theme-toggle__thumb"></span>
-
-                        <span
-                            class="theme-toggle__icon theme-toggle__icon--moon"
-                        >
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"
-                                ></path>
-                            </svg>
-                        </span>
+                        ☀
                     </span>
+
+
+                    <span
+                        class="lab-theme-toggle__moon"
+                        aria-hidden="true"
+                    >
+                        ☾
+                    </span>
+
                 </button>
 
 
-                <!-- Mobile Menu Toggle -->
+
+                <!-- Portfolio Return -->
+
+                <a
+                    class="portfolio-return"
+                    href="../../index.html"
+                >
+
+                    <span>
+                        Portfolio
+                    </span>
+
+                    <span aria-hidden="true">
+                        ↗
+                    </span>
+
+                </a>
+
+
+
+                <!-- Mobile Menu -->
+
                 <button
                     class="menu-toggle"
                     type="button"
@@ -211,53 +261,88 @@
                     aria-controls="mobile-navigation"
                     data-menu-toggle
                 >
+
                     <span></span>
                     <span></span>
+                    <span></span>
+
                 </button>
+
             </div>
+
         </div>
 
 
-        <!-- Mobile Navigation -->
+
+        <!-- =====================================================
+             MOBILE NAVIGATION
+        ====================================================== -->
+
         <div
             class="mobile-nav"
             id="mobile-navigation"
             data-mobile-nav
         >
+
             <nav
                 class="mobile-nav__inner site-container"
-                aria-label="Mobile navigation"
+                aria-label="Mobile security lab navigation"
             >
+
+                <a
+                    class="mobile-nav__link"
+                    href="#case-study-introduction"
+                >
+                    Overview
+                </a>
+
+
                 <a
                     class="mobile-nav__link"
                     href="#blue-fox-defense"
                 >
-                    Blue Fox Defense
+                    Organization
                 </a>
+
 
                 <a
                     class="mobile-nav__link"
                     href="#foxhole-portal"
                 >
-                    Foxhole Portal
+                    System
                 </a>
+
 
                 <a
                     class="mobile-nav__link"
-                    href="../index.html"
+                    href="#rmf-lifecycle"
                 >
-                    Portfolio
+                    RMF Lifecycle
                 </a>
+
+
+                <a
+                    class="mobile-nav__link mobile-nav__link--portfolio"
+                    href="../../index.html"
+                >
+                    Portfolio ↗
+                </a>
+
             </nav>
+
         </div>
+
     </header>
 
 
+
     <!-- =========================================================
-         MAIN CONTENT
+         MAIN
     ========================================================== -->
 
     <main id="main-content">
+
+
 
         <!-- =====================================================
              HERO
@@ -267,79 +352,137 @@
             class="hero"
             aria-labelledby="hero-title"
         >
+
+
             <!-- Decorative Background -->
-            <div class="hero__background" aria-hidden="true">
-                <div class="hero__gradient hero__gradient--one"></div>
-                <div class="hero__gradient hero__gradient--two"></div>
+
+            <div
+                class="hero__background"
+                aria-hidden="true"
+            >
+
+                <div
+                    class="hero__gradient hero__gradient--one"
+                ></div>
+
+                <div
+                    class="hero__gradient hero__gradient--two"
+                ></div>
+
                 <div class="hero__grid"></div>
+
                 <div class="hero__noise"></div>
+
             </div>
+
 
 
             <div class="hero__inner site-container">
 
+
                 <!-- Hero Content -->
-                <div class="hero__content" data-reveal>
+
+                <div
+                    class="hero__content"
+                    data-reveal
+                >
+
                     <p class="eyebrow">
                         Enterprise Security Compliance Lab
                     </p>
 
-                    <h1 class="hero__title" id="hero-title">
+
+                    <h1
+                        class="hero__title"
+                        id="hero-title"
+                    >
+
                         Taking the
+
                         <span class="text-gradient">
                             Foxhole Portal
                         </span>
+
                         through the NIST Risk Management Framework.
+
                     </h1>
 
+
                     <p class="hero__summary">
+
                         This interactive case study follows an internal
                         enterprise system through the complete RMF lifecycle,
                         from early preparation and security categorization
                         through authorization and continuous monitoring.
+
                     </p>
 
+
+
+                    <!-- Hero Actions -->
+
                     <div class="hero__actions">
+
+
                         <a
                             class="button button--primary"
                             href="prepare.html"
                         >
+
                             <span>
                                 Begin the Case Study
                             </span>
+
 
                             <svg
                                 class="button__icon"
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
                             >
+
                                 <path d="M5 12h14"></path>
+
                                 <path d="m13 6 6 6-6 6"></path>
+
                             </svg>
+
                         </a>
+
+
 
                         <a
                             class="text-link"
                             href="#case-study-introduction"
                         >
+
                             <span>
                                 Explore the Introduction
                             </span>
+
 
                             <svg
                                 class="text-link__icon"
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
                             >
+
                                 <path d="m6 9 6 6 6-6"></path>
+
                             </svg>
+
                         </a>
+
                     </div>
 
 
-                    <!-- Case Study Details -->
+
+                    <!-- Metadata -->
+
                     <dl class="hero__metadata">
+
+
                         <div class="hero__metadata-item">
+
                             <dt>
                                 System
                             </dt>
@@ -347,9 +490,13 @@
                             <dd>
                                 Foxhole Portal
                             </dd>
+
                         </div>
 
+
+
                         <div class="hero__metadata-item">
+
                             <dt>
                                 Framework
                             </dt>
@@ -357,9 +504,13 @@
                             <dd>
                                 NIST RMF
                             </dd>
+
                         </div>
 
+
+
                         <div class="hero__metadata-item">
+
                             <dt>
                                 Environment
                             </dt>
@@ -367,55 +518,80 @@
                             <dd>
                                 Fictional Enterprise Lab
                             </dd>
+
                         </div>
+
+
                     </dl>
+
                 </div>
 
 
-                <!-- Hero Visual -->
+
+                <!-- =================================================
+                     HERO VISUAL
+                ================================================== -->
+
                 <div
                     class="hero-visual"
                     aria-hidden="true"
                     data-reveal
                 >
+
+
                     <div
                         class="hero-visual__halo hero-visual__halo--outer"
                     ></div>
 
+
                     <div
                         class="hero-visual__halo hero-visual__halo--middle"
                     ></div>
+
 
                     <div
                         class="hero-visual__halo hero-visual__halo--inner"
                     ></div>
 
 
+
                     <div class="hero-visual__frame">
-                        <div class="hero-visual__frame-glow"></div>
+
+
+                        <div
+                            class="hero-visual__frame-glow"
+                        ></div>
+
 
                         <img
                             class="hero-visual__logo"
                             src="assets/images/blue-fox-logo.png"
                             alt=""
                         >
+
+
                     </div>
+
 
 
                     <span
                         class="hero-visual__signal hero-visual__signal--one"
                     ></span>
 
+
                     <span
                         class="hero-visual__signal hero-visual__signal--two"
                     ></span>
+
 
                     <span
                         class="hero-visual__signal hero-visual__signal--three"
                     ></span>
 
 
+
                     <div class="hero-visual__caption">
+
                         <span class="hero-visual__caption-label">
                             Protected System
                         </span>
@@ -427,59 +603,82 @@
                         <span class="hero-visual__caption-status">
                             Authorization Journey
                         </span>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
 
-        <!-- =====================================================
-             RMF LIFECYCLE NAVIGATION
 
-             The introduction page does not select an active phase.
-             Visitors can begin with Prepare or open any phase.
+        <!-- =====================================================
+             RMF LIFECYCLE
         ====================================================== -->
 
         <nav
             class="rmf-lifecycle"
+            id="rmf-lifecycle"
             aria-label="Risk Management Framework lifecycle"
             data-rmf-lifecycle
         >
+
             <div class="rmf-lifecycle__shell">
 
+
+                <!-- Lifecycle Header -->
+
                 <div class="rmf-lifecycle__header site-container">
+
+
                     <div>
+
                         <p class="rmf-lifecycle__eyebrow">
                             NIST Risk Management Framework
                         </p>
+
 
                         <p class="rmf-lifecycle__instruction">
                             Select any phase to explore the authorization
                             process.
                         </p>
+
                     </div>
+
 
 
                     <p
                         class="rmf-lifecycle__status"
                         aria-live="polite"
                     >
+
                         <span class="rmf-lifecycle__status-label">
                             Current View
                         </span>
 
+
                         <span class="rmf-lifecycle__status-value">
                             Case Study Introduction
                         </span>
+
                     </p>
+
                 </div>
 
 
+
+                <!-- Lifecycle Track -->
+
                 <div class="rmf-lifecycle__viewport">
+
                     <div
                         class="rmf-lifecycle__track"
                         data-lifecycle-track
                     >
+
+
                         <span
                             class="rmf-lifecycle__progress"
                             aria-hidden="true"
@@ -487,17 +686,22 @@
                         ></span>
 
 
+
                         <!-- 01 Prepare -->
+
                         <a
                             class="rmf-phase-link"
                             href="prepare.html"
                             data-phase="prepare"
                         >
+
                             <span class="rmf-phase-link__number">
                                 01
                             </span>
 
+
                             <span class="rmf-phase-link__content">
+
                                 <span class="rmf-phase-link__name">
                                     Prepare
                                 </span>
@@ -505,26 +709,34 @@
                                 <span class="rmf-phase-link__summary">
                                     Establish context
                                 </span>
+
                             </span>
+
 
                             <span
                                 class="rmf-phase-link__edge"
                                 aria-hidden="true"
                             ></span>
+
                         </a>
 
 
+
                         <!-- 02 Categorize -->
+
                         <a
                             class="rmf-phase-link"
                             href="categorize.html"
                             data-phase="categorize"
                         >
+
                             <span class="rmf-phase-link__number">
                                 02
                             </span>
 
+
                             <span class="rmf-phase-link__content">
+
                                 <span class="rmf-phase-link__name">
                                     Categorize
                                 </span>
@@ -532,26 +744,34 @@
                                 <span class="rmf-phase-link__summary">
                                     Determine impact
                                 </span>
+
                             </span>
+
 
                             <span
                                 class="rmf-phase-link__edge"
                                 aria-hidden="true"
                             ></span>
+
                         </a>
 
 
+
                         <!-- 03 Select -->
+
                         <a
                             class="rmf-phase-link"
                             href="select.html"
                             data-phase="select"
                         >
+
                             <span class="rmf-phase-link__number">
                                 03
                             </span>
 
+
                             <span class="rmf-phase-link__content">
+
                                 <span class="rmf-phase-link__name">
                                     Select
                                 </span>
@@ -559,26 +779,34 @@
                                 <span class="rmf-phase-link__summary">
                                     Define protections
                                 </span>
+
                             </span>
+
 
                             <span
                                 class="rmf-phase-link__edge"
                                 aria-hidden="true"
                             ></span>
+
                         </a>
 
 
+
                         <!-- 04 Implement -->
+
                         <a
                             class="rmf-phase-link"
                             href="implement.html"
                             data-phase="implement"
                         >
+
                             <span class="rmf-phase-link__number">
                                 04
                             </span>
 
+
                             <span class="rmf-phase-link__content">
+
                                 <span class="rmf-phase-link__name">
                                     Implement
                                 </span>
@@ -586,26 +814,34 @@
                                 <span class="rmf-phase-link__summary">
                                     Apply the controls
                                 </span>
+
                             </span>
+
 
                             <span
                                 class="rmf-phase-link__edge"
                                 aria-hidden="true"
                             ></span>
+
                         </a>
 
 
+
                         <!-- 05 Assess -->
+
                         <a
                             class="rmf-phase-link"
                             href="assess.html"
                             data-phase="assess"
                         >
+
                             <span class="rmf-phase-link__number">
                                 05
                             </span>
 
+
                             <span class="rmf-phase-link__content">
+
                                 <span class="rmf-phase-link__name">
                                     Assess
                                 </span>
@@ -613,26 +849,34 @@
                                 <span class="rmf-phase-link__summary">
                                     Verify effectiveness
                                 </span>
+
                             </span>
+
 
                             <span
                                 class="rmf-phase-link__edge"
                                 aria-hidden="true"
                             ></span>
+
                         </a>
 
 
+
                         <!-- 06 Authorize -->
+
                         <a
                             class="rmf-phase-link"
                             href="authorize.html"
                             data-phase="authorize"
                         >
+
                             <span class="rmf-phase-link__number">
                                 06
                             </span>
 
+
                             <span class="rmf-phase-link__content">
+
                                 <span class="rmf-phase-link__name">
                                     Authorize
                                 </span>
@@ -640,26 +884,34 @@
                                 <span class="rmf-phase-link__summary">
                                     Accept the risk
                                 </span>
+
                             </span>
+
 
                             <span
                                 class="rmf-phase-link__edge"
                                 aria-hidden="true"
                             ></span>
+
                         </a>
 
 
+
                         <!-- 07 Monitor -->
+
                         <a
                             class="rmf-phase-link"
                             href="monitor.html"
                             data-phase="monitor"
                         >
+
                             <span class="rmf-phase-link__number">
                                 07
                             </span>
 
+
                             <span class="rmf-phase-link__content">
+
                                 <span class="rmf-phase-link__name">
                                     Monitor
                                 </span>
@@ -667,17 +919,26 @@
                                 <span class="rmf-phase-link__summary">
                                     Maintain awareness
                                 </span>
+
                             </span>
+
 
                             <span
                                 class="rmf-phase-link__edge"
                                 aria-hidden="true"
                             ></span>
+
                         </a>
+
+
                     </div>
+
                 </div>
+
             </div>
+
         </nav>
+
 
 
         <!-- =====================================================
@@ -688,39 +949,53 @@
             class="content-section content-section--intro"
             id="case-study-introduction"
         >
+
             <div class="site-container">
+
 
                 <div
                     class="section-heading section-heading--wide"
                     data-reveal
                 >
+
                     <p class="eyebrow">
                         The Case Study
                     </p>
+
 
                     <h2 class="section-heading__title">
                         Showing what the RMF process looks like when it is
                         applied to an enterprise system.
                     </h2>
 
+
                     <p class="section-heading__summary">
+
                         I created this lab to show what the Risk Management
                         Framework looks like beyond the documentation. Instead
                         of only describing each phase, I built a fictional
                         organization called Blue Fox Defense and a fictional
                         enterprise system called Foxhole Portal.
+
                     </p>
 
+
                     <p class="section-heading__summary">
+
                         The lab shows how the decisions, meetings, artifacts,
                         and security activities work together to move a system
                         toward authorization. You can follow the process from
                         beginning to end or jump directly to any phase using
                         the navigation above.
+
                     </p>
+
                 </div>
+
             </div>
+
         </section>
+
 
 
         <!-- =====================================================
@@ -732,31 +1007,54 @@
             id="blue-fox-defense"
             aria-labelledby="organization-title"
         >
+
             <div class="site-container split-layout">
 
-                <div class="split-layout__aside" data-reveal>
+
+                <div
+                    class="split-layout__aside"
+                    data-reveal
+                >
+
                     <p class="section-index">
                         01 / The Organization
                     </p>
 
-                    <div class="section-symbol" aria-hidden="true">
+
+                    <div
+                        class="section-symbol"
+                        aria-hidden="true"
+                    >
+
                         <svg viewBox="0 0 48 48">
+
                             <path
                                 d="M24 5 42 15v18L24 43 6 33V15L24 5Z"
                             ></path>
 
                             <path d="M15 19h18"></path>
+
                             <path d="M15 25h18"></path>
+
                             <path d="M15 31h11"></path>
+
                         </svg>
+
                     </div>
+
                 </div>
 
 
-                <div class="split-layout__content" data-reveal>
+
+                <div
+                    class="split-layout__content"
+                    data-reveal
+                >
+
                     <p class="eyebrow">
                         Blue Fox Defense
                     </p>
+
 
                     <h2
                         class="section-title"
@@ -766,27 +1064,40 @@
                         enterprise security scenario.
                     </h2>
 
+
+
                     <div class="prose">
+
                         <p>
+
                             Blue Fox Defense is a fictional defense technology
                             company created for this Enterprise Security
                             Compliance Lab. The company provides the
                             environment used to document the authorization of
                             the Foxhole Portal.
+
                         </p>
 
+
                         <p>
+
                             Blue Fox Defense is preparing the portal for
                             deployment. Before the system can move forward, the
                             organization must identify the system requirements,
                             document the security controls, assess the risk,
                             and complete the authorization process.
+
                         </p>
+
                     </div>
 
 
+
                     <div class="inline-details">
+
+
                         <div class="inline-details__item">
+
                             <span class="inline-details__label">
                                 Organization
                             </span>
@@ -794,9 +1105,13 @@
                             <span class="inline-details__value">
                                 Blue Fox Defense
                             </span>
+
                         </div>
 
+
+
                         <div class="inline-details__item">
+
                             <span class="inline-details__label">
                                 Scenario
                             </span>
@@ -804,11 +1119,18 @@
                             <span class="inline-details__value">
                                 Enterprise System Authorization
                             </span>
+
                         </div>
+
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
+
 
 
         <!-- =====================================================
@@ -820,15 +1142,27 @@
             id="foxhole-portal"
             aria-labelledby="system-title"
         >
+
             <div class="site-container split-layout">
 
-                <div class="split-layout__aside" data-reveal>
+
+                <div
+                    class="split-layout__aside"
+                    data-reveal
+                >
+
                     <p class="section-index">
                         02 / The System
                     </p>
 
-                    <div class="section-symbol" aria-hidden="true">
+
+                    <div
+                        class="section-symbol"
+                        aria-hidden="true"
+                    >
+
                         <svg viewBox="0 0 48 48">
+
                             <rect
                                 x="7"
                                 y="8"
@@ -838,53 +1172,82 @@
                             ></rect>
 
                             <path d="M17 41h14"></path>
+
                             <path d="M24 33v8"></path>
+
                             <path d="M13 15h22"></path>
+
                             <path d="M13 21h12"></path>
+
                             <path d="M29 21h6"></path>
+
                             <path d="M13 27h22"></path>
+
                         </svg>
+
                     </div>
+
                 </div>
 
 
-                <div class="split-layout__content" data-reveal>
+
+                <div
+                    class="split-layout__content"
+                    data-reveal
+                >
+
                     <p class="eyebrow">
                         Foxhole Portal
                     </p>
+
 
                     <h2
                         class="section-title"
                         id="system-title"
                     >
+
                         An internal employee portal supporting everyday
                         business operations.
+
                     </h2>
 
+
+
                     <div class="prose">
+
                         <p>
+
                             Foxhole Portal is a secure internal HR system that
                             gives authorized personnel access to employee
                             services, training, policies, HR documents, and
                             approved company resources.
+
                         </p>
 
+
                         <p>
+
                             Throughout this case study, I will examine the
                             portal as an enterprise information system and work
                             through the security, documentation, and risk
                             decisions required to move it through the RMF
                             lifecycle.
+
                         </p>
+
                     </div>
 
 
+
                     <div class="capability-index">
+
                         <p class="capability-index__heading">
                             The Portal Supports
                         </p>
 
+
                         <ul class="capability-index__list">
+
                             <li>
                                 HR resources
                             </li>
@@ -908,38 +1271,58 @@
                             <li>
                                 Internal documentation
                             </li>
+
                         </ul>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
 
+
         <!-- =====================================================
-             NEXT PHASE
+             NEXT CHAPTER
         ====================================================== -->
 
         <section
             class="chapter-transition"
             aria-labelledby="next-chapter-title"
         >
+
+
             <div
                 class="chapter-transition__background"
                 aria-hidden="true"
             >
-                <div class="chapter-transition__glow"></div>
-                <div class="chapter-transition__grid"></div>
+
+                <div
+                    class="chapter-transition__glow"
+                ></div>
+
+                <div
+                    class="chapter-transition__grid"
+                ></div>
+
             </div>
+
 
 
             <div
                 class="chapter-transition__inner site-container"
                 data-reveal
             >
+
+
                 <div class="chapter-transition__content">
+
                     <p class="chapter-transition__eyebrow">
                         Chapter 01
                     </p>
+
 
                     <h2
                         class="chapter-transition__title"
@@ -948,12 +1331,17 @@
                         Prepare
                     </h2>
 
+
                     <p class="chapter-transition__summary">
+
                         Before security controls can be selected, the system,
                         its environment, its stakeholders, and its
                         responsibilities must be understood.
+
                     </p>
+
                 </div>
+
 
 
                 <a
@@ -961,158 +1349,134 @@
                     href="prepare.html"
                     aria-label="Begin the Prepare phase"
                 >
+
                     <span class="chapter-transition__link-label">
                         Begin with Prepare
                     </span>
+
 
                     <span
                         class="chapter-transition__link-icon"
                         aria-hidden="true"
                     >
+
                         <svg viewBox="0 0 24 24">
+
                             <path d="M5 12h14"></path>
+
                             <path d="m13 6 6 6-6 6"></path>
+
                         </svg>
+
                     </span>
+
                 </a>
+
             </div>
+
         </section>
+
+
     </main>
 
 
-    <!-- =========================================================
-         GLOBAL FOOTER
 
-         Reuse this footer on every page in the security lab.
+    <!-- =========================================================
+         FOOTER
     ========================================================== -->
 
-    <footer class="site-footer">
-        <div class="site-footer__inner site-container">
+<footer class="site-footer">
 
-            <!-- Footer Brand -->
-            <div class="site-footer__brand">
-                <a
-                    class="site-brand site-brand--footer"
-                    href="index.html"
-                    aria-label="Blue Fox Defense Enterprise Security Compliance Lab home"
+    <div class="site-container">
+
+        <div class="lab-footer__bottom">
+
+
+            <!-- Blue Fox Brand -->
+
+            <a
+                class="lab-footer__brand"
+                href="index.html"
+                aria-label="Blue Fox Defense Security Compliance Lab home"
+            >
+
+                <img
+                    src="assets/images/blue-fox-logo.png"
+                    alt=""
+                    aria-hidden="true"
                 >
-                    <span class="site-brand__mark" aria-hidden="true">
-                        <img
-                            class="site-brand__logo"
-                            src="assets/images/blue-fox-logo.png"
-                            alt=""
-                        >
-                    </span>
-
-                    <span class="site-brand__content">
-                        <span class="site-brand__name">
-                            Blue Fox Defense
-                        </span>
-
-                        <span class="site-brand__descriptor">
-                            Enterprise Security Compliance Lab
-                        </span>
-                    </span>
-                </a>
-
-                <p class="site-footer__description">
-                    A fictional enterprise case study demonstrating the NIST
-                    Risk Management Framework through the authorization
-                    lifecycle of the Foxhole Portal.
-                </p>
-            </div>
 
 
-            <!-- Footer Navigation -->
-            <div class="site-footer__navigation">
+                <span>
 
-                <div class="site-footer__group">
-                    <p class="site-footer__heading">
-                        Case Study
-                    </p>
+                    <strong>
+                        Blue Fox Defense
+                    </strong>
 
-                    <a href="prepare.html">
-                        Prepare
-                    </a>
+                    <small>
+                        Enterprise Security Compliance Lab
+                    </small>
 
-                    <a href="categorize.html">
-                        Categorize
-                    </a>
+                </span>
 
-                    <a href="select.html">
-                        Select
-                    </a>
-
-                    <a href="implement.html">
-                        Implement
-                    </a>
-                </div>
+            </a>
 
 
-                <div class="site-footer__group">
-                    <p class="site-footer__heading">
-                        Authorization
-                    </p>
 
-                    <a href="assess.html">
-                        Assess
-                    </a>
+            <!-- Footer Information -->
 
-                    <a href="authorize.html">
-                        Authorize
-                    </a>
+            <div class="lab-footer__meta">
 
-                    <a href="monitor.html">
-                        Monitor
-                    </a>
-
-
-                <div class="site-footer__group">
-                    <p class="site-footer__heading">
-                        Portfolio
-                    </p>
-
-                    <a href="../../index.html">
-                        Main Portfolio
-                    </a>
-
-                    <a href="../../resume.html">
-                        Resume
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Footer Bottom -->
-        <div class="site-footer__bottom">
-            <div class="site-container site-footer__bottom-inner">
                 <p>
                     ©
                     <span data-current-year>
                         2026
                     </span>
-                    Darling Jackson. Built as a professional portfolio project.
+                    Darling Jackson
                 </p>
+
+
+                <span
+                    class="lab-footer__meta-divider"
+                    aria-hidden="true"
+                ></span>
+
 
                 <p>
                     Blue Fox Defense and Foxhole Portal are fictional.
                 </p>
-            </div>
-        </div>
-    </footer>
 
-    <!-- Back to Top Button -->
+            </div>
+
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================== -->
+
     <button
         class="back-to-top"
         type="button"
         aria-label="Back to the top of the page"
         data-back-to-top
     >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+        >
             <path d="m6 15 6-6 6 6"></path>
         </svg>
+
     </button>
 
+
 </body>
+
 </html>

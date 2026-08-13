@@ -1,154 +1,218 @@
-/* ==========================================================================
-
+/* ============================================================
    DARLING JACKSON PORTFOLIO
-   Main JavaScript
-
-   Author: Darling Jackson
-   Created: July 2026
-   Last Updated: July 2026
-   Version: 4.0
-
-   DESCRIPTION
-   --------------------------------------------------------------------------
-   This file controls the interactive features throughout my portfolio.
-
-   It is written to match the standardized HTML and CSS component system.
-
-   FEATURES
-   --------------------------------------------------------------------------
-   01. Theme Toggle
-   02. Sticky Header
-   03. Mobile Navigation
-   04. Page Progress Bar
-   05. Active Navigation State
-   06. Smooth Anchor Scrolling
-   07. Typing Effect
-   08. Project Filtering
-   09. Experience Tabs
-   10. Scroll Reveal Animations
-   11. Back to Top Button
-   12. Current Year
-   13. Keyboard Accessibility
-
-   ========================================================================== */
+   TECH-FORWARD INTERACTIONS
+   ============================================================ */
 
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ======================================================================
+
+    /* ========================================================
        01. ELEMENT REFERENCES
-       ======================================================================
+    ======================================================== */
 
-       I keep my main element references together so they are easier to find
-       and update later.
-    */
+    const root =
+        document.documentElement;
 
-    const root = document.documentElement;
-    const body = document.body;
+    const body =
+        document.body;
 
-    const siteHeader = document.querySelector(".site-header");
+    const siteHeader =
+        document.getElementById("siteHeader");
 
-    const themeToggle = document.getElementById("themeToggle");
+    const themeToggle =
+        document.getElementById("themeToggle");
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileNavigation = document.getElementById("mobileNavigation");
+    const themeColorMeta =
+        document.getElementById("themeColorMeta");
 
-    const pageProgressBar = document.getElementById("pageProgressBar");
+    const menuToggle =
+        document.getElementById("menuToggle");
 
-    const backToTop = document.getElementById("backToTop");
+    const mobileNavigation =
+        document.getElementById("mobileNavigation");
 
-    const typingText = document.getElementById("typingText");
+    const pageProgressBar =
+        document.getElementById("pageProgressBar");
 
-    const currentYear = document.getElementById("currentYear");
+    const typingText =
+        document.getElementById("typingText");
 
-    const navigationLinks = document.querySelectorAll(
-        ".site-navigation__link"
-    );
+    const visibleProjectCount =
+        document.getElementById("visibleProjectCount");
 
-    const projectFilterButtons = document.querySelectorAll(
-        ".filter-button"
-    );
+    const backToTop =
+        document.getElementById("backToTop");
 
-    const projectCards = document.querySelectorAll(
-        ".project-card"
-    );
-
-    const visibleProjectCount = document.getElementById(
-        "visibleProjectCount"
-    );
-
-    const experienceTabs = document.querySelectorAll(
-        ".experience-tab"
-    );
-
-    const experiencePanels = document.querySelectorAll(
-        ".experience-panel"
-    );
-
-    const revealElements = document.querySelectorAll(
-        ".reveal"
-    );
+    const currentYear =
+        document.getElementById("currentYear");
 
 
-    /* ======================================================================
-       02. SMALL HELPER FUNCTIONS
-       ====================================================================== */
+    /* Current Build Console */
 
-    function setButtonState(button, isActive) {
+    const currentBuildName =
+        document.getElementById("currentBuildName");
 
-        if (!button) {
-            return;
-        }
+    const currentBuildDescription =
+        document.getElementById("currentBuildDescription");
 
-        button.classList.toggle(
-            "is-active",
-            isActive
-        );
+    const currentBuildPercentage =
+        document.getElementById("currentBuildPercentage");
 
-        button.setAttribute(
-            "aria-pressed",
-            String(isActive)
-        );
+    const currentBuildCount =
+        document.getElementById("currentBuildCount");
+
+    const currentBuildProgress =
+        document.getElementById("currentBuildProgress");
+
+    const currentBuildProgressFill =
+        document.getElementById("currentBuildProgressFill");
+
+
+    /* Groups */
+
+    const navLinks =
+        document.querySelectorAll(".nav-link");
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const filterButtons =
+        document.querySelectorAll(".filter-button");
+
+    const projectCards =
+        document.querySelectorAll(".project-card");
+
+    const stackTabs =
+        document.querySelectorAll(".stack-tab");
+
+    const stackPanels =
+        document.querySelectorAll("[data-stack-panel]");
+
+    const experienceTabs =
+        document.querySelectorAll(".experience-tab");
+
+    const experiencePanels =
+        document.querySelectorAll("[data-experience-panel]");
+
+
+    const reduceMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+
+    /* ========================================================
+       02. CURRENT YEAR
+    ======================================================== */
+
+    if (currentYear) {
+
+        currentYear.textContent =
+            new Date().getFullYear();
+
     }
 
 
-    function closeMobileNavigation() {
 
-        if (!menuToggle || !mobileNavigation) {
-            return;
+    /* ========================================================
+       03. LIGHT / DARK THEME
+    ======================================================== */
+
+    function updateThemeInterface() {
+
+        const currentTheme =
+            root.dataset.theme || "dark";
+
+        const nextTheme =
+            currentTheme === "dark"
+                ? "light"
+                : "dark";
+
+
+        if (themeToggle) {
+
+            themeToggle.setAttribute(
+                "aria-label",
+                `Switch to ${nextTheme} mode`
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                `Switch to ${nextTheme} mode`
+            );
+
         }
 
-        menuToggle.classList.remove(
-            "is-active",
-            "active"
-        );
 
-        mobileNavigation.classList.remove(
-            "is-open",
-            "open"
-        );
+        if (themeColorMeta) {
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+            themeColorMeta.setAttribute(
+                "content",
+                currentTheme === "dark"
+                    ? "#070912"
+                    : "#f5f7fb"
+            );
 
-        mobileNavigation.setAttribute(
-            "aria-hidden",
-            "true"
-        );
+        }
 
-        body.classList.remove(
-            "menu-open"
-        );
     }
 
+
+    function toggleTheme() {
+
+        const currentTheme =
+            root.dataset.theme || "dark";
+
+        const nextTheme =
+            currentTheme === "dark"
+                ? "light"
+                : "dark";
+
+
+        root.dataset.theme =
+            nextTheme;
+
+
+        localStorage.setItem(
+            "portfolio-theme",
+            nextTheme
+        );
+
+
+        updateThemeInterface();
+
+    }
+
+
+    if (themeToggle) {
+
+        themeToggle.addEventListener(
+            "click",
+            toggleTheme
+        );
+
+    }
+
+
+    updateThemeInterface();
+
+
+
+    /* ========================================================
+       04. MOBILE NAVIGATION
+    ======================================================== */
 
     function openMobileNavigation() {
 
-        if (!menuToggle || !mobileNavigation) {
+        if (
+            !menuToggle ||
+            !mobileNavigation
+        ) {
             return;
         }
+
 
         menuToggle.classList.add(
             "is-active"
@@ -158,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "is-open"
         );
 
+
         menuToggle.setAttribute(
             "aria-expanded",
             "true"
@@ -168,9 +233,48 @@ document.addEventListener("DOMContentLoaded", () => {
             "false"
         );
 
+
         body.classList.add(
             "menu-open"
         );
+
+    }
+
+
+    function closeMobileNavigation() {
+
+        if (
+            !menuToggle ||
+            !mobileNavigation
+        ) {
+            return;
+        }
+
+
+        menuToggle.classList.remove(
+            "is-active"
+        );
+
+        mobileNavigation.classList.remove(
+            "is-open"
+        );
+
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        mobileNavigation.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        body.classList.remove(
+            "menu-open"
+        );
+
     }
 
 
@@ -180,140 +284,25 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const navigationIsOpen =
+
+        const isOpen =
             mobileNavigation.classList.contains(
                 "is-open"
-            ) ||
-            mobileNavigation.classList.contains(
-                "open"
             );
 
-        if (navigationIsOpen) {
+
+        if (isOpen) {
+
             closeMobileNavigation();
+
         } else {
+
             openMobileNavigation();
-        }
-    }
 
-
-    /* ======================================================================
-       03. THEME TOGGLE
-       ======================================================================
-
-       The selected theme is saved in localStorage so the portfolio remembers
-       the visitor's choice when they return.
-    */
-
-    const storedTheme = localStorage.getItem(
-        "portfolio-theme"
-    );
-
-    const preferredTheme =
-        window.matchMedia(
-            "(prefers-color-scheme: light)"
-        ).matches
-            ? "light"
-            : "dark";
-
-    const startingTheme =
-        storedTheme ||
-        root.dataset.theme ||
-        preferredTheme;
-
-    root.dataset.theme = startingTheme;
-
-
-    function updateThemeToggleLabel() {
-
-        if (!themeToggle) {
-            return;
         }
 
-        const currentTheme =
-            root.dataset.theme;
-
-        const nextTheme =
-            currentTheme === "dark"
-                ? "light"
-                : "dark";
-
-        themeToggle.setAttribute(
-            "aria-label",
-            `Switch to ${nextTheme} theme`
-        );
-
-        themeToggle.setAttribute(
-            "title",
-            `Switch to ${nextTheme} theme`
-        );
     }
 
-
-    function toggleTheme() {
-
-        const currentTheme =
-            root.dataset.theme;
-
-        const nextTheme =
-            currentTheme === "dark"
-                ? "light"
-                : "dark";
-
-        root.dataset.theme =
-            nextTheme;
-
-        localStorage.setItem(
-            "portfolio-theme",
-            nextTheme
-        );
-
-        updateThemeToggleLabel();
-    }
-
-
-    updateThemeToggleLabel();
-
-
-    if (themeToggle) {
-
-        themeToggle.addEventListener(
-            "click",
-            toggleTheme
-        );
-    }
-
-
-    /* ======================================================================
-       04. STICKY HEADER
-       ====================================================================== */
-
-    function updateHeaderState() {
-
-        if (!siteHeader) {
-            return;
-        }
-
-        siteHeader.classList.toggle(
-            "is-scrolled",
-            window.scrollY > 24
-        );
-
-        /*
-         * The previous CSS also supported the older "scrolled" class.
-         * I keep both temporarily so the page remains stable while I finish
-         * standardizing every file.
-         */
-
-        siteHeader.classList.toggle(
-            "scrolled",
-            window.scrollY > 24
-        );
-    }
-
-
-    /* ======================================================================
-       05. MOBILE NAVIGATION
-       ====================================================================== */
 
     if (menuToggle) {
 
@@ -321,68 +310,108 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             toggleMobileNavigation
         );
+
     }
 
 
-    navigationLinks.forEach((link) => {
+    if (mobileNavigation) {
 
-        link.addEventListener("click", () => {
+        mobileNavigation
+            .querySelectorAll("a")
+            .forEach((link) => {
 
-            closeMobileNavigation();
-        });
+                link.addEventListener(
+                    "click",
+                    closeMobileNavigation
+                );
+
+            });
+
+    }
+
+
+
+    /* ========================================================
+       05. SMOOTH INTERNAL SCROLLING
+    ======================================================== */
+
+    const internalLinks =
+        document.querySelectorAll(
+            'a[href^="#"]:not([href="#"])'
+        );
+
+
+    internalLinks.forEach((link) => {
+
+        link.addEventListener(
+            "click",
+            (event) => {
+
+                const selector =
+                    link.getAttribute("href");
+
+
+                if (!selector) {
+                    return;
+                }
+
+
+                const target =
+                    document.querySelector(
+                        selector
+                    );
+
+
+                if (!target) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                target.scrollIntoView({
+                    behavior:
+                        reduceMotion
+                            ? "auto"
+                            : "smooth",
+
+                    block: "start"
+                });
+
+
+                closeMobileNavigation();
+
+            }
+        );
+
     });
 
 
-    document.addEventListener("keydown", (event) => {
 
-        if (event.key === "Escape") {
-            closeMobileNavigation();
-        }
-    });
+    /* ========================================================
+       06. STICKY HEADER
+    ======================================================== */
 
+    function updateHeader() {
 
-    document.addEventListener("click", (event) => {
-
-        if (
-            !mobileNavigation ||
-            !menuToggle ||
-            !mobileNavigation.classList.contains(
-                "is-open"
-            )
-        ) {
+        if (!siteHeader) {
             return;
         }
 
-        const clickedInsideNavigation =
-            mobileNavigation.contains(
-                event.target
-            );
 
-        const clickedMenuButton =
-            menuToggle.contains(
-                event.target
-            );
+        siteHeader.classList.toggle(
+            "is-scrolled",
+            window.scrollY > 20
+        );
 
-        if (
-            !clickedInsideNavigation &&
-            !clickedMenuButton
-        ) {
-            closeMobileNavigation();
-        }
-    });
+    }
 
 
-    window.addEventListener("resize", () => {
 
-        if (window.innerWidth > 1024) {
-            closeMobileNavigation();
-        }
-    });
-
-
-    /* ======================================================================
-       06. PAGE PROGRESS BAR
-       ====================================================================== */
+    /* ========================================================
+       07. PAGE PROGRESS BAR
+    ======================================================== */
 
     function updatePageProgress() {
 
@@ -390,63 +419,54 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const scrollTop =
-            window.scrollY ||
-            document.documentElement.scrollTop;
 
-        const documentHeight =
+        const scrollTop =
+            window.scrollY;
+
+        const scrollHeight =
             document.documentElement.scrollHeight -
             window.innerHeight;
 
-        const scrollPercentage =
-            documentHeight > 0
+
+        const progress =
+            scrollHeight > 0
                 ? (
                     scrollTop /
-                    documentHeight
+                    scrollHeight
                 ) * 100
                 : 0;
 
-        const safePercentage =
-            Math.min(
+
+        pageProgressBar.style.width =
+            `${Math.min(
                 Math.max(
-                    scrollPercentage,
+                    progress,
                     0
                 ),
                 100
-            );
+            )}%`;
 
-        pageProgressBar.style.width =
-            `${safePercentage}%`;
-
-        pageProgressBar.setAttribute(
-            "aria-valuenow",
-            String(
-                Math.round(
-                    safePercentage
-                )
-            )
-        );
     }
 
 
-    /* ======================================================================
-       07. ACTIVE NAVIGATION STATE
-       ======================================================================
 
-       This highlights the navigation item that matches the section currently
-       visible on the page.
-    */
+    /* ========================================================
+       08. ACTIVE DESKTOP NAVIGATION
+    ======================================================== */
 
-    const observedSections = [
+    const trackedSections = [
         "home",
         "projects",
-        "roadmap",
+        "stack",
+        "development",
         "experience"
     ]
-        .map((sectionId) => {
+        .map((id) => {
+
             return document.getElementById(
-                sectionId
+                id
             );
+
         })
         .filter(Boolean);
 
@@ -454,151 +474,77 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateActiveNavigation() {
 
         if (
-            observedSections.length === 0 ||
-            navigationLinks.length === 0
+            trackedSections.length === 0
         ) {
             return;
         }
 
-        const headerOffset =
-            siteHeader
-                ? siteHeader.offsetHeight + 80
-                : 140;
 
-        let activeSectionId =
-            observedSections[0].id;
+        let currentId =
+            trackedSections[0].id;
 
-        observedSections.forEach((section) => {
 
-            const sectionTop =
-                section.offsetTop -
-                headerOffset;
+        const triggerPoint =
+            window.innerHeight * 0.32;
 
-            if (
-                window.scrollY >=
-                sectionTop
-            ) {
-                activeSectionId =
-                    section.id;
+
+        trackedSections.forEach(
+            (section) => {
+
+                const rect =
+                    section.getBoundingClientRect();
+
+
+                if (
+                    rect.top <=
+                    triggerPoint
+                ) {
+
+                    currentId =
+                        section.id;
+
+                }
+
             }
-        });
+        );
 
 
-        navigationLinks.forEach((link) => {
+        navLinks.forEach(
+            (link) => {
 
-            const linkTarget =
-                link.getAttribute("href");
+                const href =
+                    link.getAttribute("href");
 
-            const isActive =
-                linkTarget ===
-                `#${activeSectionId}`;
 
-            link.classList.toggle(
-                "is-active",
-                isActive
-            );
-
-            link.classList.toggle(
-                "active",
-                isActive
-            );
-
-            if (isActive) {
-
-                link.setAttribute(
-                    "aria-current",
-                    "page"
+                link.classList.toggle(
+                    "is-active",
+                    href ===
+                    `#${currentId}`
                 );
 
-            } else {
-
-                link.removeAttribute(
-                    "aria-current"
-                );
             }
-        });
+        );
+
     }
 
 
-    /* ======================================================================
-       08. SMOOTH ANCHOR SCROLLING
-       ====================================================================== */
 
-    const anchorLinks =
-        document.querySelectorAll(
-            'a[href^="#"]:not([href="#"])'
-        );
-
-
-    anchorLinks.forEach((link) => {
-
-        link.addEventListener(
-            "click",
-            (event) => {
-
-                const targetSelector =
-                    link.getAttribute(
-                        "href"
-                    );
-
-                if (!targetSelector) {
-                    return;
-                }
-
-                const targetElement =
-                    document.querySelector(
-                        targetSelector
-                    );
-
-                if (!targetElement) {
-                    return;
-                }
-
-                event.preventDefault();
-
-                targetElement.scrollIntoView({
-                    behavior:
-                        window.matchMedia(
-                            "(prefers-reduced-motion: reduce)"
-                        ).matches
-                            ? "auto"
-                            : "smooth",
-
-                    block: "start"
-                });
-
-                history.replaceState(
-                    null,
-                    "",
-                    targetSelector
-                );
-
-                closeMobileNavigation();
-            }
-        );
-    });
-
-
-    /* ======================================================================
-       09. TYPING EFFECT
-       ======================================================================
-
-       This rotates through the core technical areas shown inside the hero
-       engineering console.
-    */
+    /* ========================================================
+       09. ENGINEERING CONSOLE FOCUS TYPING
+    ======================================================== */
 
     const typingMessages = [
         "Cloud Infrastructure",
         "Platform Engineering",
-        "Identity and Access Management",
+        "Identity & Access Management",
         "Enterprise Security",
         "Infrastructure Automation"
     ];
 
-    let typingMessageIndex = 0;
-    let typingCharacterIndex = 0;
-    let typingIsDeleting = false;
-    let typingTimer = null;
+
+    let messageIndex = 0;
+    let characterIndex = 0;
+    let deleting = false;
 
 
     function runTypingEffect() {
@@ -607,265 +553,507 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const currentMessage =
-            typingMessages[
-                typingMessageIndex
-            ];
-
-        if (!typingIsDeleting) {
-
-            typingCharacterIndex += 1;
-
-            typingText.textContent =
-                currentMessage.slice(
-                    0,
-                    typingCharacterIndex
-                );
-
-            if (
-                typingCharacterIndex ===
-                currentMessage.length
-            ) {
-
-                typingIsDeleting = true;
-
-                typingTimer =
-                    window.setTimeout(
-                        runTypingEffect,
-                        1700
-                    );
-
-                return;
-            }
-
-        } else {
-
-            typingCharacterIndex -= 1;
-
-            typingText.textContent =
-                currentMessage.slice(
-                    0,
-                    typingCharacterIndex
-                );
-
-            if (
-                typingCharacterIndex === 0
-            ) {
-
-                typingIsDeleting = false;
-
-                typingMessageIndex =
-                    (
-                        typingMessageIndex + 1
-                    ) %
-                    typingMessages.length;
-            }
-        }
-
-        const typingSpeed =
-            typingIsDeleting
-                ? 38
-                : 72;
-
-        typingTimer =
-            window.setTimeout(
-                runTypingEffect,
-                typingSpeed
-            );
-    }
-
-
-    if (typingText) {
-
-        const reduceMotion =
-            window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches;
 
         if (reduceMotion) {
 
             typingText.textContent =
                 typingMessages[0];
 
+            return;
+
+        }
+
+
+        const message =
+            typingMessages[
+                messageIndex
+            ];
+
+
+        if (!deleting) {
+
+            characterIndex += 1;
+
+
+            typingText.textContent =
+                message.slice(
+                    0,
+                    characterIndex
+                );
+
+
+            if (
+                characterIndex ===
+                message.length
+            ) {
+
+                deleting = true;
+
+
+                window.setTimeout(
+                    runTypingEffect,
+                    1500
+                );
+
+                return;
+
+            }
+
         } else {
 
-            runTypingEffect();
+            characterIndex -= 1;
+
+
+            typingText.textContent =
+                message.slice(
+                    0,
+                    characterIndex
+                );
+
+
+            if (
+                characterIndex === 0
+            ) {
+
+                deleting = false;
+
+
+                messageIndex =
+                    (
+                        messageIndex + 1
+                    ) %
+                    typingMessages.length;
+
+            }
+
         }
+
+
+        window.setTimeout(
+            runTypingEffect,
+            deleting
+                ? 32
+                : 58
+        );
+
     }
 
 
-    /* ======================================================================
-       10. PROJECT FILTERING
-       ====================================================================== */
+    runTypingEffect();
 
-    function updateVisibleProjectCount() {
+
+
+    /* ========================================================
+       10. CURRENT BUILD ROTATION
+    ======================================================== */
+
+    const activeBuilds = [
+
+        {
+            name:
+                "Enterprise Security Compliance Lab",
+
+            description:
+                "RMF documentation, authorization artifacts, and Blue Fox Defense case study.",
+
+            progress:
+                42
+        },
+
+        {
+            name:
+                "Kubernetes Platform Lab",
+
+            description:
+                "Containers, Docker, Kubernetes, troubleshooting, and platform engineering practice.",
+
+            progress:
+                45
+        }
+
+    ];
+
+
+    let currentBuildIndex = 0;
+
+
+    function updateCurrentBuild() {
+
+        if (
+            !currentBuildName ||
+            !currentBuildDescription ||
+            !currentBuildPercentage ||
+            !currentBuildProgressFill
+        ) {
+            return;
+        }
+
+
+        const build =
+            activeBuilds[
+                currentBuildIndex
+            ];
+
+
+        /*
+         * Fade the text out first.
+         */
+
+        currentBuildName.style.opacity =
+            "0";
+
+        currentBuildDescription.style.opacity =
+            "0";
+
+        currentBuildPercentage.style.opacity =
+            "0";
+
+
+        window.setTimeout(
+            () => {
+
+                currentBuildName.textContent =
+                    build.name;
+
+
+                currentBuildDescription.textContent =
+                    build.description;
+
+
+                currentBuildPercentage.textContent =
+                    `${build.progress}%`;
+
+
+                currentBuildProgressFill.style.width =
+                    `${build.progress}%`;
+
+
+                if (currentBuildProgress) {
+
+                    currentBuildProgress.setAttribute(
+                        "aria-valuenow",
+                        String(
+                            build.progress
+                        )
+                    );
+
+                }
+
+
+                if (currentBuildCount) {
+
+                    const currentNumber =
+                        String(
+                            currentBuildIndex + 1
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+                    const totalNumber =
+                        String(
+                            activeBuilds.length
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+
+                    currentBuildCount.textContent =
+                        `${currentNumber} / ${totalNumber}`;
+
+                }
+
+
+                /*
+                 * Fade the updated text back in.
+                 */
+
+                currentBuildName.style.opacity =
+                    "1";
+
+                currentBuildDescription.style.opacity =
+                    "1";
+
+                currentBuildPercentage.style.opacity =
+                    "1";
+
+            },
+            reduceMotion
+                ? 0
+                : 250
+        );
+
+    }
+
+
+    function rotateCurrentBuild() {
+
+        currentBuildIndex =
+            (
+                currentBuildIndex + 1
+            ) %
+            activeBuilds.length;
+
+
+        updateCurrentBuild();
+
+    }
+
+
+    updateCurrentBuild();
+
+
+    if (
+        !reduceMotion &&
+        activeBuilds.length > 1
+    ) {
+
+        window.setInterval(
+            rotateCurrentBuild,
+            5000
+        );
+
+    }
+
+
+
+    /* ========================================================
+       11. PROJECT FILTERS
+    ======================================================== */
+
+    function updateProjectCount() {
 
         if (!visibleProjectCount) {
             return;
         }
 
+
         const visibleCards =
-            Array.from(
-                projectCards
-            ).filter((card) => {
-                return !card.classList.contains(
-                    "is-hidden"
-                );
-            });
+            Array
+                .from(projectCards)
+                .filter((card) => {
+
+                    return !card
+                        .classList
+                        .contains(
+                            "is-hidden"
+                        );
+
+                });
+
 
         visibleProjectCount.textContent =
             String(
                 visibleCards.length
             );
+
     }
 
 
-    function filterProjects(selectedFilter) {
+    function filterProjects(
+        selectedFilter
+    ) {
 
-        projectCards.forEach((card) => {
+        projectCards.forEach(
+            (card) => {
 
-            const categories =
-                (
-                    card.dataset.category ||
-                    ""
-                )
-                    .toLowerCase()
-                    .split(/\s+/)
-                    .filter(Boolean);
+                const categories =
+                    (
+                        card.dataset.category ||
+                        ""
+                    )
+                        .toLowerCase()
+                        .split(/\s+/)
+                        .filter(Boolean);
 
-            const shouldShow =
-                selectedFilter === "all" ||
-                categories.includes(
-                    selectedFilter
+
+                const shouldShow =
+                    selectedFilter === "all" ||
+                    categories.includes(
+                        selectedFilter
+                    );
+
+
+                card.classList.toggle(
+                    "is-hidden",
+                    !shouldShow
                 );
 
-            card.classList.toggle(
-                "is-hidden",
-                !shouldShow
-            );
+            }
+        );
 
-            card.setAttribute(
-                "aria-hidden",
-                String(!shouldShow)
-            );
-        });
 
-        updateVisibleProjectCount();
+        updateProjectCount();
+
     }
 
 
-    projectFilterButtons.forEach((button) => {
+    filterButtons.forEach(
+        (button) => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                const selectedFilter =
-                    (
-                        button.dataset.filter ||
-                        "all"
-                    ).toLowerCase();
+                    const filter =
+                        (
+                            button.dataset.filter ||
+                            "all"
+                        )
+                            .toLowerCase();
 
-                projectFilterButtons.forEach(
-                    (filterButton) => {
 
-                        setButtonState(
-                            filterButton,
-                            filterButton === button
+                    filterButtons.forEach(
+                        (filterButton) => {
+
+                            const active =
+                                filterButton ===
+                                button;
+
+
+                            filterButton
+                                .classList
+                                .toggle(
+                                    "is-active",
+                                    active
+                                );
+
+
+                            filterButton
+                                .setAttribute(
+                                    "aria-pressed",
+                                    String(active)
+                                );
+
+                        }
+                    );
+
+
+                    filterProjects(
+                        filter
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    updateProjectCount();
+
+
+
+    /* ========================================================
+       12. PROJECT POINTER GLOW
+    ======================================================== */
+
+    if (
+        window.matchMedia(
+            "(pointer: fine)"
+        ).matches
+    ) {
+
+        projectCards.forEach(
+            (card) => {
+
+                card.addEventListener(
+                    "pointermove",
+                    (event) => {
+
+                        const rect =
+                            card.getBoundingClientRect();
+
+
+                        const x =
+                            event.clientX -
+                            rect.left;
+
+
+                        const y =
+                            event.clientY -
+                            rect.top;
+
+
+                        card.style.setProperty(
+                            "--mouse-x",
+                            `${x}px`
                         );
+
+
+                        card.style.setProperty(
+                            "--mouse-y",
+                            `${y}px`
+                        );
+
                     }
                 );
 
-                filterProjects(
-                    selectedFilter
-                );
             }
         );
-    });
 
-
-    updateVisibleProjectCount();
-
-
-    /* ======================================================================
-       11. EXPERIENCE TABS
-       ====================================================================== */
-
-    function activateExperienceTab(
-        selectedTab
-    ) {
-
-        const selectedExperience =
-            selectedTab.dataset.experience;
-
-        if (!selectedExperience) {
-            return;
-        }
-
-
-        experienceTabs.forEach((tab) => {
-
-            const isSelected =
-                tab === selectedTab;
-
-            tab.classList.toggle(
-                "is-active",
-                isSelected
-            );
-
-            tab.classList.toggle(
-                "active",
-                isSelected
-            );
-
-            tab.setAttribute(
-                "aria-selected",
-                String(isSelected)
-            );
-
-            tab.setAttribute(
-                "tabindex",
-                isSelected
-                    ? "0"
-                    : "-1"
-            );
-        });
-
-
-        experiencePanels.forEach(
-            (panel) => {
-
-                const panelMatches =
-                    panel.dataset.panel ===
-                    selectedExperience;
-
-                panel.classList.toggle(
-                    "is-active",
-                    panelMatches
-                );
-
-                panel.classList.toggle(
-                    "active",
-                    panelMatches
-                );
-
-                panel.hidden =
-                    !panelMatches;
-            }
-        );
     }
 
 
-    experienceTabs.forEach(
-        (tab, tabIndex) => {
+
+    /* ========================================================
+       13. ENGINEERING STACK TABS
+    ======================================================== */
+
+    function activateStack(
+        stackName
+    ) {
+
+        stackTabs.forEach(
+            (tab) => {
+
+                const active =
+                    tab.dataset.stack ===
+                    stackName;
+
+
+                tab.classList.toggle(
+                    "is-active",
+                    active
+                );
+
+
+                tab.setAttribute(
+                    "aria-selected",
+                    String(active)
+                );
+
+            }
+        );
+
+
+        stackPanels.forEach(
+            (panel) => {
+
+                panel.classList.toggle(
+                    "is-active",
+                    panel.dataset.stackPanel ===
+                    stackName
+                );
+
+            }
+        );
+
+    }
+
+
+    stackTabs.forEach(
+        (tab, index) => {
 
             tab.addEventListener(
                 "click",
                 () => {
 
-                    activateExperienceTab(
-                        tab
+                    activateStack(
+                        tab.dataset.stack
                     );
+
                 }
             );
 
@@ -874,109 +1062,188 @@ document.addEventListener("DOMContentLoaded", () => {
                 "keydown",
                 (event) => {
 
-                    const supportedKeys = [
-                        "ArrowRight",
-                        "ArrowDown",
-                        "ArrowLeft",
-                        "ArrowUp",
-                        "Home",
-                        "End"
-                    ];
-
                     if (
-                        !supportedKeys.includes(
-                            event.key
-                        )
+                        ![
+                            "ArrowDown",
+                            "ArrowUp",
+                            "ArrowRight",
+                            "ArrowLeft"
+                        ].includes(event.key)
                     ) {
                         return;
                     }
 
+
                     event.preventDefault();
 
-                    let nextTabIndex =
-                        tabIndex;
+
+                    const direction =
+                        (
+                            event.key ===
+                            "ArrowDown" ||
+                            event.key ===
+                            "ArrowRight"
+                        )
+                            ? 1
+                            : -1;
 
 
-                    if (
-                        event.key ===
-                        "ArrowRight" ||
-                        event.key ===
-                        "ArrowDown"
-                    ) {
-
-                        nextTabIndex =
-                            (
-                                tabIndex + 1
-                            ) %
-                            experienceTabs.length;
-                    }
-
-
-                    if (
-                        event.key ===
-                        "ArrowLeft" ||
-                        event.key ===
-                        "ArrowUp"
-                    ) {
-
-                        nextTabIndex =
-                            (
-                                tabIndex - 1 +
-                                experienceTabs.length
-                            ) %
-                            experienceTabs.length;
-                    }
-
-
-                    if (
-                        event.key === "Home"
-                    ) {
-
-                        nextTabIndex = 0;
-                    }
-
-
-                    if (
-                        event.key === "End"
-                    ) {
-
-                        nextTabIndex =
-                            experienceTabs.length - 1;
-                    }
+                    const nextIndex =
+                        (
+                            index +
+                            direction +
+                            stackTabs.length
+                        ) %
+                        stackTabs.length;
 
 
                     const nextTab =
-                        experienceTabs[
-                            nextTabIndex
+                        stackTabs[
+                            nextIndex
                         ];
 
-                    activateExperienceTab(
-                        nextTab
+
+                    activateStack(
+                        nextTab.dataset.stack
                     );
 
+
                     nextTab.focus();
+
                 }
             );
+
         }
     );
 
 
-    /* ======================================================================
-       12. SCROLL REVEAL ANIMATIONS
-       ====================================================================== */
 
-    function initializeRevealAnimations() {
+    /* ========================================================
+       14. EXPERIENCE TABS
+    ======================================================== */
 
-        if (
-            revealElements.length === 0
-        ) {
-            return;
+    function activateExperience(
+        experienceName
+    ) {
+
+        experienceTabs.forEach(
+            (tab) => {
+
+                const active =
+                    tab.dataset.experience ===
+                    experienceName;
+
+
+                tab.classList.toggle(
+                    "is-active",
+                    active
+                );
+
+
+                tab.setAttribute(
+                    "aria-selected",
+                    String(active)
+                );
+
+            }
+        );
+
+
+        experiencePanels.forEach(
+            (panel) => {
+
+                panel.classList.toggle(
+                    "is-active",
+                    panel.dataset.experiencePanel ===
+                    experienceName
+                );
+
+            }
+        );
+
+    }
+
+
+    experienceTabs.forEach(
+        (tab, index) => {
+
+            tab.addEventListener(
+                "click",
+                () => {
+
+                    activateExperience(
+                        tab.dataset.experience
+                    );
+
+                }
+            );
+
+
+            tab.addEventListener(
+                "keydown",
+                (event) => {
+
+                    if (
+                        ![
+                            "ArrowDown",
+                            "ArrowUp",
+                            "ArrowRight",
+                            "ArrowLeft"
+                        ].includes(event.key)
+                    ) {
+                        return;
+                    }
+
+
+                    event.preventDefault();
+
+
+                    const direction =
+                        (
+                            event.key ===
+                            "ArrowDown" ||
+                            event.key ===
+                            "ArrowRight"
+                        )
+                            ? 1
+                            : -1;
+
+
+                    const nextIndex =
+                        (
+                            index +
+                            direction +
+                            experienceTabs.length
+                        ) %
+                        experienceTabs.length;
+
+
+                    const nextTab =
+                        experienceTabs[
+                            nextIndex
+                        ];
+
+
+                    activateExperience(
+                        nextTab.dataset.experience
+                    );
+
+
+                    nextTab.focus();
+
+                }
+            );
+
         }
+    );
 
-        const reduceMotion =
-            window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches;
+
+
+    /* ========================================================
+       15. SCROLL REVEAL
+    ======================================================== */
+
+    function initializeReveal() {
 
         if (
             reduceMotion ||
@@ -990,19 +1257,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 (element) => {
 
                     element.classList.add(
-                        "is-visible",
-                        "visible"
+                        "is-visible"
                     );
+
                 }
             );
 
             return;
+
         }
 
 
-        const revealObserver =
+        const observer =
             new IntersectionObserver(
-                (entries, observer) => {
+                (
+                    entries,
+                    revealObserver
+                ) => {
 
                     entries.forEach(
                         (entry) => {
@@ -1013,22 +1284,28 @@ document.addEventListener("DOMContentLoaded", () => {
                                 return;
                             }
 
-                            entry.target.classList.add(
-                                "is-visible",
-                                "visible"
-                            );
 
-                            observer.unobserve(
-                                entry.target
-                            );
+                            entry.target
+                                .classList
+                                .add(
+                                    "is-visible"
+                                );
+
+
+                            revealObserver
+                                .unobserve(
+                                    entry.target
+                                );
+
                         }
                     );
+
                 },
                 {
-                    threshold: 0.14,
+                    threshold: 0.12,
 
                     rootMargin:
-                        "0px 0px -6% 0px"
+                        "0px 0px -5% 0px"
                 }
             );
 
@@ -1036,39 +1313,36 @@ document.addEventListener("DOMContentLoaded", () => {
         revealElements.forEach(
             (element) => {
 
-                revealObserver.observe(
+                observer.observe(
                     element
                 );
+
             }
         );
+
     }
 
 
-    initializeRevealAnimations();
+    initializeReveal();
 
 
-    /* ======================================================================
-       13. BACK TO TOP BUTTON
-       ====================================================================== */
 
-    function updateBackToTopButton() {
+    /* ========================================================
+       16. BACK TO TOP
+    ======================================================== */
+
+    function updateBackToTop() {
 
         if (!backToTop) {
             return;
         }
 
-        const shouldShow =
-            window.scrollY > 650;
 
         backToTop.classList.toggle(
             "is-visible",
-            shouldShow
+            window.scrollY > 650
         );
 
-        backToTop.classList.toggle(
-            "visible",
-            shouldShow
-        );
     }
 
 
@@ -1082,63 +1356,94 @@ document.addEventListener("DOMContentLoaded", () => {
                     top: 0,
 
                     behavior:
-                        window.matchMedia(
-                            "(prefers-reduced-motion: reduce)"
-                        ).matches
+                        reduceMotion
                             ? "auto"
                             : "smooth"
                 });
+
             }
         );
+
     }
 
 
-    /* ======================================================================
-       14. CURRENT YEAR
-       ====================================================================== */
 
-    if (currentYear) {
+    /* ========================================================
+       17. ESCAPE KEY
+    ======================================================== */
 
-        currentYear.textContent =
-            String(
-                new Date().getFullYear()
-            );
-    }
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeMobileNavigation();
+
+            }
+
+        }
+    );
 
 
-    /* ======================================================================
-       15. GLOBAL SCROLL UPDATES
-       ======================================================================
 
-       These features all depend on the visitor's scroll position, so I update
-       them together instead of creating several separate scroll listeners.
-    */
+    /* ========================================================
+       18. RESIZE
+    ======================================================== */
 
-    let scrollUpdateRequested = false;
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (
+                window.innerWidth > 900
+            ) {
+
+                closeMobileNavigation();
+
+            }
+
+        }
+    );
+
+
+
+    /* ========================================================
+       19. SHARED SCROLL HANDLER
+    ======================================================== */
+
+    let ticking = false;
 
 
     function handleScroll() {
 
-        if (scrollUpdateRequested) {
+        if (ticking) {
             return;
         }
 
-        scrollUpdateRequested = true;
 
-        window.requestAnimationFrame(
+        ticking = true;
+
+
+        requestAnimationFrame(
             () => {
 
-                updateHeaderState();
+                updateHeader();
 
                 updatePageProgress();
 
                 updateActiveNavigation();
 
-                updateBackToTopButton();
+                updateBackToTop();
 
-                scrollUpdateRequested = false;
+
+                ticking = false;
+
             }
         );
+
     }
 
 
@@ -1151,16 +1456,18 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    /* ======================================================================
-       16. INITIAL PAGE STATE
-       ====================================================================== */
 
-    updateHeaderState();
+    /* ========================================================
+       20. INITIAL PAGE STATE
+    ======================================================== */
+
+    updateHeader();
 
     updatePageProgress();
 
     updateActiveNavigation();
 
-    updateBackToTopButton();
+    updateBackToTop();
 
 });
+

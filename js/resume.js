@@ -1,127 +1,212 @@
 /* ==========================================================================
    DARLING JACKSON PORTFOLIO
-   Resume Page JavaScript
+   RESUME PAGE INTERACTIONS
    ==========================================================================
 
    FILE
-   --------------------------------------------------------------------------
    js/resume.js
 
    PURPOSE
    --------------------------------------------------------------------------
-   This file controls the interactions that are unique to the resume page.
+   Handles functionality unique to the resume page.
 
-   Shared portfolio functionality such as the navigation menu, theme toggle,
-   page progress bar, reveal animations, back-to-top button, and current year
-   are handled by:
+   Shared functionality remains in:
 
    js/script.js
 
-   FEATURES
-   --------------------------------------------------------------------------
-   01. Resume Page Initialization
-   02. PDF Loading State
-   03. Fullscreen Resume Viewer
+   Shared script handles:
+   - Theme Toggle
+   - Mobile Navigation
+   - Smooth Scrolling
+   - Page Progress
+   - Reveal Animations
+   - Back To Top
+   - Current Year
 
-========================================================================== */
+   Resume script handles:
+   - Resume PDF Loading State
+   - Resume Viewer Status
+   - Fullscreen Resume Viewer
 
-
-/* ==========================================================================
-   01. RESUME PAGE INITIALIZATION
    ========================================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    initializeResumeLoadingState();
-    initializeResumeFullscreenControl();
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-});
+        initializeResumeLoadingState();
+
+        initializeResumeFullscreenControl();
+
+    }
+);
+
 
 
 /* ==========================================================================
-   02. PDF LOADING STATE
-   ==========================================================================
-
-   The loading screen remains visible while the embedded resume is loading.
-
-   Once the iframe finishes loading, the loading screen fades away.
-   A fallback timer prevents the loading screen from remaining visible if
-   the browser delays or skips the iframe load event.
-*/
+   01. PDF LOADING STATE
+   ========================================================================== */
 
 function initializeResumeLoadingState() {
 
+
+    /* ----------------------------------------------------------------------
+       Elements
+       ---------------------------------------------------------------------- */
+
     const resumeFrame =
-        document.getElementById("resumeFrame");
+        document.getElementById(
+            "resumeFrame"
+        );
+
 
     const loadingState =
-        document.getElementById("resumeLoadingState");
+        document.getElementById(
+            "resumeLoadingState"
+        );
 
 
-    /*
-     * Stop here if the resume viewer is not present on the page.
-     */
+    const viewerStatus =
+        document.getElementById(
+            "resumeViewerStatus"
+        );
 
-    if (!resumeFrame || !loadingState) {
+
+    const viewerStatusText =
+        document.getElementById(
+            "resumeViewerStatusText"
+        );
+
+
+
+    /* ----------------------------------------------------------------------
+       Required Elements
+       ---------------------------------------------------------------------- */
+
+    if (
+        !resumeFrame ||
+        !loadingState
+    ) {
         return;
     }
 
 
-    /*
-     * Hides the loading layer after the PDF finishes loading.
-     */
 
-    function hideLoadingState() {
+    /* ----------------------------------------------------------------------
+       State
+       ---------------------------------------------------------------------- */
 
-        loadingState.classList.add("is-hidden");
+    let loadingComplete =
+        false;
+
+
+
+    /* ----------------------------------------------------------------------
+       Complete Loading
+       ---------------------------------------------------------------------- */
+
+    function completeResumeLoading() {
+
+
+        /*
+         * Prevent the function from running more than once.
+         */
+
+        if (loadingComplete) {
+            return;
+        }
+
+
+        loadingComplete =
+            true;
+
+
+
+        /*
+         * Hide the loading overlay.
+         */
+
+        loadingState.classList.add(
+            "is-hidden"
+        );
+
 
         loadingState.setAttribute(
             "aria-hidden",
             "true"
         );
 
+
+
+        /*
+         * Update toolbar status.
+         */
+
+        if (viewerStatus) {
+
+            viewerStatus.classList.add(
+                "is-ready"
+            );
+
+        }
+
+
+        if (viewerStatusText) {
+
+            viewerStatusText.textContent =
+                "PDF ready";
+
+        }
+
     }
 
 
-    /*
-     * Listen for the iframe load event.
-     */
+
+    /* ----------------------------------------------------------------------
+       Iframe Load Event
+       ---------------------------------------------------------------------- */
 
     resumeFrame.addEventListener(
         "load",
-        hideLoadingState
+        completeResumeLoading
     );
 
 
-    /*
-     * Browser PDF viewers do not always trigger the normal iframe load event
-     * consistently. This timer prevents the loading layer from getting stuck.
-     */
+
+    /* ----------------------------------------------------------------------
+       Fallback
+       ----------------------------------------------------------------------
+
+       Browser PDF viewers do not always fire the iframe load event in the
+       same way. This prevents the loading layer from remaining on screen.
+       ---------------------------------------------------------------------- */
 
     window.setTimeout(
-        hideLoadingState,
+        completeResumeLoading,
         3000
     );
 
 }
 
 
+
 /* ==========================================================================
-   03. FULLSCREEN RESUME VIEWER
-   ==========================================================================
-
-   This control expands the embedded resume viewer to fill the screen.
-
-   The button text and accessibility state update automatically when entering
-   or leaving fullscreen mode.
-*/
+   02. FULLSCREEN RESUME VIEWER
+   ========================================================================== */
 
 function initializeResumeFullscreenControl() {
+
+
+    /* ----------------------------------------------------------------------
+       Elements
+       ---------------------------------------------------------------------- */
 
     const fullscreenButton =
         document.getElementById(
             "resumeFullscreenButton"
         );
+
 
     const resumeViewer =
         document.getElementById(
@@ -129,18 +214,47 @@ function initializeResumeFullscreenControl() {
         );
 
 
-    /*
-     * Stop here if the required elements are not present.
-     */
 
-    if (!fullscreenButton || !resumeViewer) {
+    /* ----------------------------------------------------------------------
+       Required Elements
+       ---------------------------------------------------------------------- */
+
+    if (
+        !fullscreenButton ||
+        !resumeViewer
+    ) {
         return;
     }
 
 
-    /*
-     * Enter or exit fullscreen mode when the button is selected.
-     */
+
+    /* ----------------------------------------------------------------------
+       Browser Support
+       ---------------------------------------------------------------------- */
+
+    const fullscreenSupported =
+        typeof resumeViewer
+            .requestFullscreen ===
+            "function" &&
+        typeof document
+            .exitFullscreen ===
+            "function";
+
+
+    if (!fullscreenSupported) {
+
+        fullscreenButton.hidden =
+            true;
+
+        return;
+
+    }
+
+
+
+    /* ----------------------------------------------------------------------
+       Fullscreen Button
+       ---------------------------------------------------------------------- */
 
     fullscreenButton.addEventListener(
         "click",
@@ -148,17 +262,36 @@ function initializeResumeFullscreenControl() {
 
             try {
 
-                if (!document.fullscreenElement) {
 
-                    await resumeViewer.requestFullscreen();
+                /*
+                 * Enter fullscreen.
+                 */
 
-                } else {
+                if (
+                    !document
+                        .fullscreenElement
+                ) {
 
-                    await document.exitFullscreen();
+                    await resumeViewer
+                        .requestFullscreen();
 
                 }
 
-            } catch (error) {
+
+                /*
+                 * Exit fullscreen.
+                 */
+
+                else {
+
+                    await document
+                        .exitFullscreen();
+
+                }
+
+            }
+
+            catch (error) {
 
                 console.warn(
                     "Fullscreen mode could not be activated.",
@@ -171,29 +304,82 @@ function initializeResumeFullscreenControl() {
     );
 
 
-    /*
-     * Update the button whenever fullscreen mode changes.
-     *
-     * This also handles cases where the visitor exits fullscreen by pressing
-     * the Escape key instead of selecting the button.
-     */
+
+    /* ----------------------------------------------------------------------
+       Fullscreen State
+       ----------------------------------------------------------------------
+
+       Updates the button when fullscreen changes.
+
+       This also handles the visitor pressing Escape instead of clicking the
+       button.
+       ---------------------------------------------------------------------- */
 
     document.addEventListener(
         "fullscreenchange",
         () => {
 
+
             const isFullscreen =
-                document.fullscreenElement ===
+                document
+                    .fullscreenElement ===
                 resumeViewer;
 
-            fullscreenButton.textContent =
-                isFullscreen
-                    ? "Exit Full Screen"
-                    : "Full Screen";
+
+            const buttonText =
+                fullscreenButton
+                    .querySelector(
+                        "span:first-child"
+                    );
+
+
+            const buttonIcon =
+                fullscreenButton
+                    .querySelector(
+                        "span:last-child"
+                    );
+
+
+
+            /*
+             * Update text.
+             */
+
+            if (buttonText) {
+
+                buttonText.textContent =
+                    isFullscreen
+                        ? "Exit Full Screen"
+                        : "Full Screen";
+
+            }
+
+
+
+            /*
+             * Update icon.
+             */
+
+            if (buttonIcon) {
+
+                buttonIcon.textContent =
+                    isFullscreen
+                        ? "×"
+                        : "⛶";
+
+            }
+
+
+
+            /*
+             * Accessibility state.
+             */
 
             fullscreenButton.setAttribute(
                 "aria-pressed",
-                String(isFullscreen)
+                String(
+                    isFullscreen
+                )
             );
 
         }

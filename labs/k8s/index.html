@@ -966,180 +966,326 @@
         </section>
 
 
-        <!-- =====================================================
-             TROUBLESHOOTING
-             ===================================================== -->
+       <!-- =====================================================
+     TROUBLESHOOTING
+     ===================================================== -->
 
-        <section class="troubleshooting section section--dark">
+<section class="troubleshooting section section--dark">
 
-            <div class="shell">
+    <div class="shell">
 
-                <header class="section-heading section-heading--dark reveal">
+        <header class="section-heading section-heading--dark reveal">
+
+            <div>
+
+                <span class="section-kicker">
+                    TROUBLESHOOTING
+                </span>
+
+                <h2>
+                    The container did not work perfectly the first time.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Fixing the problems was part of the lab. I used the
+                container runtime, shell access, Docker commands,
+                and application files to identify and resolve each issue.
+            </p>
+
+        </header>
+
+
+        <!-- =============================================
+             ISSUE SELECTOR
+             ============================================= -->
+
+        <div class="troubleshooting-grid">
+
+
+            <!-- 01 -->
+
+            <button
+                class="issue-card is-active"
+                type="button"
+                data-troubleshoot="stopped"
+            >
+
+                <span class="issue-card__number">
+                    01
+                </span>
+
+                <div class="issue-card__icon">
+
+                    <iconify-icon
+                        icon="solar:danger-triangle-linear"
+                    ></iconify-icon>
+
+                </div>
+
+                <h3>
+                    Container Stopped
+                </h3>
+
+                <p>
+                    The container exited because the Node.js application
+                    encountered an application-level error during startup.
+                </p>
+
+                <span class="issue-card__result">
+                    Investigated runtime failure
+                </span>
+
+                <span class="issue-card__action">
+                    View Commands →
+                </span>
+
+            </button>
+
+
+            <!-- 02 -->
+
+            <button
+                class="issue-card"
+                type="button"
+                data-troubleshoot="import"
+            >
+
+                <span class="issue-card__number">
+                    02
+                </span>
+
+                <div class="issue-card__icon">
+
+                    <iconify-icon
+                        icon="solar:file-corrupted-linear"
+                    ></iconify-icon>
+
+                </div>
+
+                <h3>
+                    Import Mismatch
+                </h3>
+
+                <p>
+                    I inspected the files inside the container and found
+                    that the helper filename did not match the application
+                    import.
+                </p>
+
+                <span class="issue-card__result">
+                    Corrected source files
+                </span>
+
+                <span class="issue-card__action">
+                    View Commands →
+                </span>
+
+            </button>
+
+
+            <!-- 03 -->
+
+            <button
+                class="issue-card"
+                type="button"
+                data-troubleshoot="rebuild"
+            >
+
+                <span class="issue-card__number">
+                    03
+                </span>
+
+                <div class="issue-card__icon">
+
+                    <iconify-icon
+                        icon="solar:restart-square-linear"
+                    ></iconify-icon>
+
+                </div>
+
+                <h3>
+                    Image Rebuild
+                </h3>
+
+                <p>
+                    After changing the source code, I learned that the
+                    existing image did not automatically update and
+                    needed to be rebuilt.
+                </p>
+
+                <span class="issue-card__result">
+                    Rebuilt and validated image
+                </span>
+
+                <span class="issue-card__action">
+                    View Commands →
+                </span>
+
+            </button>
+
+
+            <!-- 04 -->
+
+            <button
+                class="issue-card"
+                type="button"
+                data-troubleshoot="port"
+            >
+
+                <span class="issue-card__number">
+                    04
+                </span>
+
+                <div class="issue-card__icon">
+
+                    <iconify-icon
+                        icon="solar:wi-fi-router-linear"
+                    ></iconify-icon>
+
+                </div>
+
+                <h3>
+                    Port Conflict
+                </h3>
+
+                <p>
+                    Another container was already using host port 3000,
+                    preventing the new container from binding to the
+                    same port.
+                </p>
+
+                <span class="issue-card__result">
+                    Identified conflicting container
+                </span>
+
+                <span class="issue-card__action">
+                    View Commands →
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- =============================================
+             TROUBLESHOOTING TERMINAL
+             ============================================= -->
+
+            <section
+                class="troubleshooting-console reveal"
+                id="troubleshootingConsole"
+            >
+
+                <div class="troubleshooting-console__header">
 
                     <div>
 
-                        <span class="section-kicker">
-                            TROUBLESHOOTING
+                        <span class="console-status-dot"></span>
+
+                        <strong id="troubleshootingTitle">
+                            Container Stopped
+                        </strong>
+
+                    </div>
+
+                    <span id="troubleshootingStatus">
+                        INVESTIGATION
+                    </span>
+
+                </div>
+
+
+                <div class="troubleshooting-console__body">
+
+
+                    <!-- LEFT SIDE -->
+
+                    <div class="troubleshooting-console__details">
+
+                        <span class="troubleshooting-label">
+                            PROBLEM
                         </span>
 
-                        <h2>
-                            The container did not work perfectly the first time.
-                        </h2>
+                        <h3 id="troubleshootingProblem">
+                            Container exited after startup.
+                        </h3>
+
+                        <p id="troubleshootingExplanation">
+                            I first checked all containers, including stopped
+                            containers, to confirm that the container had exited.
+                            From there I could investigate the application error.
+                        </p>
+
+
+                        <div class="troubleshooting-flow">
+
+                            <span>
+                                Detect
+                            </span>
+
+                            <i>→</i>
+
+                            <span>
+                                Inspect
+                            </span>
+
+                            <i>→</i>
+
+                            <span>
+                                Fix
+                            </span>
+
+                            <i>→</i>
+
+                            <span>
+                                Validate
+                            </span>
+
+                        </div>
 
                     </div>
 
 
-                    <p>
+                    <!-- RIGHT SIDE / TERMINAL -->
 
-                        Fixing the problems was part of the lab. I used the
-                        container runtime, shell access, Docker commands, and
-                        application files to identify and resolve each issue.
+                    <div class="troubleshooting-terminal">
 
-                    </p>
+                        <div class="troubleshooting-terminal__bar">
 
-                </header>
+                            <div>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </div>
 
-
-                <div class="troubleshooting-grid">
-
-
-                    <article class="issue-card reveal">
-
-                        <span class="issue-card__number">
-                            01
-                        </span>
-
-                        <div class="issue-card__icon">
-
-                            <iconify-icon
-                                icon="solar:danger-triangle-linear"
-                            ></iconify-icon>
+                            <span>
+                                PowerShell
+                            </span>
 
                         </div>
 
-                        <h3>
-                            Container Stopped
-                        </h3>
 
-                        <p>
+                        <div
+                            class="troubleshooting-terminal__commands"
+                            id="troubleshootingCommands"
+                        >
 
-                            The container exited because the Node.js
-                            application encountered an application-level error
-                            during startup.
-
-                        </p>
-
-                        <span class="issue-card__result">
-                            Investigated runtime failure
-                        </span>
-
-                    </article>
-
-
-                    <article class="issue-card reveal">
-
-                        <span class="issue-card__number">
-                            02
-                        </span>
-
-                        <div class="issue-card__icon">
-
-                            <iconify-icon
-                                icon="solar:file-corrupted-linear"
-                            ></iconify-icon>
+                            <!-- Generated by JavaScript -->
 
                         </div>
 
-                        <h3>
-                            Import Mismatch
-                        </h3>
-
-                        <p>
-
-                            I inspected the files inside the container and
-                            found that the helper filename did not match the
-                            application import.
-
-                        </p>
-
-                        <span class="issue-card__result">
-                            Corrected source files
-                        </span>
-
-                    </article>
-
-
-                    <article class="issue-card reveal">
-
-                        <span class="issue-card__number">
-                            03
-                        </span>
-
-                        <div class="issue-card__icon">
-
-                            <iconify-icon
-                                icon="solar:restart-square-linear"
-                            ></iconify-icon>
-
-                        </div>
-
-                        <h3>
-                            Image Rebuild
-                        </h3>
-
-                        <p>
-
-                            After changing the source code, I learned that the
-                            existing image did not automatically update and
-                            needed to be rebuilt.
-
-                        </p>
-
-                        <span class="issue-card__result">
-                            Rebuilt and validated image
-                        </span>
-
-                    </article>
-
-
-                    <article class="issue-card reveal">
-
-                        <span class="issue-card__number">
-                            04
-                        </span>
-
-                        <div class="issue-card__icon">
-
-                            <iconify-icon
-                                icon="solar:wi-fi-router-linear"
-                            ></iconify-icon>
-
-                        </div>
-
-                        <h3>
-                            Port Conflict
-                        </h3>
-
-                        <p>
-
-                            Another container was already using host port
-                            3000, preventing the new container from binding
-                            to the same port.
-
-                        </p>
-
-                        <span class="issue-card__result">
-                            Identified conflicting container
-                        </span>
-
-                    </article>
+                    </div>
 
                 </div>
 
-            </div>
+            </section>
 
-        </section>
+        </div>
 
+    </section>
 
         <!-- =====================================================
              CURRENT / NEXT

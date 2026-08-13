@@ -933,3 +933,467 @@ setInterval(
     cycleTerminalCommand,
     3000
 );
+
+/* ============================================================
+   TROUBLESHOOTING CONSOLE
+   ============================================================ */
+
+const troubleshootingCards =
+    document.querySelectorAll(
+        "[data-troubleshoot]"
+    );
+
+
+const troubleshootingTitle =
+    document.getElementById(
+        "troubleshootingTitle"
+    );
+
+
+const troubleshootingStatus =
+    document.getElementById(
+        "troubleshootingStatus"
+    );
+
+
+const troubleshootingProblem =
+    document.getElementById(
+        "troubleshootingProblem"
+    );
+
+
+const troubleshootingExplanation =
+    document.getElementById(
+        "troubleshootingExplanation"
+    );
+
+
+const troubleshootingCommands =
+    document.getElementById(
+        "troubleshootingCommands"
+    );
+
+
+/* ============================================================
+   TROUBLESHOOTING DATA
+   ============================================================ */
+
+const troubleshootingData = {
+
+    stopped: {
+
+        title:
+            "Container Stopped",
+
+        status:
+            "INVESTIGATION",
+
+        problem:
+            "The container exited shortly after it started.",
+
+        explanation:
+            "The first step was to confirm the container had stopped instead of assuming Docker itself failed. I listed all containers, including stopped ones, and then checked the container output to see what caused the application to exit.",
+
+        commands: [
+
+            {
+                purpose:
+                    "Show running and stopped containers",
+
+                command:
+                    "docker ps -a"
+            },
+
+            {
+                purpose:
+                    "Read the application output from the stopped container",
+
+                command:
+                    "docker logs <CONTAINER_ID>"
+            }
+
+        ],
+
+        resolution:
+            "The container was able to start, but the Node.js application was crashing inside it. That narrowed the problem down to the application files rather than Docker itself."
+
+    },
+
+
+    import: {
+
+        title:
+            "Import Mismatch",
+
+        status:
+            "ROOT CAUSE",
+
+        problem:
+            "The application import referenced a filename that did not match the file inside the image.",
+
+        explanation:
+            "Because the original application container exited, I started an interactive container from the image and inspected the files packaged inside it. This helped me confirm the mismatch between the helper filename and the import used by app.mjs.",
+
+        commands: [
+
+            {
+                purpose:
+                    "Start an interactive shell from the image",
+
+                command:
+                    "docker run -it <IMAGE_ID> sh"
+            },
+
+            {
+                purpose:
+                    "List the application files inside the container",
+
+                command:
+                    "ls"
+            },
+
+            {
+                purpose:
+                    "Inspect the application source if needed",
+
+                command:
+                    "cat app.mjs"
+            },
+
+            {
+                purpose:
+                    "Leave the interactive container shell",
+
+                command:
+                    "exit"
+            }
+
+        ],
+
+        resolution:
+            "I corrected the filename/import mismatch in the source code so Node.js could successfully locate the helper module."
+
+    },
+
+
+    rebuild: {
+
+        title:
+            "Image Rebuild",
+
+        status:
+            "REBUILD",
+
+        problem:
+            "Fixing the source file did not change the Docker image I had already built.",
+
+        explanation:
+            "The existing image still contained the old application files. After making the source-code correction, I had to build a new image before creating another container.",
+
+        commands: [
+
+            {
+                purpose:
+                    "Build a new image using the corrected source",
+
+                command:
+                    "docker build ."
+            },
+
+            {
+                purpose:
+                    "View the available Docker images",
+
+                command:
+                    "docker images"
+            },
+
+            {
+                purpose:
+                    "Run a container from the newly built image",
+
+                command:
+                    "docker run -p 3000:3000 <IMAGE_ID>"
+            }
+
+        ],
+
+        resolution:
+            "The rebuilt image contained the corrected application files. A new container created from that image was able to start the application successfully."
+
+    },
+
+
+    port: {
+
+        title:
+            "Port Conflict",
+
+        status:
+            "NETWORK / PORT",
+
+        problem:
+            "Docker could not bind the new container to host port 3000 because another container was already using it.",
+
+        explanation:
+            "The error showed that port 3000 was already allocated. I checked the running containers to identify what was using the port, stopped the conflicting container, and then started the updated container.",
+
+        commands: [
+
+            {
+                purpose:
+                    "See which containers are currently running",
+
+                command:
+                    "docker ps"
+            },
+
+            {
+                purpose:
+                    "Stop the container already using port 3000",
+
+                command:
+                    "docker stop <CONTAINER_ID>"
+            },
+
+            {
+                purpose:
+                    "Start the updated container on port 3000",
+
+                command:
+                    "docker run -p 3000:3000 <IMAGE_ID>"
+            }
+
+        ],
+
+        resolution:
+            "After the conflicting container released port 3000, the updated container could bind to localhost:3000 successfully."
+
+    }
+
+};
+
+
+/* ============================================================
+   RENDER TROUBLESHOOTING ISSUE
+   ============================================================ */
+
+function renderTroubleshootingIssue(
+    key
+) {
+
+    const issue =
+        troubleshootingData[
+            key
+        ];
+
+
+    if (!issue) {
+
+        return;
+
+    }
+
+
+    /* Update selected card */
+
+    troubleshootingCards
+        .forEach(
+            card => {
+
+                card.classList.toggle(
+                    "is-active",
+                    card.dataset.troubleshoot === key
+                );
+
+            }
+        );
+
+
+    /* Update text */
+
+    troubleshootingTitle.textContent =
+        issue.title;
+
+
+    troubleshootingStatus.textContent =
+        issue.status;
+
+
+    troubleshootingProblem.textContent =
+        issue.problem;
+
+
+    troubleshootingExplanation.textContent =
+        issue.explanation;
+
+
+    /* Build command list */
+
+    troubleshootingCommands.innerHTML =
+        issue.commands
+            .map(
+                item => `
+
+                    <div class="troubleshooting-command">
+
+                        <span class="troubleshooting-command__purpose">
+                            ${item.purpose}
+                        </span>
+
+
+                        <div class="troubleshooting-command__line">
+
+                            ${item.command}
+
+                            <button
+                                class="command-copy"
+                                type="button"
+                                data-copy-command="${item.command.replaceAll('"', '&quot;')}"
+                                aria-label="Copy command"
+                            >
+
+                                <iconify-icon
+                                    icon="solar:copy-linear"
+                                ></iconify-icon>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `
+            )
+            .join("")
+        +
+
+        `
+
+            <div class="troubleshooting-resolution">
+
+                <strong>
+                    Resolution:
+                </strong>
+
+                ${issue.resolution}
+
+            </div>
+
+        `;
+
+
+    /* Re-bind copy buttons */
+
+    bindTroubleshootingCopyButtons();
+
+}
+
+
+/* ============================================================
+   COPY COMMAND
+   ============================================================ */
+
+function bindTroubleshootingCopyButtons() {
+
+    document
+        .querySelectorAll(
+            "[data-copy-command]"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    async event => {
+
+                        /*
+                         * Prevent clicking copy from
+                         * doing anything else.
+                         */
+                        event.stopPropagation();
+
+
+                        const command =
+                            button.dataset.copyCommand;
+
+
+                        try {
+
+                            await navigator
+                                .clipboard
+                                .writeText(
+                                    command
+                                );
+
+
+                            const original =
+                                button.innerHTML;
+
+
+                            button.innerHTML = `
+
+                                <iconify-icon
+                                    icon="solar:check-circle-linear"
+                                ></iconify-icon>
+
+                            `;
+
+
+                            setTimeout(
+                                () => {
+
+                                    button.innerHTML =
+                                        original;
+
+                                },
+                                1200
+                            );
+
+                        } catch {
+
+                            console.warn(
+                                "Unable to copy command."
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* ============================================================
+   CARD EVENTS
+   ============================================================ */
+
+troubleshootingCards
+    .forEach(
+        card => {
+
+            card.addEventListener(
+                "click",
+                () => {
+
+                    renderTroubleshootingIssue(
+                        card.dataset.troubleshoot
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* ============================================================
+   INITIAL ISSUE
+   ============================================================ */
+
+renderTroubleshootingIssue(
+    "stopped"
+);
