@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html data-theme="dark" lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+    <!-- =========================================================
+         DOCUMENT SETUP
+    ========================================================== -->
+
+    <meta charset="utf-8">
 
     <meta
         name="viewport"
@@ -21,21 +25,29 @@
     >
 
     <meta
+        id="themeColorMeta"
         name="theme-color"
         content="#070912"
-        id="themeColorMeta"
     >
 
-    <title>Darling Jackson | Systems Engineer</title>
+    <title>
+        Darling Jackson | Systems Engineer
+    </title>
+
+
+    <!-- Favicon -->
 
     <link
-    rel="icon"
-    type="image/png"
-    href="assets/icons/tags.png"
+        rel="icon"
+        type="image/png"
+        href="assets/icons/tags.png"
     >
 
 
-    <!-- Prevent light/dark mode flash -->
+    <!-- =========================================================
+         PREVENT LIGHT / DARK MODE FLASH
+    ========================================================== -->
+
     <script>
 
         (() => {
@@ -64,7 +76,10 @@
     </script>
 
 
-    <!-- Fonts -->
+    <!-- =========================================================
+         FONTS
+    ========================================================== -->
+
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -77,10 +92,14 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
         rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
     >
 
+
+    <!-- =========================================================
+         SITE STYLES
+    ========================================================== -->
 
     <link
         rel="stylesheet"
@@ -101,12 +120,16 @@
         class="page-progress"
         aria-hidden="true"
     >
+
         <span
             class="page-progress__bar"
             id="pageProgressBar"
         ></span>
+
     </div>
 
+
+    <!-- Accessibility Skip Link -->
 
     <a
         class="skip-link"
@@ -129,7 +152,9 @@
         <div class="site-header__inner">
 
 
-            <!-- Brand -->
+            <!-- =================================================
+                 BRAND
+            ================================================== -->
 
             <a
                 class="brand"
@@ -160,7 +185,9 @@
 
 
 
-            <!-- Desktop Navigation -->
+            <!-- =================================================
+                 DESKTOP NAVIGATION
+            ================================================== -->
 
             <nav
                 class="desktop-nav"
@@ -206,12 +233,14 @@
 
 
 
-            <!-- Header Actions -->
+            <!-- =================================================
+                 HEADER ACTIONS
+            ================================================== -->
 
             <div class="header-actions">
 
 
-                <!-- Theme -->
+                <!-- Theme Toggle -->
 
                 <button
                     class="theme-toggle"
@@ -244,15 +273,17 @@
                     class="resume-button"
                     href="resume.html"
                 >
+
                     Resume
 
                     <span aria-hidden="true">
                         ↗
                     </span>
+
                 </a>
 
 
-                <!-- Mobile Menu -->
+                <!-- Mobile Menu Toggle -->
 
                 <button
                     class="menu-toggle"
@@ -312,7 +343,7 @@
 
             <a href="#connect">
                 Connect
-            </a>    
+            </a>
 
         </div>
 
@@ -321,7 +352,7 @@
 
 
     <!-- =========================================================
-         MAIN
+         MAIN CONTENT
     ========================================================== -->
 
     <main
@@ -341,7 +372,7 @@
         >
 
 
-            <!-- Background -->
+            <!-- Background Effects -->
 
             <div
                 class="hero__grid"
@@ -363,9 +394,9 @@
             <div class="container hero__layout">
 
 
-                <!-- =============================
-                     Hero Content
-                ============================== -->
+                <!-- =============================================
+                     HERO CONTENT
+                ============================================== -->
 
                 <div class="hero__content reveal">
 
@@ -385,6 +416,7 @@
                     </div>
 
 
+
                     <h1 class="hero__title">
 
                         I build, secure
@@ -402,13 +434,11 @@
                     </h1>
 
 
+
                     <p class="hero__description">
-                        I'm Darling Jackson, a Systems Engineer and Army
-                        veteran with hands-on experience supporting enterprise
-                        and DoD environments across cloud infrastructure,
-                        identity, security, systems administration, and
-                        platform technologies.
+                        I'm Darling Jackson, a Systems Engineer and Army veteran with hands-on experience supporting enterprise and DoD environments across cloud infrastructure, identity, security, systems administration, and platform technologies.
                     </p>
+
 
 
                     <div class="hero__actions">
@@ -417,11 +447,13 @@
                             class="button button--primary"
                             href="#projects"
                         >
+
                             Explore My Work
 
                             <span aria-hidden="true">
                                 ↓
                             </span>
+
                         </a>
 
 
@@ -435,9 +467,11 @@
                     </div>
 
 
+
                     <!-- Quick Facts -->
 
                     <div class="hero-facts">
+
 
                         <div class="hero-fact">
 
@@ -483,269 +517,264 @@
 
 
 
-                <!-- =============================
-                     Engineering Interface
-                ============================== -->
-<!-- =====================================================
-     ENGINEERING CONSOLE
-====================================================== -->
+                <!-- =============================================
+                     ENGINEERING CONSOLE
+                ============================================== -->
 
-<div class="engineering-console reveal">
+                <div class="engineering-console reveal">
 
 
-    <!-- Console Header -->
+                    <!-- Console Header -->
 
-    <div class="console-header">
+                    <div class="console-header">
 
-        <div class="console-dots">
+                        <div class="console-dots">
 
-            <span class="console-dot console-dot--pink"></span>
-            <span class="console-dot console-dot--purple"></span>
-            <span class="console-dot console-dot--blue"></span>
+                            <span class="console-dot console-dot--pink"></span>
+                            <span class="console-dot console-dot--purple"></span>
+                            <span class="console-dot console-dot--blue"></span>
 
-        </div>
+                        </div>
 
 
-        <span class="console-host">
-            darling@portfolio:~
-        </span>
+                        <span class="console-host">
+                            darling@portfolio:~
+                        </span>
 
 
-        <span class="console-availability">
+                        <span class="console-availability">
 
-            <span class="console-availability__dot"></span>
+                            <span class="console-availability__dot"></span>
 
-            Open to Opportunities
+                            Open to Opportunities
 
-        </span>
+                        </span>
 
-    </div>
+                    </div>
 
 
 
-    <!-- Console Body -->
+                    <!-- Console Body -->
 
-    <div class="console-body">
+                    <div class="console-body">
 
 
-        <!-- Profile Command -->
+                        <!-- Profile Command -->
 
-        <div class="console-command">
+                        <div class="console-command">
 
-            <span class="console-command__prompt">
-                $
-            </span>
+                            <span class="console-command__prompt">
+                                $
+                            </span>
 
-            <span>
-                profile --summary
-            </span>
+                            <span>
+                                profile --summary
+                            </span>
 
-        </div>
+                        </div>
 
 
 
-        <!-- Profile Information -->
+                        <!-- Profile Information -->
 
-        <div class="console-profile">
+                        <div class="console-profile">
 
 
-            <div class="console-row">
+                            <div class="console-row">
 
-                <span class="console-row__label">
-                    role
-                </span>
+                                <span class="console-row__label">
+                                    role
+                                </span>
 
-                <strong class="console-row__value">
-                    Systems Engineer/ISSO
-                </strong>
+                                <strong class="console-row__value">
+                                    Systems Engineer/ISSO
+                                </strong>
 
-            </div>
+                            </div>
 
 
+                            <div class="console-row">
 
-            <div class="console-row">
+                                <span class="console-row__label">
+                                    focus
+                                </span>
 
-                <span class="console-row__label">
-                    focus
-                </span>
+                                <strong
+                                    class="console-row__value console-row__value--blue"
+                                    id="typingText"
+                                >
+                                    Platform Engineering
+                                </strong>
 
-                <strong
-                    class="console-row__value console-row__value--blue"
-                    id="typingText"
-                >
-                    Platform Engineering
-                </strong>
+                            </div>
 
-            </div>
 
+                            <div class="console-row">
 
+                                <span class="console-row__label">
+                                    location
+                                </span>
 
-            <div class="console-row">
+                                <strong class="console-row__value">
+                                    Augusta, Georgia Area
+                                </strong>
 
-                <span class="console-row__label">
-                    location
-                </span>
+                            </div>
 
-                <strong class="console-row__value">
-                    Augusta, Georgia Area
-                </strong>
 
-            </div>
+                            <div class="console-row">
 
+                                <span class="console-row__label">
+                                    work preference
+                                </span>
 
+                                <strong class="console-row__value">
+                                    Remote, Hybrid, or Augusta Area
+                                </strong>
 
-            <div class="console-row">
+                            </div>
 
-                <span class="console-row__label">
-                    work preference
-                </span>
 
-                <strong class="console-row__value">
-                    Remote, Hybrid, or Augusta Area
-                </strong>
+                            <div class="console-row">
 
-            </div>
+                                <span class="console-row__label">
+                                    clearance
+                                </span>
 
+                                <strong class="console-row__value console-row__value--green">
+                                    TS/SCI Active
+                                </strong>
 
+                            </div>
 
-            <div class="console-row">
+                        </div>
 
-                <span class="console-row__label">
-                    clearance
-                </span>
 
-                <strong class="console-row__value console-row__value--green">
-                    TS/SCI Active
-                </strong>
 
-            </div>
+                        <!-- Toolkit Command -->
 
-        </div>
+                        <div class="console-command console-command--toolkit">
 
+                            <span class="console-command__prompt">
+                                $
+                            </span>
 
+                            <span>
+                                technical-toolkit --list
+                            </span>
 
-        <!-- Toolkit Command -->
+                        </div>
 
-        <div class="console-command console-command--toolkit">
 
-            <span class="console-command__prompt">
-                $
-            </span>
 
-            <span>
-                technical-toolkit --list
-            </span>
+                        <!-- Technical Toolkit -->
 
-        </div>
+                        <div class="console-toolkit">
 
+                            <span>AWS</span>
+                            <span>Azure</span>
+                            <span>Linux</span>
+                            <span>Kubernetes</span>
+                            <span>Helm</span>
+                            <span>Keycloak</span>
+                            <span>RMF</span>
+                            <span>Git</span>
+                            <span>Terraform</span>
 
+                        </div>
 
-        <!-- Toolkit -->
 
-        <div class="console-toolkit">
 
-            <span>AWS</span>
-            <span>Azure</span>
-            <span>Linux</span>
-            <span>Kubernetes</span>
-            <span>Helm</span>
-            <span>Keycloak</span>
-            <span>RMF</span>
-            <span>Git</span>
-            <span>Terraform</span>
+                        <!-- Current Build -->
 
-        </div>
+                        <div class="console-build">
 
 
+                            <div class="console-build__top">
 
-        <!-- Current Build -->
+                                <span>
+                                    Current Build
+                                </span>
 
-        <div class="console-build">
+                                <span id="currentBuildCount">
+                                    01 / 02
+                                </span>
 
+                            </div>
 
-            <div class="console-build__top">
 
-                <span>
-                    Current Build
-                </span>
 
-                <span id="currentBuildCount">
-                    01 / 02
-                </span>
+                            <div class="console-build__content">
 
-            </div>
+                                <div>
 
+                                    <strong id="currentBuildName">
+                                        Enterprise Security Compliance Lab
+                                    </strong>
 
+                                    <p id="currentBuildDescription">
+                                        RMF documentation, authorization artifacts, and Blue Fox Defense case study.
+                                    </p>
 
-            <div class="console-build__content">
+                                </div>
 
-                <div>
 
-                    <strong id="currentBuildName">
-                        Enterprise Security Compliance Lab
-                    </strong>
+                                <span
+                                    class="console-build__percentage"
+                                    id="currentBuildPercentage"
+                                >
+                                    42%
+                                </span>
 
-                    <p id="currentBuildDescription">
-                        RMF documentation, authorization artifacts,
-                        and Blue Fox Defense case study.
-                    </p>
+                            </div>
+
+
+
+                            <div
+                                class="console-progress"
+                                id="currentBuildProgress"
+                                role="progressbar"
+                                aria-label="Current project progress"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                aria-valuenow="42"
+                            >
+
+                                <span
+                                    class="console-progress__fill"
+                                    id="currentBuildProgressFill"
+                                ></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Console Footer -->
+
+                    <div class="console-footer">
+
+                        <span>
+                            Secure
+                        </span>
+
+                        <span>
+                            Documented
+                        </span>
+
+                        <span>
+                            Built to Learn
+                        </span>
+
+                    </div>
 
                 </div>
 
-
-                <span
-                    class="console-build__percentage"
-                    id="currentBuildPercentage"
-                >
-                    42%
-                </span>
-
             </div>
 
-
-
-            <div
-                class="console-progress"
-                role="progressbar"
-                aria-label="Current project progress"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow="42"
-                id="currentBuildProgress"
-            >
-
-                <span
-                    class="console-progress__fill"
-                    id="currentBuildProgressFill"
-                ></span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- Console Footer -->
-
-    <div class="console-footer">
-
-        <span>
-            Secure
-        </span>
-
-        <span>
-            Documented
-        </span>
-
-        <span>
-            Built to Learn
-        </span>
-
-    </div>
-
-</div>
         </section>
 
 
@@ -762,7 +791,9 @@
             <div class="container">
 
 
-                <!-- Heading -->
+                <!-- =============================================
+                     PROJECT SECTION HEADING
+                ============================================== -->
 
                 <header class="section-heading reveal">
 
@@ -784,19 +815,20 @@
                         <div>
 
                             <h2>
+
                                 Projects built to
+
                                 <span class="gradient-text">
                                     show the work.
                                 </span>
+
                             </h2>
 
                         </div>
 
 
                         <p>
-                            Hands-on engineering labs and case studies that
-                            document what I'm building, how the systems work,
-                            and what I'm learning along the way.
+                            Hands-on engineering labs and case studies that document what I'm building, how the systems work, and what I'm learning along the way.
                         </p>
 
                     </div>
@@ -805,7 +837,9 @@
 
 
 
-                <!-- Filters -->
+                <!-- =============================================
+                     PROJECT FILTERS
+                ============================================== -->
 
                 <div class="project-toolbar reveal">
 
@@ -885,9 +919,9 @@
 
 
 
-                <!-- =============================
-                     Project Grid
-                ============================== -->
+                <!-- =============================================
+                     PROJECT GRID
+                ============================================== -->
 
                 <div
                     class="project-grid"
@@ -895,302 +929,10 @@
                 >
 
 
-
-                    <!-- PROJECT 01 -->
-
-                    <article
-                        class="project-card reveal"
-                        data-category="cloud automation"
-                    >
-
-                        <div class="project-card__glow"></div>
-
-
-                        <header class="project-card__header">
-
-                            <span class="project-card__number">
-                                01
-                            </span>
-
-                            <span class="status status--active">
-                                ● ACTIVE
-                            </span>
-
-                        </header>
-
-
-                        <div class="project-visual project-visual--portfolio">
-
-                            <div class="browser-mini">
-
-                                <div class="browser-mini__top">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-
-                                <div class="browser-mini__content">
-
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-card__content">
-
-                            <p class="project-card__type">
-                                WEB / CLOUD PORTFOLIO
-                            </p>
-
-                            <h3>
-                                Professional Portfolio
-                            </h3>
-
-                            <p>
-                                The site you're exploring now — built from
-                                scratch to document my engineering projects,
-                                technical development, experience, and labs.
-                            </p>
-
-
-                            <div class="tag-list">
-
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                                <span>GitHub Pages</span>
-
-                            </div>
-                            <footer class="project-card__footer">
-
-                            <div class="project-card__footer-left">
-
-                                <span>
-                                    You're here
-                                </span>
-
-                                <a
-                                    class="project-github-button"
-                                    href="https://github.com/darlingjackson"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    GitHub ↗
-                                </a>
-
-                            </div>
-
-                            <span>
-                                01
-                            </span>
-
-                        </footer>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- PROJECT 02 -->
-
-                    <article
-                        class="project-card reveal"
-                        data-category="security cloud"
-                    >
-
-                        <div class="project-card__glow"></div>
-
-
-                        <header class="project-card__header">
-
-                            <span class="project-card__number">
-                                02
-                            </span>
-
-                            <span class="status status--active">
-                                ● ACTIVE
-                            </span>
-
-                        </header>
-
-
-                        <div class="project-visual project-visual--rmf">
-
-                            <div class="rmf-mini">
-
-                                <span class="rmf-mini__center">
-                                    RMF
-                                </span>
-
-                                <span class="rmf-mini__orbit rmf-mini__orbit--1"></span>
-                                <span class="rmf-mini__orbit rmf-mini__orbit--2"></span>
-
-                                <span class="rmf-mini__node rmf-mini__node--1">
-                                    PREPARE
-                                </span>
-
-                                <span class="rmf-mini__node rmf-mini__node--2">
-                                    ASSESS
-                                </span>
-
-                                <span class="rmf-mini__node rmf-mini__node--3">
-                                    AUTHORIZE
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-card__content">
-
-                            <p class="project-card__type">
-                                SECURITY ENGINEERING
-                            </p>
-
-                            <h3>
-                                Enterprise Security Compliance Lab
-                            </h3>
-
-                            <p>
-                                Blue Fox Defense and the Foxhole Portal
-                                demonstrate a realistic RMF authorization
-                                effort from Prepare through continuous
-                                monitoring.
-                            </p>
-
-
-                            <div class="tag-list">
-
-                                <span>RMF</span>
-                                <span>NIST 800-37</span>
-                                <span>FIPS 199</span>
-                                <span>STIGs</span>
-
-                            </div>
-
-                            <footer class="project-card__footer">
-
-                                <a
-                                    class="project-action-button"
-                                    href="labs/rmf/index.html"
-                                >
-                                    Enter Security Lab ↗
-                                </a>
-
-                                <span>
-                                    02
-                                </span>
-
-                            </footer>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- PROJECT 03 -->
-
-                    <article
-                        class="project-card reveal"
-                        data-category="cloud security"
-                    >
-
-                        <div class="project-card__glow"></div>
-
-
-                        <header class="project-card__header">
-
-                            <span class="project-card__number">
-                                03
-                            </span>
-
-                            <span class="status status--planned">
-                                PLANNED
-                            </span>
-
-                        </header>
-
-
-                        <div class="project-visual project-visual--aws">
-
-                            <div class="aws-diagram">
-
-                                <div>
-                                    VPC
-                                </div>
-
-                                <span></span>
-
-                                <div>
-                                    EC2
-                                </div>
-
-                                <span></span>
-
-                                <div>
-                                    IAM
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-card__content">
-
-                            <p class="project-card__type">
-                                CLOUD INFRASTRUCTURE
-                            </p>
-
-                            <h3>
-                                AWS Cloud Environment
-                            </h3>
-
-                            <p>
-                                A secure AWS environment focused on
-                                architecture, networking, IAM, compute,
-                                monitoring, and cloud security.
-                            </p>
-
-
-                            <div class="tag-list">
-
-                                <span>AWS</span>
-                                <span>IAM</span>
-                                <span>VPC</span>
-                                <span>Cloud Security</span>
-
-                            </div>
-
-
-                            <footer class="project-card__footer">
-
-                                <span>
-                                    Build Plan Coming Soon
-                                </span>
-
-                                <span>
-                                    03
-                                </span>
-
-                            </footer>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- PROJECT 04 -->
+                    <!-- =========================================
+                         PROJECT 01
+                         KUBERNETES/DOCKER LAB
+                    ========================================== -->
 
                     <article
                         class="project-card reveal"
@@ -1203,7 +945,7 @@
                         <header class="project-card__header">
 
                             <span class="project-card__number">
-                                04
+                                01
                             </span>
 
                             <span class="status status--active">
@@ -1211,6 +953,7 @@
                             </span>
 
                         </header>
+
 
 
                         <div class="project-visual project-visual--kubernetes">
@@ -1242,6 +985,7 @@
                         </div>
 
 
+
                         <div class="project-card__content">
 
                             <p class="project-card__type">
@@ -1253,10 +997,7 @@
                             </h3>
 
                             <p>
-                                Hands-on container and Kubernetes work
-                                covering Docker images, workloads, services,
-                                deployments, troubleshooting, and platform
-                                fundamentals.
+                                Hands-on platform engineering lab documenting my work with containers, Docker, Kubernetes, workloads, services, deployments, Linux, troubleshooting, and cluster fundamentals.
                             </p>
 
 
@@ -1269,36 +1010,38 @@
 
                             </div>
 
+
+
                             <footer class="project-card__footer">
 
-                            <div class="project-card__footer-left">
+                                <div class="project-card__footer-left">
 
-                                <div class="project-card__actions">
+                                    <div class="project-card__actions">
 
-                                    <a
-                                        class="project-action-button"
-                                        href="labs/k8s/index.html"
-                                    >
-                                        K8s Lab ↗
-                                    </a>
+                                        <a
+                                            class="project-action-button"
+                                            href="labs/k8s/index.html"
+                                        >
+                                            K8s Lab ↗
+                                        </a>
 
-                                    <a
-                                        class="project-action-button"
-                                        href="labs/k8s/theory.html"
-                                    >
-                                        Theory ↗
-                                    </a>
+                                        <a
+                                            class="project-action-button"
+                                            href="labs/k8s/theory.html"
+                                        >
+                                            Theory ↗
+                                        </a>
+
+                                    </div>
 
                                 </div>
 
-                            </div>
 
-                            <span>
-                                04
-                            </span>
+                                <span>
+                                    01
+                                </span>
 
-                        </footer>
-                            
+                            </footer>
 
                         </div>
 
@@ -1306,10 +1049,229 @@
 
 
 
-                    <!-- PROJECT 05 -->
+                    <!-- =========================================
+                         PROJECT 02
+                         SECURITY COMPLIANCE LAB
+                    ========================================== -->
 
                     <article
                         class="project-card reveal"
+                        data-category="security cloud"
+                    >
+
+                        <div class="project-card__glow"></div>
+
+
+                        <header class="project-card__header">
+
+                            <span class="project-card__number">
+                                02
+                            </span>
+
+                            <span class="status status--active">
+                                ● ACTIVE
+                            </span>
+
+                        </header>
+
+
+
+                        <div class="project-visual project-visual--rmf">
+
+                            <div class="rmf-mini">
+
+                                <span class="rmf-mini__center">
+                                    RMF
+                                </span>
+
+                                <span class="rmf-mini__orbit rmf-mini__orbit--1"></span>
+
+                                <span class="rmf-mini__orbit rmf-mini__orbit--2"></span>
+
+                                <span class="rmf-mini__node rmf-mini__node--1">
+                                    PREPARE
+                                </span>
+
+                                <span class="rmf-mini__node rmf-mini__node--2">
+                                    ASSESS
+                                </span>
+
+                                <span class="rmf-mini__node rmf-mini__node--3">
+                                    AUTHORIZE
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="project-card__content">
+
+                            <p class="project-card__type">
+                                SECURITY / RMF ENGINEERING
+                            </p>
+
+                            <h3>
+                                RMF / Security Compliance Lab
+                            </h3>
+
+                            <p>
+                                Interactive RMF case study documenting a simulated system authorization from preparation and categorization through assessment, authorization, and continuous monitoring.
+                            </p>
+
+
+                            <div class="tag-list">
+
+                                <span>RMF</span>
+                                <span>NIST 800-37</span>
+                                <span>FIPS 199</span>
+                                <span>STIGs</span>
+
+                            </div>
+
+
+
+                            <footer class="project-card__footer">
+
+                                <a
+                                    class="project-action-button"
+                                    href="labs/rmf/index.html"
+                                >
+                                    Enter Security Lab ↗
+                                </a>
+
+                                <span>
+                                    02
+                                </span>
+
+                            </footer>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =========================================
+                         PROJECT 03
+                         PROFESSIONAL ENGINEERING PORTFOLIO
+                    ========================================== -->
+
+                    <article
+                        class="project-card reveal"
+                        data-category="cloud automation"
+                    >
+
+                        <div class="project-card__glow"></div>
+
+
+                        <header class="project-card__header">
+
+                            <span class="project-card__number">
+                                03
+                            </span>
+
+                            <span class="status status--active">
+                                ● ACTIVE
+                            </span>
+
+                        </header>
+
+
+
+                        <div class="project-visual project-visual--portfolio">
+
+                            <div class="browser-mini">
+
+                                <div class="browser-mini__top">
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+
+                                </div>
+
+                                <div class="browser-mini__content">
+
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="project-card__content">
+
+                            <p class="project-card__type">
+                                ENGINEERING / WEB PORTFOLIO
+                            </p>
+
+                            <h3>
+                                Professional Portfolio
+                            </h3>
+
+                            <p>
+                                The site you're exploring now — built from scratch to document my technical development, engineering projects, labs, experience, and certification journey.
+                            </p>
+
+
+                            <div class="tag-list">
+
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                                <span>GitHub Pages</span>
+
+                            </div>
+
+
+
+                            <footer class="project-card__footer">
+
+                                <div class="project-card__footer-left">
+
+                                    <span>
+                                        You're here
+                                    </span>
+
+                                    <a
+                                        class="project-github-button"
+                                        href="https://github.com/darlingjackson"
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
+                                        GitHub ↗
+                                    </a>
+
+                                </div>
+
+
+                                <span>
+                                    03
+                                </span>
+
+                            </footer>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =========================================
+                         PROJECT 04
+                         KEYCLOAK IAM LAB
+                         PLANNED / STANDBY
+                    ========================================== -->
+
+                    <article
+                        class="project-card project-card--planned reveal"
                         data-category="iam security platform"
                     >
 
@@ -1319,14 +1281,15 @@
                         <header class="project-card__header">
 
                             <span class="project-card__number">
-                                05
+                                04
                             </span>
 
                             <span class="status status--planned">
-                                PLANNED
+                                ◌ PLANNED
                             </span>
 
                         </header>
+
 
 
                         <div class="project-visual project-visual--iam">
@@ -1354,10 +1317,11 @@
                         </div>
 
 
+
                         <div class="project-card__content">
 
                             <p class="project-card__type">
-                                IDENTITY & ACCESS
+                                IDENTITY &amp; ACCESS MANAGEMENT
                             </p>
 
                             <h3>
@@ -1365,9 +1329,7 @@
                             </h3>
 
                             <p>
-                                Identity architecture focused on realms,
-                                users, roles, authentication flows,
-                                authorization, SSO, OIDC, and SAML.
+                                Planned identity engineering lab focused on realms, users, roles, authentication flows, SSO, OIDC, SAML, RBAC, and access troubleshooting.
                             </p>
 
 
@@ -1381,10 +1343,109 @@
                             </div>
 
 
+
                             <footer class="project-card__footer">
 
+                                <span class="project-queued">
+                                    ◌ QUEUED FOR DEVELOPMENT
+                                </span>
+
                                 <span>
-                                    Build Plan Coming Soon
+                                    04
+                                </span>
+
+                            </footer>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- =========================================
+                         PROJECT 05
+                         AWS CLOUD ENVIRONMENT
+                         PLANNED / STANDBY
+                    ========================================== -->
+
+                    <article
+                        class="project-card project-card--planned reveal"
+                        data-category="cloud security"
+                    >
+
+                        <div class="project-card__glow"></div>
+
+
+                        <header class="project-card__header">
+
+                            <span class="project-card__number">
+                                05
+                            </span>
+
+                            <span class="status status--planned">
+                                ◌ PLANNED
+                            </span>
+
+                        </header>
+
+
+
+                        <div class="project-visual project-visual--aws">
+
+                            <div class="aws-diagram">
+
+                                <div>
+                                    VPC
+                                </div>
+
+                                <span></span>
+
+                                <div>
+                                    EC2
+                                </div>
+
+                                <span></span>
+
+                                <div>
+                                    IAM
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="project-card__content">
+
+                            <p class="project-card__type">
+                                CLOUD INFRASTRUCTURE
+                            </p>
+
+                            <h3>
+                                AWS Cloud Environment
+                            </h3>
+
+                            <p>
+                                Planned AWS environment focused on secure cloud architecture, networking, IAM, compute, monitoring, and infrastructure security.
+                            </p>
+
+
+                            <div class="tag-list">
+
+                                <span>AWS</span>
+                                <span>IAM</span>
+                                <span>VPC</span>
+                                <span>Cloud Security</span>
+
+                            </div>
+
+
+
+                            <footer class="project-card__footer">
+
+                                <span class="project-queued">
+                                    ◌ QUEUED FOR DEVELOPMENT
                                 </span>
 
                                 <span>
@@ -1399,10 +1460,14 @@
 
 
 
-                    <!-- PROJECT 06 -->
+                    <!-- =========================================
+                         PROJECT 06
+                         TERRAFORM INFRASTRUCTURE
+                         PLANNED / STANDBY
+                    ========================================== -->
 
                     <article
-                        class="project-card reveal"
+                        class="project-card project-card--planned reveal"
                         data-category="automation cloud"
                     >
 
@@ -1416,10 +1481,11 @@
                             </span>
 
                             <span class="status status--planned">
-                                PLANNED
+                                ◌ PLANNED
                             </span>
 
                         </header>
+
 
 
                         <div class="project-visual project-visual--terraform">
@@ -1427,19 +1493,23 @@
                             <div class="terraform-preview">
 
                                 <span>
+
                                     resource
+
                                     <strong>
                                         "aws_instance"
                                     </strong>
+
                                     {
+
                                 </span>
 
                                 <span>
-                                    &nbsp;&nbsp;ami = var.ami_id
+                                    ami = var.ami_id
                                 </span>
 
                                 <span>
-                                    &nbsp;&nbsp;instance_type = "t2.micro"
+                                    instance_type = "t2.micro"
                                 </span>
 
                                 <span>
@@ -1449,6 +1519,7 @@
                             </div>
 
                         </div>
+
 
 
                         <div class="project-card__content">
@@ -1462,9 +1533,7 @@
                             </h3>
 
                             <p>
-                                Infrastructure as Code practice focused on
-                                repeatable cloud infrastructure, state,
-                                providers, variables, modules, and automation.
+                                Planned Infrastructure as Code lab focused on repeatable cloud deployments, providers, variables, state, modules, and automation.
                             </p>
 
 
@@ -1478,10 +1547,11 @@
                             </div>
 
 
+
                             <footer class="project-card__footer">
 
-                                <span>
-                                    Build Plan Coming Soon
+                                <span class="project-queued">
+                                    ◌ QUEUED FOR DEVELOPMENT
                                 </span>
 
                                 <span>
@@ -1493,7 +1563,6 @@
                         </div>
 
                     </article>
-
 
                 </div>
 
@@ -1515,6 +1584,8 @@
             <div class="container">
 
 
+                <!-- Section Heading -->
+
                 <header class="section-heading reveal">
 
                     <div class="section-heading__label">
@@ -1533,18 +1604,18 @@
                     <div class="section-heading__row">
 
                         <h2>
+
                             How my technical
+
                             <span class="gradient-text">
                                 experience connects.
                             </span>
+
                         </h2>
 
 
                         <p>
-                            My experience crosses infrastructure, identity,
-                            security, and systems engineering. Select an
-                            engineering area to explore the technologies and
-                            work behind it.
+                            My experience crosses infrastructure, identity, security, and systems engineering. Select an engineering area to explore the technologies and work behind it.
                         </p>
 
                     </div>
@@ -1553,10 +1624,14 @@
 
 
 
+                <!-- =============================================
+                     ENGINEERING STACK INTERFACE
+                ============================================== -->
+
                 <div class="stack-interface reveal">
 
 
-                    <!-- Navigation -->
+                    <!-- Engineering Area Navigation -->
 
                     <div
                         class="stack-navigation"
@@ -1564,6 +1639,8 @@
                         aria-label="Engineering areas"
                     >
 
+
+                        <!-- Cloud -->
 
                         <button
                             class="stack-tab is-active"
@@ -1591,6 +1668,9 @@
                         </button>
 
 
+
+                        <!-- Platform -->
+
                         <button
                             class="stack-tab"
                             type="button"
@@ -1617,6 +1697,9 @@
                         </button>
 
 
+
+                        <!-- Identity -->
+
                         <button
                             class="stack-tab"
                             type="button"
@@ -1631,7 +1714,7 @@
                             <div>
 
                                 <strong>
-                                    Identity & Access
+                                    Identity &amp; Access
                                 </strong>
 
                                 <small>
@@ -1642,6 +1725,9 @@
 
                         </button>
 
+
+
+                        <!-- Security -->
 
                         <button
                             class="stack-tab"
@@ -1668,6 +1754,9 @@
 
                         </button>
 
+
+
+                        <!-- Systems -->
 
                         <button
                             class="stack-tab"
@@ -1698,12 +1787,16 @@
 
 
 
-                    <!-- Content -->
+                    <!-- =============================================
+                         ENGINEERING STACK CONTENT
+                    ============================================== -->
 
                     <div class="stack-display">
 
 
-                        <!-- Cloud -->
+                        <!-- =========================================
+                             CLOUD
+                        ========================================== -->
 
                         <article
                             class="stack-panel is-active"
@@ -1715,15 +1808,11 @@
                             </p>
 
                             <h3>
-                                Secure cloud environments from infrastructure
-                                through authorization.
+                                Secure cloud environments from infrastructure through authorization.
                             </h3>
 
                             <p>
-                                Experience supporting AWS and Azure
-                                environments, cloud authorization activities,
-                                access, IAM, infrastructure, and security
-                                requirements in enterprise and DoD settings.
+                                Experience supporting AWS and Azure environments, cloud authorization activities, access, IAM, infrastructure, and security requirements in enterprise and DoD settings.
                             </p>
 
 
@@ -1744,13 +1833,17 @@
                                     IAM
                                 </span>
 
-                                <b>→</b>
+                                <b>
+                                    →
+                                </b>
 
                                 <span>
                                     CLOUD
                                 </span>
 
-                                <b>→</b>
+                                <b>
+                                    →
+                                </b>
 
                                 <span>
                                     SECURITY
@@ -1762,7 +1855,9 @@
 
 
 
-                        <!-- Platform -->
+                        <!-- =========================================
+                             PLATFORM
+                        ========================================== -->
 
                         <article
                             class="stack-panel"
@@ -1774,15 +1869,11 @@
                             </p>
 
                             <h3>
-                                Building deeper into containers, Kubernetes,
-                                Linux, and application platforms.
+                                Building deeper into containers, Kubernetes, Linux, and application platforms.
                             </h3>
 
                             <p>
-                                My Kubernetes experience started through
-                                supporting Keycloak in Kubernetes and Helm.
-                                I'm now building deeper hands-on knowledge
-                                through my Kubernetes Platform Lab.
+                                My Kubernetes experience started through supporting Keycloak in Kubernetes and Helm. I'm now building deeper hands-on knowledge through my Kubernetes Platform Lab.
                             </p>
 
 
@@ -1803,13 +1894,17 @@
                                     DOCKER
                                 </span>
 
-                                <b>→</b>
+                                <b>
+                                    →
+                                </b>
 
                                 <span>
                                     KUBERNETES
                                 </span>
 
-                                <b>→</b>
+                                <b>
+                                    →
+                                </b>
 
                                 <span>
                                     PLATFORM
@@ -1821,7 +1916,9 @@
 
 
 
-                        <!-- Identity -->
+                        <!-- =========================================
+                             IDENTITY
+                        ========================================== -->
 
                         <article
                             class="stack-panel"
@@ -1829,18 +1926,15 @@
                         >
 
                             <p class="stack-panel__label">
-                                IDENTITY & ACCESS
+                                IDENTITY &amp; ACCESS
                             </p>
 
                             <h3>
-                                Authentication, authorization, and access
-                                across enterprise environments.
+                                Authentication, authorization, and access across enterprise environments.
                             </h3>
 
                             <p>
-                                Hands-on Keycloak experience with users,
-                                roles, realms, authentication flows,
-                                troubleshooting, SSO, OIDC, and SAML.
+                                Hands-on Keycloak experience with users, roles, realms, authentication flows, troubleshooting, SSO, OIDC, and SAML.
                             </p>
 
 
@@ -1861,13 +1955,17 @@
                                     USER
                                 </span>
 
-                                <b>→</b>
+                                <b>
+                                    →
+                                </b>
 
                                 <span>
                                     IDENTITY
                                 </span>
 
-                                <b>→</b>
+                                <b>
+                                    →
+                                </b>
 
                                 <span>
                                     ACCESS
@@ -1879,7 +1977,9 @@
 
 
 
-                        <!-- Security -->
+                        <!-- =========================================
+                             SECURITY
+                        ========================================== -->
 
                         <article
                             class="stack-panel"
@@ -1891,15 +1991,11 @@
                             </p>
 
                             <h3>
-                                Connecting security requirements to the
-                                system being authorized.
+                                Connecting security requirements to the system being authorized.
                             </h3>
 
                             <p>
-                                ISSO and RMF experience supporting security
-                                documentation, STIG compliance, ACAS findings,
-                                ATO activities, system authorization, and
-                                continuous security requirements.
+                                ISSO and RMF experience supporting security documentation, STIG compliance, ACAS findings, ATO activities, system authorization, and continuous security requirements.
                             </p>
 
 
@@ -1920,13 +2016,17 @@
                                     SYSTEM
                                 </span>
 
-                                <b>→</b>
+                                <b>
+                                    →
+                                </b>
 
                                 <span>
                                     CONTROLS
                                 </span>
 
-                                <b>→</b>
+                                <b>
+                                    →
+                                </b>
 
                                 <span>
                                     ATO
@@ -1938,7 +2038,9 @@
 
 
 
-                        <!-- Systems -->
+                        <!-- =========================================
+                             SYSTEMS
+                        ========================================== -->
 
                         <article
                             class="stack-panel"
@@ -1950,15 +2052,11 @@
                             </p>
 
                             <h3>
-                                Understanding the full environment instead
-                                of one individual technology.
+                                Understanding the full environment instead of one individual technology.
                             </h3>
 
                             <p>
-                                Experience spans enterprise infrastructure,
-                                Active Directory, access, troubleshooting,
-                                documentation, cloud, user support, and
-                                secure DoD environments.
+                                Experience spans enterprise infrastructure, Active Directory, access, troubleshooting, documentation, cloud, user support, and secure DoD environments.
                             </p>
 
 
@@ -1979,13 +2077,17 @@
                                     USERS
                                 </span>
 
-                                <b>→</b>
+                                <b>
+                                    →
+                                </b>
 
                                 <span>
                                     SYSTEMS
                                 </span>
 
-                                <b>→</b>
+                                <b>
+                                    →
+                                </b>
 
                                 <span>
                                     MISSION
@@ -1994,7 +2096,6 @@
                             </div>
 
                         </article>
-
 
                     </div>
 
@@ -2015,6 +2116,13 @@
             id="development"
         >
 
+            <div class="container">
+
+
+                <!-- =============================================
+                     DEVELOPMENT HEADING
+                ============================================== -->
+
                 <header class="section-heading reveal">
 
                     <div class="section-heading__label">
@@ -2033,18 +2141,18 @@
                     <div class="section-heading__row">
 
                         <h2>
+
                             Building the next layer
+
                             <span class="gradient-text">
                                 on purpose.
                             </span>
+
                         </h2>
 
 
                         <p>
-                            My development path combines structured programs,
-                            certifications, and hands-on labs so that what
-                            I'm studying is connected to what I'm actually
-                            building.
+                            My development path combines structured programs, certifications, and hands-on labs so that what I'm studying is connected to what I'm actually building.
                         </p>
 
                     </div>
@@ -2053,9 +2161,9 @@
 
 
 
-                <!-- =========================================
-                     O2O PROGRAM TRACK
-                ========================================== -->
+                <!-- =============================================
+                     O2O / HOMEFRONT ORANGE
+                ============================================== -->
 
                 <div class="development-block reveal">
 
@@ -2082,18 +2190,19 @@
                     </div>
 
 
+
                     <p class="development-block__intro">
-                        A military spouse leadership and professional
-                        development program running alongside my technical
-                        certification and engineering goals.
+                        A military spouse leadership and professional development program running alongside my technical certification and engineering goals.
                     </p>
 
 
 
+                    <!-- Program Timeline -->
+
                     <div class="program-timeline">
 
 
-                        <!-- STEP 01 -->
+                        <!-- Step 01 -->
 
                         <article class="program-step is-active">
 
@@ -2110,15 +2219,14 @@
                             </h4>
 
                             <p>
-                                HomeFront Orange virtual kickoff and
-                                program launch.
+                                HomeFront Orange virtual kickoff and program launch.
                             </p>
 
                         </article>
 
 
 
-                        <!-- STEP 02 -->
+                        <!-- Step 02 -->
 
                         <article class="program-step">
 
@@ -2135,15 +2243,14 @@
                             </h4>
 
                             <p>
-                                Leadership development, career growth,
-                                and monthly programming begin.
+                                Leadership development, career growth, and monthly programming begin.
                             </p>
 
                         </article>
 
 
 
-                        <!-- STEP 03 -->
+                        <!-- Step 03 -->
 
                         <article class="program-step">
 
@@ -2160,15 +2267,14 @@
                             </h4>
 
                             <p>
-                                Optional project management development
-                                pathway.
+                                Optional project management development pathway.
                             </p>
 
                         </article>
 
 
 
-                        <!-- STEP 04 -->
+                        <!-- Step 04 -->
 
                         <article class="program-step">
 
@@ -2185,12 +2291,10 @@
                             </h4>
 
                             <p>
-                                Technical study, leadership development,
-                                labs, and career progression.
+                                Technical study, leadership development, labs, and career progression.
                             </p>
 
                         </article>
-
 
                     </div>
 
@@ -2198,544 +2302,502 @@
 
 
 
-                <!-- =========================================
-                     TECHNICAL DEVELOPMENT PATH
-                ========================================== -->
+                <!-- =============================================
+                     ENGINEERING ROADMAP
+                ============================================== -->
 
-               <!-- =========================================================
-     ENGINEERING ROADMAP
-========================================================== -->
-
-<div
-    class="engineering-roadmap reveal"
-    id="engineeringRoadmap"
->
-
-
-    <!-- =====================================================
-         ROADMAP HEADER
-    ====================================================== -->
-
-    <div class="engineering-roadmap__header">
-
-        <div>
-
-            <p class="engineering-roadmap__eyebrow">
-                TECHNICAL DEVELOPMENT
-            </p>
-
-            <h3>
-                Engineering Roadmap
-            </h3>
-
-        </div>
-
-
-        <div class="engineering-roadmap__status">
-
-            <span class="roadmap-live-dot"></span>
-
-            <span>
-                ACTIVE DEVELOPMENT PATH
-            </span>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         TRACK INFORMATION
-    ====================================================== -->
-
-    <div class="roadmap-track-header">
-
-        <span>
-            CERTIFICATION PATH
-        </span>
-
-        <span>
-            FOUNDATION → CLOUD → LEADERSHIP → PLATFORM → AUTOMATION
-        </span>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         ROADMAP SCROLLER
-    ====================================================== -->
-
-    <div class="roadmap-scroller">
-
-
-        <div class="certification-track">
-
-
-            <!-- Animated Track Line -->
-
-            <div
-                class="certification-track__base"
-                aria-hidden="true"
-            ></div>
-
-
-            <div
-                class="certification-track__progress"
-                id="roadmapProgressLine"
-                aria-hidden="true"
-            ></div>
-
-
-
-            <!-- =================================================
-                 01 — SECURITY+
-            ================================================== -->
-
-            <article
-                class="certification-node certification-node--earned"
-                data-cert-status="earned"
-            >
-
-                <div class="certification-node__signal">
-
-                    <span></span>
-
-                </div>
-
-
-                <div class="certification-node__top">
-
-                    <span class="certification-node__number">
-                        01
-                    </span>
-
-
-                    <span class="certification-status certification-status--earned">
-                        EARNED
-                    </span>
-
-                </div>
-
-
-                <span class="certification-node__domain">
-                    FOUNDATION
-                </span>
-
-
-                <strong class="certification-node__name">
-                    Security+
-                </strong>
-
-
-                <span class="certification-node__issuer">
-                    CompTIA
-                </span>
-
-
-                <a
-                    class="certification-node__lab"
-                    href="#projects"
+                <div
+                    class="engineering-roadmap reveal"
+                    id="engineeringRoadmap"
                 >
-                    Security Lab ↗
-                </a>
-
-            </article>
 
 
+                    <!-- Roadmap Header -->
 
-            <!-- =================================================
-                 02 — AZ-900
-            ================================================== -->
+                    <div class="engineering-roadmap__header">
 
-            <article
-                class="certification-node certification-node--earned"
-                data-cert-status="earned"
-            >
+                        <div>
 
-                <div class="certification-node__signal">
+                            <p class="engineering-roadmap__eyebrow">
+                                TECHNICAL DEVELOPMENT
+                            </p>
 
-                    <span></span>
+                            <h3>
+                                Engineering Roadmap
+                            </h3>
+
+                        </div>
+
+
+                        <div class="engineering-roadmap__status">
+
+                            <span class="roadmap-live-dot"></span>
+
+                            <span>
+                                ACTIVE DEVELOPMENT PATH
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Track Information -->
+
+                    <div class="roadmap-track-header">
+
+                        <span>
+                            CERTIFICATION PATH
+                        </span>
+
+                        <span>
+                            FOUNDATION → CLOUD → LEADERSHIP → PLATFORM → AUTOMATION
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         ROADMAP SCROLLER
+                    ========================================== -->
+
+                    <div class="roadmap-scroller">
+
+                        <div class="certification-track">
+
+
+                            <!-- Animated Track Lines -->
+
+                            <div
+                                class="certification-track__base"
+                                aria-hidden="true"
+                            ></div>
+
+                            <div
+                                class="certification-track__progress"
+                                id="roadmapProgressLine"
+                                aria-hidden="true"
+                            ></div>
+
+
+
+                            <!-- =================================
+                                 01 — SECURITY+
+                            ================================== -->
+
+                            <article
+                                class="certification-node certification-node--earned"
+                                data-cert-status="earned"
+                            >
+
+                                <div class="certification-node__signal">
+                                    <span></span>
+                                </div>
+
+
+                                <div class="certification-node__top">
+
+                                    <span class="certification-node__number">
+                                        01
+                                    </span>
+
+                                    <span class="certification-status certification-status--earned">
+                                        EARNED
+                                    </span>
+
+                                </div>
+
+
+                                <span class="certification-node__domain">
+                                    FOUNDATION
+                                </span>
+
+                                <strong class="certification-node__name">
+                                    Security+
+                                </strong>
+
+                                <span class="certification-node__issuer">
+                                    CompTIA
+                                </span>
+
+
+                                <a
+                                    class="certification-node__lab"
+                                    href="#projects"
+                                >
+                                    Security Lab ↗
+                                </a>
+
+                            </article>
+
+
+
+                            <!-- =================================
+                                 02 — AZ-900
+                            ================================== -->
+
+                            <article
+                                class="certification-node certification-node--earned"
+                                data-cert-status="earned"
+                            >
+
+                                <div class="certification-node__signal">
+                                    <span></span>
+                                </div>
+
+
+                                <div class="certification-node__top">
+
+                                    <span class="certification-node__number">
+                                        02
+                                    </span>
+
+                                    <span class="certification-status certification-status--earned">
+                                        EARNED
+                                    </span>
+
+                                </div>
+
+
+                                <span class="certification-node__domain">
+                                    CLOUD FOUNDATION
+                                </span>
+
+                                <strong class="certification-node__name">
+                                    AZ-900
+                                </strong>
+
+                                <span class="certification-node__issuer">
+                                    Microsoft
+                                </span>
+
+                            </article>
+
+
+
+                            <!-- =================================
+                                 03 — AWS SAA
+                            ================================== -->
+
+                            <article
+                                class="certification-node certification-node--current"
+                                data-cert-status="current"
+                            >
+
+                                <div class="certification-node__signal">
+                                    <span></span>
+                                </div>
+
+
+                                <div class="certification-node__top">
+
+                                    <span class="certification-node__number">
+                                        03
+                                    </span>
+
+                                    <span class="certification-status certification-status--current">
+                                        CURRENT
+                                    </span>
+
+                                </div>
+
+
+                                <span class="certification-node__domain">
+                                    CLOUD ENGINEERING
+                                </span>
+
+                                <strong class="certification-node__name">
+                                    AWS SAA
+                                </strong>
+
+                                <span class="certification-node__issuer">
+                                    Amazon Web Services
+                                </span>
+
+
+                                <a
+                                    class="certification-node__lab"
+                                    href="#projects"
+                                >
+                                    AWS Lab ↗
+                                </a>
+
+                            </article>
+
+
+
+                            <!-- =================================
+                                 04 — PMP
+                            ================================== -->
+
+                            <article
+                                class="certification-node certification-node--upcoming"
+                                data-cert-status="upcoming"
+                            >
+
+                                <div class="certification-node__signal">
+                                    <span></span>
+                                </div>
+
+
+                                <div class="certification-node__top">
+
+                                    <span class="certification-node__number">
+                                        04
+                                    </span>
+
+                                    <span class="certification-status certification-status--upcoming">
+                                        UPCOMING
+                                    </span>
+
+                                </div>
+
+
+                                <span class="certification-node__domain">
+                                    PROJECT MANAGEMENT
+                                </span>
+
+                                <strong class="certification-node__name">
+                                    PMP
+                                </strong>
+
+                                <span class="certification-node__issuer">
+                                    PMI
+                                </span>
+
+                            </article>
+
+
+
+                            <!-- =================================
+                                 05 — RHCSA
+                            ================================== -->
+
+                            <article
+                                class="certification-node certification-node--planned"
+                                data-cert-status="planned"
+                            >
+
+                                <div class="certification-node__signal">
+                                    <span></span>
+                                </div>
+
+
+                                <div class="certification-node__top">
+
+                                    <span class="certification-node__number">
+                                        05
+                                    </span>
+
+                                    <span class="certification-status">
+                                        PLANNED
+                                    </span>
+
+                                </div>
+
+
+                                <span class="certification-node__domain">
+                                    LINUX
+                                </span>
+
+                                <strong class="certification-node__name">
+                                    RHCSA
+                                </strong>
+
+                                <span class="certification-node__issuer">
+                                    Red Hat
+                                </span>
+
+                            </article>
+
+
+
+                            <!-- =================================
+                                 06 — CKA
+                            ================================== -->
+
+                            <article
+                                class="certification-node certification-node--planned"
+                                data-cert-status="planned"
+                            >
+
+                                <div class="certification-node__signal">
+                                    <span></span>
+                                </div>
+
+
+                                <div class="certification-node__top">
+
+                                    <span class="certification-node__number">
+                                        06
+                                    </span>
+
+                                    <span class="certification-status">
+                                        PLANNED
+                                    </span>
+
+                                </div>
+
+
+                                <span class="certification-node__domain">
+                                    PLATFORM
+                                </span>
+
+                                <strong class="certification-node__name">
+                                    CKA
+                                </strong>
+
+                                <span class="certification-node__issuer">
+                                    CNCF
+                                </span>
+
+
+                                <a
+                                    class="certification-node__lab"
+                                    href="#projects"
+                                >
+                                    Kubernetes Lab ↗
+                                </a>
+
+                            </article>
+
+
+
+                            <!-- =================================
+                                 07 — TERRAFORM
+                            ================================== -->
+
+                            <article
+                                class="certification-node certification-node--planned"
+                                data-cert-status="planned"
+                            >
+
+                                <div class="certification-node__signal">
+                                    <span></span>
+                                </div>
+
+
+                                <div class="certification-node__top">
+
+                                    <span class="certification-node__number">
+                                        07
+                                    </span>
+
+                                    <span class="certification-status">
+                                        PLANNED
+                                    </span>
+
+                                </div>
+
+
+                                <span class="certification-node__domain">
+                                    AUTOMATION
+                                </span>
+
+                                <strong class="certification-node__name">
+                                    Terraform
+                                </strong>
+
+                                <span class="certification-node__issuer">
+                                    HashiCorp
+                                </span>
+
+
+                                <a
+                                    class="certification-node__lab"
+                                    href="#projects"
+                                >
+                                    Terraform Lab ↗
+                                </a>
+
+                            </article>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         ROADMAP LEGEND
+                    ========================================== -->
+
+                    <div class="roadmap-legend">
+
+
+                        <div>
+
+                            <span class="roadmap-legend__dot roadmap-legend__dot--earned"></span>
+
+                            Earned
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="roadmap-legend__dot roadmap-legend__dot--current"></span>
+
+                            Current
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="roadmap-legend__dot roadmap-legend__dot--upcoming"></span>
+
+                            Upcoming
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="roadmap-legend__dot roadmap-legend__dot--planned"></span>
+
+                            Planned
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         ROADMAP DIRECTION
+                    ========================================== -->
+
+                    <div class="roadmap-direction">
+
+                        <span>
+                            DIRECTION
+                        </span>
+
+
+                        <div class="roadmap-direction__line">
+                            <span></span>
+                        </div>
+
+
+                        <strong>
+                            Cloud + Platform Engineering
+                        </strong>
+
+                    </div>
 
                 </div>
 
+            </div>
 
-                <div class="certification-node__top">
+        </section>
 
-                    <span class="certification-node__number">
-                        02
-                    </span>
 
-
-                    <span class="certification-status certification-status--earned">
-                        EARNED
-                    </span>
-
-                </div>
-
-
-                <span class="certification-node__domain">
-                    CLOUD FOUNDATION
-                </span>
-
-
-                <strong class="certification-node__name">
-                    AZ-900
-                </strong>
-
-
-                <span class="certification-node__issuer">
-                    Microsoft
-                </span>
-
-            </article>
-
-
-
-            <!-- =================================================
-                 03 — AWS SAA
-            ================================================== -->
-
-            <article
-                class="certification-node certification-node--current"
-                data-cert-status="current"
-            >
-
-                <div class="certification-node__signal">
-
-                    <span></span>
-
-                </div>
-
-
-                <div class="certification-node__top">
-
-                    <span class="certification-node__number">
-                        03
-                    </span>
-
-
-                    <span class="certification-status certification-status--current">
-                        CURRENT
-                    </span>
-
-                </div>
-
-
-                <span class="certification-node__domain">
-                    CLOUD ENGINEERING
-                </span>
-
-
-                <strong class="certification-node__name">
-                    AWS SAA
-                </strong>
-
-
-                <span class="certification-node__issuer">
-                    Amazon Web Services
-                </span>
-
-
-                <a
-                    class="certification-node__lab"
-                    href="#projects"
-                >
-                    AWS Lab ↗
-                </a>
-
-            </article>
-
-
-
-            <!-- =================================================
-                 04 — PMP
-            ================================================== -->
-
-            <article
-                class="certification-node certification-node--upcoming"
-                data-cert-status="upcoming"
-            >
-
-                <div class="certification-node__signal">
-
-                    <span></span>
-
-                </div>
-
-
-                <div class="certification-node__top">
-
-                    <span class="certification-node__number">
-                        04
-                    </span>
-
-
-                    <span class="certification-status certification-status--upcoming">
-                        UPCOMING
-                    </span>
-
-                </div>
-
-
-                <span class="certification-node__domain">
-                    PROJECT MANAGEMENT
-                </span>
-
-
-                <strong class="certification-node__name">
-                    PMP
-                </strong>
-
-
-                <span class="certification-node__issuer">
-                    PMI
-                </span>
-
-            </article>
-
-
-
-            <!-- =================================================
-                 05 — RHCSA
-            ================================================== -->
-
-            <article
-                class="certification-node certification-node--planned"
-                data-cert-status="planned"
-            >
-
-                <div class="certification-node__signal">
-
-                    <span></span>
-
-                </div>
-
-
-                <div class="certification-node__top">
-
-                    <span class="certification-node__number">
-                        05
-                    </span>
-
-
-                    <span class="certification-status">
-                        PLANNED
-                    </span>
-
-                </div>
-
-
-                <span class="certification-node__domain">
-                    LINUX
-                </span>
-
-
-                <strong class="certification-node__name">
-                    RHCSA
-                </strong>
-
-
-                <span class="certification-node__issuer">
-                    Red Hat
-                </span>
-
-            </article>
-
-
-
-            <!-- =================================================
-                 06 — CKA
-            ================================================== -->
-
-            <article
-                class="certification-node certification-node--planned"
-                data-cert-status="planned"
-            >
-
-                <div class="certification-node__signal">
-
-                    <span></span>
-
-                </div>
-
-
-                <div class="certification-node__top">
-
-                    <span class="certification-node__number">
-                        06
-                    </span>
-
-
-                    <span class="certification-status">
-                        PLANNED
-                    </span>
-
-                </div>
-
-
-                <span class="certification-node__domain">
-                    PLATFORM
-                </span>
-
-
-                <strong class="certification-node__name">
-                    CKA
-                </strong>
-
-
-                <span class="certification-node__issuer">
-                    CNCF
-                </span>
-
-
-                <a
-                    class="certification-node__lab"
-                    href="#projects"
-                >
-                    Kubernetes Lab ↗
-                </a>
-
-            </article>
-
-
-
-            <!-- =================================================
-                 07 — TERRAFORM
-            ================================================== -->
-
-            <article
-                class="certification-node certification-node--planned"
-                data-cert-status="planned"
-            >
-
-                <div class="certification-node__signal">
-
-                    <span></span>
-
-                </div>
-
-
-                <div class="certification-node__top">
-
-                    <span class="certification-node__number">
-                        07
-                    </span>
-
-
-                    <span class="certification-status">
-                        PLANNED
-                    </span>
-
-                </div>
-
-
-                <span class="certification-node__domain">
-                    AUTOMATION
-                </span>
-
-
-                <strong class="certification-node__name">
-                    Terraform
-                </strong>
-
-
-                <span class="certification-node__issuer">
-                    HashiCorp
-                </span>
-
-
-                <a
-                    class="certification-node__lab"
-                    href="#projects"
-                >
-                    Terraform Lab ↗
-                </a>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         ROADMAP LEGEND
-    ====================================================== -->
-
-    <div class="roadmap-legend">
-
-        <div>
-
-            <span class="roadmap-legend__dot roadmap-legend__dot--earned"></span>
-
-            Earned
-
-        </div>
-
-
-        <div>
-
-            <span class="roadmap-legend__dot roadmap-legend__dot--current"></span>
-
-            Current
-
-        </div>
-
-
-        <div>
-
-            <span class="roadmap-legend__dot roadmap-legend__dot--upcoming"></span>
-
-            Upcoming
-
-        </div>
-
-
-        <div>
-
-            <span class="roadmap-legend__dot roadmap-legend__dot--planned"></span>
-
-            Planned
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         DIRECTION
-    ====================================================== -->
-
-    <div class="roadmap-direction">
-
-        <span>
-            DIRECTION
-        </span>
-
-
-        <div class="roadmap-direction__line">
-
-            <span></span>
-
-        </div>
-
-
-        <strong>
-            Cloud + Platform Engineering
-        </strong>
-
-    </div>
-
-
-</div>
 
         <!-- =====================================================
-             EXPERIENCE
+             PROFESSIONAL EXPERIENCE
         ====================================================== -->
 
         <section
@@ -2745,6 +2807,8 @@
 
             <div class="container">
 
+
+                <!-- Section Heading -->
 
                 <header class="section-heading reveal">
 
@@ -2764,18 +2828,18 @@
                     <div class="section-heading__row">
 
                         <h2>
+
                             Experience in
+
                             <span class="gradient-text">
                                 real environments.
                             </span>
+
                         </h2>
 
 
                         <p>
-                            My technical background started in Army signal
-                            and enterprise IT and grew into systems
-                            engineering, identity, cloud, Kubernetes,
-                            and cybersecurity.
+                            My technical background started in Army signal and enterprise IT and grew into systems engineering, identity, cloud, Kubernetes, and cybersecurity.
                         </p>
 
                     </div>
@@ -2784,10 +2848,14 @@
 
 
 
+                <!-- =============================================
+                     EXPERIENCE BROWSER
+                ============================================== -->
+
                 <div class="experience-browser reveal">
 
 
-                    <!-- Tabs -->
+                    <!-- Experience Tabs -->
 
                     <div
                         class="experience-tabs"
@@ -2795,6 +2863,8 @@
                         aria-label="Professional experience"
                     >
 
+
+                        <!-- Booz Allen -->
 
                         <button
                             class="experience-tab is-active"
@@ -2822,6 +2892,9 @@
                         </button>
 
 
+
+                        <!-- GDIT -->
+
                         <button
                             class="experience-tab"
                             type="button"
@@ -2848,6 +2921,9 @@
                         </button>
 
 
+
+                        <!-- U.S. Army -->
+
                         <button
                             class="experience-tab"
                             type="button"
@@ -2873,17 +2949,20 @@
 
                         </button>
 
-
                     </div>
 
 
 
-                    <!-- Panels -->
+                    <!-- =============================================
+                         EXPERIENCE PANELS
+                    ============================================== -->
 
                     <div class="experience-panels">
 
 
-                        <!-- Booz -->
+                        <!-- =========================================
+                             BOOZ ALLEN HAMILTON
+                        ========================================== -->
 
                         <article
                             class="experience-panel is-active"
@@ -2899,8 +2978,7 @@
                                     </p>
 
                                     <h3>
-                                        Systems Engineer &
-                                        Information System Security Officer
+                                        Systems Engineer &amp; Information System Security Officer
                                     </h3>
 
                                 </div>
@@ -2913,40 +2991,33 @@
                             </div>
 
 
+
                             <p class="experience-panel__intro">
-                                Supported secure enterprise systems within
-                                a Joint Special Operations Command environment
-                                across engineering, IAM, cloud, Kubernetes,
-                                security compliance, and authorization.
+                                Supported secure enterprise systems within a Joint Special Operations Command environment across engineering, IAM, cloud, Kubernetes, security compliance, and authorization.
                             </p>
+
 
 
                             <ul class="experience-list">
 
                                 <li>
-                                    Supported Keycloak users, roles, realms,
-                                    authentication flows, SSO, and identity
-                                    troubleshooting.
+                                    Supported Keycloak users, roles, realms, authentication flows, SSO, and identity troubleshooting.
                                 </li>
 
                                 <li>
-                                    Supported Kubernetes-based Keycloak
-                                    environments, Helm upgrades, and
-                                    application troubleshooting.
+                                    Supported Kubernetes-based Keycloak environments, Helm upgrades, and application troubleshooting.
                                 </li>
 
                                 <li>
-                                    Performed ISSO responsibilities supporting
-                                    RMF documentation, STIG compliance,
-                                    ACAS findings, and ATO activities.
+                                    Performed ISSO responsibilities supporting RMF documentation, STIG compliance, ACAS findings, and ATO activities.
                                 </li>
 
                                 <li>
-                                    Supported AWS and Azure authorization
-                                    packages, including Azure ATO documentation.
+                                    Supported AWS and Azure authorization packages, including Azure ATO documentation.
                                 </li>
 
                             </ul>
+
 
 
                             <div class="experience-tags">
@@ -2964,7 +3035,9 @@
 
 
 
-                        <!-- GDIT -->
+                        <!-- =========================================
+                             GDIT / ARMA
+                        ========================================== -->
 
                         <article
                             class="experience-panel"
@@ -2988,37 +3061,33 @@
                             </div>
 
 
+
                             <p class="experience-panel__intro">
-                                Enterprise IT support across secure and
-                                unclassified environments with a focus on
-                                user access, authentication, communications,
-                                and endpoint support.
+                                Enterprise IT support across secure and unclassified environments with a focus on user access, authentication, communications, and endpoint support.
                             </p>
+
 
 
                             <ul class="experience-list">
 
                                 <li>
-                                    Supported SIPR token issuance and
-                                    accountability.
+                                    Supported SIPR token issuance and accountability.
                                 </li>
 
                                 <li>
-                                    Assisted with NIPR CAC activation and
-                                    enterprise access.
+                                    Assisted with NIPR CAC activation and enterprise access.
                                 </li>
 
                                 <li>
-                                    Supported VTC systems and secure
-                                    communications.
+                                    Supported VTC systems and secure communications.
                                 </li>
 
                                 <li>
-                                    Troubleshot VPN and Cisco AnyConnect
-                                    connectivity issues.
+                                    Troubleshot VPN and Cisco AnyConnect connectivity issues.
                                 </li>
 
                             </ul>
+
 
 
                             <div class="experience-tags">
@@ -3035,7 +3104,9 @@
 
 
 
-                        <!-- Army -->
+                        <!-- =========================================
+                             U.S. ARMY
+                        ========================================== -->
 
                         <article
                             class="experience-panel"
@@ -3064,36 +3135,33 @@
                             </div>
 
 
+
                             <p class="experience-panel__intro">
-                                Built my technical foundation supporting
-                                users, tactical communications, enterprise
-                                IT, signal systems, and mission operations.
+                                Built my technical foundation supporting users, tactical communications, enterprise IT, signal systems, and mission operations.
                             </p>
+
 
 
                             <ul class="experience-list">
 
                                 <li>
-                                    Supported S6 help desk and end-user
-                                    technical operations.
+                                    Supported S6 help desk and end-user technical operations.
                                 </li>
 
                                 <li>
-                                    Supported radios, SATCOM, COMSEC,
-                                    and tactical communications.
+                                    Supported radios, SATCOM, COMSEC, and tactical communications.
                                 </li>
 
                                 <li>
-                                    Imaged and configured computers,
-                                    mobile devices, and virtual machines.
+                                    Imaged and configured computers, mobile devices, and virtual machines.
                                 </li>
 
                                 <li>
-                                    Troubleshot mission systems and
-                                    technical issues in operational settings.
+                                    Troubleshot mission systems and technical issues in operational settings.
                                 </li>
 
                             </ul>
+
 
 
                             <div class="experience-tags">
@@ -3108,62 +3176,72 @@
 
                         </article>
 
-
                     </div>
 
                 </div>
 
 
-<div class="experience-resume reveal">
 
-    <div class="experience-resume__content">
+                <!-- =============================================
+                     RESUME CTA
+                ============================================== -->
 
-        <span class="experience-resume__eyebrow">
-            FULL PROFESSIONAL HISTORY
-        </span>
+                <div class="experience-resume reveal">
 
-        <h3>
-            Want the complete picture?
-        </h3>
 
-        <p>
-            View my full experience, certifications,
-            technical background, and professional history.
-        </p>
+                    <div class="experience-resume__content">
 
-    </div>
+                        <span class="experience-resume__eyebrow">
+                            FULL PROFESSIONAL HISTORY
+                        </span>
 
-<span>
-    <a
-        class="experience-resume__button"
-        href="resume.html"
-    >
+                        <h3>
+                            Want the complete picture?
+                        </h3>
 
-        <span>
-            View Full Resume
-        </span>
+                        <p>
+                            View my full experience, certifications, technical background, and professional history.
+                        </p>
 
-        <span aria-hidden="true">
-            ↗
-        </span>
+                    </div>
 
-    </a>
-    
-    <a
-    class="button button--secondary"
-        href="assets/document/Darling_Jackson_Resume.pdf"
-             download="Darling_Jackson_Resume.pdf"
-           >
-         Download PDF
 
-         <span aria-hidden="true">
-            ↓
-         </span>
-     </a>
-    </span>
-    
 
-</div>
+                    <span>
+
+                        <a
+                            class="experience-resume__button"
+                            href="resume.html"
+                        >
+
+                            <span>
+                                View Full Resume
+                            </span>
+
+                            <span aria-hidden="true">
+                                ↗
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            class="button button--secondary"
+                            href="assets/document/Darling_Jackson_Resume.pdf"
+                            download="Darling_Jackson_Resume.pdf"
+                        >
+
+                            Download PDF
+
+                            <span aria-hidden="true">
+                                ↓
+                            </span>
+
+                        </a>
+
+                    </span>
+
+                </div>
 
             </div>
 
@@ -3172,160 +3250,198 @@
     </main>
 
 
-        <footer
-            class="site-footer"
-            id="connect"
-        >
 
-            <div class="container">
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
 
+    <footer
+        class="site-footer"
+        id="connect"
+    >
 
-                <!-- =========================================
-                    CONNECT
-                ========================================== -->
-
-                <div class="footer-connect">
-
-                    <div class="footer-connect__text">
-
-                        <p class="footer-connect__eyebrow">
-                            CONNECT
-                        </p>
-
-                        <h2>
-                            Find me online.
-                        </h2>
-
-                        <p class="footer-connect__subtext">
-                            GitHub projects, labs, and professional connections.
-                        </p>
-
-                    </div>
+        <div class="container">
 
 
-                    <!-- Social Links -->
+            <!-- =============================================
+                 CONNECT
+            ============================================== -->
 
-                    <div class="footer-socials">
-
-
-                        <!-- GitHub -->
-
-                        <a
-                            class="footer-social-link"
-                            href="https://github.com/darlingjackson"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Visit Darling Jackson on GitHub"
-                            title="GitHub"
-                        >
-
-                            <img
-                                src="assets/icons/github.png"
-                                alt=""
-                            >
-
-                            <span>
-                                GitHub
-                            </span>
-
-                        </a>
+            <div class="footer-connect">
 
 
-                        <!-- LinkedIn -->
+                <div class="footer-connect__text">
 
-                        <a
-                            class="footer-social-link"
-                            href="https://www.linkedin.com/in/darlingjackson/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Connect with Darling Jackson on LinkedIn"
-                            title="LinkedIn"
-                        >
+                    <p class="footer-connect__eyebrow">
+                        CONNECT
+                    </p>
 
-                            <img
-                                src="assets/icons/linkedin.png"
-                                alt=""
-                            >
+                    <h2>
+                        Find me online.
+                    </h2>
 
-                            <span>
-                                LinkedIn
-                            </span>
-
-                        </a>
-
-
-                    </div>
+                    <p class="footer-connect__subtext">
+                        GitHub projects, labs, and professional connections.
+                    </p>
 
                 </div>
 
 
 
                 <!-- =========================================
-                    DIVIDER
+                     SOCIAL LINKS
                 ========================================== -->
 
-                <div class="footer-divider"></div>
+                <div class="footer-socials">
 
 
+                    <!-- GitHub -->
 
-                <!-- =========================================
-                    FOOTER BOTTOM
-                ========================================== -->
-
-                <div class="site-footer__bottom">
-
-
-                    <!-- Brand -->
-
-                    <div class="footer-brand">
+                    <a
+                        class="footer-social-link"
+                        href="https://github.com/darlingjackson"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Visit Darling Jackson on GitHub"
+                        title="GitHub"
+                    >
 
                         <img
-                            class="footer__dogtags"
-                            src="assets/icons/tags.png"
+                            src="assets/icons/github.png"
                             alt=""
-                            aria-hidden="true"
                         >
 
-                        <div>
+                        <span>
+                            GitHub
+                        </span>
 
-                            <strong>
-                                Darling Jackson
-                            </strong>
-
-                            <span>
-                                Systems Engineer
-                            </span>
-
-                        </div>
-
-                    </div>
+                    </a>
 
 
 
-                    <!-- Footer Meta -->
+                    <!-- LinkedIn -->
 
-                    <div class="footer-meta">
+                    <a
+                        class="footer-social-link"
+                        href="https://www.linkedin.com/in/darlingjackson/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Connect with Darling Jackson on LinkedIn"
+                        title="LinkedIn"
+                    >
 
-                        <p>
-                            ©
-                            <span id="currentYear"></span>
-                            Darling Jackson
-                        </p>
+                        <img
+                            src="assets/icons/linkedin.png"
+                            alt=""
+                        >
 
-                        <span class="footer-meta__divider"></span>
+                        <span>
+                            LinkedIn
+                        </span>
 
-                        <p>
-                            Built with HTML, CSS & JavaScript
-                        </p>
+                    </a>
 
-                    </div>
 
+
+                    <!-- Email -->
+
+                    <a
+                        class="footer-social-link"
+                        href="mailto:darling.jackson1@outlook.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Send an email to Darling Jackson"
+                        title="Email"
+                    >
+
+                        <img
+                            src="assets/icons/email.png"
+                            alt=""
+                        >
+
+                        <span>
+                            Email
+                        </span>
+
+                    </a>
 
                 </div>
 
             </div>
 
-        </footer>
+
+
+            <!-- Footer Divider -->
+
+            <div class="footer-divider"></div>
+
+
+
+            <!-- =============================================
+                 FOOTER BOTTOM
+            ============================================== -->
+
+            <div class="site-footer__bottom">
+
+
+                <!-- Footer Brand -->
+
+                <div class="footer-brand">
+
+                    <img
+                        class="footer__dogtags"
+                        src="assets/icons/tags.png"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <div>
+
+                        <strong>
+                            Darling Jackson
+                        </strong>
+
+                        <span>
+                            Systems Engineer
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Footer Meta -->
+
+                <div class="footer-meta">
+
+                    <p>
+
+                        ©
+
+                        <span id="currentYear"></span>
+
+                        Darling Jackson
+
+                    </p>
+
+
+                    <span class="footer-meta__divider"></span>
+
+
+                    <p>
+                        Built with HTML, CSS &amp; JavaScript
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
 
     <!-- =========================================================
          BACK TO TOP
@@ -3342,7 +3458,13 @@
 
 
 
+    <!-- =========================================================
+         SITE JAVASCRIPT
+    ========================================================== -->
+
     <script src="js/script.js"></script>
 
+
 </body>
+
 </html>

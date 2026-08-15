@@ -1,0 +1,4756 @@
+/* ==========================================================================
+   KUBERNETES PLATFORM LAB
+   HANDS-ON ENGINEERING JOURNAL
+
+   Shared:
+   ../../css/styles.css
+   css/k8s.css
+
+   This file:
+   Lab-page-only presentation.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. LAB TOKENS
+   ========================================================================== */
+
+body.k8s-journey-page {
+
+    --lab-blue:
+        #3b82f6;
+
+    --lab-blue-bright:
+        #60a5fa;
+
+    --lab-cyan:
+        #22d3ee;
+
+    --lab-purple:
+        #8b5cf6;
+
+    --lab-pink:
+        #ec4899;
+
+    --lab-green:
+        #4ade80;
+
+    --lab-amber:
+        #f59e0b;
+
+
+    --lab-line:
+        color-mix(
+            in srgb,
+            var(--lab-blue) 25%,
+            var(--border)
+        );
+
+
+    --lab-panel:
+        color-mix(
+            in srgb,
+            var(--surface) 88%,
+            transparent
+        );
+
+
+    --lab-panel-soft:
+        color-mix(
+            in srgb,
+            var(--surface-raised) 76%,
+            transparent
+        );
+
+
+    --lab-grid:
+        rgba(
+            59,
+            130,
+            246,
+            0.055
+        );
+
+}
+
+
+
+/* Light Mode */
+
+html[data-theme="light"]
+body.k8s-journey-page {
+
+    --lab-grid:
+        rgba(
+            59,
+            130,
+            246,
+            0.055
+        );
+
+}
+
+
+
+/* ==========================================================================
+   02. PAGE
+   ========================================================================== */
+
+.k8s-journey-page main {
+    overflow: clip;
+}
+
+
+.k8s-journey-page section[id],
+.k8s-journey-page [id^="section-"] {
+
+    scroll-margin-top:
+        calc(
+            var(--header-height) +
+            2rem
+        );
+
+}
+
+
+
+/* Gradient Text */
+
+.lab-gradient-text {
+
+    color:
+        transparent;
+
+    background:
+        linear-gradient(
+            115deg,
+            var(--lab-blue-bright),
+            var(--lab-purple),
+            var(--lab-pink)
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+}
+
+
+
+/* Live Dot */
+
+.lab-live-dot {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--lab-green);
+
+    box-shadow:
+        0 0 12px
+        rgba(
+            74,
+            222,
+            128,
+            0.65
+        );
+
+    animation:
+        labLivePulse
+        1.8s
+        ease-in-out
+        infinite;
+
+}
+
+
+
+/* ==========================================================================
+   03. HERO
+   ========================================================================== */
+
+.lab-hero {
+
+    position:
+        relative;
+
+    min-height:
+        max(
+            760px,
+            100svh
+        );
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    padding:
+        calc(
+            var(--header-height) +
+            4rem
+        )
+        0
+        4.5rem;
+
+    overflow:
+        hidden;
+
+}
+
+
+
+/* Technical Grid */
+
+.lab-hero__grid {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background-image:
+        linear-gradient(
+            var(--lab-grid) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            var(--lab-grid) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        46px
+        46px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black 15%,
+            transparent 95%
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+
+/* Ambient Glows */
+
+.lab-hero__glow {
+
+    position:
+        absolute;
+
+    width:
+        36rem;
+
+    height:
+        36rem;
+
+    border-radius:
+        50%;
+
+    filter:
+        blur(
+            80px
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+.lab-hero__glow--blue {
+
+    top:
+        4%;
+
+    right:
+        -12%;
+
+    background:
+        rgba(
+            59,
+            130,
+            246,
+            0.13
+        );
+
+}
+
+
+.lab-hero__glow--purple {
+
+    bottom:
+        -18%;
+
+    left:
+        22%;
+
+    background:
+        rgba(
+            139,
+            92,
+            246,
+            0.08
+        );
+
+}
+
+
+
+/* Layout */
+
+.lab-hero__layout {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            0,
+            0.9fr
+        )
+        minmax(
+            470px,
+            1.1fr
+        );
+
+    align-items:
+        center;
+
+    gap:
+        clamp(
+            3rem,
+            7vw,
+            7rem
+        );
+
+}
+
+
+
+/* ==========================================================================
+   04. HERO CONTENT
+   ========================================================================== */
+
+.lab-hero__content {
+
+    max-width:
+        690px;
+
+}
+
+
+.lab-hero__eyebrow {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.65rem;
+
+    margin-bottom:
+        1.35rem;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.67rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.07em;
+
+}
+
+
+.lab-hero__eyebrow > i {
+
+    width:
+        34px;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--lab-blue),
+            var(--lab-purple)
+        );
+
+}
+
+
+
+/* Hero Title */
+
+.lab-hero__title {
+
+    max-width:
+        760px;
+
+    margin:
+        0;
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            4.3rem,
+            7.6vw,
+            7.5rem
+        );
+
+    font-weight:
+        600;
+
+    line-height:
+        0.91;
+
+    letter-spacing:
+        -0.065em;
+
+}
+
+
+.lab-hero__title
+.lab-gradient-text {
+
+    display:
+        block;
+
+}
+
+
+
+/* Description */
+
+.lab-hero__description {
+
+    max-width:
+        650px;
+
+    margin:
+        1.75rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        clamp(
+            1rem,
+            1.3vw,
+            1.1rem
+        );
+
+    line-height:
+        1.8;
+
+}
+
+
+
+/* Actions */
+
+.lab-hero__actions {
+
+    margin-top:
+        2rem;
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.75rem;
+
+}
+
+
+
+/* Meta */
+
+.lab-hero__meta {
+
+    margin-top:
+        1.8rem;
+
+    padding-top:
+        1rem;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.6rem;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.62rem;
+
+}
+
+
+.lab-hero__meta i {
+
+    width:
+        4px;
+
+    height:
+        4px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--lab-blue);
+
+}
+
+
+
+/* ==========================================================================
+   05. LAB SCOPE CONSOLE
+   ========================================================================== */
+
+.lab-scope {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.25
+        );
+
+    border-radius:
+        1.2rem;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(
+                59,
+                130,
+                246,
+                0.09
+            ),
+            transparent 34%
+        ),
+        var(--lab-panel);
+
+    box-shadow:
+        0 30px 80px
+        rgba(
+            0,
+            0,
+            0,
+            0.17
+        );
+
+}
+
+
+
+/* Top Signal */
+
+.lab-scope::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        8%;
+
+    width:
+        84%;
+
+    height:
+        2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--lab-blue),
+            var(--lab-cyan),
+            var(--lab-purple),
+            transparent
+        );
+
+}
+
+
+
+/* Header */
+
+.lab-scope__bar {
+
+    min-height:
+        58px;
+
+    padding:
+        0
+        1rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        auto
+        1fr
+        auto;
+
+    align-items:
+        center;
+
+    gap:
+        0.8rem;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--page-alt) 72%,
+            transparent
+        );
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.62rem;
+
+}
+
+
+.lab-scope__bar > span {
+
+    color:
+        var(--text-muted);
+
+}
+
+
+.lab-scope__bar > strong {
+
+    color:
+        var(--lab-green);
+
+    font-size:
+        0.58rem;
+
+}
+
+
+
+/* Console Dots */
+
+.lab-scope__dots {
+
+    display:
+        flex;
+
+    gap:
+        0.3rem;
+
+}
+
+
+.lab-scope__dots span {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+}
+
+
+.lab-scope__dots span:nth-child(1) {
+
+    background:
+        var(--lab-pink);
+
+}
+
+
+.lab-scope__dots span:nth-child(2) {
+
+    background:
+        var(--lab-purple);
+
+}
+
+
+.lab-scope__dots span:nth-child(3) {
+
+    background:
+        var(--lab-blue);
+
+}
+
+
+
+/* Body */
+
+.lab-scope__body {
+
+    padding:
+        clamp(
+            1.4rem,
+            3vw,
+            2rem
+        );
+
+}
+
+
+
+/* Heading */
+
+.lab-scope__heading > span {
+
+    color:
+        var(--lab-blue-bright);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.6rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.06em;
+
+}
+
+
+.lab-scope__heading h2 {
+
+    margin:
+        0.45rem
+        0
+        0;
+
+    color:
+        var(--text);
+
+    font-size:
+        clamp(
+            1.8rem,
+            3vw,
+            2.6rem
+        );
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        -0.04em;
+
+}
+
+
+.lab-scope__heading p {
+
+    max-width:
+        530px;
+
+    margin:
+        0.8rem
+        0
+        0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.78rem;
+
+    line-height:
+        1.65;
+
+}
+
+
+
+/* Scope Grid */
+
+.lab-scope__grid {
+
+    margin-top:
+        1.4rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.65rem;
+
+}
+
+
+.lab-scope__grid article {
+
+    min-height:
+        150px;
+
+    padding:
+        0.9rem;
+
+    display:
+        grid;
+
+    align-content:
+        start;
+
+    gap:
+        0.25rem;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.16
+        );
+
+    border-radius:
+        0.7rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                59,
+                130,
+                246,
+                0.045
+            ),
+            transparent 70%
+        );
+
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+
+}
+
+
+.lab-scope__grid article:hover {
+
+    transform:
+        translateY(
+            -3px
+        );
+
+    border-color:
+        rgba(
+            59,
+            130,
+            246,
+            0.38
+        );
+
+    box-shadow:
+        0 14px 30px
+        rgba(
+            59,
+            130,
+            246,
+            0.07
+        );
+
+}
+
+
+.lab-scope__grid article > span {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.5rem;
+
+}
+
+
+.lab-scope__grid iconify-icon {
+
+    margin:
+        0.35rem
+        0;
+
+    color:
+        var(--lab-blue-bright);
+
+    font-size:
+        1.5rem;
+
+}
+
+
+.lab-scope__grid strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        0.77rem;
+
+}
+
+
+.lab-scope__grid p {
+
+    margin:
+        0.2rem
+        0
+        0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.66rem;
+
+    line-height:
+        1.5;
+
+}
+
+
+
+/* Scope Technology Flow */
+
+.lab-scope__flow {
+
+    margin-top:
+        0.85rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr
+        24px
+        1fr
+        24px
+        1fr
+        24px
+        1fr;
+
+    align-items:
+        center;
+
+    gap:
+        0.25rem;
+
+}
+
+
+.lab-scope__flow > div {
+
+    min-height:
+        78px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    align-content:
+        center;
+
+    gap:
+        0.2rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.65rem;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.lab-scope__flow iconify-icon {
+
+    font-size:
+        1.45rem;
+
+}
+
+
+.lab-scope__cube {
+
+    color:
+        var(--lab-cyan);
+
+    font-size:
+        1.5rem;
+
+}
+
+
+.lab-scope__flow
+> div
+> span:last-child {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.48rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.lab-scope__flow > i {
+
+    position:
+        relative;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--lab-blue),
+            var(--lab-cyan)
+        );
+
+    opacity:
+        0.65;
+
+}
+
+
+.lab-scope__flow
+> i::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        -3px;
+
+    right:
+        -1px;
+
+    border-top:
+        3px solid
+        transparent;
+
+    border-bottom:
+        3px solid
+        transparent;
+
+    border-left:
+        5px solid
+        var(--lab-cyan);
+
+}
+
+
+
+/* ==========================================================================
+   06. LAB METHOD
+   ========================================================================== */
+
+.lab-method__flow {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr
+        30px
+        1fr
+        30px
+        1fr
+        30px
+        1fr
+        30px
+        1fr;
+
+    align-items:
+        center;
+
+}
+
+
+.lab-method__flow article {
+
+    min-height:
+        180px;
+
+    padding:
+        1rem;
+
+    display:
+        grid;
+
+    align-content:
+        center;
+
+    border:
+        1px solid
+        var(--lab-line);
+
+    border-radius:
+        0.9rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                59,
+                130,
+                246,
+                0.045
+            ),
+            transparent 70%
+        ),
+        var(--lab-panel);
+
+}
+
+
+.lab-method__flow
+article
+> span {
+
+    color:
+        var(--lab-blue-bright);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.56rem;
+
+}
+
+
+.lab-method__flow strong {
+
+    margin-top:
+        0.85rem;
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+}
+
+
+.lab-method__flow p {
+
+    margin:
+        0.35rem
+        0
+        0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.7rem;
+
+    line-height:
+        1.55;
+
+}
+
+
+.lab-method__flow > i {
+
+    position:
+        relative;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--lab-blue),
+            var(--lab-cyan)
+        );
+
+}
+
+
+.lab-method__flow
+> i::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        -3px;
+
+    right:
+        -1px;
+
+    border-top:
+        3px solid
+        transparent;
+
+    border-bottom:
+        3px solid
+        transparent;
+
+    border-left:
+        5px solid
+        var(--lab-cyan);
+
+}
+
+
+
+/* ==========================================================================
+   07. LAB TOOLBAR
+   ========================================================================== */
+
+.lab-toolbar {
+
+    margin-bottom:
+        2rem;
+
+    padding:
+        0.85rem
+        1rem;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        1rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.85rem;
+
+    background:
+        var(--lab-panel-soft);
+
+}
+
+
+.lab-filters {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.45rem;
+
+}
+
+
+.lab-filter {
+
+    min-height:
+        38px;
+
+    padding:
+        0
+        0.85rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.65rem;
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.61rem;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        color 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+
+}
+
+
+.lab-filter:hover {
+
+    transform:
+        translateY(
+            -1px
+        );
+
+    color:
+        var(--text);
+
+    border-color:
+        rgba(
+            59,
+            130,
+            246,
+            0.38
+        );
+
+}
+
+
+.lab-filter.is-active {
+
+    color:
+        var(--lab-blue-bright);
+
+    border-color:
+        rgba(
+            59,
+            130,
+            246,
+            0.5
+        );
+
+    background:
+        rgba(
+            59,
+            130,
+            246,
+            0.08
+        );
+
+}
+
+
+.lab-toolbar__live {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        0.5rem;
+
+    flex-shrink:
+        0;
+
+    color:
+        var(--lab-green);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.58rem;
+
+}
+
+
+
+/* ==========================================================================
+   08. LAB TIMELINE / PHASES
+   ========================================================================== */
+
+.lab-timeline {
+
+    display:
+        grid;
+
+    gap:
+        3.5rem;
+
+}
+
+
+.lab-phase {
+
+    position:
+        relative;
+
+}
+
+
+.lab-phase[hidden] {
+
+    display:
+        none;
+
+}
+
+
+
+/* Phase Header */
+
+.lab-phase__header {
+
+    margin-bottom:
+        1rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        56px
+        1fr
+        auto;
+
+    align-items:
+        center;
+
+    gap:
+        1rem;
+
+}
+
+
+.lab-phase__icon {
+
+    width:
+        54px;
+
+    height:
+        54px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.24
+        );
+
+    border-radius:
+        0.75rem;
+
+    background:
+        rgba(
+            59,
+            130,
+            246,
+            0.045
+        );
+
+}
+
+
+.lab-phase__icon iconify-icon {
+
+    font-size:
+        2rem;
+
+}
+
+
+.lab-phase__heading span {
+
+    color:
+        var(--lab-blue-bright);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.58rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.06em;
+
+}
+
+
+.lab-phase__heading h3 {
+
+    margin:
+        0.2rem
+        0
+        0;
+
+    color:
+        var(--text);
+
+    font-size:
+        clamp(
+            1.4rem,
+            2.5vw,
+            2rem
+        );
+
+    letter-spacing:
+        -0.03em;
+
+}
+
+
+.lab-phase__range {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.6rem;
+
+}
+
+
+
+/* Phase Stack */
+
+.lab-phase__stack {
+
+    display:
+        grid;
+
+    gap:
+        0.75rem;
+
+}
+
+
+
+/* ==========================================================================
+   09. MINI LAB CARDS
+   ========================================================================== */
+
+.lab-module {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.95rem;
+
+    background:
+        var(--lab-panel);
+
+    transition:
+        border-color 200ms ease,
+        box-shadow 200ms ease;
+
+}
+
+
+.lab-module[hidden] {
+
+    display:
+        none;
+
+}
+
+
+.lab-module:hover {
+
+    border-color:
+        rgba(
+            59,
+            130,
+            246,
+            0.30
+        );
+
+}
+
+
+.lab-module.is-current {
+
+    border-color:
+        rgba(
+            59,
+            130,
+            246,
+            0.52
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(
+            59,
+            130,
+            246,
+            0.08
+        );
+
+}
+
+
+.lab-module.is-open {
+
+    border-color:
+        rgba(
+            59,
+            130,
+            246,
+            0.42
+        );
+
+}
+
+
+
+/* Summary */
+
+.lab-module__summary {
+
+    width:
+        100%;
+
+    min-height:
+        112px;
+
+    padding:
+        1rem
+        1.2rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        56px
+        minmax(
+            0,
+            1fr
+        )
+        auto
+        36px;
+
+    align-items:
+        center;
+
+    gap:
+        1rem;
+
+    border:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        inherit;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+}
+
+
+
+/* Number */
+
+.lab-module__number {
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.26
+        );
+
+    border-radius:
+        0.65rem;
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--lab-blue-bright);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        800;
+
+}
+
+
+
+/* Identity */
+
+.lab-module__kicker {
+
+    margin-bottom:
+        0.3rem;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.4rem;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.54rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.lab-module__identity h4 {
+
+    margin:
+        0;
+
+    color:
+        var(--text);
+
+    font-size:
+        clamp(
+            1rem,
+            2vw,
+            1.3rem
+        );
+
+    line-height:
+        1.2;
+
+    letter-spacing:
+        -0.02em;
+
+}
+
+
+.lab-module__meta {
+
+    margin-top:
+        0.45rem;
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.65rem;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.58rem;
+
+}
+
+
+
+/* Status */
+
+.lab-status {
+
+    padding:
+        0.32rem
+        0.5rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        999px;
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.52rem;
+
+    font-weight:
+        800;
+
+    white-space:
+        nowrap;
+
+}
+
+
+.lab-status--verified {
+
+    color:
+        var(--lab-green);
+
+    border-color:
+        rgba(
+            74,
+            222,
+            128,
+            0.25
+        );
+
+    background:
+        rgba(
+            74,
+            222,
+            128,
+            0.045
+        );
+
+}
+
+
+.lab-status--active {
+
+    color:
+        var(--lab-blue-bright);
+
+    border-color:
+        rgba(
+            59,
+            130,
+            246,
+            0.3
+        );
+
+    background:
+        rgba(
+            59,
+            130,
+            246,
+            0.055
+        );
+
+}
+
+
+.lab-status--queued {
+
+    color:
+        var(--text-muted);
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+
+/* Chevron */
+
+.lab-module__chevron {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.5rem;
+
+    color:
+        var(--text-muted);
+
+    transition:
+        transform 200ms ease,
+        color 200ms ease,
+        border-color 200ms ease;
+
+}
+
+
+.lab-module.is-open
+.lab-module__chevron {
+
+    transform:
+        rotate(
+            180deg
+        );
+
+    color:
+        var(--lab-blue-bright);
+
+    border-color:
+        rgba(
+            59,
+            130,
+            246,
+            0.34
+        );
+
+}
+
+
+
+/* ==========================================================================
+   10. MINI LAB DETAILS
+   ========================================================================== */
+
+.lab-module__details {
+
+    border-top:
+        1px solid
+        var(--border);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(
+                59,
+                130,
+                246,
+                0.025
+            ),
+            transparent 25%
+        );
+
+}
+
+
+.lab-module__details[hidden] {
+
+    display:
+        none;
+
+}
+
+
+.lab-detail-grid {
+
+    padding:
+        1.3rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.8rem;
+
+}
+
+
+.lab-detail {
+
+    min-width:
+        0;
+
+    padding:
+        1rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.75rem;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--surface) 76%,
+            transparent
+        );
+
+}
+
+
+.lab-detail--wide {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+
+/* Detail Heading */
+
+.lab-detail__heading {
+
+    margin-bottom:
+        0.7rem;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        0.55rem;
+
+}
+
+
+.lab-detail__heading span {
+
+    width:
+        28px;
+
+    height:
+        28px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.20
+        );
+
+    border-radius:
+        0.4rem;
+
+    color:
+        var(--lab-blue-bright);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.54rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.lab-detail__heading strong {
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.64rem;
+
+    letter-spacing:
+        0.05em;
+
+}
+
+
+.lab-detail p {
+
+    margin:
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.76rem;
+
+    line-height:
+        1.65;
+
+}
+
+
+.lab-detail ul {
+
+    margin:
+        0;
+
+    padding-left:
+        1.05rem;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.75rem;
+
+    line-height:
+        1.65;
+
+}
+
+
+.lab-detail li + li {
+
+    margin-top:
+        0.35rem;
+
+}
+
+
+
+/* ==========================================================================
+   11. TOOL GRID
+   ========================================================================== */
+
+.mini-lab-tools {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.55rem;
+
+}
+
+
+.mini-lab-tool {
+
+    min-height:
+        68px;
+
+    padding:
+        0.65rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        34px
+        1fr;
+
+    align-items:
+        center;
+
+    gap:
+        0.6rem;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.16
+        );
+
+    border-radius:
+        0.6rem;
+
+    background:
+        rgba(
+            59,
+            130,
+            246,
+            0.03
+        );
+
+}
+
+
+.mini-lab-tool iconify-icon {
+
+    font-size:
+        1.5rem;
+
+}
+
+
+.mini-lab-tool strong {
+
+    display:
+        block;
+
+    color:
+        var(--text);
+
+    font-size:
+        0.7rem;
+
+}
+
+
+.mini-lab-tool span {
+
+    display:
+        block;
+
+    margin-top:
+        0.1rem;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.5rem;
+
+}
+
+
+
+/* ==========================================================================
+   12. CHECKLIST
+   ========================================================================== */
+
+.lab-checklist {
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.5rem;
+
+    list-style:
+        none;
+
+}
+
+
+.lab-checklist li {
+
+    position:
+        relative;
+
+    min-height:
+        50px;
+
+    padding:
+        0.65rem
+        0.7rem
+        0.65rem
+        2.1rem;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.58rem;
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.7rem;
+
+    line-height:
+        1.45;
+
+}
+
+
+.lab-checklist li::before {
+
+    content:
+        "✓";
+
+    position:
+        absolute;
+
+    left:
+        0.7rem;
+
+    color:
+        var(--lab-green);
+
+    font-family:
+        var(--font-mono);
+
+    font-weight:
+        800;
+
+}
+
+
+
+/* ==========================================================================
+   13. COMMAND LOG
+   ========================================================================== */
+
+.command-stack {
+
+    display:
+        grid;
+
+    gap:
+        0.5rem;
+
+}
+
+
+.command-row {
+
+    min-width:
+        0;
+
+    padding:
+        0.65rem
+        0.75rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        auto
+        minmax(
+            0,
+            1fr
+        )
+        auto;
+
+    align-items:
+        center;
+
+    gap:
+        0.65rem;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.14
+        );
+
+    border-radius:
+        0.55rem;
+
+    background:
+        #050914;
+
+}
+
+
+.command-row > span {
+
+    color:
+        var(--lab-green);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.66rem;
+
+}
+
+
+.command-row code {
+
+    overflow-wrap:
+        anywhere;
+
+    color:
+        #93c5fd;
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.65rem;
+
+}
+
+
+.command-copy {
+
+    min-height:
+        30px;
+
+    padding:
+        0
+        0.55rem;
+
+    border:
+        1px solid
+        rgba(
+            147,
+            197,
+            253,
+            0.18
+        );
+
+    border-radius:
+        0.4rem;
+
+    background:
+        rgba(
+            147,
+            197,
+            253,
+            0.05
+        );
+
+    color:
+        #bfdbfe;
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.52rem;
+
+    cursor:
+        pointer;
+
+}
+
+
+.command-copy.is-copied {
+
+    border-color:
+        rgba(
+            74,
+            222,
+            128,
+            0.38
+        );
+
+    color:
+        var(--lab-green);
+
+    background:
+        rgba(
+            74,
+            222,
+            128,
+            0.055
+        );
+
+}
+
+
+
+/* ==========================================================================
+   14. DOCKERFILE
+   ========================================================================== */
+
+.lab-code-window {
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.2
+        );
+
+    border-radius:
+        0.7rem;
+
+    background:
+        #050914;
+
+}
+
+
+.lab-code-window__header {
+
+    min-height:
+        44px;
+
+    padding:
+        0
+        0.8rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        auto
+        1fr
+        auto;
+
+    align-items:
+        center;
+
+    gap:
+        0.7rem;
+
+    border-bottom:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.07
+        );
+
+    color:
+        #64748b;
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.55rem;
+
+}
+
+
+.lab-code-window__header > div {
+
+    display:
+        flex;
+
+    gap:
+        0.25rem;
+
+}
+
+
+.lab-code-window__header i {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        #475569;
+
+}
+
+
+.lab-code-window__header strong {
+
+    color:
+        #93c5fd;
+
+    font-size:
+        0.52rem;
+
+}
+
+
+.lab-code-window pre {
+
+    margin:
+        0;
+
+    padding:
+        1rem;
+
+    overflow-x:
+        auto;
+
+}
+
+
+.lab-code-window code {
+
+    color:
+        #dbeafe;
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+    line-height:
+        1.8;
+
+}
+
+
+
+/* Dockerfile Explanation */
+
+.dockerfile-explainer {
+
+    margin-top:
+        0.7rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.5rem;
+
+}
+
+
+.dockerfile-explainer > div {
+
+    padding:
+        0.65rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.55rem;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.dockerfile-explainer span {
+
+    display:
+        block;
+
+    margin-bottom:
+        0.2rem;
+
+    color:
+        var(--lab-blue-bright);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.52rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.dockerfile-explainer p {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.64rem;
+
+    line-height:
+        1.5;
+
+}
+
+
+
+/* ==========================================================================
+   15. FILE TREE
+   ========================================================================== */
+
+.lab-file-tree {
+
+    padding:
+        0.85rem;
+
+    display:
+        grid;
+
+    gap:
+        0.3rem;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.14
+        );
+
+    border-radius:
+        0.6rem;
+
+    background:
+        #050914;
+
+    color:
+        #94a3b8;
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.64rem;
+
+}
+
+
+.lab-file-tree strong {
+
+    margin-bottom:
+        0.25rem;
+
+    color:
+        #93c5fd;
+
+}
+
+
+
+/* ==========================================================================
+   16. FIRST CONTAINER FLOW
+   ========================================================================== */
+
+.first-container-flow {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr
+        28px
+        1fr
+        28px
+        1fr
+        28px
+        1fr
+        28px
+        1fr;
+
+    align-items:
+        center;
+
+    gap:
+        0.25rem;
+
+}
+
+
+.first-container-flow > div {
+
+    min-height:
+        100px;
+
+    padding:
+        0.65rem;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    align-content:
+        center;
+
+    gap:
+        0.1rem;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.18
+        );
+
+    border-radius:
+        0.65rem;
+
+    background:
+        rgba(
+            59,
+            130,
+            246,
+            0.03
+        );
+
+    text-align:
+        center;
+
+}
+
+
+.first-container-flow
+> div
+> span {
+
+    color:
+        var(--lab-blue-bright);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.48rem;
+
+}
+
+
+.first-container-flow strong {
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.58rem;
+
+}
+
+
+.first-container-flow small {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.46rem;
+
+}
+
+
+.first-container-flow > i {
+
+    position:
+        relative;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--lab-blue),
+            var(--lab-cyan)
+        );
+
+}
+
+
+.first-container-flow
+> i::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        -3px;
+
+    right:
+        -1px;
+
+    border-top:
+        3px solid
+        transparent;
+
+    border-bottom:
+        3px solid
+        transparent;
+
+    border-left:
+        5px solid
+        var(--lab-cyan);
+
+}
+
+
+
+/* ==========================================================================
+   17. SCREENSHOT EVIDENCE
+   ========================================================================== */
+
+.lab-evidence__figure {
+
+    margin:
+        0;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(
+            59,
+            130,
+            246,
+            0.24
+        );
+
+    border-radius:
+        0.8rem;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.lab-evidence__image {
+
+    position:
+        relative;
+
+    padding:
+        clamp(
+            0.65rem,
+            2vw,
+            1rem
+        );
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                59,
+                130,
+                246,
+                0.055
+            ),
+            rgba(
+                139,
+                92,
+                246,
+                0.03
+            )
+        );
+
+}
+
+
+.lab-evidence__image img {
+
+    width:
+        100%;
+
+    max-height:
+        760px;
+
+    display:
+        block;
+
+    object-fit:
+        contain;
+
+    margin-inline:
+        auto;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.6rem;
+
+    box-shadow:
+        0 20px 48px
+        rgba(
+            0,
+            0,
+            0,
+            0.20
+        );
+
+}
+
+
+.lab-evidence__status {
+
+    position:
+        absolute;
+
+    top:
+        1.4rem;
+
+    right:
+        1.4rem;
+
+    padding:
+        0.35rem
+        0.55rem;
+
+    border:
+        1px solid
+        rgba(
+            74,
+            222,
+            128,
+            0.27
+        );
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(
+            5,
+            9,
+            20,
+            0.9
+        );
+
+    color:
+        var(--lab-green);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.5rem;
+
+    font-weight:
+        800;
+
+    backdrop-filter:
+        blur(
+            8px
+        );
+
+}
+
+
+.lab-evidence__figure figcaption {
+
+    padding:
+        0.9rem
+        1rem;
+
+}
+
+
+.lab-evidence__figure
+figcaption
+> span {
+
+    color:
+        var(--lab-blue-bright);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.54rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.lab-evidence__figure
+figcaption
+strong {
+
+    display:
+        block;
+
+    margin-top:
+        0.2rem;
+
+    color:
+        var(--text);
+
+    font-size:
+        0.76rem;
+
+}
+
+
+.lab-evidence__figure
+figcaption
+p {
+
+    margin-top:
+        0.4rem;
+
+    max-width:
+        900px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.7rem;
+
+}
+
+
+
+/* ==========================================================================
+   18. TROUBLESHOOTING
+   ========================================================================== */
+
+.issue-stack {
+
+    display:
+        grid;
+
+    gap:
+        0.6rem;
+
+}
+
+
+.issue-card {
+
+    padding:
+        0.8rem;
+
+    border:
+        1px solid
+        rgba(
+            245,
+            158,
+            11,
+            0.18
+        );
+
+    border-radius:
+        0.6rem;
+
+    background:
+        rgba(
+            245,
+            158,
+            11,
+            0.025
+        );
+
+}
+
+
+.issue-card__heading {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        0.45rem;
+
+    margin-bottom:
+        0.4rem;
+
+}
+
+
+.issue-card__heading span {
+
+    color:
+        var(--lab-amber);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.52rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.issue-card__heading strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        0.73rem;
+
+}
+
+
+.issue-card p {
+
+    margin:
+        0.3rem
+        0
+        0;
+
+}
+
+
+
+/* No Issues */
+
+.lab-verification {
+
+    padding:
+        0.85rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        38px
+        1fr;
+
+    align-items:
+        center;
+
+    gap:
+        0.7rem;
+
+    border:
+        1px solid
+        rgba(
+            74,
+            222,
+            128,
+            0.22
+        );
+
+    border-radius:
+        0.6rem;
+
+    background:
+        rgba(
+            74,
+            222,
+            128,
+            0.03
+        );
+
+}
+
+
+.lab-verification > span {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        rgba(
+            74,
+            222,
+            128,
+            0.25
+        );
+
+    border-radius:
+        50%;
+
+    color:
+        var(--lab-green);
+
+}
+
+
+.lab-verification strong {
+
+    color:
+        var(--lab-green);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.6rem;
+
+}
+
+
+.lab-verification p {
+
+    margin-top:
+        0.2rem;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.68rem;
+
+}
+
+
+
+/* ==========================================================================
+   19. QUEUED LAB
+   ========================================================================== */
+
+.lab-planned {
+
+    padding:
+        1rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        auto
+        1fr;
+
+    gap:
+        0.75rem;
+
+    border:
+        1px dashed
+        var(--border-strong);
+
+    border-radius:
+        0.7rem;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.lab-planned > span {
+
+    color:
+        var(--lab-blue-bright);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.58rem;
+
+}
+
+
+.lab-planned strong {
+
+    display:
+        block;
+
+    color:
+        var(--text);
+
+    font-size:
+        0.78rem;
+
+}
+
+
+.lab-planned p {
+
+    margin-top:
+        0.25rem;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.7rem;
+
+}
+
+
+
+/* ==========================================================================
+   20. FOOTER LOGO
+   ========================================================================== */
+
+.lab-footer-logo {
+
+    object-fit:
+        contain;
+
+}
+
+
+
+/* ==========================================================================
+   21. LIGHT MODE
+   ========================================================================== */
+
+html[data-theme="light"]
+.lab-scope {
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(
+                59,
+                130,
+                246,
+                0.065
+            ),
+            transparent 34%
+        ),
+        rgba(
+            255,
+            255,
+            255,
+            0.88
+        );
+
+}
+
+
+html[data-theme="light"]
+.lab-module {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.88
+        );
+
+}
+
+
+html[data-theme="light"]
+.lab-evidence__status {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.94
+        );
+
+}
+
+
+
+/* ==========================================================================
+   22. ANIMATION
+   ========================================================================== */
+
+@keyframes labLivePulse {
+
+    0%,
+    100% {
+
+        opacity:
+            0.65;
+
+        transform:
+            scale(
+                0.9
+            );
+
+    }
+
+
+    50% {
+
+        opacity:
+            1;
+
+        transform:
+            scale(
+                1.1
+            );
+
+    }
+
+}
+
+
+
+/* ==========================================================================
+   23. RESPONSIVE — LAPTOP
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+
+    .lab-hero {
+
+        min-height:
+            auto;
+
+    }
+
+
+    .lab-hero__layout {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            3rem;
+
+    }
+
+
+    .lab-hero__content {
+
+        max-width:
+            760px;
+
+    }
+
+
+    .lab-scope {
+
+        width:
+            100%;
+
+        max-width:
+            900px;
+
+    }
+
+
+    .lab-method__flow {
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+        gap:
+            0.7rem;
+
+    }
+
+
+    .lab-method__flow > i {
+
+        display:
+            none;
+
+    }
+
+}
+
+
+
+/* ==========================================================================
+   24. RESPONSIVE — TABLET
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+    .lab-hero {
+
+        padding-top:
+            calc(
+                var(--header-height) +
+                3rem
+            );
+
+    }
+
+
+    .lab-toolbar {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .lab-toolbar__live {
+
+        padding-top:
+            0.65rem;
+
+        width:
+            100%;
+
+        border-top:
+            1px solid
+            var(--border);
+
+    }
+
+
+    .lab-module__summary {
+
+        grid-template-columns:
+            52px
+            minmax(
+                0,
+                1fr
+            )
+            auto
+            34px;
+
+    }
+
+
+    .lab-detail-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .lab-detail--wide {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    .dockerfile-explainer {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+
+    .first-container-flow {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0;
+
+    }
+
+
+    .first-container-flow > i {
+
+        width:
+            1px;
+
+        height:
+            24px;
+
+        justify-self:
+            center;
+
+    }
+
+
+    .first-container-flow
+    > i::after {
+
+        top:
+            auto;
+
+        right:
+            auto;
+
+        bottom:
+            -1px;
+
+        left:
+            -2px;
+
+        border-top:
+            5px solid
+            var(--lab-cyan);
+
+        border-right:
+            3px solid
+            transparent;
+
+        border-bottom:
+            0;
+
+        border-left:
+            3px solid
+            transparent;
+
+    }
+
+}
+
+
+
+/* ==========================================================================
+   25. RESPONSIVE — MOBILE
+   ========================================================================== */
+
+@media (max-width: 640px) {
+
+    .lab-hero {
+
+        padding-bottom:
+            3rem;
+
+    }
+
+
+    .lab-hero__title {
+
+        font-size:
+            clamp(
+                3.5rem,
+                16vw,
+                5.2rem
+            );
+
+    }
+
+
+    .lab-hero__actions {
+
+        display:
+            grid;
+
+    }
+
+
+    .lab-hero__actions .button {
+
+        width:
+            100%;
+
+    }
+
+
+    .lab-hero__meta {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .lab-hero__meta i {
+
+        display:
+            none;
+
+    }
+
+
+    .lab-scope__grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .lab-scope__flow {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0;
+
+    }
+
+
+    .lab-scope__flow > i {
+
+        width:
+            1px;
+
+        height:
+            22px;
+
+        justify-self:
+            center;
+
+    }
+
+
+    .lab-scope__flow
+    > i::after {
+
+        display:
+            none;
+
+    }
+
+
+    .lab-method__flow {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .lab-filters {
+
+        width:
+            100%;
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+
+    .lab-filter {
+
+        width:
+            100%;
+
+    }
+
+
+    .lab-phase__header {
+
+        grid-template-columns:
+            48px
+            1fr;
+
+    }
+
+
+    .lab-phase__range {
+
+        grid-column:
+            2;
+
+    }
+
+
+    .lab-module__summary {
+
+        min-height:
+            0;
+
+        padding:
+            0.9rem;
+
+        grid-template-columns:
+            44px
+            minmax(
+                0,
+                1fr
+            )
+            30px;
+
+        gap:
+            0.7rem;
+
+    }
+
+
+    .lab-module__number {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+    }
+
+
+    .lab-module__summary
+    .lab-status {
+
+        grid-column:
+            2;
+
+        justify-self:
+            start;
+
+    }
+
+
+    .lab-module__chevron {
+
+        grid-column:
+            3;
+
+        grid-row:
+            1;
+
+    }
+
+
+    .lab-detail-grid {
+
+        padding:
+            0.75rem;
+
+    }
+
+
+    .mini-lab-tools,
+    .lab-checklist,
+    .dockerfile-explainer {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .command-row {
+
+        grid-template-columns:
+            auto
+            minmax(
+                0,
+                1fr
+            );
+
+    }
+
+
+    .command-copy {
+
+        grid-column:
+            2;
+
+        justify-self:
+            start;
+
+    }
+
+
+    .lab-evidence__status {
+
+        top:
+            1rem;
+
+        right:
+            1rem;
+
+    }
+
+}
+
+
+
+/* ==========================================================================
+   26. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .lab-live-dot {
+
+        animation:
+            none;
+
+    }
+
+}
+
+/* ==========================================================================
+   LAB TYPOGRAPHY SCALE
+   Improved readability for mini-labs
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   Mini-Lab Card Header
+   -------------------------------------------------------------------------- */
+
+.lab-module__kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.055em;
+}
+
+
+.lab-module__identity h4 {
+    font-size:
+        clamp(
+            1.25rem,
+            2vw,
+            1.65rem
+        );
+
+    line-height: 1.25;
+}
+
+
+.lab-module__meta {
+    font-size: 0.75rem;
+}
+
+
+.lab-module__number {
+    font-size: 0.85rem;
+}
+
+
+.lab-status {
+    font-size: 0.67rem;
+
+    padding:
+        0.4rem
+        0.65rem;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Detail Section Headings
+   LAB OBJECTIVE / TOOLING / COMMAND LOG / ETC.
+   -------------------------------------------------------------------------- */
+
+.lab-detail__heading {
+    margin-bottom: 0.95rem;
+}
+
+
+.lab-detail__heading span {
+    width: 34px;
+    height: 34px;
+
+    font-size: 0.68rem;
+}
+
+
+.lab-detail__heading strong {
+    font-size: 0.82rem;
+
+    letter-spacing: 0.045em;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   General Detail Body Text
+   -------------------------------------------------------------------------- */
+
+.lab-detail p {
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+}
+
+
+.lab-detail ul {
+    font-size: 0.92rem;
+
+    line-height: 1.7;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Tool Cards
+   -------------------------------------------------------------------------- */
+
+.mini-lab-tool {
+    min-height: 82px;
+
+    grid-template-columns:
+        42px
+        1fr;
+
+    gap: 0.8rem;
+
+    padding: 0.85rem;
+}
+
+
+.mini-lab-tool iconify-icon {
+    font-size: 1.8rem;
+}
+
+
+.mini-lab-tool strong {
+    font-size: 0.9rem;
+}
+
+
+.mini-lab-tool span {
+    margin-top: 0.15rem;
+
+    font-size: 0.68rem;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Work Completed Checklist
+   -------------------------------------------------------------------------- */
+
+.lab-checklist li {
+    min-height: 62px;
+
+    padding:
+        0.8rem
+        0.9rem
+        0.8rem
+        2.4rem;
+
+    font-size: 0.88rem;
+
+    line-height: 1.55;
+}
+
+
+.lab-checklist li::before {
+    left: 0.9rem;
+
+    font-size: 0.9rem;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Dockerfile Code
+   -------------------------------------------------------------------------- */
+
+.lab-code-window__header {
+    min-height: 50px;
+
+    font-size: 0.7rem;
+}
+
+
+.lab-code-window__header strong {
+    font-size: 0.68rem;
+}
+
+
+.lab-code-window pre {
+    padding: 1.25rem;
+}
+
+
+.lab-code-window code {
+    font-size: 0.88rem;
+
+    line-height: 1.9;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Dockerfile Explanation
+   FROM / WORKDIR / COPY / RUN / EXPOSE / CMD
+   -------------------------------------------------------------------------- */
+
+.dockerfile-explainer > div {
+    min-height: 92px;
+
+    padding: 0.9rem;
+}
+
+
+.dockerfile-explainer span {
+    margin-bottom: 0.35rem;
+
+    font-size: 0.7rem;
+}
+
+
+.dockerfile-explainer p {
+    font-size: 0.8rem;
+
+    line-height: 1.55;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   File Tree
+   -------------------------------------------------------------------------- */
+
+.lab-file-tree {
+    padding: 1rem;
+
+    gap: 0.5rem;
+
+    font-size: 0.82rem;
+
+    line-height: 1.65;
+}
+
+
+.lab-file-tree strong {
+    font-size: 0.88rem;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Application Stack
+   -------------------------------------------------------------------------- */
+
+.lab-detail:has(.lab-file-tree) + .lab-detail p {
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Command Log
+   -------------------------------------------------------------------------- */
+
+.command-row {
+    min-height: 62px;
+
+    padding:
+        0.8rem
+        0.9rem;
+
+    gap: 0.8rem;
+}
+
+
+.command-row > span {
+    font-size: 0.85rem;
+}
+
+
+.command-row code {
+    font-size: 0.85rem;
+
+    line-height: 1.5;
+}
+
+
+.command-copy {
+    min-height: 36px;
+
+    padding-inline: 0.7rem;
+
+    font-size: 0.65rem;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   First Container Workflow
+   -------------------------------------------------------------------------- */
+
+.first-container-flow > div {
+    min-height: 125px;
+
+    padding: 0.85rem;
+}
+
+
+.first-container-flow > div > span {
+    font-size: 0.62rem;
+}
+
+
+.first-container-flow strong {
+    margin-top: 0.2rem;
+
+    font-size: 0.78rem;
+}
+
+
+.first-container-flow small {
+    margin-top: 0.15rem;
+
+    font-size: 0.64rem;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Screenshot Evidence
+   -------------------------------------------------------------------------- */
+
+.lab-evidence__status {
+    font-size: 0.64rem;
+}
+
+
+.lab-evidence__figure figcaption > span {
+    font-size: 0.7rem;
+}
+
+
+.lab-evidence__figure figcaption strong {
+    margin-top: 0.3rem;
+
+    font-size: 1rem;
+}
+
+
+.lab-evidence__figure figcaption p {
+    font-size: 0.88rem;
+
+    line-height: 1.65;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Troubleshooting
+   -------------------------------------------------------------------------- */
+
+.issue-card {
+    padding: 1rem;
+}
+
+
+.issue-card__heading span {
+    font-size: 0.67rem;
+}
+
+
+.issue-card__heading strong {
+    font-size: 0.95rem;
+}
+
+
+.issue-card p {
+    font-size: 0.88rem;
+
+    line-height: 1.65;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Successful Verification
+   -------------------------------------------------------------------------- */
+
+.lab-verification {
+    min-height: 82px;
+
+    padding: 1rem;
+}
+
+
+.lab-verification > span {
+    width: 42px;
+    height: 42px;
+
+    font-size: 1rem;
+}
+
+
+.lab-verification strong {
+    font-size: 0.78rem;
+}
+
+
+.lab-verification p {
+    margin-top: 0.3rem;
+
+    font-size: 0.86rem;
+
+    line-height: 1.6;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Queued Labs
+   -------------------------------------------------------------------------- */
+
+.lab-planned > span {
+    font-size: 0.7rem;
+}
+
+
+.lab-planned strong {
+    font-size: 0.95rem;
+}
+
+
+.lab-planned p {
+    font-size: 0.86rem;
+
+    line-height: 1.6;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Phase Headers
+   -------------------------------------------------------------------------- */
+
+.lab-phase__heading span {
+    font-size: 0.7rem;
+}
+
+
+.lab-phase__heading h3 {
+    font-size:
+        clamp(
+            1.65rem,
+            2.7vw,
+            2.25rem
+        );
+}
+
+
+.lab-phase__range {
+    font-size: 0.75rem;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Filter Buttons
+   -------------------------------------------------------------------------- */
+
+.lab-filter {
+    min-height: 44px;
+
+    font-size: 0.72rem;
+}
+
+
+.lab-toolbar__live {
+    font-size: 0.7rem;
+}
+
+
+
+/* ==========================================================================
+   MOBILE TYPOGRAPHY
+   ========================================================================== */
+
+@media (max-width: 640px) {
+
+    .lab-module__identity h4 {
+        font-size: 1.15rem;
+    }
+
+
+    .lab-module__kicker {
+        font-size: 0.65rem;
+    }
+
+
+    .lab-module__meta {
+        font-size: 0.68rem;
+    }
+
+
+    .lab-detail__heading strong {
+        font-size: 0.76rem;
+    }
+
+
+    .lab-detail p,
+    .lab-detail ul {
+        font-size: 0.9rem;
+    }
+
+
+    .lab-checklist li {
+        font-size: 0.86rem;
+    }
+
+
+    .lab-code-window code {
+        font-size: 0.8rem;
+    }
+
+
+    .command-row code {
+        font-size: 0.78rem;
+    }
+
+
+    .lab-file-tree {
+        font-size: 0.77rem;
+    }
+
+
+    .first-container-flow strong {
+        font-size: 0.8rem;
+    }
+
+
+    .first-container-flow small {
+        font-size: 0.68rem;
+    }
+
+}
