@@ -2,28 +2,16 @@
 <html lang="en" data-theme="dark">
 
 <head>
+
     <!-- =========================================================
          BLUE FOX DEFENSE
          ENTERPRISE SECURITY COMPLIANCE LAB
 
-         PAGE:
-         Prepare Document Library
+         RMF DOCUMENTATION
+         PREPARE DOCUMENT LIBRARY
 
-         Page Location:
+         LOCATION:
          labs/rmf/documentation/prepare/prepare-library.html
-
-         PDF Location:
-         labs/rmf/documentation/prepare/pdfs/
-
-         Shared Styles:
-         ../../css/security-lab.css
-         ../../css/phase.css
-         ../../css/docs.css
-
-         Shared JavaScript:
-         ../../js/security-lab.js
-         ../../js/phase.js
-         ../../js/documentation.js
     ========================================================== -->
 
     <meta charset="UTF-8">
@@ -35,7 +23,7 @@
 
     <meta
         name="description"
-        content="Review the Blue Fox Defense Prepare phase artifacts supporting the Foxhole Portal authorization effort."
+        content="Prepare phase authorization records for the fictional Blue Fox Defense Foxhole Portal RMF case study."
     >
 
     <meta
@@ -44,739 +32,1641 @@
     >
 
     <meta
+        id="themeColorMeta"
         name="theme-color"
-        content="#050812"
+        content="#070912"
     >
 
     <title>
-        Prepare Document Library | Blue Fox Defense Security Lab
+        Prepare Documentation | Enterprise Security Compliance Lab
     </title>
 
 
-    <!--
-        Apply the saved theme before the page becomes visible.
-        This helps prevent a flash between dark and light mode.
-    -->
-    <script>
-        (() => {
-            const savedTheme =
-                localStorage.getItem("bfd-theme");
+    <!-- =========================================================
+         FAVICON
+    ========================================================== -->
 
-            const systemPrefersLight =
-                window.matchMedia(
-                    "(prefers-color-scheme: light)"
-                ).matches;
-
-            const initialTheme =
-                savedTheme ||
-                (systemPrefersLight ? "light" : "dark");
-
-            document.documentElement.setAttribute(
-                "data-theme",
-                initialTheme
-            );
-        })();
-    </script>
-
-
-    <!-- Shared Security Lab Styles -->
     <link
-        rel="stylesheet"
-        href="../../css/security-lab.css"
+        rel="icon"
+        type="image/png"
+        href="../../assets/images/blue-fox-logo.png"
     >
 
 
-    <!-- Shared RMF Phase Styles -->
+    <!-- =========================================================
+         PREVENT THEME FLASH
+    ========================================================== -->
+
+    <script>
+
+        (() => {
+
+            const savedTheme =
+                localStorage.getItem(
+                    "portfolio-theme"
+                );
+
+            const prefersDark =
+                window.matchMedia(
+                    "(prefers-color-scheme: dark)"
+                ).matches;
+
+            document.documentElement.dataset.theme =
+                savedTheme ||
+                (
+                    prefersDark
+                        ? "dark"
+                        : "light"
+                );
+
+        })();
+
+    </script>
+
+
+    <!-- =========================================================
+         FONTS
+    ========================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+    >
+
+
+    <!-- =========================================================
+         STYLES
+
+         Main Portfolio
+             ↓
+         RMF Lab
+             ↓
+         RMF Phase
+             ↓
+         RMF Documentation
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../../../../css/styles.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../../css/rmf.css"
+    >
+
     <link
         rel="stylesheet"
         href="../../css/phase.css"
     >
 
-
-    <!-- Shared Documentation Styles -->
     <link
         rel="stylesheet"
         href="../../css/docs.css"
     >
 
-
-    <!-- Shared Security Lab JavaScript -->
-    <script
-        src="../../js/security-lab.js"
-        defer
-    ></script>
-
-
-    <!-- Shared RMF Phase JavaScript -->
-    <script
-        src="../../js/phase.js"
-        defer
-    ></script>
-
-
-    <!-- Shared Documentation JavaScript -->
-    <script
-        src="../../js/documentation.js"
-        defer
-    ></script>
 </head>
 
 
 <body
+    class="rmf-lab-page rmf-phase-page rmf-document-page"
     data-current-phase="prepare"
-    data-current-document="prepare-library"
+    data-current-document="BFD-PRE-001"
 >
 
+
     <!-- =========================================================
-         ACCESSIBILITY
+         PAGE PROGRESS
     ========================================================== -->
+
+    <div
+        class="page-progress"
+        aria-hidden="true"
+    >
+
+        <span
+            class="page-progress__bar"
+            id="pageProgressBar"
+        ></span>
+
+    </div>
+
 
     <a
         class="skip-link"
-        href="#document-viewer"
+        href="#documentViewer"
     >
         Skip to document viewer
     </a>
 
 
+
     <!-- =========================================================
-         GLOBAL SECURITY LAB HEADER
+         SHARED PORTFOLIO HEADER
     ========================================================== -->
 
     <header
         class="site-header"
-        data-site-header
+        id="siteHeader"
     >
-        <div class="site-header__inner site-container">
 
-            <!-- Lab Brand -->
+        <div class="site-header__inner">
+
+
+            <!-- Brand -->
+
             <a
-                class="site-brand"
+                class="brand rmf-brand"
                 href="../../index.html"
-                aria-label="Blue Fox Defense Enterprise Security Compliance Lab home"
+                aria-label="Blue Fox Defense Enterprise Security Compliance Lab"
             >
-                <span
-                    class="site-brand__mark"
+
+                <img
+                    class="brand__dogtags rmf-brand__logo"
+                    src="../../assets/images/blue-fox-logo.png"
+                    alt=""
                     aria-hidden="true"
                 >
-                    <img
-                        class="site-brand__logo"
-                        src="../../assets/images/blue-fox-logo.png"
-                        alt=""
-                    >
-                </span>
 
-                <span class="site-brand__content">
-                    <span class="site-brand__name">
+                <span class="brand__text">
+
+                    <strong>
                         Blue Fox Defense
-                    </span>
+                    </strong>
 
-                    <span class="site-brand__descriptor">
+                    <small>
                         Enterprise Security Compliance Lab
-                    </span>
+                    </small>
+
                 </span>
+
             </a>
 
 
+
             <!-- Desktop Navigation -->
+
             <nav
-                class="site-nav"
-                aria-label="Document library navigation"
+                class="desktop-nav"
+                aria-label="Prepare documentation navigation"
             >
+
                 <a
-                    class="site-nav__link"
+                    class="nav-link"
                     href="../../index.html"
                 >
-                    RMF Lab
+                    Lab
                 </a>
 
                 <a
-                    class="site-nav__link"
+                    class="nav-link"
                     href="../../prepare.html"
                 >
                     Prepare
                 </a>
 
                 <a
-                    class="site-nav__link is-active"
-                    href="prepare-library.html"
-                    aria-current="page"
+                    class="nav-link is-active"
+                    href="#documentViewer"
                 >
                     Documentation
                 </a>
 
                 <a
-                    class="site-nav__link"
-                    href="../../../../index.html"
+                    class="nav-link"
+                    href="../../prepare.html#phase-closeout"
                 >
-                    Portfolio
+                    Closeout
                 </a>
+
             </nav>
 
 
-            <!-- Header Controls -->
-            <div class="site-header__actions">
 
-                <!-- Theme Toggle -->
+            <!-- Header Actions -->
+
+            <div class="header-actions">
+
+
                 <button
                     class="theme-toggle"
+                    id="themeToggle"
                     type="button"
-                    aria-label="Switch to light mode"
-                    aria-pressed="false"
-                    data-theme-toggle
+                    aria-label="Switch theme"
+                    title="Switch theme"
                 >
+
                     <span
-                        class="theme-toggle__track"
+                        class="theme-toggle__sun"
                         aria-hidden="true"
                     >
-                        <span
-                            class="theme-toggle__icon theme-toggle__icon--sun"
-                        >
-                            <svg viewBox="0 0 24 24">
-                                <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="3.5"
-                                ></circle>
-
-                                <path d="M12 2v2"></path>
-                                <path d="M12 20v2"></path>
-                                <path d="m4.93 4.93 1.42 1.42"></path>
-                                <path d="m17.65 17.65 1.42 1.42"></path>
-                                <path d="M2 12h2"></path>
-                                <path d="M20 12h2"></path>
-                                <path d="m4.93 19.07 1.42-1.42"></path>
-                                <path d="m17.65 6.35 1.42-1.42"></path>
-                            </svg>
-                        </span>
-
-                        <span class="theme-toggle__thumb"></span>
-
-                        <span
-                            class="theme-toggle__icon theme-toggle__icon--moon"
-                        >
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"
-                                ></path>
-                            </svg>
-                        </span>
+                        ☀
                     </span>
+
+                    <span
+                        class="theme-toggle__moon"
+                        aria-hidden="true"
+                    >
+                        ☾
+                    </span>
+
                 </button>
 
 
-                <!-- Mobile Menu Toggle -->
-                <button
-                    class="menu-toggle"
-                    type="button"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false"
-                    aria-controls="mobile-navigation"
-                    data-menu-toggle
-                >
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-
-
-        <!-- Mobile Navigation -->
-        <div
-            class="mobile-nav"
-            id="mobile-navigation"
-            data-mobile-nav
-        >
-            <nav
-                class="mobile-nav__inner site-container"
-                aria-label="Mobile document library navigation"
-            >
                 <a
-                    class="mobile-nav__link"
-                    href="../../index.html"
-                >
-                    RMF Lab
-                </a>
-
-                <a
-                    class="mobile-nav__link"
-                    href="../../prepare.html"
-                >
-                    Prepare
-                </a>
-
-                <a
-                    class="mobile-nav__link is-active"
-                    href="prepare-library.html"
-                    aria-current="page"
-                >
-                    Documentation
-                </a>
-
-                <a
-                    class="mobile-nav__link"
+                    class="resume-button"
                     href="../../../../index.html"
                 >
+
                     Portfolio
+
+                    <span aria-hidden="true">
+                        ↗
+                    </span>
+
                 </a>
-            </nav>
+
+
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                    aria-controls="mobileNavigation"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
         </div>
+
     </header>
 
 
+
     <!-- =========================================================
-         PDF DOCUMENT LIBRARY
+         MOBILE NAVIGATION
+    ========================================================== -->
+
+    <nav
+        class="mobile-navigation"
+        id="mobileNavigation"
+        aria-label="Mobile documentation navigation"
+        aria-hidden="true"
+    >
+
+        <div class="mobile-navigation__inner">
+
+            <a href="../../index.html">
+                RMF Lab
+            </a>
+
+            <a href="../../prepare.html">
+                Prepare
+            </a>
+
+            <a href="#documentViewer">
+                Documentation
+            </a>
+
+            <a href="../../prepare.html#phase-closeout">
+                Closeout
+            </a>
+
+            <a href="../../../../index.html">
+                Portfolio
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================================
+         MAIN
     ========================================================== -->
 
     <main
-        class="pdf-library"
-        id="document-viewer"
+        id="mainContent"
+        tabindex="-1"
     >
-        <div class="pdf-library__layout site-container">
-
-            <!-- =================================================
-                 PREPARE DOCUMENT SIDEBAR
-            ================================================== -->
-
-            <aside
-                class="pdf-library__sidebar"
-                aria-label="Prepare document library"
-            >
-                <div class="pdf-library__sidebar-header">
-                    <p class="document-sidebar__eyebrow">
-                        RMF Phase 01
-                    </p>
-
-                    <h1 class="document-sidebar__title">
-                        Prepare Documents
-                    </h1>
-
-                    <p class="document-sidebar__summary">
-                        Select an artifact to review it directly in the
-                        document viewer.
-                    </p>
-                </div>
 
 
-                <nav
-                    class="document-library-nav"
-                    aria-label="Prepare artifact navigation"
-                >
+        <!-- =====================================================
+             DOCUMENTATION HERO
+        ====================================================== -->
 
-                    <!-- 001 Project Charter -->
+        <section class="document-hero">
+
+
+            <div
+                class="document-hero__grid"
+                aria-hidden="true"
+            ></div>
+
+
+            <div
+                class="document-hero__glow document-hero__glow--blue"
+                aria-hidden="true"
+            ></div>
+
+
+            <div
+                class="document-hero__glow document-hero__glow--purple"
+                aria-hidden="true"
+            ></div>
+
+
+
+            <div class="container document-hero__container">
+
+
+                <div class="document-hero__content reveal">
+
+
+                    <!-- Breadcrumb -->
+
                     <a
-                        class="document-library-nav__link is-active"
-                        href="pdfs/project-charter.pdf"
-                        data-pdf-document
-                        data-document-id="BFD-PRE-001"
-                        data-document-name="Project Charter"
-                        aria-current="page"
+                        class="phase-breadcrumb"
+                        href="../../prepare.html"
                     >
-                        <span class="document-library-nav__number">
-                            001
-                        </span>
 
-                        <span class="document-library-nav__content">
-                            <span class="document-library-nav__name">
-                                Project Charter
-                            </span>
+                        Enterprise Security Compliance Lab
 
-                            <span class="document-library-nav__type">
-                                Governance
-                            </span>
-                        </span>
+                        <span>/</span>
+
+                        Prepare
+
+                        <span>/</span>
+
+                        Documentation
+
                     </a>
 
 
-                    <!-- 002 Stakeholder Register -->
-                    <a
-                        class="document-library-nav__link"
-                        href="pdfs/stakeholder-register.pdf"
-                        data-pdf-document
-                        data-document-id="BFD-PRE-002"
-                        data-document-name="Stakeholder Register"
-                    >
-                        <span class="document-library-nav__number">
-                            002
-                        </span>
 
-                        <span class="document-library-nav__content">
-                            <span class="document-library-nav__name">
-                                Stakeholder Register
+                    <!-- Heading -->
+
+                    <div class="document-hero__identity">
+
+
+                        <div>
+
+                            <span>
+                                AUTHORIZATION RECORDS
                             </span>
 
-                            <span class="document-library-nav__type">
-                                Governance
-                            </span>
-                        </span>
-                    </a>
+
+                            <h1>
+
+                                Prepare
+
+                                <strong>
+                                    Documentation
+                                </strong>
+
+                            </h1>
+
+                        </div>
 
 
-                    <!-- 003 System Description -->
-                    <a
-                        class="document-library-nav__link"
-                        href="pdfs/system-description.pdf"
-                        data-pdf-document
-                        data-document-id="BFD-PRE-003"
-                        data-document-name="System Description"
-                    >
-                        <span class="document-library-nav__number">
-                            003
-                        </span>
+                        <p>
 
-                        <span class="document-library-nav__content">
-                            <span class="document-library-nav__name">
-                                System Description
-                            </span>
+                            Review the working records created during the
+                            Prepare phase of the Foxhole Portal authorization
+                            effort. These documents establish the organizational,
+                            system, governance, and boundary context used by the
+                            phases that follow.
 
-                            <span class="document-library-nav__type">
-                                System
-                            </span>
-                        </span>
-                    </a>
-
-
-                    <!-- 004 Authorization Boundary -->
-                    <a
-                        class="document-library-nav__link"
-                        href="pdfs/authorization-boundary.pdf"
-                        data-pdf-document
-                        data-document-id="BFD-PRE-004"
-                        data-document-name="Authorization Boundary"
-                    >
-                        <span class="document-library-nav__number">
-                            004
-                        </span>
-
-                        <span class="document-library-nav__content">
-                            <span class="document-library-nav__name">
-                                Authorization Boundary
-                            </span>
-
-                            <span class="document-library-nav__type">
-                                Architecture
-                            </span>
-                        </span>
-                    </a>
-
-
-                    <!-- 005 Information Type Inventory -->
-                    <a
-                        class="document-library-nav__link"
-                        href="pdfs/information-type-inventory.pdf"
-                        data-pdf-document
-                        data-document-id="BFD-PRE-005"
-                        data-document-name="Information Type Inventory"
-                    >
-                        <span class="document-library-nav__number">
-                            005
-                        </span>
-
-                        <span class="document-library-nav__content">
-                            <span class="document-library-nav__name">
-                                Information Type Inventory
-                            </span>
-
-                            <span class="document-library-nav__type">
-                                Information
-                            </span>
-                        </span>
-                    </a>
-
-
-                    <!-- 006 Responsibility Matrix -->
-                    <a
-                        class="document-library-nav__link"
-                        href="pdfs/responsibility-matrix.pdf"
-                        data-pdf-document
-                        data-document-id="BFD-PRE-006"
-                        data-document-name="Responsibility Matrix"
-                    >
-                        <span class="document-library-nav__number">
-                            006
-                        </span>
-
-                        <span class="document-library-nav__content">
-                            <span class="document-library-nav__name">
-                                Responsibility Matrix
-                            </span>
-
-                            <span class="document-library-nav__type">
-                                Governance
-                            </span>
-                        </span>
-                    </a>
-
-
-                    <!-- 007 Authorization Strategy -->
-                    <a
-                        class="document-library-nav__link"
-                        href="pdfs/authorization-strategy.pdf"
-                        data-pdf-document
-                        data-document-id="BFD-PRE-007"
-                        data-document-name="Authorization Strategy"
-                    >
-                        <span class="document-library-nav__number">
-                            007
-                        </span>
-
-                        <span class="document-library-nav__content">
-                            <span class="document-library-nav__name">
-                                Authorization Strategy
-                            </span>
-
-                            <span class="document-library-nav__type">
-                                Strategy
-                            </span>
-                        </span>
-                    </a>
-
-
-                    <!-- 008 Meeting Minutes -->
-                    <a
-                        class="document-library-nav__link"
-                        href="pdfs/meeting-minutes.pdf"
-                        data-pdf-document
-                        data-document-id="BFD-PRE-008"
-                        data-document-name="Meeting Minutes"
-                    >
-                        <span class="document-library-nav__number">
-                            008
-                        </span>
-
-                        <span class="document-library-nav__content">
-                            <span class="document-library-nav__name">
-                                Meeting Minutes
-                            </span>
-
-                            <span class="document-library-nav__type">
-                                Project Record
-                            </span>
-                        </span>
-                    </a>
-                </nav>
-            </aside>
-
-
-            <!-- =================================================
-                 MAIN PDF VIEWER
-            ================================================== -->
-
-            <section
-                class="pdf-viewer"
-                aria-labelledby="active-document-title"
-            >
-
-                <!-- Viewer Header -->
-                <header class="pdf-viewer__toolbar">
-                    <div class="pdf-viewer__identity">
-                        <p class="pdf-viewer__eyebrow">
-                            Prepare Document Library
                         </p>
 
-                        <div class="pdf-viewer__title-row">
-                            <h2
-                                class="pdf-viewer__title"
-                                id="active-document-title"
-                                data-active-document-title
-                            >
-                                Project Charter
+                    </div>
+
+
+
+                    <!-- Context -->
+
+                    <div class="document-hero__meta">
+
+
+                        <div>
+
+                            <span>
+                                RMF PHASE
+                            </span>
+
+                            <strong>
+                                01 // Prepare
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                RECORD SET
+                            </span>
+
+                            <strong>
+                                08 Documents
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                SYSTEM
+                            </span>
+
+                            <strong>
+                                Foxhole Portal
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                ORGANIZATION
+                            </span>
+
+                            <strong>
+                                Blue Fox Defense
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RMF DOCUMENTATION LIFECYCLE
+
+             IMPORTANT:
+             This is intentionally DIFFERENT from the primary
+             RMF lifecycle navigation used on the lab pages.
+
+             This navigation represents DOCUMENT REPOSITORIES
+             associated with each RMF phase.
+        ====================================================== -->
+
+        <section class="documentation-lifecycle">
+
+
+            <div class="container">
+
+
+                <div class="documentation-lifecycle__shell reveal">
+
+
+                    <!-- Heading -->
+
+                    <div class="documentation-lifecycle__heading">
+
+
+                        <div>
+
+                            <span>
+                                RMF LIFECYCLE // DOCUMENTATION
+                            </span>
+
+
+                            <h2>
+                                Prepare Documentation
                             </h2>
 
-                            <span
-                                class="pdf-viewer__document-id"
-                                data-active-document-id
-                            >
-                                BFD-PRE-001
-                            </span>
                         </div>
-                    </div>
-                </header>
 
 
-                <!-- Embedded Browser PDF Viewer -->
-                <div class="pdf-viewer__frame-shell">
-                    <iframe
-                        class="pdf-viewer__frame"
-                        src="pdfs/project-charter.pdf"
-                        title="Project Charter PDF"
-                        data-pdf-frame
-                    >
                         <p>
-                            Your browser cannot display this PDF.
 
-                            <a href="pdfs/project-charter.pdf">
-                                Open the Project Charter PDF.
-                            </a>
+                            Move between the authorization record sets created
+                            throughout the RMF lifecycle. Each phase maintains
+                            its own documentation library.
+
                         </p>
-                    </iframe>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         PHASE DOCUMENT LIBRARIES
+                    ========================================== -->
+
+                    <nav
+                        class="documentation-phase-nav"
+                        aria-label="RMF phase documentation libraries"
+                    >
+
+
+                        <!-- PREPARE -->
+
+                        <a
+                            class="documentation-phase-card is-current"
+                            href="prepare-library.html"
+                            data-document-phase="prepare"
+                            aria-current="page"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    01
+                                </span>
+
+                                <strong>
+                                    CURRENT LIBRARY
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Prepare
+                                </strong>
+
+                                <span>
+                                    08 Records
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- CATEGORIZE -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="../categorize/categorize-library.html"
+                            data-document-phase="categorize"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    02
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Categorize
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- SELECT -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="../select/select-library.html"
+                            data-document-phase="select"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    03
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Select
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- IMPLEMENT -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="../implement/implement-library.html"
+                            data-document-phase="implement"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    04
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Implement
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- ASSESS -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="../assess/assess-library.html"
+                            data-document-phase="assess"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    05
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Assess
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- AUTHORIZE -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="../authorize/authorize-library.html"
+                            data-document-phase="authorize"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    06
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Authorize
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- MONITOR -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="../monitor/monitor-library.html"
+                            data-document-phase="monitor"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    07
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Monitor
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+                    </nav>
+
+
+
+                    <!-- Context Footer -->
+
+                    <div class="documentation-lifecycle__footer">
+
+
+                        <div>
+
+                            <span>
+                                ACTIVE RECORD SET
+                            </span>
+
+                            <strong>
+                                PREPARE
+                            </strong>
+
+                        </div>
+
+
+                        <p>
+                            Phase 01 authorization records are currently loaded.
+                        </p>
+
+                    </div>
+
                 </div>
 
+            </div>
 
-                <!-- Document Navigation -->
-                <nav
-                    class="pdf-viewer__pagination"
-                    aria-label="Prepare document navigation"
+        </section>
+
+
+
+        <!-- =====================================================
+             DOCUMENT WORKSPACE
+        ====================================================== -->
+
+        <section
+            class="document-workspace"
+            id="documentViewer"
+        >
+
+            <div class="container document-workspace__layout">
+
+
+
+                <!-- =============================================
+                     DOCUMENT SIDEBAR
+                ============================================== -->
+
+                <aside
+                    class="document-sidebar reveal"
+                    aria-label="Prepare document library"
                 >
+
+
+                    <div class="document-sidebar__header">
+
+                        <span>
+                            PREPARE // RECORD SET
+                        </span>
+
+
+                        <h2>
+                            Authorization Documents
+                        </h2>
+
+
+                        <p>
+                            Select an artifact to load it into the viewer.
+                        </p>
+
+                    </div>
+
+
+
+                    <nav
+                        class="document-library-nav"
+                        aria-label="Prepare authorization records"
+                    >
+
+
+                        <!-- 001 PROJECT CHARTER -->
+
+                        <button
+                            class="document-library-nav__link is-active"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-PRE-001"
+                            data-document-name="Project Charter"
+                            data-document-type="Governance"
+                            data-document-src="pdfs/project-charter.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                001
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    Project Charter
+                                </strong>
+
+                                <small>
+                                    Governance
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- 002 STAKEHOLDER REGISTER -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-PRE-002"
+                            data-document-name="Stakeholder Register"
+                            data-document-type="Governance"
+                            data-document-src="pdfs/stakeholder-register.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                002
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    Stakeholder Register
+                                </strong>
+
+                                <small>
+                                    Governance
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- 003 SYSTEM DESCRIPTION -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-PRE-003"
+                            data-document-name="System Description"
+                            data-document-type="System"
+                            data-document-src="pdfs/system-description.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                003
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    System Description
+                                </strong>
+
+                                <small>
+                                    System
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- 004 AUTHORIZATION BOUNDARY -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-PRE-004"
+                            data-document-name="Authorization Boundary"
+                            data-document-type="Architecture"
+                            data-document-src="pdfs/authorization-boundary.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                004
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    Authorization Boundary
+                                </strong>
+
+                                <small>
+                                    Architecture
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- 005 INFORMATION TYPE INVENTORY -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-PRE-005"
+                            data-document-name="Information Type Inventory"
+                            data-document-type="Information"
+                            data-document-src="pdfs/information-type-inventory.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                005
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    Information Type Inventory
+                                </strong>
+
+                                <small>
+                                    Information
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- 006 RESPONSIBILITY MATRIX -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-PRE-006"
+                            data-document-name="Responsibility Matrix"
+                            data-document-type="Governance"
+                            data-document-src="pdfs/responsibility-matrix.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                006
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    Responsibility Matrix
+                                </strong>
+
+                                <small>
+                                    Governance
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- 007 AUTHORIZATION STRATEGY -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-PRE-007"
+                            data-document-name="Authorization Strategy"
+                            data-document-type="Strategy"
+                            data-document-src="pdfs/authorization-strategy.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                007
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    Authorization Strategy
+                                </strong>
+
+                                <small>
+                                    Strategy
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- 008 MEETING MINUTES -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-PRE-008"
+                            data-document-name="Meeting Minutes"
+                            data-document-type="Project Record"
+                            data-document-src="pdfs/meeting-minutes.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                008
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    Meeting Minutes
+                                </strong>
+
+                                <small>
+                                    Project Record
+                                </small>
+
+                            </span>
+
+                        </button>
+
+                    </nav>
+
+
+
                     <a
-                        class="pdf-viewer__pagination-link"
+                        class="document-sidebar__return"
                         href="../../prepare.html#prepare-deliverables"
                     >
-                        <span class="pdf-viewer__pagination-direction">
-                            Back to
+
+                        <span aria-hidden="true">
+                            ←
                         </span>
 
-                        <strong>
-                            Prepare Artifacts
-                        </strong>
+                        Return to Prepare
+
                     </a>
 
+                </aside>
 
-                    <button
-                        class="pdf-viewer__pagination-link pdf-viewer__pagination-link--next"
-                        type="button"
-                        data-next-document
-                    >
-                        <span class="pdf-viewer__pagination-direction">
-                            Next Document
+
+
+                <!-- =============================================
+                     PDF VIEWER
+                ============================================== -->
+
+                <section class="document-viewer reveal">
+
+
+                    <!-- Toolbar -->
+
+                    <header class="document-viewer__toolbar">
+
+
+                        <div class="document-viewer__identity">
+
+
+                            <span
+                                class="document-viewer__type"
+                                id="activeDocumentType"
+                            >
+                                GOVERNANCE
+                            </span>
+
+
+                            <div>
+
+                                <h2 id="activeDocumentTitle">
+                                    Project Charter
+                                </h2>
+
+
+                                <span
+                                    class="document-viewer__id"
+                                    id="activeDocumentId"
+                                >
+                                    BFD-PRE-001
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <a
+                            class="document-viewer__open"
+                            id="openDocument"
+                            href="pdfs/project-charter.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            Open PDF
+
+                            <span aria-hidden="true">
+                                ↗
+                            </span>
+
+                        </a>
+
+                    </header>
+
+
+
+                    <!-- Context Bar -->
+
+                    <div class="document-viewer__context">
+
+                        <span>
+                            BFD://FOXHOLE-PORTAL
                         </span>
 
-                        <strong data-next-document-name>
-                            Stakeholder Register
-                        </strong>
-                    </button>
-                </nav>
-            </section>
-        </div>
+                        <i></i>
+
+                        <span>
+                            RMF 01
+                        </span>
+
+                        <i></i>
+
+                        <span>
+                            PREPARE RECORD
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- PDF Viewer -->
+
+                    <div class="document-viewer__frame-shell">
+
+
+                        <iframe
+                            class="document-viewer__frame"
+                            id="pdfFrame"
+                            src="pdfs/project-charter.pdf"
+                            title="Project Charter PDF"
+                        >
+
+                            <p>
+
+                                Your browser cannot display this PDF.
+
+                                <a href="pdfs/project-charter.pdf">
+                                    Open Project Charter.
+                                </a>
+
+                            </p>
+
+                        </iframe>
+
+                    </div>
+
+
+
+                    <!-- Pagination -->
+
+                    <nav
+                        class="document-viewer__pagination"
+                        aria-label="Prepare document navigation"
+                    >
+
+
+                        <button
+                            class="document-pagination-button"
+                            id="previousDocument"
+                            type="button"
+                            disabled
+                        >
+
+                            <span>
+                                Previous Document
+                            </span>
+
+                            <strong id="previousDocumentName">
+                                —
+                            </strong>
+
+                        </button>
+
+
+
+                        <div class="document-viewer__position">
+
+                            <span>
+                                DOCUMENT
+                            </span>
+
+                            <strong id="documentPosition">
+                                01 / 08
+                            </strong>
+
+                        </div>
+
+
+
+                        <button
+                            class="document-pagination-button document-pagination-button--next"
+                            id="nextDocument"
+                            type="button"
+                        >
+
+                            <span>
+                                Next Document
+                            </span>
+
+                            <strong id="nextDocumentName">
+                                Stakeholder Register
+                            </strong>
+
+                        </button>
+
+                    </nav>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
     </main>
 
 
+
     <!-- =========================================================
-         GLOBAL FOOTER
+         SHARED PORTFOLIO FOOTER
     ========================================================== -->
 
-    <footer class="site-footer">
-        <div class="site-footer__inner site-container">
+    <footer
+        class="site-footer"
+        id="connect"
+    >
 
-            <!-- Footer Brand -->
-            <div class="site-footer__brand">
-                <a
-                    class="site-brand site-brand--footer"
-                    href="../../index.html"
-                    aria-label="Blue Fox Defense Enterprise Security Compliance Lab home"
-                >
-                    <span
-                        class="site-brand__mark"
-                        aria-hidden="true"
+        <div class="container">
+
+
+            <div class="footer-connect">
+
+
+                <div class="footer-connect__text">
+
+                    <p class="footer-connect__eyebrow">
+                        CONNECT
+                    </p>
+
+                    <h2>
+                        Find me online.
+                    </h2>
+
+                    <p class="footer-connect__subtext">
+                        GitHub projects, labs, and professional connections.
+                    </p>
+
+                </div>
+
+
+
+                <div class="footer-socials">
+
+
+                    <a
+                        class="footer-social-link"
+                        href="https://github.com/darlingjackson"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Visit Darling Jackson on GitHub"
                     >
+
                         <img
-                            class="site-brand__logo"
-                            src="../../assets/images/blue-fox-logo.png"
+                            src="../../../../assets/icons/github.png"
                             alt=""
                         >
-                    </span>
 
-                    <span class="site-brand__content">
-                        <span class="site-brand__name">
-                            Blue Fox Defense
+                        <span>
+                            GitHub
                         </span>
 
-                        <span class="site-brand__descriptor">
+                    </a>
+
+
+                    <a
+                        class="footer-social-link"
+                        href="https://www.linkedin.com/in/darlingjackson/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Connect with Darling Jackson on LinkedIn"
+                    >
+
+                        <img
+                            src="../../../../assets/icons/linkedin.png"
+                            alt=""
+                        >
+
+                        <span>
+                            LinkedIn
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        class="footer-social-link"
+                        href="mailto:darling.jackson1@outlook.com"
+                        aria-label="Send an email to Darling Jackson"
+                    >
+
+                        <img
+                            src="../../../../assets/icons/email.png"
+                            alt=""
+                        >
+
+                        <span>
+                            Email
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="footer-divider"></div>
+
+
+
+            <div class="site-footer__bottom">
+
+
+                <div class="footer-brand">
+
+                    <img
+                        class="footer__dogtags rmf-footer-logo"
+                        src="../../assets/images/blue-fox-logo.png"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <div>
+
+                        <strong>
+                            Blue Fox Defense
+                        </strong>
+
+                        <span>
                             Enterprise Security Compliance Lab
                         </span>
-                    </span>
-                </a>
 
-                <p class="site-footer__description">
-                    A fictional enterprise case study demonstrating the NIST
-                    Risk Management Framework through the authorization
-                    lifecycle of the Foxhole Portal.
-                </p>
+                    </div>
+
+                </div>
+
+
+
+                <div class="footer-meta">
+
+                    <p>
+                        ©
+                        <span id="currentYear"></span>
+                        Darling Jackson
+                    </p>
+
+                    <span class="footer-meta__divider"></span>
+
+                    <p>
+                        Fictional Portfolio Case Study
+                    </p>
+
+                </div>
+
             </div>
 
-
-            <!-- Footer Navigation -->
-            <div class="site-footer__navigation">
-
-                <div class="site-footer__group">
-                    <p class="site-footer__heading">
-                        RMF Lab
-                    </p>
-
-                    <a href="../../index.html">
-                        Lab Home
-                    </a>
-
-                    <a href="../../prepare.html">
-                        Prepare
-                    </a>
-
-                    <a href="prepare-library.html">
-                        Documentation
-                    </a>
-                </div>
-
-
-                <div class="site-footer__group">
-                    <p class="site-footer__heading">
-                        RMF Lifecycle
-                    </p>
-
-                    <a href="../../categorize.html">
-                        Categorize
-                    </a>
-
-                    <a href="../../select.html">
-                        Select
-                    </a>
-
-                    <a href="../../implement.html">
-                        Implement
-                    </a>
-
-                    <a href="../../assess.html">
-                        Assess
-                    </a>
-                </div>
-
-
-                <div class="site-footer__group">
-                    <p class="site-footer__heading">
-                        Portfolio
-                    </p>
-
-                    <a href="../../../../index.html">
-                        Main Portfolio
-                    </a>
-
-                    <a href="../../../../resume.html">
-                        Resume
-                    </a>
-
-                    <a href="../../../../index.html#projects">
-                        Projects
-                    </a>
-                </div>
-            </div>
         </div>
 
-
-        <div class="site-footer__bottom">
-            <div class="site-container site-footer__bottom-inner">
-                <p>
-                    ©
-                    <span data-current-year>
-                        2026
-                    </span>
-                    Darling Jackson. Built as a professional portfolio project.
-                </p>
-
-                <p>
-                    Blue Fox Defense and Foxhole Portal are fictional.
-                </p>
-            </div>
-        </div>
     </footer>
+
 
 
     <!-- =========================================================
@@ -785,17 +1675,37 @@
 
     <button
         class="back-to-top"
+        id="backToTop"
         type="button"
-        aria-label="Back to the top of the page"
-        data-back-to-top
+        aria-label="Back to top"
     >
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-        >
-            <path d="m6 15 6-6 6 6"></path>
-        </svg>
+        ↑
     </button>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+
+         documentation.js
+         - document repository phase state
+         - PDF switching
+         - next / previous records
+
+         main script.js
+         - theme
+         - header
+         - mobile nav
+         - reveal
+         - page progress
+         - footer year
+         - back to top
+    ========================================================== -->
+
+    <script src="../../js/documentation.js"></script>
+
+    <script src="../../../../js/script.js"></script>
+
 
 </body>
 

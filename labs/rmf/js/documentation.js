@@ -1,622 +1,560 @@
-/*==============================================================
-BLUE FOX DEFENSE
-ENTERPRISE SECURITY COMPLIANCE LAB
-
-RMF DOCUMENT VIEWER
-
-This file controls the shared PDF document viewer.
-
-It handles:
-
-• Loading the selected PDF
-• Checking whether the PDF exists
-• Displaying a professional unavailable message
-• Highlighting the active document
-• Updating the document title and ID
-• Updating the Next Document control
-==============================================================*/
+"use strict";
 
 
-/*==============================================================
-01. VIEWER SETTINGS
-==============================================================*/
+/* ==========================================================================
+   BLUE FOX DEFENSE
+   RMF DOCUMENTATION SYSTEM
 
-const documentViewerSettings = {
-    documentLinkSelector: "[data-pdf-document]",
-    pdfFrameSelector: "[data-pdf-frame]",
-    frameShellSelector: ".pdf-viewer__frame-shell",
-    activeTitleSelector: "[data-active-document-title]",
-    activeIdSelector: "[data-active-document-id]",
-    nextButtonSelector: "[data-next-document]",
-    nextNameSelector: "[data-next-document-name]",
-    activeClass: "is-active"
-};
+   Shared portfolio behavior remains in:
+   ../../../../js/script.js
 
-
-/*==============================================================
-02. INITIALIZE DOCUMENT VIEWER
-==============================================================*/
-
-function initializeDocumentViewer() {
-    const documentLinks = Array.from(
-        document.querySelectorAll(
-            documentViewerSettings.documentLinkSelector
-        )
-    );
-
-    const pdfFrame = document.querySelector(
-        documentViewerSettings.pdfFrameSelector
-    );
-
-    const frameShell = document.querySelector(
-        documentViewerSettings.frameShellSelector
-    );
-
-    const activeDocumentTitle = document.querySelector(
-        documentViewerSettings.activeTitleSelector
-    );
-
-    const activeDocumentId = document.querySelector(
-        documentViewerSettings.activeIdSelector
-    );
-
-    const nextDocumentButton = document.querySelector(
-        documentViewerSettings.nextButtonSelector
-    );
-
-    const nextDocumentName = document.querySelector(
-        documentViewerSettings.nextNameSelector
-    );
+   This file handles:
+   - Current RMF documentation library
+   - PDF document selection
+   - Previous / next document navigation
+   - Viewer metadata
+   ========================================================================== */
 
 
-    /*
-        Stop if this page does not contain the document viewer.
-    */
-
-    if (
-        !documentLinks.length ||
-        !pdfFrame ||
-        !frameShell
-    ) {
-        return;
-    }
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
 
-    const viewerElements = {
-        pdfFrame,
-        frameShell,
-        activeDocumentTitle,
-        activeDocumentId,
-        nextDocumentButton,
-        nextDocumentName
-    };
+        /* ==================================================================
+           01. CURRENT DOCUMENTATION PHASE
+           ================================================================== */
+
+        const currentPhase =
+            document.body.dataset.currentPhase;
 
 
-    /*
-        Load a document when a sidebar link is selected.
-    */
-
-    documentLinks.forEach((link) => {
-        link.addEventListener("click", async (event) => {
-            event.preventDefault();
-
-            await loadDocument(
-                link,
-                documentLinks,
-                viewerElements
+        const documentationPhaseLinks =
+            document.querySelectorAll(
+                "[data-document-phase]"
             );
-        });
-    });
 
 
-    /*
-        Load the next document.
-    */
+        documentationPhaseLinks.forEach(
+            link => {
 
-    if (nextDocumentButton) {
-        nextDocumentButton.addEventListener(
-            "click",
-            async () => {
-                const nextIndex = Number(
-                    nextDocumentButton.dataset.nextIndex
+                const active =
+                    link.dataset.documentPhase ===
+                    currentPhase;
+
+
+                link.classList.toggle(
+                    "is-current",
+                    active
                 );
 
+
+                if (active) {
+
+                    link.setAttribute(
+                        "aria-current",
+                        "page"
+                    );
+
+                } else {
+
+                    link.removeAttribute(
+                        "aria-current"
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* ==================================================================
+           02. DOCUMENT REFERENCES
+           ================================================================== */
+
+        const documents =
+            [
+                ...document.querySelectorAll(
+                    "[data-pdf-document]"
+                )
+            ];
+
+
+        if (!documents.length) {
+            return;
+        }
+
+
+
+        const pdfFrame =
+            document.getElementById(
+                "pdfFrame"
+            );
+
+
+        const title =
+            document.getElementById(
+                "activeDocumentTitle"
+            );
+
+
+        const documentId =
+            document.getElementById(
+                "activeDocumentId"
+            );
+
+
+        const documentType =
+            document.getElementById(
+                "activeDocumentType"
+            );
+
+
+        const openDocument =
+            document.getElementById(
+                "openDocument"
+            );
+
+
+        const previousButton =
+            document.getElementById(
+                "previousDocument"
+            );
+
+
+        const nextButton =
+            document.getElementById(
+                "nextDocument"
+            );
+
+
+        const previousName =
+            document.getElementById(
+                "previousDocumentName"
+            );
+
+
+        const nextName =
+            document.getElementById(
+                "nextDocumentName"
+            );
+
+
+        const position =
+            document.getElementById(
+                "documentPosition"
+            );
+
+
+
+        /* ==================================================================
+           03. ACTIVE DOCUMENT
+           ================================================================== */
+
+        let activeIndex =
+            Math.max(
+                0,
+                documents.findIndex(
+                    item =>
+                        item.classList.contains(
+                            "is-active"
+                        )
+                )
+            );
+
+
+
+        /* ==================================================================
+           04. OPEN DOCUMENT
+           ================================================================== */
+
+        function openDocumentAt(
+            index
+        ) {
+
+            const selectedDocument =
+                documents[
+                    index
+                ];
+
+
+            if (!selectedDocument) {
+                return;
+            }
+
+
+            activeIndex =
+                index;
+
+
+
+            /* --------------------------------------------------------------
+               Document Data
+               -------------------------------------------------------------- */
+
+            const source =
+                selectedDocument.dataset.documentSrc;
+
+
+            const name =
+                selectedDocument.dataset.documentName;
+
+
+            const id =
+                selectedDocument.dataset.documentId;
+
+
+            const type =
+                selectedDocument.dataset.documentType;
+
+
+
+            /* --------------------------------------------------------------
+               Sidebar Active State
+               -------------------------------------------------------------- */
+
+            documents.forEach(
+                (
+                    item,
+                    itemIndex
+                ) => {
+
+                    const active =
+                        itemIndex ===
+                        activeIndex;
+
+
+                    item.classList.toggle(
+                        "is-active",
+                        active
+                    );
+
+
+                    if (active) {
+
+                        item.setAttribute(
+                            "aria-current",
+                            "page"
+                        );
+
+                    } else {
+
+                        item.removeAttribute(
+                            "aria-current"
+                        );
+
+                    }
+
+                }
+            );
+
+
+
+            /* --------------------------------------------------------------
+               PDF Frame
+               -------------------------------------------------------------- */
+
+            if (
+                pdfFrame &&
+                source
+            ) {
+
+                pdfFrame.src =
+                    source;
+
+
+                pdfFrame.title =
+                    `${name} PDF`;
+
+            }
+
+
+
+            /* --------------------------------------------------------------
+               Viewer Title
+               -------------------------------------------------------------- */
+
+            if (title) {
+
+                title.textContent =
+                    name;
+
+            }
+
+
+
+            /* --------------------------------------------------------------
+               Document ID
+               -------------------------------------------------------------- */
+
+            if (documentId) {
+
+                documentId.textContent =
+                    id;
+
+            }
+
+
+
+            /* --------------------------------------------------------------
+               Document Type
+               -------------------------------------------------------------- */
+
+            if (documentType) {
+
+                documentType.textContent =
+                    type.toUpperCase();
+
+            }
+
+
+
+            /* --------------------------------------------------------------
+               Open PDF Link
+               -------------------------------------------------------------- */
+
+            if (
+                openDocument &&
+                source
+            ) {
+
+                openDocument.href =
+                    source;
+
+            }
+
+
+
+            /* --------------------------------------------------------------
+               Position
+               -------------------------------------------------------------- */
+
+            if (position) {
+
+                position.textContent =
+                    `${String(
+                        activeIndex + 1
+                    ).padStart(
+                        2,
+                        "0"
+                    )} / ${String(
+                        documents.length
+                    ).padStart(
+                        2,
+                        "0"
+                    )}`;
+
+            }
+
+
+
+            /* --------------------------------------------------------------
+               Previous Document
+               -------------------------------------------------------------- */
+
+            const previous =
+                documents[
+                    activeIndex - 1
+                ];
+
+
+            if (previousButton) {
+
+                previousButton.disabled =
+                    !previous;
+
+            }
+
+
+            if (previousName) {
+
+                previousName.textContent =
+                    previous
+                        ? previous.dataset.documentName
+                        : "—";
+
+            }
+
+
+
+            /* --------------------------------------------------------------
+               Next Document
+               -------------------------------------------------------------- */
+
+            const next =
+                documents[
+                    activeIndex + 1
+                ];
+
+
+            if (nextButton) {
+
+                nextButton.disabled =
+                    !next;
+
+            }
+
+
+            if (nextName) {
+
+                nextName.textContent =
+                    next
+                        ? next.dataset.documentName
+                        : "—";
+
+            }
+
+
+
+            /* --------------------------------------------------------------
+               Current Document Data
+               -------------------------------------------------------------- */
+
+            document.body.dataset.currentDocument =
+                id;
+
+        }
+
+
+
+        /* ==================================================================
+           05. SIDEBAR SELECTION
+           ================================================================== */
+
+        documents.forEach(
+            (
+                documentButton,
+                index
+            ) => {
+
+                documentButton.addEventListener(
+                    "click",
+                    () => {
+
+                        openDocumentAt(
+                            index
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* ==================================================================
+           06. PREVIOUS DOCUMENT
+           ================================================================== */
+
+        previousButton?.addEventListener(
+            "click",
+            () => {
+
                 if (
-                    Number.isNaN(nextIndex) ||
-                    !documentLinks[nextIndex]
+                    activeIndex <=
+                    0
                 ) {
                     return;
                 }
 
-                const nextLink = documentLinks[nextIndex];
 
-                await loadDocument(
-                    nextLink,
-                    documentLinks,
-                    viewerElements
+                openDocumentAt(
+                    activeIndex - 1
                 );
 
-                nextLink.focus();
-            }
-        );
-    }
-
-
-    /*
-        Use the document marked active in the HTML.
-        If none is marked active, use the first document.
-    */
-
-    const initialDocument =
-        documentLinks.find((link) =>
-            link.classList.contains(
-                documentViewerSettings.activeClass
-            )
-        ) ||
-        documentLinks[0];
-
-
-    loadDocument(
-        initialDocument,
-        documentLinks,
-        viewerElements
-    );
-}
-
-
-/*==============================================================
-03. LOAD SELECTED DOCUMENT
-==============================================================*/
-
-async function loadDocument(
-    selectedLink,
-    documentLinks,
-    viewerElements
-) {
-    if (!selectedLink) {
-        return;
-    }
-
-    const documentName =
-        selectedLink.dataset.documentName ||
-        "RMF Document";
-
-    const documentId =
-        selectedLink.dataset.documentId ||
-        "";
-
-    const pdfPath =
-        selectedLink.getAttribute("href");
-
-    const selectedIndex =
-        documentLinks.indexOf(selectedLink);
-
-    const nextIndex =
-        selectedIndex < documentLinks.length - 1
-            ? selectedIndex + 1
-            : 0;
-
-    const nextLink =
-        documentLinks[nextIndex];
-
-
-    updateActiveDocumentState(
-        documentLinks,
-        selectedLink
-    );
-
-    updateDocumentInformation(
-        viewerElements,
-        documentName,
-        documentId
-    );
-
-    updateNextDocumentControl(
-        viewerElements,
-        nextLink,
-        nextIndex
-    );
-
-    updateBrowserTitle(documentName);
-
-    showLoadingState(
-        viewerElements,
-        documentName
-    );
-
-
-    const pdfExists =
-        await checkPdfExists(pdfPath);
-
-
-    if (pdfExists) {
-        showPdfDocument(
-            viewerElements,
-            pdfPath,
-            documentName
-        );
-    } else {
-        showUnavailableDocument(
-            viewerElements,
-            documentName,
-            documentId,
-            pdfPath
-        );
-    }
-}
-
-
-/*==============================================================
-04. CHECK WHETHER THE PDF EXISTS
-==============================================================*/
-
-async function checkPdfExists(pdfPath) {
-    if (!pdfPath) {
-        return false;
-    }
-
-    try {
-        const response = await fetch(
-            pdfPath,
-            {
-                method: "HEAD",
-                cache: "no-store"
             }
         );
 
-        return response.ok;
-    } catch (error) {
-        console.warn(
-            `The PDF could not be checked: ${pdfPath}`,
-            error
+
+
+        /* ==================================================================
+           07. NEXT DOCUMENT
+           ================================================================== */
+
+        nextButton?.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    activeIndex >=
+                    documents.length - 1
+                ) {
+                    return;
+                }
+
+
+                openDocumentAt(
+                    activeIndex + 1
+                );
+
+            }
         );
 
-        return false;
-    }
-}
 
 
-/*==============================================================
-05. ACTIVE DOCUMENT STATE
-==============================================================*/
+        /* ==================================================================
+           08. KEYBOARD SHORTCUTS
 
-function updateActiveDocumentState(
-    documentLinks,
-    selectedLink
-) {
-    documentLinks.forEach((link) => {
-        const isActive =
-            link === selectedLink;
+           Alt + Left  = Previous Document
+           Alt + Right = Next Document
+           ================================================================== */
 
-        link.classList.toggle(
-            documentViewerSettings.activeClass,
-            isActive
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (!event.altKey) {
+                    return;
+                }
+
+
+                if (
+                    event.key ===
+                    "ArrowLeft" &&
+                    activeIndex > 0
+                ) {
+
+                    event.preventDefault();
+
+
+                    openDocumentAt(
+                        activeIndex - 1
+                    );
+
+                }
+
+
+                if (
+                    event.key ===
+                    "ArrowRight" &&
+                    activeIndex <
+                    documents.length - 1
+                ) {
+
+                    event.preventDefault();
+
+
+                    openDocumentAt(
+                        activeIndex + 1
+                    );
+
+                }
+
+            }
         );
 
-        if (isActive) {
-            link.setAttribute(
-                "aria-current",
-                "page"
-            );
-        } else {
-            link.removeAttribute(
-                "aria-current"
-            );
-        }
-    });
-}
 
 
-/*==============================================================
-06. DOCUMENT INFORMATION
-==============================================================*/
+        /* ==================================================================
+           09. INITIAL DOCUMENT
+           ================================================================== */
 
-function updateDocumentInformation(
-    viewerElements,
-    documentName,
-    documentId
-) {
-    if (viewerElements.activeDocumentTitle) {
-        viewerElements.activeDocumentTitle.textContent =
-            documentName;
-    }
-
-    if (viewerElements.activeDocumentId) {
-        viewerElements.activeDocumentId.textContent =
-            documentId;
-    }
-}
-
-
-function updateBrowserTitle(documentName) {
-    document.title =
-        `${documentName} | Blue Fox Defense Security Lab`;
-}
-
-
-/*==============================================================
-07. LOADING STATE
-==============================================================*/
-
-function showLoadingState(
-    viewerElements,
-    documentName
-) {
-    viewerElements.pdfFrame.hidden = true;
-
-    removeViewerMessage(
-        viewerElements.frameShell
-    );
-
-    const loadingMessage =
-        createViewerMessage({
-            state: "loading",
-            eyebrow: "Loading Document",
-            title: documentName,
-            description:
-                "The selected RMF artifact is being prepared for review."
-        });
-
-    viewerElements.frameShell.appendChild(
-        loadingMessage
-    );
-}
-
-
-/*==============================================================
-08. DISPLAY PDF
-==============================================================*/
-
-function showPdfDocument(
-    viewerElements,
-    pdfPath,
-    documentName
-) {
-    removeViewerMessage(
-        viewerElements.frameShell
-    );
-
-    viewerElements.pdfFrame.src =
-        pdfPath;
-
-    viewerElements.pdfFrame.title =
-        `${documentName} PDF`;
-
-    viewerElements.pdfFrame.hidden =
-        false;
-}
-
-
-/*==============================================================
-09. DISPLAY UNAVAILABLE MESSAGE
-==============================================================*/
-
-function showUnavailableDocument(
-    viewerElements,
-    documentName,
-    documentId,
-    pdfPath
-) {
-    viewerElements.pdfFrame.hidden =
-        true;
-
-    viewerElements.pdfFrame.removeAttribute(
-        "src"
-    );
-
-    removeViewerMessage(
-        viewerElements.frameShell
-    );
-
-    const unavailableMessage =
-        createViewerMessage({
-            state: "unavailable",
-            eyebrow: "Artifact Preview Unavailable",
-            title: documentName,
-            description:
-                "This artifact has been added to the document library, but its PDF file is not available yet.",
-            documentId,
-            filePath: pdfPath
-        });
-
-    viewerElements.frameShell.appendChild(
-        unavailableMessage
-    );
-}
-
-
-/*==============================================================
-10. VIEWER MESSAGE COMPONENT
-==============================================================*/
-
-function createViewerMessage({
-    state,
-    eyebrow,
-    title,
-    description,
-    documentId = "",
-    filePath = ""
-}) {
-    const message =
-        document.createElement("div");
-
-    message.className =
-        `pdf-viewer__message pdf-viewer__message--${state}`;
-
-    message.setAttribute(
-        "role",
-        state === "loading"
-            ? "status"
-            : "alert"
-    );
-
-
-    const icon =
-        document.createElement("span");
-
-    icon.className =
-        "pdf-viewer__message-icon";
-
-    icon.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    icon.innerHTML =
-        state === "loading"
-            ? `
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 3a9 9 0 1 1-9 9"></path>
-                </svg>
-            `
-            : `
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 3 2.8 19h18.4L12 3Z"></path>
-                    <path d="M12 9v4"></path>
-                    <path d="M12 16.5h.01"></path>
-                </svg>
-            `;
-
-
-    const content =
-        document.createElement("div");
-
-    content.className =
-        "pdf-viewer__message-content";
-
-
-    const eyebrowElement =
-        document.createElement("p");
-
-    eyebrowElement.className =
-        "pdf-viewer__message-eyebrow";
-
-    eyebrowElement.textContent =
-        eyebrow;
-
-
-    const titleElement =
-        document.createElement("h3");
-
-    titleElement.className =
-        "pdf-viewer__message-title";
-
-    titleElement.textContent =
-        title;
-
-
-    const descriptionElement =
-        document.createElement("p");
-
-    descriptionElement.className =
-        "pdf-viewer__message-description";
-
-    descriptionElement.textContent =
-        description;
-
-
-    content.append(
-        eyebrowElement,
-        titleElement,
-        descriptionElement
-    );
-
-
-    if (documentId) {
-        const idElement =
-            document.createElement("span");
-
-        idElement.className =
-            "pdf-viewer__message-id";
-
-        idElement.textContent =
-            documentId;
-
-        content.appendChild(
-            idElement
-        );
-    }
-
-
-    if (filePath) {
-        const pathElement =
-            document.createElement("code");
-
-        pathElement.className =
-            "pdf-viewer__message-path";
-
-        pathElement.textContent =
-            filePath;
-
-        content.appendChild(
-            pathElement
-        );
-    }
-
-
-    message.append(
-        icon,
-        content
-    );
-
-    return message;
-}
-
-
-function removeViewerMessage(frameShell) {
-    const existingMessage =
-        frameShell.querySelector(
-            ".pdf-viewer__message"
+        openDocumentAt(
+            activeIndex
         );
 
-    if (existingMessage) {
-        existingMessage.remove();
+
     }
-}
-
-
-/*==============================================================
-11. NEXT DOCUMENT CONTROL
-==============================================================*/
-
-function updateNextDocumentControl(
-    viewerElements,
-    nextLink,
-    nextIndex
-) {
-    if (
-        !viewerElements.nextDocumentButton ||
-        !nextLink
-    ) {
-        return;
-    }
-
-    const nextDocumentName =
-        nextLink.dataset.documentName ||
-        "Next Document";
-
-
-    viewerElements.nextDocumentButton.dataset.nextIndex =
-        String(nextIndex);
-
-    viewerElements.nextDocumentButton.setAttribute(
-        "aria-label",
-        `View next document: ${nextDocumentName}`
-    );
-
-
-    if (viewerElements.nextDocumentName) {
-        viewerElements.nextDocumentName.textContent =
-            nextDocumentName;
-    }
-}
-
-
-/*==============================================================
-12. PAGE INITIALIZATION
-==============================================================*/
-
-document.addEventListener(
-    "DOMContentLoaded",
-    initializeDocumentViewer
 );
