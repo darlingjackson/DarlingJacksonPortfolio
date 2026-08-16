@@ -152,16 +152,53 @@ document.addEventListener(
            03. ACTIVE DOCUMENT
            ================================================================== */
 
-        let activeIndex =
-            Math.max(
-                0,
+            const urlParameters =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+            const requestedDocumentId =
+                urlParameters.get(
+                    "doc"
+                );
+
+
+            let activeIndex =
                 documents.findIndex(
                     item =>
-                        item.classList.contains(
-                            "is-active"
-                        )
-                )
-            );
+                        item.dataset.documentId ===
+                        requestedDocumentId
+                );
+
+
+            /*
+            If the URL does not request a valid document,
+            fall back to the document already marked active.
+            */
+
+            if (activeIndex < 0) {
+
+                activeIndex =
+                    documents.findIndex(
+                        item =>
+                            item.classList.contains(
+                                "is-active"
+                            )
+                    );
+
+            }
+
+
+            /*
+            Final fallback:
+            open the first document.
+            */
+
+            if (activeIndex < 0) {
+
+                activeIndex = 0;
+
+            }
 
 
 
@@ -207,6 +244,27 @@ document.addEventListener(
 
             const type =
                 selectedDocument.dataset.documentType;
+
+                
+                /*------------------------------------------------------------
+                    keep the selected document in the URL
+                  ------------------------------------------------------------ */
+
+                const currentUrl =
+                    new URL(
+                        window.location.href
+                    );
+
+                currentUrl.searchParams.set(
+                    "doc",
+                    id
+                );
+
+                window.history.replaceState(
+                    {},
+                    "",
+                    currentUrl
+                );
 
 
 

@@ -1,0 +1,895 @@
+/* ==========================================================================
+   BLUE FOX DEFENSE
+   CATEGORIZE PHASE — PHASE-SPECIFIC STYLES
+
+   LOCATION:
+   css/phases/categorize-phase.css
+
+   Loaded after:
+   ../../css/styles.css
+   ../rmf.css
+   phase.css
+
+   Keep this file limited to visuals unique to Categorize.
+   Shared RMF phase structure belongs in phase.css.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. CATEGORIZATION MODEL
+   ========================================================================== */
+
+.categorize-model {
+
+    position:
+        relative;
+
+    padding:
+        1rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.7rem;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        1rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.045
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.025
+            ),
+            transparent
+        ),
+        var(--rmf-panel);
+
+}
+
+
+.categorize-model__stage {
+
+    position:
+        relative;
+
+    min-height:
+        185px;
+
+    padding:
+        1rem;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.75rem;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.categorize-model__stage:not(:last-child)::after {
+
+    content:
+        "→";
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    right:
+        -1rem;
+
+    z-index:
+        3;
+
+    width:
+        1.3rem;
+
+    height:
+        1.3rem;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        var(--rmf-line-strong);
+
+    border-radius:
+        50%;
+
+    background:
+        var(--rmf-panel);
+
+    color:
+        var(--pink);
+
+    font-size:
+        0.78rem;
+
+    transform:
+        translateY(
+            -50%
+        );
+
+}
+
+
+.categorize-model__stage > span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.categorize-model__stage strong {
+
+    margin-top:
+        1.35rem;
+
+    color:
+        var(--text);
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.35;
+
+}
+
+
+.categorize-model__stage p {
+
+    margin:
+        0.55rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.88rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+.categorize-model__stage small {
+
+    margin-top:
+        auto;
+
+    padding-top:
+        1rem;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+}
+
+
+/* ==========================================================================
+   02. CIA IMPACT ANALYSIS
+   ========================================================================== */
+
+.categorize-impact {
+
+    margin-top:
+        1rem;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--rmf-line-strong);
+
+    border-radius:
+        1rem;
+
+    background:
+        var(--rmf-panel);
+
+    box-shadow:
+        0 24px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.1
+        );
+
+}
+
+
+.categorize-impact__heading {
+
+    padding:
+        1.25rem;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-end;
+
+    gap:
+        2rem;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.05
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.035
+            )
+        );
+
+}
+
+
+.categorize-impact__heading > div > span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.categorize-impact__heading h3 {
+
+    margin:
+        0.35rem
+        0
+        0;
+
+    color:
+        var(--text);
+
+    font-size:
+        clamp(
+            1.5rem,
+            2.5vw,
+            2rem
+        );
+
+}
+
+
+.categorize-impact__heading p {
+
+    max-width:
+        720px;
+
+    margin:
+        0.45rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+.categorize-impact__legend {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        0.4rem;
+
+}
+
+
+.categorize-impact__table-wrap {
+
+    overflow-x:
+        auto;
+
+}
+
+
+.categorize-impact__table {
+
+    width:
+        100%;
+
+    min-width:
+        760px;
+
+    border-collapse:
+        collapse;
+
+}
+
+
+.categorize-impact__table th {
+
+    padding:
+        0.85rem
+        1rem;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        700;
+
+    text-align:
+        center;
+
+}
+
+
+.categorize-impact__table th:first-child {
+
+    text-align:
+        left;
+
+}
+
+
+.categorize-impact__table td {
+
+    padding:
+        0.95rem
+        1rem;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.88rem;
+
+    text-align:
+        center;
+
+}
+
+
+.categorize-impact__table td:first-child {
+
+    color:
+        var(--text);
+
+    font-weight:
+        700;
+
+    text-align:
+        left;
+
+}
+
+
+.impact-chip {
+
+    min-width:
+        84px;
+
+    padding:
+        0.35rem
+        0.55rem;
+
+    display:
+        inline-flex;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        999px;
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.02em;
+
+}
+
+
+.impact-chip--low {
+
+    border-color:
+        rgba(
+            94,
+            230,
+            168,
+            0.28
+        );
+
+    background:
+        rgba(
+            94,
+            230,
+            168,
+            0.055
+        );
+
+    color:
+        var(--rmf-green);
+
+}
+
+
+.impact-chip--moderate {
+
+    border-color:
+        rgba(
+            149,
+            108,
+            255,
+            0.35
+        );
+
+    background:
+        rgba(
+            149,
+            108,
+            255,
+            0.075
+        );
+
+    color:
+        var(--purple);
+
+}
+
+
+.impact-chip--high {
+
+    border-color:
+        rgba(
+            240,
+            84,
+            200,
+            0.35
+        );
+
+    background:
+        rgba(
+            240,
+            84,
+            200,
+            0.07
+        );
+
+    color:
+        var(--pink);
+
+}
+
+
+/* ==========================================================================
+   03. CATEGORIZATION RESULT
+   ========================================================================== */
+
+.categorize-result {
+
+    padding:
+        1rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                0,
+                0.55fr
+            )
+        )
+        minmax(
+            280px,
+            1.35fr
+        );
+
+    gap:
+        0.7rem;
+
+    border-top:
+        1px solid
+        var(--border);
+
+}
+
+
+.categorize-result__objective,
+.categorize-result__overall {
+
+    padding:
+        0.9rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.7rem;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.categorize-result__objective {
+
+    display:
+        grid;
+
+    align-content:
+        center;
+
+    gap:
+        0.25rem;
+
+}
+
+
+.categorize-result__objective span,
+.categorize-result__overall span {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.66rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.categorize-result__objective strong {
+
+    color:
+        var(--purple);
+
+    font-size:
+        1rem;
+
+}
+
+
+.categorize-result__overall {
+
+    border-color:
+        var(--rmf-line-strong);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.055
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.07
+            ),
+            rgba(
+                240,
+                84,
+                200,
+                0.035
+            )
+        ),
+        var(--surface-soft);
+
+}
+
+
+.categorize-result__overall strong {
+
+    display:
+        block;
+
+    margin-top:
+        0.25rem;
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        1.55rem;
+
+}
+
+
+.categorize-result__overall p {
+
+    margin:
+        0.3rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.8rem;
+
+    line-height:
+        1.5;
+
+}
+
+
+.categorize-impact__note {
+
+    margin:
+        0;
+
+    padding:
+        0.9rem
+        1rem;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.8rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* ==========================================================================
+   04. CATEGORIZE LIGHT THEME
+   ========================================================================== */
+
+html[data-theme="light"]
+.categorize-model,
+html[data-theme="light"]
+.categorize-impact,
+html[data-theme="light"]
+.categorize-model__stage,
+html[data-theme="light"]
+.categorize-result__objective,
+html[data-theme="light"]
+.categorize-result__overall {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.93
+        );
+
+}
+
+
+/* ==========================================================================
+   05. CATEGORIZE RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+
+    .categorize-model {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+
+    .categorize-model__stage::after {
+
+        display:
+            none;
+
+    }
+
+
+    .categorize-result {
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+
+    .categorize-result__overall {
+
+        grid-column:
+            1 / -1;
+
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .categorize-impact__heading {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            0.8rem;
+
+    }
+
+
+    .categorize-impact__legend {
+
+        justify-content:
+            flex-start;
+
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .categorize-model,
+    .categorize-result {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .categorize-result__overall {
+
+        grid-column:
+            auto;
+
+    }
+
+}

@@ -1,12 +1,28 @@
 /* ==========================================================================
    BLUE FOX DEFENSE
-   RMF PHASE PAGES
+   RMF PHASE PAGES — SHARED SKELETON
 
-   Shared styles:
+   LOCATION:
+   css/phase/phase.css
+
+   Loaded after:
    ../../css/styles.css
-   css/rmf.css
+   ../rmf.css
 
-   This file contains ONLY phase-page styling.
+   This file contains ONLY styles shared across RMF phase pages:
+   - Phase hero
+   - Phase brief
+   - RMF lifecycle state
+   - Shared section structure
+   - Reusable activity timeline
+   - Reusable artifact grid
+   - Phase closeout
+   - Governing references
+   - Next-phase transition
+   - Shared responsive behavior
+
+   Phase-specific visuals belong in:
+   css/phase/<phase>-phase.css
    ========================================================================== */
 
 
@@ -1149,196 +1165,11 @@
 }
 
 
-
 /* ==========================================================================
-   06. PREPARE FOUNDATION
+   06. SHARED PHASE ACTIVITY TIMELINE
    ========================================================================== */
 
-.prepare-foundation {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(
-            4,
-            minmax(
-                0,
-                1fr
-            )
-        );
-
-    gap:
-        0.65rem;
-
-}
-
-
-.prepare-foundation article {
-
-    min-height:
-        220px;
-
-    padding:
-        1.1rem;
-
-    border:
-        1px solid
-        var(--rmf-line);
-
-    border-radius:
-        0.8rem;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(
-                76,
-                167,
-                255,
-                0.04
-            ),
-            rgba(
-                149,
-                108,
-                255,
-                0.025
-            ),
-            transparent
-        ),
-        var(--rmf-panel);
-
-}
-
-
-.prepare-foundation article > span {
-
-    color:
-        var(--blue-light);
-
-    font-family:
-        var(--font-mono);
-
-    font-size:
-        0.72rem;
-
-    font-weight:
-        800;
-
-}
-
-
-.prepare-foundation strong {
-
-    display:
-        block;
-
-    margin-top:
-        1.2rem;
-
-    color:
-        var(--text);
-
-    font-size:
-        1.05rem;
-
-}
-
-
-.prepare-foundation p {
-
-    margin:
-        0.55rem
-        0
-        0;
-
-    color:
-        var(--text-soft);
-
-    font-size:
-        0.9rem;
-
-    line-height:
-        1.65;
-
-}
-
-
-.prepare-outcome {
-
-    margin-top:
-        0.75rem;
-
-    padding:
-        1rem
-        1.1rem;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        150px
-        1fr;
-
-    align-items:
-        center;
-
-    gap:
-        1rem;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        0.7rem;
-
-    background:
-        var(--surface-soft);
-
-}
-
-
-.prepare-outcome span {
-
-    color:
-        var(--rmf-green);
-
-    font-family:
-        var(--font-mono);
-
-    font-size:
-        0.7rem;
-
-    font-weight:
-        800;
-
-}
-
-
-.prepare-outcome p {
-
-    margin:
-        0;
-
-    color:
-        var(--text-soft);
-
-    font-size:
-        0.92rem;
-
-    line-height:
-        1.6;
-
-}
-
-
-
-/* ==========================================================================
-   07. WORKING SESSION TIMELINE
-   ========================================================================== */
-
-.prepare-session-timeline {
+.phase-activity-timeline {
 
     position:
         relative;
@@ -1352,7 +1183,7 @@
 }
 
 
-.prepare-session-timeline::before {
+.phase-activity-timeline::before {
 
     content:
         "";
@@ -1385,7 +1216,7 @@
 }
 
 
-.prepare-session {
+.phase-activity {
 
     position:
         relative;
@@ -1412,7 +1243,7 @@
 }
 
 
-.prepare-session::before {
+.phase-activity::before {
 
     content:
         "";
@@ -1450,7 +1281,7 @@
 }
 
 
-.prepare-session__summary {
+.phase-activity__summary {
 
     width:
         100%;
@@ -1487,13 +1318,13 @@
 }
 
 
-.prepare-session__summary::-webkit-details-marker {
+.phase-activity__summary::-webkit-details-marker {
     display:
         none;
 }
 
 
-.prepare-session__number {
+.phase-activity__number {
 
     color:
         var(--blue-light);
@@ -1510,7 +1341,7 @@
 }
 
 
-.prepare-session__identity {
+.phase-activity__identity {
 
     display:
         grid;
@@ -1521,7 +1352,7 @@
 }
 
 
-.prepare-session__type {
+.phase-activity__type {
 
     color:
         var(--text-muted);
@@ -1535,7 +1366,7 @@
 }
 
 
-.prepare-session__identity strong {
+.phase-activity__identity strong {
 
     color:
         var(--text);
@@ -1546,7 +1377,7 @@
 }
 
 
-.prepare-session__toggle {
+.phase-activity__toggle {
 
     width:
         34px;
@@ -1576,8 +1407,8 @@
 }
 
 
-.prepare-session[open]
-.prepare-session__toggle {
+.phase-activity[open]
+.phase-activity__toggle {
 
     transform:
         rotate(
@@ -1587,7 +1418,7 @@
 }
 
 
-.prepare-session__body {
+.phase-activity__body {
 
     padding:
         0
@@ -1602,7 +1433,7 @@
 }
 
 
-.prepare-session__lead {
+.phase-activity__lead {
 
     margin:
         1rem
@@ -1620,7 +1451,7 @@
 }
 
 
-.prepare-session__details {
+.phase-activity__details {
 
     display:
         grid;
@@ -1640,7 +1471,7 @@
 }
 
 
-.prepare-session__detail {
+.phase-activity__detail {
 
     padding:
         0.85rem;
@@ -1658,7 +1489,7 @@
 }
 
 
-.prepare-session__detail span {
+.phase-activity__detail span {
 
     color:
         var(--blue-light);
@@ -1675,8 +1506,8 @@
 }
 
 
-.prepare-session__detail p,
-.prepare-session__detail li {
+.phase-activity__detail p,
+.phase-activity__detail li {
 
     color:
         var(--text-soft);
@@ -1690,7 +1521,7 @@
 }
 
 
-.prepare-session__detail p {
+.phase-activity__detail p {
 
     margin:
         0.45rem
@@ -1700,7 +1531,7 @@
 }
 
 
-.prepare-session__detail ul {
+.phase-activity__detail ul {
 
     margin:
         0.45rem
@@ -1713,7 +1544,7 @@
 }
 
 
-.prepare-session__detail li + li {
+.phase-activity__detail li + li {
 
     margin-top:
         0.25rem;
@@ -1723,10 +1554,10 @@
 
 
 /* ==========================================================================
-   08. ARTIFACT GRID
+   07. SHARED PHASE ARTIFACT GRID
    ========================================================================== */
 
-.prepare-artifact-grid {
+.phase-artifact-grid {
 
     display:
         grid;
@@ -1746,7 +1577,7 @@
 }
 
 
-.prepare-artifact {
+.phase-artifact {
 
     min-height:
         250px;
@@ -1793,7 +1624,7 @@
 }
 
 
-.prepare-artifact:hover {
+.phase-artifact:hover {
 
     transform:
         translateY(
@@ -1806,7 +1637,7 @@
 }
 
 
-.prepare-artifact__top {
+.phase-artifact__top {
 
     display:
         flex;
@@ -1823,7 +1654,7 @@
 }
 
 
-.prepare-artifact__type {
+.phase-artifact__type {
 
     color:
         var(--blue-light);
@@ -1840,7 +1671,7 @@
 }
 
 
-.prepare-artifact__status {
+.phase-artifact__status {
 
     padding:
         0.25rem
@@ -1868,7 +1699,7 @@
 }
 
 
-.prepare-artifact h3 {
+.phase-artifact h3 {
 
     margin:
         1.4rem
@@ -1884,7 +1715,7 @@
 }
 
 
-.prepare-artifact p {
+.phase-artifact p {
 
     margin:
         0.6rem
@@ -1903,7 +1734,7 @@
 }
 
 
-.prepare-artifact__footer {
+.phase-artifact__footer {
 
     margin-top:
         auto;
@@ -1939,7 +1770,7 @@
 }
 
 
-.prepare-artifact__footer strong {
+.phase-artifact__footer strong {
 
     color:
         var(--pink);
@@ -1949,7 +1780,7 @@
 
 
 /* ==========================================================================
-   09. PHASE CLOSEOUT
+   08. PHASE CLOSEOUT
    ========================================================================== */
 
 .phase-closeout-layout {
@@ -2338,32 +2169,305 @@
 }
 
 
-
 /* ==========================================================================
-   10. NEXT PHASE
+   09. PHASE ENDCAP
+
+   Shared closing layout used on every RMF phase page.
+
+   LEFT:
+   Governing references for the current phase.
+
+   RIGHT:
+   Transition to the next RMF phase.
    ========================================================================== */
 
-.phase-transition {
+.phase-endcap {
 
     padding:
-        2rem
+        1.5rem
         0
         var(--section-space);
 
 }
 
 
-.phase-transition__card {
+.phase-endcap__grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            0,
+            1.35fr
+        )
+        minmax(
+            330px,
+            0.65fr
+        );
+
+    align-items:
+        stretch;
+
+    gap:
+        1rem;
+
+}
+
+
+
+/* ==========================================================================
+   SHARED ENDCAP CARD
+   ========================================================================== */
+
+.phase-endcap__card {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
 
     min-height:
-        220px;
+        100%;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        1rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.035
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.025
+            ),
+            transparent
+        ),
+        var(--rmf-panel);
+
+}
+
+
+
+/* ==========================================================================
+   GOVERNING REFERENCES CARD
+   ========================================================================== */
+
+.phase-endcap__card--references {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+}
+
+
+.phase-endcap__references-heading {
 
     padding:
+        1.35rem
+        1.4rem
+        1.1rem;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.05
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.03
+            ),
+            transparent
+        );
+
+}
+
+
+.phase-endcap__references-heading > span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.74rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.06em;
+
+}
+
+
+.phase-endcap__references-heading h2 {
+
+    margin:
+        0.4rem
+        0
+        0;
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
         clamp(
-            1.5rem,
-            4vw,
+            1.8rem,
+            2.8vw,
             2.5rem
         );
+
+    line-height:
+        1.08;
+
+    letter-spacing:
+        -0.035em;
+
+}
+
+
+.phase-endcap__references-heading p {
+
+    max-width:
+        690px;
+
+    margin:
+        0.65rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+
+/* ==========================================================================
+   REFERENCE LIST
+
+   Compact records inside the larger references card.
+   ========================================================================== */
+
+.phase-reference-list {
+
+    padding:
+        0.8rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.55rem;
+
+}
+
+
+.phase-reference {
+
+    min-height:
+        104px;
+
+    padding:
+        0.85rem;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    gap:
+        0.65rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.7rem;
+
+    background:
+        var(--surface-soft);
+
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+
+}
+
+
+.phase-reference:hover {
+
+    transform:
+        translateY(
+            -2px
+        );
+
+    border-color:
+        var(--rmf-line-strong);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--surface-soft) 90%,
+            var(--purple) 10%
+        );
+
+}
+
+
+.phase-reference__top {
 
     display:
         flex;
@@ -2372,39 +2476,155 @@
         space-between;
 
     align-items:
-        center;
+        flex-start;
+
+    gap:
+        0.7rem;
+
+}
+
+
+.phase-reference__code {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
+
+    line-height:
+        1.4;
+
+}
+
+
+.phase-reference__arrow {
+
+    flex-shrink:
+        0;
+
+    color:
+        var(--pink);
+
+    font-size:
+        0.9rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.phase-reference strong {
+
+    display:
+        block;
+
+    color:
+        var(--text);
+
+    font-size:
+        0.91rem;
+
+    line-height:
+        1.35;
+
+}
+
+
+.phase-reference small {
+
+    display:
+        block;
+
+    margin-top:
+        0.25rem;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+    line-height:
+        1.4;
+
+}
+
+
+
+/* ==========================================================================
+   NEXT PHASE CARD
+   ========================================================================== */
+
+.phase-endcap__card--next {
+
+    min-height:
+        100%;
+
+    padding:
+        clamp(
+            1.5rem,
+            3vw,
+            2rem
+        );
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
 
     gap:
         2rem;
 
-    border:
-        1px solid
+    border-color:
         var(--rmf-line-strong);
-
-    border-radius:
-        1rem;
 
     background:
         radial-gradient(
-            circle at 85% 50%,
+            circle at 90% 15%,
+            rgba(
+                240,
+                84,
+                200,
+                0.09
+            ),
+            transparent 26%
+        ),
+        radial-gradient(
+            circle at 15% 85%,
             rgba(
                 149,
                 108,
                 255,
-                0.11
+                0.1
             ),
-            transparent 28%
+            transparent 36%
         ),
         var(--rmf-panel);
 
     transition:
         transform 180ms ease,
-        border-color 180ms ease;
+        border-color 180ms ease,
+        box-shadow 180ms ease;
 
 }
 
 
-.phase-transition__card:hover {
+.phase-endcap__card--next:hover {
 
     transform:
         translateY(
@@ -2416,21 +2636,37 @@
             149,
             108,
             255,
-            0.5
+            0.55
+        );
+
+    box-shadow:
+        0 22px 55px
+        rgba(
+            0,
+            0,
+            0,
+            0.12
         );
 
 }
 
 
-.phase-transition__card > div {
+.phase-endcap__next-content {
 
-    max-width:
-        760px;
+    display:
+        grid;
+
+    gap:
+        clamp(
+            3rem,
+            8vh,
+            7rem
+        );
 
 }
 
 
-.phase-transition__card span {
+.phase-endcap__eyebrow {
 
     color:
         var(--blue-light);
@@ -2439,41 +2675,51 @@
         var(--font-mono);
 
     font-size:
-        0.72rem;
+        0.74rem;
 
     font-weight:
         800;
 
+    letter-spacing:
+        0.05em;
+
 }
 
 
-.phase-transition__card h2 {
+.phase-endcap__card--next h2 {
 
     margin:
-        0.35rem
-        0
         0;
 
     color:
         var(--text);
 
+    font-family:
+        var(--font-heading);
+
     font-size:
         clamp(
-            2.5rem,
+            3rem,
             5vw,
-            4.5rem
+            5rem
         );
 
+    line-height:
+        0.95;
+
     letter-spacing:
-        -0.05em;
+        -0.055em;
 
 }
 
 
-.phase-transition__card p {
+.phase-endcap__card--next p {
+
+    max-width:
+        520px;
 
     margin:
-        0.6rem
+        1rem
         0
         0;
 
@@ -2484,18 +2730,116 @@
         0.95rem;
 
     line-height:
-        1.65;
+        1.7;
 
 }
 
 
-.phase-transition__card > strong {
+.phase-endcap__arrow {
+
+    align-self:
+        flex-end;
 
     color:
         var(--pink);
 
     font-size:
         2.5rem;
+
+    line-height:
+        1;
+
+    transition:
+        transform 180ms ease;
+
+}
+
+
+.phase-endcap__card--next:hover
+.phase-endcap__arrow {
+
+    transform:
+        translateX(
+            6px
+        );
+
+}
+
+
+
+/* ==========================================================================
+   PHASE ENDCAP — LIGHT THEME
+   ========================================================================== */
+
+html[data-theme="light"]
+.phase-endcap__card,
+html[data-theme="light"]
+.phase-reference {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.94
+        );
+
+}
+
+
+
+/* ==========================================================================
+   PHASE ENDCAP — RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1050px) {
+
+    .phase-endcap__grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .phase-endcap__card--next {
+
+        min-height:
+            320px;
+
+    }
+
+
+    .phase-endcap__next-content {
+
+        gap:
+            3rem;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .phase-reference-list {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .phase-endcap__card--next h2 {
+
+        font-size:
+            clamp(
+                3rem,
+                15vw,
+                4.5rem
+            );
+
+    }
 
 }
 
@@ -2508,11 +2852,9 @@
 html[data-theme="light"]
 .phase-brief,
 html[data-theme="light"]
-.prepare-foundation article,
+.phase-activity,
 html[data-theme="light"]
-.prepare-session,
-html[data-theme="light"]
-.prepare-artifact,
+.phase-artifact,
 html[data-theme="light"]
 .phase-decision-panel,
 html[data-theme="light"]
@@ -2529,8 +2871,6 @@ html[data-theme="light"]
         );
 
 }
-
-
 
 /* ==========================================================================
    12. RESPONSIVE
@@ -2554,21 +2894,7 @@ html[data-theme="light"]
     }
 
 
-    .prepare-foundation {
-
-        grid-template-columns:
-            repeat(
-                2,
-                minmax(
-                    0,
-                    1fr
-                )
-            );
-
-    }
-
-
-    .prepare-artifact-grid {
+    .phase-artifact-grid {
 
         grid-template-columns:
             repeat(
@@ -2590,7 +2916,6 @@ html[data-theme="light"]
     }
 
 }
-
 
 
 @media (max-width: 760px) {
@@ -2629,7 +2954,7 @@ html[data-theme="light"]
     }
 
 
-    .prepare-session__details {
+    .phase-activity__details {
 
         grid-template-columns:
             1fr;
@@ -2637,7 +2962,6 @@ html[data-theme="light"]
     }
 
 }
-
 
 
 @media (max-width: 640px) {
@@ -2707,8 +3031,7 @@ html[data-theme="light"]
     }
 
 
-    .prepare-foundation,
-    .prepare-artifact-grid {
+    .phase-artifact-grid {
 
         grid-template-columns:
             1fr;
@@ -2716,15 +3039,7 @@ html[data-theme="light"]
     }
 
 
-    .prepare-outcome {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .prepare-session-timeline::before {
+    .phase-activity-timeline::before {
 
         display:
             none;
@@ -2732,7 +3047,7 @@ html[data-theme="light"]
     }
 
 
-    .prepare-session {
+    .phase-activity {
 
         margin-left:
             0;
@@ -2740,7 +3055,7 @@ html[data-theme="light"]
     }
 
 
-    .prepare-session::before {
+    .phase-activity::before {
 
         display:
             none;
@@ -2748,7 +3063,7 @@ html[data-theme="light"]
     }
 
 
-    .prepare-session__summary {
+    .phase-activity__summary {
 
         grid-template-columns:
             38px
@@ -2758,7 +3073,7 @@ html[data-theme="light"]
     }
 
 
-    .prepare-session__body {
+    .phase-activity__body {
 
         padding:
             0

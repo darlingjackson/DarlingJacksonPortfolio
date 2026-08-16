@@ -329,29 +329,90 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-
     /* ========================================================
-       05. SMOOTH INTERNAL SCROLLING
-    ======================================================== */
+   05. SMOOTH INTERNAL SCROLLING
 
-    const internalLinks =
-        document.querySelectorAll(
-            'a[href^="#"]:not([href="#"])'
-        );
+   Works on every portfolio / lab page.
+
+   - Only handles links that point to sections on the
+     CURRENT page.
+   - Accounts for the sticky header.
+   - Keeps the URL hash updated.
+   - Closes the mobile navigation after selection.
+======================================================== */
+
+const internalLinks =
+    document.querySelectorAll(
+        'a[href^="#"]:not([href="#"])'
+    );
 
 
-    internalLinks.forEach((link) => {
+function getHeaderOffset() {
+
+    const headerHeight =
+        siteHeader
+            ? siteHeader.offsetHeight
+            : 0;
+
+    /*
+     * Small amount of breathing room underneath
+     * the fixed navigation.
+     */
+    return headerHeight + 24;
+}
+
+
+function scrollToSection(
+    target,
+    behavior = "smooth"
+) {
+
+    if (!target) {
+        return;
+    }
+
+
+    const targetPosition =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        getHeaderOffset();
+
+
+    window.scrollTo({
+
+        top:
+            Math.max(
+                targetPosition,
+                0
+            ),
+
+        behavior:
+            reduceMotion
+                ? "auto"
+                : behavior
+
+    });
+
+}
+
+
+internalLinks.forEach(
+    (link) => {
 
         link.addEventListener(
             "click",
             (event) => {
 
                 const selector =
-                    link.getAttribute("href");
+                    link.getAttribute(
+                        "href"
+                    );
 
 
-                if (!selector) {
+                if (
+                    !selector ||
+                    !selector.startsWith("#")
+                ) {
                     return;
                 }
 
@@ -370,14 +431,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.preventDefault();
 
 
-                target.scrollIntoView({
-                    behavior:
-                        reduceMotion
-                            ? "auto"
-                            : "smooth",
+                /*
+                 * Mark the selected navigation item
+                 * immediately instead of waiting for
+                 * the scroll event.
+                 */
+                setActiveNavigationLink(
+                    selector
+                );
 
-                    block: "start"
-                });
+
+                /*
+                 * Scroll while accounting for
+                 * the fixed header.
+                 */
+                scrollToSection(
+                    target
+                );
+
+
+                /*
+                 * Update the browser URL without
+                 * triggering another jump.
+                 */
+                history.replaceState(
+                    null,
+                    "",
+                    selector
+                );
 
 
                 closeMobileNavigation();
@@ -385,9 +466,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         );
 
-    });
-
-
+    }
+);
 
     /* ========================================================
        06. STICKY HEADER
@@ -450,84 +530,247 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    /* ========================================================
-       08. ACTIVE DESKTOP NAVIGATION
-    ======================================================== */
+/* ========================================================
+   08. ACTIVE PAGE NAVIGATION
+======================================================== */
 
-    const trackedSections = [
-        "home",
-        "projects",
-        "stack",
-        "development",
-        "experience"
+
+/* --------------------------------------------------------
+   Find internal desktop navigation links.
+--------------------------------------------------------- */
+
+const pageNavigationLinks =
+    [
+        ...document.querySelectorAll(
+            ".desktop-nav .nav-link"
+        )
     ]
-        .map((id) => {
-
-            return document.getElementById(
-                id
-            );
-
-        })
-        .filter(Boolean);
-
-
-    function updateActiveNavigation() {
-
-        if (
-            trackedSections.length === 0
-        ) {
-            return;
-        }
-
-
-        let currentId =
-            trackedSections[0].id;
-
-
-        const triggerPoint =
-            window.innerHeight * 0.32;
-
-
-        trackedSections.forEach(
-            (section) => {
-
-                const rect =
-                    section.getBoundingClientRect();
-
-
-                if (
-                    rect.top <=
-                    triggerPoint
-                ) {
-
-                    currentId =
-                        section.id;
-
-                }
-
-            }
-        );
-
-
-        navLinks.forEach(
-            (link) => {
+        .filter(
+            link => {
 
                 const href =
-                    link.getAttribute("href");
+                    link.getAttribute(
+                        "href"
+                    );
 
-
-                link.classList.toggle(
-                    "is-active",
-                    href ===
-                    `#${currentId}`
+                return (
+                    href &&
+                    href.startsWith("#") &&
+                    href !== "#"
                 );
 
             }
         );
 
+
+/* --------------------------------------------------------
+   Also collect internal mobile navigation links.
+--------------------------------------------------------- */
+
+const pageMobileNavigationLinks =
+    [
+        ...document.querySelectorAll(
+            '#mobileNavigation a[href^="#"]'
+        )
+    ];
+
+
+/* --------------------------------------------------------
+   Build the list of sections automatically from the
+   navigation links on THIS page.
+--------------------------------------------------------- */
+
+const trackedSections =
+    pageNavigationLinks
+        .map(
+            link => {
+
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if (!href) {
+                    return null;
+                }
+
+
+                try {
+
+                    return document.querySelector(
+                        href
+                    );
+
+                } catch {
+
+                    return null;
+
+                }
+
+            }
+        )
+        .filter(Boolean);
+
+
+
+/* --------------------------------------------------------
+   Set the active navigation item.
+--------------------------------------------------------- */
+
+function setActiveNavigationLink(
+    activeHref
+) {
+
+    pageNavigationLinks.forEach(
+        link => {
+
+            const isActive =
+                link.getAttribute(
+                    "href"
+                ) ===
+                activeHref;
+
+
+            link.classList.toggle(
+                "is-active",
+                isActive
+            );
+
+
+            if (isActive) {
+
+                link.setAttribute(
+                    "aria-current",
+                    "location"
+                );
+
+            } else {
+
+                link.removeAttribute(
+                    "aria-current"
+                );
+
+            }
+
+        }
+    );
+
+
+    pageMobileNavigationLinks.forEach(
+        link => {
+
+            const isActive =
+                link.getAttribute(
+                    "href"
+                ) ===
+                activeHref;
+
+
+            link.classList.toggle(
+                "is-active",
+                isActive
+            );
+
+
+            if (isActive) {
+
+                link.setAttribute(
+                    "aria-current",
+                    "location"
+                );
+
+            } else {
+
+                link.removeAttribute(
+                    "aria-current"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* --------------------------------------------------------
+   Determine which section is currently being viewed.
+--------------------------------------------------------- */
+
+function updateActiveNavigation() {
+
+    if (
+        trackedSections.length === 0
+    ) {
+        return;
     }
 
 
+    /*
+     * Use the header instead of a random percentage
+     * of the viewport.
+     */
+    const triggerPoint =
+        getHeaderOffset() +
+        45;
+
+
+    let currentSection =
+        trackedSections[0];
+
+
+    trackedSections.forEach(
+        section => {
+
+            const rect =
+                section.getBoundingClientRect();
+
+
+            if (
+                rect.top <=
+                triggerPoint
+            ) {
+
+                currentSection =
+                    section;
+
+            }
+
+        }
+    );
+
+
+    /*
+     * Special handling for the very bottom of the page.
+     * This ensures the last navigation item activates.
+     */
+    const reachedBottom =
+        window.innerHeight +
+        window.scrollY >=
+        document.documentElement.scrollHeight -
+        8;
+
+
+    if (
+        reachedBottom &&
+        trackedSections.length
+    ) {
+
+        currentSection =
+            trackedSections[
+                trackedSections.length - 1
+            ];
+
+    }
+
+
+    setActiveNavigationLink(
+        `#${currentSection.id}`
+    );
+
+}
 
     /* ========================================================
        09. ENGINEERING CONSOLE FOCUS TYPING

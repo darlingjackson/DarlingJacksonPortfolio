@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+
+    <!-- =========================================================
+         BLUE FOX DEFENSE
+         ENTERPRISE SECURITY COMPLIANCE LAB
+
+         RMF DOCUMENTATION
+         CATEGORIZE DOCUMENT LIBRARY
+
+         LOCATION:
+         labs/rmf/documentation/categorize-library.html
+    ========================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Categorize phase authorization records for the fictional Blue Fox Defense Foxhole Portal RMF case study."
+    >
+
+    <meta
+        name="author"
+        content="Darling Jackson"
+    >
+
+    <meta
+        id="themeColorMeta"
+        name="theme-color"
+        content="#070912"
+    >
+
+    <title>
+        Categorize Documentation | Enterprise Security Compliance Lab
+    </title>
+
+
+    <!-- =========================================================
+         FAVICON
+    ========================================================== -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/images/blue-fox-logo.png"
+    >
+
+
+    <!-- =========================================================
+         PREVENT THEME FLASH
+    ========================================================== -->
+
+    <script>
+
+        (() => {
+
+            const savedTheme =
+                localStorage.getItem(
+                    "portfolio-theme"
+                );
+
+            const prefersDark =
+                window.matchMedia(
+                    "(prefers-color-scheme: dark)"
+                ).matches;
+
+            document.documentElement.dataset.theme =
+                savedTheme ||
+                (
+                    prefersDark
+                        ? "dark"
+                        : "light"
+                );
+
+        })();
+
+    </script>
+
+
+    <!-- =========================================================
+         FONTS
+    ========================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+    >
+
+
+    <!-- =========================================================
+         STYLES
+
+         Main Portfolio
+             ↓
+         RMF Lab
+             ↓
+         RMF Phase
+             ↓
+         RMF Documentation
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../../../css/styles.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/rmf.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/phase.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/docs.css"
+    >
+
+</head>
+
+
+<body
+    class="rmf-lab-page rmf-phase-page rmf-document-page"
+    data-current-phase="categorize"
+    data-current-document="BFD-CAT-001"
+>
+
+
+    <!-- =========================================================
+         PAGE PROGRESS
+    ========================================================== -->
+
+    <div
+        class="page-progress"
+        aria-hidden="true"
+    >
+
+        <span
+            class="page-progress__bar"
+            id="pageProgressBar"
+        ></span>
+
+    </div>
+
+
+    <a
+        class="skip-link"
+        href="#documentViewer"
+    >
+        Skip to document viewer
+    </a>
+
+
+
+    <!-- =========================================================
+         SHARED PORTFOLIO HEADER
+    ========================================================== -->
+
+    <header
+        class="site-header"
+        id="siteHeader"
+    >
+
+        <div class="site-header__inner">
+
+
+            <!-- Brand -->
+
+            <a
+                class="brand rmf-brand"
+                href="../index.html"
+                aria-label="Blue Fox Defense Enterprise Security Compliance Lab"
+            >
+
+                <img
+                    class="brand__dogtags rmf-brand__logo"
+                    src="../assets/images/blue-fox-logo.png"
+                    alt=""
+                    aria-hidden="true"
+                >
+
+                <span class="brand__text">
+
+                    <strong>
+                        Blue Fox Defense
+                    </strong>
+
+                    <small>
+                        Enterprise Security Compliance Lab
+                    </small>
+
+                </span>
+
+            </a>
+
+
+
+            <!-- Desktop Navigation -->
+
+            <nav
+                class="desktop-nav"
+                aria-label="Categorize documentation navigation"
+            >
+
+                <a
+                    class="nav-link"
+                    href="../index.html"
+                >
+                    Lab
+                </a>
+
+
+                <a
+                    class="nav-link"
+                    href="../categorize.html"
+                >
+                    Categorize
+                </a>
+
+
+                <a
+                    class="nav-link is-active"
+                    href="#documentViewer"
+                >
+                    Documentation
+                </a>
+
+
+                <a
+                    class="nav-link"
+                    href="../categorize.html#phase-closeout"
+                >
+                    Closeout
+                </a>
+
+            </nav>
+
+
+
+            <!-- Header Actions -->
+
+            <div class="header-actions">
+
+
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Switch theme"
+                    title="Switch theme"
+                >
+
+                    <span
+                        class="theme-toggle__sun"
+                        aria-hidden="true"
+                    >
+                        ☀
+                    </span>
+
+                    <span
+                        class="theme-toggle__moon"
+                        aria-hidden="true"
+                    >
+                        ☾
+                    </span>
+
+                </button>
+
+
+                <a
+                    class="resume-button"
+                    href="../../../index.html"
+                >
+
+                    Portfolio
+
+                    <span aria-hidden="true">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                    aria-controls="mobileNavigation"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MOBILE NAVIGATION
+    ========================================================== -->
+
+    <nav
+        class="mobile-navigation"
+        id="mobileNavigation"
+        aria-label="Mobile Categorize documentation navigation"
+        aria-hidden="true"
+    >
+
+        <div class="mobile-navigation__inner">
+
+            <a href="../index.html">
+                RMF Lab
+            </a>
+
+            <a href="../categorize.html">
+                Categorize
+            </a>
+
+            <a href="#documentViewer">
+                Documentation
+            </a>
+
+            <a href="../categorize.html#phase-closeout">
+                Closeout
+            </a>
+
+            <a href="../../../index.html">
+                Portfolio
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main
+        id="mainContent"
+        tabindex="-1"
+    >
+
+
+        <!-- =====================================================
+             DOCUMENTATION HERO
+        ====================================================== -->
+
+        <section class="document-hero">
+
+
+            <div
+                class="document-hero__grid"
+                aria-hidden="true"
+            ></div>
+
+
+            <div
+                class="document-hero__glow document-hero__glow--blue"
+                aria-hidden="true"
+            ></div>
+
+
+            <div
+                class="document-hero__glow document-hero__glow--purple"
+                aria-hidden="true"
+            ></div>
+
+
+
+            <div class="container document-hero__container">
+
+
+                <div class="document-hero__content reveal">
+
+
+                    <!-- Breadcrumb -->
+
+                    <a
+                        class="phase-breadcrumb"
+                        href="../categorize.html"
+                    >
+
+                        Enterprise Security Compliance Lab
+
+                        <span>/</span>
+
+                        Categorize
+
+                        <span>/</span>
+
+                        Documentation
+
+                    </a>
+
+
+
+                    <!-- Hero Identity -->
+
+                    <div class="document-hero__identity">
+
+
+                        <div>
+
+                            <span>
+                                AUTHORIZATION RECORDS
+                            </span>
+
+
+                            <h1>
+
+                                Categorize
+
+                                <strong>
+                                    Documentation
+                                </strong>
+
+                                Library
+
+                            </h1>
+
+                        </div>
+
+
+                        <p>
+
+                            Review the records used to determine and document
+                            the Foxhole Portal security categorization. During
+                            this phase, the system description is reviewed and
+                            updated as needed, information types are analyzed
+                            for confidentiality, integrity, and availability
+                            impact, and the resulting security categorization
+                            is documented and approved.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Phase Context -->
+
+                    <div class="document-hero__meta">
+
+
+                        <div>
+
+                            <span>
+                                RMF PHASE
+                            </span>
+
+                            <strong>
+                                02 // Categorize
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                RECORD SET
+                            </span>
+
+                            <strong>
+                                05 Documents
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                SYSTEM
+                            </span>
+
+                            <strong>
+                                Foxhole Portal
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                ORGANIZATION
+                            </span>
+
+                            <strong>
+                                Blue Fox Defense
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RMF DOCUMENTATION LIFECYCLE
+
+             This navigation is intentionally different from the
+             main NIST RMF lifecycle navigation.
+
+             It represents the documentation repository for each
+             phase of the Blue Fox Defense case study.
+        ====================================================== -->
+
+        <section class="documentation-lifecycle">
+
+
+            <div class="container">
+
+
+                <div class="documentation-lifecycle__shell reveal">
+
+
+                    <!-- Heading -->
+
+                    <div class="documentation-lifecycle__heading">
+
+
+                        <div>
+
+                            <span>
+                                RMF LIFECYCLE // DOCUMENTATION
+                            </span>
+
+
+                            <h2>
+                                Categorize Documentation
+                            </h2>
+
+                        </div>
+
+
+                        <p>
+
+                            Move between the authorization record sets created
+                            throughout the RMF lifecycle. Each phase maintains
+                            its own documentation library.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         PHASE DOCUMENT LIBRARIES
+                    ========================================== -->
+
+                    <nav
+                        class="documentation-phase-nav"
+                        aria-label="RMF phase documentation libraries"
+                    >
+
+
+                        <!-- =====================================
+                             01 PREPARE
+                        ====================================== -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="prepare-library.html"
+                            data-document-phase="prepare"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    01
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Prepare
+                                </strong>
+
+                                <span>
+                                    08 Records
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- =====================================
+                             02 CATEGORIZE
+                        ====================================== -->
+
+                        <a
+                            class="documentation-phase-card is-current"
+                            href="categorize-library.html"
+                            data-document-phase="categorize"
+                            aria-current="page"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    02
+                                </span>
+
+                                <strong>
+                                    CURRENT LIBRARY
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Categorize
+                                </strong>
+
+                                <span>
+                                    05 Records
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- =====================================
+                             03 SELECT
+                        ====================================== -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="select-library.html"
+                            data-document-phase="select"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    03
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Select
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- =====================================
+                             04 IMPLEMENT
+                        ====================================== -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="implement-library.html"
+                            data-document-phase="implement"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    04
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Implement
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- =====================================
+                             05 ASSESS
+                        ====================================== -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="assess-library.html"
+                            data-document-phase="assess"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    05
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Assess
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- =====================================
+                             06 AUTHORIZE
+                        ====================================== -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="authorize-library.html"
+                            data-document-phase="authorize"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    06
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Authorize
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- =====================================
+                             07 MONITOR
+                        ====================================== -->
+
+                        <a
+                            class="documentation-phase-card"
+                            href="monitor-library.html"
+                            data-document-phase="monitor"
+                        >
+
+                            <div class="documentation-phase-card__header">
+
+                                <span>
+                                    07
+                                </span>
+
+                                <strong>
+                                    DOCUMENTS
+                                </strong>
+
+                            </div>
+
+
+                            <div
+                                class="documentation-phase-card__icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M3 6.5h6l2 2h10v10H3z"></path>
+
+                                    <path d="M3 8.5h18"></path>
+
+                                </svg>
+
+                            </div>
+
+
+                            <div class="documentation-phase-card__content">
+
+                                <strong>
+                                    Monitor
+                                </strong>
+
+                                <span>
+                                    Open Library
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+                    </nav>
+
+
+
+                    <!-- Current Documentation Set -->
+
+                    <div class="documentation-lifecycle__footer">
+
+
+                        <div>
+
+                            <span>
+                                ACTIVE RECORD SET
+                            </span>
+
+                            <strong>
+                                CATEGORIZE
+                            </strong>
+
+                        </div>
+
+
+                        <p>
+                            Phase 02 authorization records are currently loaded.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             DOCUMENT WORKSPACE
+        ====================================================== -->
+
+        <section
+            class="document-workspace"
+            id="documentViewer"
+        >
+
+            <div class="container document-workspace__layout">
+
+
+
+                <!-- =============================================
+                     CATEGORIZE DOCUMENT SIDEBAR
+                ============================================== -->
+
+                <aside
+                    class="document-sidebar reveal"
+                    aria-label="Categorize document library"
+                >
+
+
+                    <!-- Sidebar Heading -->
+
+                    <div class="document-sidebar__header">
+
+                        <span>
+                            CATEGORIZE // RECORD SET
+                        </span>
+
+
+                        <h2>
+                            Categorization Documents
+                        </h2>
+
+
+                        <p>
+                            Select an artifact to load it into the viewer.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         CATEGORIZE DOCUMENTS
+
+                         CAT-001
+                         System Description Review / Update
+
+                         CAT-002
+                         Information Type & CIA Impact Analysis
+
+                         CAT-003
+                         FIPS 199 Security Categorization Worksheet
+
+                         CAT-004
+                         Security Categorization Results
+
+                         CAT-005
+                         Security Categorization Approval Record
+                    ========================================== -->
+
+                    <nav
+                        class="document-library-nav"
+                        aria-label="Categorize authorization records"
+                    >
+
+
+                        <!-- =====================================
+                             001 SYSTEM DESCRIPTION
+                             C-1 // REVIEW / UPDATE
+
+                             This is a Categorize working record.
+
+                             The system description established earlier
+                             in the RMF lifecycle is reviewed here and
+                             updated if Categorize activities identify
+                             changes or additional information.
+                        ====================================== -->
+
+                        <button
+                            class="document-library-nav__link is-active"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-CAT-001"
+                            data-document-name="System Description Review / Update"
+                            data-document-type="Review / Update"
+                            data-document-src="pdfs/system-description-review-update.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                001
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    System Description Review / Update
+                                </strong>
+
+                                <small>
+                                    C-1 // Review / Update
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- =====================================
+                             002 INFORMATION TYPE + CIA ANALYSIS
+                             C-2 // IMPACT ANALYSIS
+                        ====================================== -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-CAT-002"
+                            data-document-name="Information Type & CIA Impact Analysis"
+                            data-document-type="Impact Analysis"
+                            data-document-src="pdfs/information-type-cia-impact-analysis.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                002
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    Information Type &amp; CIA Impact Analysis
+                                </strong>
+
+                                <small>
+                                    C-2 // Impact Analysis
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- =====================================
+                             003 FIPS 199 WORKSHEET
+                             C-2 // WORKING ARTIFACT
+                        ====================================== -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-CAT-003"
+                            data-document-name="FIPS 199 Security Categorization Worksheet"
+                            data-document-type="Categorization Worksheet"
+                            data-document-src="pdfs/fips-199-security-categorization-worksheet.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                003
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    FIPS 199 Security Categorization Worksheet
+                                </strong>
+
+                                <small>
+                                    C-2 // Working Artifact
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- =====================================
+                             004 SECURITY CATEGORIZATION RESULTS
+                             C-2 // CATEGORIZATION RESULT
+                        ====================================== -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-CAT-004"
+                            data-document-name="Security Categorization Results"
+                            data-document-type="Security Categorization"
+                            data-document-src="pdfs/security-categorization-results.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                004
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    Security Categorization Results
+                                </strong>
+
+                                <small>
+                                    C-2 // Categorization Result
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- =====================================
+                             005 SECURITY CATEGORIZATION APPROVAL
+                             C-3 // REVIEW & APPROVAL
+                        ====================================== -->
+
+                        <button
+                            class="document-library-nav__link"
+                            type="button"
+                            data-pdf-document
+                            data-document-id="BFD-CAT-005"
+                            data-document-name="Security Categorization Approval Record"
+                            data-document-type="Approval"
+                            data-document-src="pdfs/security-categorization-approval-record.pdf"
+                        >
+
+                            <span class="document-library-nav__number">
+                                005
+                            </span>
+
+
+                            <span class="document-library-nav__content">
+
+                                <strong>
+                                    Security Categorization Approval Record
+                                </strong>
+
+                                <small>
+                                    C-3 // Review &amp; Approval
+                                </small>
+
+                            </span>
+
+                        </button>
+
+
+                    </nav>
+
+
+
+                    <!-- Return to Phase -->
+
+                    <a
+                        class="document-sidebar__return"
+                        href="../categorize.html#categorize-deliverables"
+                    >
+
+                        <span aria-hidden="true">
+                            ←
+                        </span>
+
+                        Return to Categorize
+
+                    </a>
+
+                </aside>
+
+
+
+                <!-- =============================================
+                     PDF VIEWER
+                ============================================== -->
+
+                <section class="document-viewer reveal">
+
+
+                    <!-- Viewer Toolbar -->
+
+                    <header class="document-viewer__toolbar">
+
+
+                        <div class="document-viewer__identity">
+
+
+                            <span
+                                class="document-viewer__type"
+                                id="activeDocumentType"
+                            >
+                                REVIEW / UPDATE
+                            </span>
+
+
+                            <div>
+
+                                <h2 id="activeDocumentTitle">
+                                    System Description Review / Update
+                                </h2>
+
+
+                                <span
+                                    class="document-viewer__id"
+                                    id="activeDocumentId"
+                                >
+                                    BFD-CAT-001
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <a
+                            class="document-viewer__open"
+                            id="openDocument"
+                            href="pdfs/system-description-review-update.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            Open PDF
+
+                            <span aria-hidden="true">
+                                ↗
+                            </span>
+
+                        </a>
+
+                    </header>
+
+
+
+                    <!-- Viewer Context -->
+
+                    <div class="document-viewer__context">
+
+                        <span>
+                            BFD://FOXHOLE-PORTAL
+                        </span>
+
+                        <i></i>
+
+                        <span>
+                            RMF 02
+                        </span>
+
+                        <i></i>
+
+                        <span>
+                            CATEGORIZE RECORD
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- PDF Viewer -->
+
+                    <div class="document-viewer__frame-shell">
+
+
+                        <iframe
+                            class="document-viewer__frame"
+                            id="pdfFrame"
+                            src="pdfs/system-description-review-update.pdf"
+                            title="System Description Review and Update PDF"
+                        >
+
+                            <p>
+
+                                Your browser cannot display this PDF.
+
+                                <a href="pdfs/system-description-review-update.pdf">
+                                    Open System Description Review / Update.
+                                </a>
+
+                            </p>
+
+                        </iframe>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         DOCUMENT PAGINATION
+                    ========================================== -->
+
+                    <nav
+                        class="document-viewer__pagination"
+                        aria-label="Categorize document navigation"
+                    >
+
+
+                        <button
+                            class="document-pagination-button"
+                            id="previousDocument"
+                            type="button"
+                            disabled
+                        >
+
+                            <span>
+                                Previous Document
+                            </span>
+
+                            <strong id="previousDocumentName">
+                                —
+                            </strong>
+
+                        </button>
+
+
+
+                        <div class="document-viewer__position">
+
+                            <span>
+                                DOCUMENT
+                            </span>
+
+                            <strong id="documentPosition">
+                                01 / 05
+                            </strong>
+
+                        </div>
+
+
+
+                        <button
+                            class="document-pagination-button document-pagination-button--next"
+                            id="nextDocument"
+                            type="button"
+                        >
+
+                            <span>
+                                Next Document
+                            </span>
+
+                            <strong id="nextDocumentName">
+                                Information Type &amp; CIA Impact Analysis
+                            </strong>
+
+                        </button>
+
+
+                    </nav>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         SHARED PORTFOLIO FOOTER
+    ========================================================== -->
+
+    <footer
+        class="site-footer"
+        id="connect"
+    >
+
+        <div class="container">
+
+
+            <div class="footer-connect">
+
+
+                <div class="footer-connect__text">
+
+                    <p class="footer-connect__eyebrow">
+                        CONNECT
+                    </p>
+
+                    <h2>
+                        Find me online.
+                    </h2>
+
+                    <p class="footer-connect__subtext">
+                        GitHub projects, labs, and professional connections.
+                    </p>
+
+                </div>
+
+
+
+                <div class="footer-socials">
+
+
+                    <a
+                        class="footer-social-link"
+                        href="https://github.com/darlingjackson"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Visit Darling Jackson on GitHub"
+                    >
+
+                        <img
+                            src="../../../assets/icons/github.png"
+                            alt=""
+                        >
+
+                        <span>
+                            GitHub
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        class="footer-social-link"
+                        href="https://www.linkedin.com/in/darlingjackson/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Connect with Darling Jackson on LinkedIn"
+                    >
+
+                        <img
+                            src="../../../assets/icons/linkedin.png"
+                            alt=""
+                        >
+
+                        <span>
+                            LinkedIn
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        class="footer-social-link"
+                        href="mailto:darling.jackson1@outlook.com"
+                        aria-label="Send an email to Darling Jackson"
+                    >
+
+                        <img
+                            src="../../../assets/icons/email.png"
+                            alt=""
+                        >
+
+                        <span>
+                            Email
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="footer-divider"></div>
+
+
+
+            <div class="site-footer__bottom">
+
+
+                <div class="footer-brand">
+
+                    <img
+                        class="footer__dogtags rmf-footer-logo"
+                        src="../assets/images/blue-fox-logo.png"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <div>
+
+                        <strong>
+                            Blue Fox Defense
+                        </strong>
+
+                        <span>
+                            Enterprise Security Compliance Lab
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="footer-meta">
+
+                    <p>
+                        ©
+                        <span id="currentYear"></span>
+                        Darling Jackson
+                    </p>
+
+                    <span class="footer-meta__divider"></span>
+
+                    <p>
+                        Fictional Portfolio Case Study
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================== -->
+
+    <button
+        class="back-to-top"
+        id="backToTop"
+        type="button"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+
+         documentation.js
+         - Current documentation library
+         - PDF switching
+         - ?doc= direct document loading
+         - Previous / next records
+
+         script.js
+         - Header
+         - Theme
+         - Mobile navigation
+         - Page progress
+         - Active navigation
+         - Reveal animations
+         - Footer year
+         - Back to top
+    ========================================================== -->
+
+    <script src="../js/documentation.js"></script>
+
+    <script src="../../../js/script.js"></script>
+
+
+</body>
+
+</html>

@@ -115,9 +115,16 @@
         href="css/rmf.css"
     >
 
+    <!-- Shared skeleton for every RMF phase page -->
     <link
         rel="stylesheet"
-        href="css/phase.css"
+        href="css/phases/phase.css"
+    >
+
+    <!-- Prepare-only phase styling -->
+    <link
+        rel="stylesheet"
+        href="css/phases/prepare-phase.css"
     >
 
 </head>
@@ -221,14 +228,14 @@
 
                 <a
                     class="nav-link"
-                    href="#prepare-workflow"
+                    href="#phase-workflow"
                 >
                     Workflow
                 </a>
 
                 <a
                     class="nav-link"
-                    href="#prepare-deliverables"
+                    href="#phase-deliverables"
                 >
                     Documents
                 </a>
@@ -330,11 +337,11 @@
                 Prepare Overview
             </a>
 
-            <a href="#prepare-workflow">
+            <a href="#phase-workflow">
                 Working Sessions
             </a>
 
-            <a href="#prepare-deliverables">
+            <a href="#phase-deliverables">
                 Documentation
             </a>
 
@@ -441,13 +448,10 @@
 
                     <p class="phase-hero__summary">
 
-                        During Prepare, Blue Fox Defense organizes the Foxhole
-                        Portal authorization effort, identifies stakeholders,
-                        documents the system environment, establishes
-                        responsibilities, begins defining the authorization
-                        boundary, and identifies the information the system
-                        handles.
-
+                        During Prepare, Blue Fox Defense establishes the mission,
+                        stakeholder, asset, authorization boundary, information,
+                        risk, requirements, architecture, and registration context
+                        needed to support the Foxhole Portal authorization effort.
                     </p>
 
 
@@ -632,7 +636,7 @@
              IMPORTANT:
              This uses the SAME rmf.css lifecycle code as index.html.
 
-             phase.js automatically reads:
+             Shared phase.js automatically reads:
              body[data-current-phase]
 
              and highlights the correct phase.
@@ -979,6 +983,8 @@
                 <div class="prepare-foundation reveal">
 
 
+                    <!-- Mission + Stakeholders -->
+
                     <article>
 
                         <span>
@@ -986,17 +992,20 @@
                         </span>
 
                         <strong>
-                            Understand the System
+                            Establish Mission &amp; Stakeholders
                         </strong>
 
                         <p>
-                            Document the Foxhole Portal purpose, users,
-                            business processes, services, and operating
-                            environment.
+                            Define the business purpose of the Foxhole Portal
+                            and identify the stakeholders, owners, security
+                            personnel, and decision-makers supporting the
+                            authorization effort.
                         </p>
 
                     </article>
 
+
+                    <!-- Assets + Boundary -->
 
                     <article>
 
@@ -1005,16 +1014,19 @@
                         </span>
 
                         <strong>
-                            Identify Stakeholders
+                            Identify Assets &amp; Scope
                         </strong>
 
                         <p>
-                            Determine who owns, supports, secures,
-                            operates, and makes risk decisions for the system.
+                            Identify the system assets, major components,
+                            supporting services, interfaces, dependencies,
+                            and authorization boundary.
                         </p>
 
                     </article>
 
+
+                    <!-- Information + Risk -->
 
                     <article>
 
@@ -1023,17 +1035,19 @@
                         </span>
 
                         <strong>
-                            Establish Governance
+                            Understand Information &amp; Risk
                         </strong>
 
                         <p>
-                            Assign responsibilities and establish how the
-                            authorization team will manage security work
-                            and documentation.
+                            Identify the information handled by the system,
+                            understand its life cycle, evaluate initial risk,
+                            and establish security and privacy requirements.
                         </p>
 
                     </article>
 
+
+                    <!-- Architecture + Registration -->
 
                     <article>
 
@@ -1042,20 +1056,20 @@
                         </span>
 
                         <strong>
-                            Define the Scope
+                            Align Architecture &amp; Registration
                         </strong>
 
                         <p>
-                            Begin establishing the authorization boundary,
-                            system dependencies, interfaces, and included
-                            technology.
+                            Align the system with enterprise architecture,
+                            allocate requirements to the appropriate system
+                            components, and establish the system registration
+                            record.
                         </p>
 
                     </article>
 
+
                 </div>
-
-
 
                 <div class="prepare-outcome reveal">
 
@@ -1066,11 +1080,13 @@
 
 
                     <p>
-                        Blue Fox Defense leaves Prepare with an organized
-                        authorization effort, assigned responsibilities,
-                        documented system context, an initial authorization
-                        boundary, identified information types, and enough
-                        information to begin Categorize.
+                        Blue Fox Defense leaves Prepare with the Foxhole Portal
+                        authorization effort organized, key stakeholders and
+                        assets identified, the authorization boundary established,
+                        information types and life-cycle activities documented,
+                        initial risk and requirements recorded, architecture and
+                        requirement allocation understood, and the system
+                        registered for authorization tracking.
                     </p>
 
                 </div>
@@ -1087,7 +1103,7 @@
 
         <section
             class="phase-section phase-section--soft"
-            id="prepare-workflow"
+            id="phase-workflow"
         >
 
             <div class="container">
@@ -1121,11 +1137,11 @@
 
 
 
-                <!-- Rendered by phase.js -->
+                <!-- Rendered by prepare-phase.js using shared phase.js components -->
 
                 <div
-                    class="prepare-session-timeline"
-                    id="prepareSessions"
+                    class="phase-activity-timeline"
+                    id="phaseActivities"
                 ></div>
 
             </div>
@@ -1140,7 +1156,7 @@
 
         <section
             class="phase-section"
-            id="prepare-deliverables"
+            id="phase-deliverables"
         >
 
             <div class="container">
@@ -1155,7 +1171,7 @@
                     <div>
 
                         <span>
-                            PREPARE // AUTHORIZATION RECORD
+                            PREPARE // AUTHORIZATION RECORDS
                         </span>
 
                         <h2>
@@ -1163,8 +1179,8 @@
                         </h2>
 
                         <p>
-                            These records capture the decisions and context
-                            established during Prepare and become inputs to
+                            These records document the core system-level activities
+                            completed during Prepare and establish the inputs used by
                             the remaining authorization lifecycle.
                         </p>
 
@@ -1174,11 +1190,11 @@
 
 
 
-                <!-- Rendered by phase.js -->
+                <!-- Rendered by prepare-phase.js using shared phase.js components -->
 
                 <div
-                    class="prepare-artifact-grid"
-                    id="prepareArtifacts"
+                    class="phase-artifact-grid"
+                    id="phaseArtifacts"
                 ></div>
 
             </div>
@@ -1266,8 +1282,8 @@
                                 </thead>
 
 
-                                <tbody id="prepareDecisionLog">
-                                    <!-- Rendered by phase.js -->
+                                <tbody id="phaseDecisionLog">
+                                    <!-- Rendered by prepare-phase.js using shared phase.js components -->
                                 </tbody>
 
                             </table>
@@ -1300,53 +1316,66 @@
 
                         <p class="phase-exit-panel__intro">
 
-                            Prepare is ready to close when the team has
-                            sufficient system, stakeholder, governance,
-                            boundary, and information context to begin
-                            security categorization.
+                            Prepare is ready to close when the team has sufficient
+                            mission, stakeholder, asset, boundary, information, risk,
+                            requirements, architecture, and registration context to
+                            begin security categorization.
 
                         </p>
 
 
                         <ul class="phase-exit-checklist">
 
-                            <li>
-                                <span>✓</span>
-                                System purpose and mission documented
-                            </li>
 
-                            <li>
-                                <span>✓</span>
-                                Key stakeholders identified
-                            </li>
+                    <li>
+                        <span>✓</span>
+                        Mission and business context documented
+                    </li>
 
-                            <li>
-                                <span>✓</span>
-                                Security responsibilities assigned
-                            </li>
 
-                            <li>
-                                <span>✓</span>
-                                Initial system boundary established
-                            </li>
+                    <li>
+                        <span>✓</span>
+                        System stakeholders and responsibilities identified
+                    </li>
 
-                            <li>
-                                <span>✓</span>
-                                System dependencies identified
-                            </li>
 
-                            <li>
-                                <span>✓</span>
-                                Initial information types documented
-                            </li>
+                    <li>
+                        <span>✓</span>
+                        System assets identified
+                    </li>
 
-                            <li>
-                                <span>✓</span>
-                                Authorization strategy approved
-                            </li>
 
-                        </ul>
+                    <li>
+                        <span>✓</span>
+                        Authorization boundary established
+                    </li>
 
+
+                    <li>
+                        <span>✓</span>
+                        Information types and life cycle documented
+                    </li>
+
+
+                    <li>
+                        <span>✓</span>
+                        Initial risk and security requirements recorded
+                    </li>
+
+
+                    <li>
+                        <span>✓</span>
+                        Architecture and requirement allocation documented
+                    </li>
+
+
+                    <li>
+                        <span>✓</span>
+                        System registration completed
+                    </li>
+
+
+                </ul>
 
                         <div class="phase-exit-panel__status">
 
@@ -1369,53 +1398,110 @@
         </section>
 
 
-
         <!-- =====================================================
-             NEXT PHASE
+            PHASE CLOSING CARDS
         ====================================================== -->
 
-        <section class="phase-transition">
+        <section
+            class="phase-endcap"
+            aria-label="Prepare references and next RMF phase"
+        >
 
-            <div class="container">
+            <div class="container phase-endcap__grid">
 
+
+                <!-- =============================================
+                    GOVERNING REFERENCES
+                ============================================== -->
+
+                <section
+                    class="phase-endcap__card phase-endcap__card--references reveal"
+                    aria-labelledby="phaseReferencesTitle"
+                >
+
+
+                    <header class="phase-endcap__references-heading">
+
+                        <span>
+                            GOVERNING REFERENCES
+                        </span>
+
+                        <h2 id="phaseReferencesTitle">
+                            Standards used during Prepare.
+                        </h2>
+
+                        <p>
+                            RMF, risk, security, privacy, and DoD guidance
+                            used to structure the Prepare work in this
+                            fictional case study.
+                        </p>
+
+                    </header>
+
+
+                    <!-- Rendered by shared phase.js -->
+
+                    <div
+                        class="phase-reference-list"
+                        id="phaseReferences"
+                    ></div>
+
+
+                </section>
+
+
+
+                <!-- =============================================
+                    NEXT RMF PHASE
+                ============================================== -->
 
                 <a
-                    class="phase-transition__card reveal"
+                    class="phase-endcap__card phase-endcap__card--next reveal"
                     href="categorize.html"
                 >
 
 
-                    <div>
+                    <div class="phase-endcap__next-content">
 
-                        <span>
+                        <span class="phase-endcap__eyebrow">
                             NEXT RMF PHASE // 02
                         </span>
 
-                        <h2>
-                            Categorize
-                        </h2>
 
-                        <p>
-                            Use the system and information context established
-                            during Prepare to determine the potential impact
-                            of loss of confidentiality, integrity, and availability.
-                        </p>
+                        <div>
+
+                            <h2>
+                                Categorize
+                            </h2>
+
+                            <p>
+                                Use the system and information context
+                                established during Prepare to determine
+                                the potential impact of loss of
+                                confidentiality, integrity, and availability.
+                            </p>
+
+                        </div>
 
                     </div>
 
 
-                    <strong aria-hidden="true">
+                    <div
+                        class="phase-endcap__arrow"
+                        aria-hidden="true"
+                    >
                         →
-                    </strong>
+                    </div>
+
 
                 </a>
+
 
             </div>
 
         </section>
 
 
-    </main>
 
 
 
@@ -1593,11 +1679,19 @@
     <!-- =========================================================
          JAVASCRIPT
 
-         phase.js:
-         - Current RMF phase
-         - Working sessions
-         - Artifacts
-         - Decision log
+         js/phases/phase.js:
+         - Shared RMF phase highlighting
+         - Shared activity rendering
+         - Shared artifact rendering
+         - Shared decision-log rendering
+         - Shared governing-reference rendering
+         - Lifecycle keyboard navigation
+
+         js/phases/prepare-phase.js:
+         - Prepare working-session data
+         - Prepare authorization-record data
+         - Prepare decision data
+         - Prepare governing-reference data
 
          Main script.js:
          - Theme
@@ -1609,8 +1703,13 @@
          - Footer year
     ========================================================== -->
 
-    <script src="js/phase.js"></script>
+    <!-- Shared behavior used by every RMF phase -->
+    <script src="js/phases/phase.js"></script>
 
+    <!-- Prepare-only phase data -->
+    <script src="js/phases/prepare-phase.js"></script>
+
+    <!-- Shared portfolio behavior -->
     <script src="../../js/script.js"></script>
 
 

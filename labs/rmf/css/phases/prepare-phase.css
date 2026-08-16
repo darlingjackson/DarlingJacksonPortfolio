@@ -1,0 +1,261 @@
+/* ==========================================================================
+   BLUE FOX DEFENSE
+   PREPARE PHASE — PHASE-SPECIFIC STYLES
+
+   LOCATION:
+   css/phases/prepare-phase.css
+
+   Loaded after:
+   ../../css/styles.css
+   ../rmf.css
+   phase.css
+
+   Keep this file limited to visuals that are unique to Prepare.
+   Shared RMF phase structure belongs in phase.css.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. PREPARE PHASE OVERVIEW
+   ========================================================================== */
+
+.prepare-foundation {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.65rem;
+
+}
+
+
+.prepare-foundation article {
+
+    min-height:
+        220px;
+
+    padding:
+        1.1rem;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        0.8rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.04
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.025
+            ),
+            transparent
+        ),
+        var(--rmf-panel);
+
+}
+
+
+.prepare-foundation article > span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.prepare-foundation strong {
+
+    display:
+        block;
+
+    margin-top:
+        1.2rem;
+
+    color:
+        var(--text);
+
+    font-size:
+        1.05rem;
+
+}
+
+
+.prepare-foundation p {
+
+    margin:
+        0.55rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.65;
+
+}
+
+
+.prepare-outcome {
+
+    margin-top:
+        0.75rem;
+
+    padding:
+        1rem
+        1.1rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        150px
+        1fr;
+
+    align-items:
+        center;
+
+    gap:
+        1rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.7rem;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.prepare-outcome span {
+
+    color:
+        var(--rmf-green);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.prepare-outcome p {
+
+    margin:
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.92rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+
+
+
+/* ==========================================================================
+   02. PREPARE LIGHT THEME
+   ========================================================================== */
+
+html[data-theme="light"]
+.prepare-foundation article {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.93
+        );
+
+}
+
+
+/* ==========================================================================
+   03. PREPARE RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+
+    .prepare-foundation {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .prepare-foundation {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .prepare-outcome {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}

@@ -2213,3 +2213,461 @@ html[data-theme="light"]
     }
 
 }
+
+/* ==========================================================================
+   DOCUMENT LIBRARY READABILITY UPDATE
+
+   Increases the smallest labels and secondary text throughout
+   the RMF document libraries without changing the overall design.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. WORKSPACE WIDTH
+
+   Give the document library sidebar a little more room.
+   ========================================================================== */
+
+.document-workspace__layout {
+
+    grid-template-columns:
+        340px
+        minmax(0, 1fr);
+
+}
+
+
+
+/* ==========================================================================
+   02. SIDEBAR HEADER
+   ========================================================================== */
+
+.document-sidebar__header {
+
+    padding:
+        1.15rem
+        1rem;
+
+}
+
+
+.document-sidebar__header > span {
+
+    font-size:
+        0.76rem;
+
+    line-height:
+        1.4;
+
+    letter-spacing:
+        0.045em;
+
+}
+
+
+.document-sidebar__header h2 {
+
+    margin-top:
+        0.45rem;
+
+    font-size:
+        1.35rem;
+
+    line-height:
+        1.25;
+
+}
+
+
+.document-sidebar__header p {
+
+    margin-top:
+        0.5rem;
+
+    font-size:
+        0.92rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+
+/* ==========================================================================
+   03. DOCUMENT LIST
+   ========================================================================== */
+
+.document-library-nav__link {
+
+    min-height:
+        82px;
+
+    padding:
+        0.85rem
+        0.9rem;
+
+    grid-template-columns:
+        44px
+        1fr;
+
+    gap:
+        0.7rem;
+
+}
+
+
+
+/* Document Number */
+
+.document-library-nav__number {
+
+    font-size:
+        0.76rem;
+
+    line-height:
+        1.3;
+
+}
+
+
+
+/* Document Name */
+
+.document-library-nav__content strong {
+
+    font-size:
+        0.94rem;
+
+    line-height:
+        1.35;
+
+}
+
+
+
+/* Document Type */
+
+.document-library-nav__content small {
+
+    margin-top:
+        0.12rem;
+
+    font-size:
+        0.72rem;
+
+    line-height:
+        1.4;
+
+}
+
+
+
+/* ==========================================================================
+   04. RETURN TO PHASE
+   ========================================================================== */
+
+.document-sidebar__return {
+
+    min-height:
+        58px;
+
+    padding:
+        0
+        1rem;
+
+    font-size:
+        0.86rem;
+
+}
+
+
+
+/* ==========================================================================
+   05. VIEWER TOOLBAR
+   ========================================================================== */
+
+.document-viewer__toolbar {
+
+    min-height:
+        98px;
+
+    padding:
+        1.1rem
+        1.2rem;
+
+}
+
+
+
+/* GOVERNANCE / IMPACT ANALYSIS / APPROVAL */
+
+.document-viewer__type {
+
+    font-size:
+        0.76rem;
+
+    line-height:
+        1.3;
+
+    letter-spacing:
+        0.04em;
+
+}
+
+
+
+/* Main Document Title */
+
+.document-viewer__identity h2 {
+
+    font-size:
+        1.6rem;
+
+    line-height:
+        1.25;
+
+}
+
+
+
+/* BFD-PRE-001 / BFD-CAT-001 */
+
+.document-viewer__id {
+
+    font-size:
+        0.75rem;
+
+    line-height:
+        1.4;
+
+}
+
+
+
+/* Open PDF Button */
+
+.document-viewer__open {
+
+    min-height:
+        46px;
+
+    padding:
+        0
+        1rem;
+
+    font-size:
+        0.85rem;
+
+}
+
+
+
+/* ==========================================================================
+   06. VIEWER CONTEXT BAR
+
+   BFD://FOXHOLE-PORTAL  —  RMF 01  —  PREPARE RECORD
+   ========================================================================== */
+
+.document-viewer__context {
+
+    min-height:
+        48px;
+
+    padding:
+        0
+        1.1rem;
+
+    gap:
+        0.75rem;
+
+    font-size:
+        0.72rem;
+
+    line-height:
+        1.4;
+
+}
+
+
+.document-viewer__context i {
+
+    width:
+        32px;
+
+}
+
+
+
+/* ==========================================================================
+   07. DOCUMENT PAGINATION
+   ========================================================================== */
+
+.document-pagination-button span {
+
+    font-size:
+        0.7rem;
+
+}
+
+
+.document-pagination-button strong {
+
+    font-size:
+        0.88rem;
+
+    line-height:
+        1.35;
+
+}
+
+
+.document-viewer__position span {
+
+    font-size:
+        0.65rem;
+
+}
+
+
+.document-viewer__position strong {
+
+    font-size:
+        0.82rem;
+
+}
+
+
+
+/* ==========================================================================
+   08. DOCUMENTATION LIFECYCLE
+
+   Make the folder/navigation labels easier to read as well.
+   ========================================================================== */
+
+.documentation-lifecycle__heading span {
+
+    font-size:
+        0.8rem;
+
+}
+
+
+.documentation-lifecycle__heading > p {
+
+    font-size:
+        1rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+.documentation-phase-card__header > span {
+
+    font-size:
+        0.76rem;
+
+}
+
+
+.documentation-phase-card__header > strong {
+
+    font-size:
+        0.62rem;
+
+}
+
+
+.documentation-phase-card__content > strong {
+
+    font-size:
+        1rem;
+
+}
+
+
+.documentation-phase-card__content > span {
+
+    font-size:
+        0.72rem;
+
+}
+
+
+.documentation-lifecycle__footer span {
+
+    font-size:
+        0.7rem;
+
+}
+
+
+.documentation-lifecycle__footer strong {
+
+    font-size:
+        0.76rem;
+
+}
+
+
+.documentation-lifecycle__footer p {
+
+    font-size:
+        0.84rem;
+
+}
+
+
+
+/* ==========================================================================
+   09. MOBILE / TABLET
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+    .document-workspace__layout {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .document-library-nav__content strong {
+
+        font-size:
+            0.92rem;
+
+    }
+
+
+    .document-library-nav__content small {
+
+        font-size:
+            0.72rem;
+
+    }
+
+
+    .document-viewer__identity h2 {
+
+        font-size:
+            1.35rem;
+
+    }
+
+
+    .document-viewer__context {
+
+        font-size:
+            0.7rem;
+
+    }
+
+}
