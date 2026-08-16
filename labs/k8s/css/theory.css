@@ -537,6 +537,9 @@ html[data-theme="light"]
 .schematic-readout code {
     background:
         #0c1726;
+
+    color:
+        #67e8f9;
 }
 
 
@@ -3433,12 +3436,6 @@ html[data-theme="light"]
 }
 
 
-html[data-theme="light"]
-.schematic-readout code {
-    color:
-        #67e8f9;
-}
-
 /* ==========================================================================
    13. CONTAINERS VS. VIRTUAL MACHINES
    ========================================================================== */
@@ -5378,80 +5375,38 @@ button > i {
    WORKER NODE
    ========================================================================== */
 
-        .worker-node-system {
-            position: relative;
-
-            min-height: 286px;
-
-            padding: 0.8rem;
-
-            border:
-                1px solid
-                rgba(59, 130, 246, 0.42);
-
-            border-radius: 0.9rem;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(59, 130, 246, 0.055),
-                    transparent 32%
-                ),
-                color-mix(
-                    in srgb,
-                    var(--theory-panel) 82%,
-                    transparent
-                );
-
-            box-shadow:
-                0 0 24px
-                rgba(59, 130, 246, 0.07);
-        }
-
-        /* ==========================================================================
-   WORKER NODE VISUAL CLARITY
-   Slightly stronger Kubernetes-blue boundaries.
-   ========================================================================== */
-
 .worker-node-system {
-    border-color:
+    position: relative;
+
+    min-height: 286px;
+
+    padding: 0.8rem;
+
+    border:
+        1px solid
         rgba(59, 130, 246, 0.42);
-}
 
-
-.node-component,
-.node-interface {
-    border-color:
-        rgba(59, 130, 246, 0.28);
-}
-
-
-.node-component > span {
-    border-color:
-        rgba(59, 130, 246, 0.34);
+    border-radius: 0.9rem;
 
     background:
-        rgba(59, 130, 246, 0.055);
+        linear-gradient(
+            180deg,
+            rgba(59, 130, 246, 0.055),
+            transparent 32%
+        ),
+        color-mix(
+            in srgb,
+            var(--theory-panel) 82%,
+            transparent
+        );
 
-    color:
-        var(--cluster-cyan);
+    box-shadow:
+        0 0 24px
+        rgba(59, 130, 246, 0.07);
 }
 
 
-.worker-node-system::before {
-    border-top-color:
-        var(--cluster-cyan);
-
-    border-left-color:
-        var(--cluster-cyan);
-}
-
-
-.node-flow-arrow span {
-    opacity: 0.68;
-}
-
-/* cyan corner */
+/* Cyan corner */
 
 .worker-node-system::before {
     content: "";
@@ -5564,7 +5519,7 @@ button > i {
     gap: 0.65rem;
 
     border-color:
-        rgba(34, 211, 238, 0.14);
+        rgba(59, 130, 246, 0.28);
 
     border-radius: 0.65rem;
 
@@ -5607,12 +5562,12 @@ button > i {
 
     border:
         1px solid
-        rgba(34, 211, 238, 0.20);
+        rgba(59, 130, 246, 0.34);
 
     border-radius: 0.5rem;
 
     background:
-        rgba(34, 211, 238, 0.035);
+        rgba(59, 130, 246, 0.055);
 
     color:
         var(--cluster-cyan);
@@ -5693,7 +5648,7 @@ button > i {
             transparent
         );
 
-    opacity: 0.5;
+    opacity: 0.68;
 }
 
 
@@ -5731,7 +5686,7 @@ button > i {
     gap: 0.8rem;
 
     border-color:
-        rgba(34, 211, 238, 0.14);
+        rgba(59, 130, 246, 0.28);
 
     border-radius: 0.6rem;
 
@@ -6308,7 +6263,6 @@ html[data-theme="light"]
     background-color:
         rgba(255, 255, 255, 0.32);
 }
-
 
 
 /* ==========================================================================
@@ -8463,7 +8417,6 @@ html[data-theme="light"]
 }
 
 
-
 /* ==========================================================================
    18. AMAZON EKS ARCHITECTURE
 
@@ -8478,6 +8431,32 @@ html[data-theme="light"]
    Delivery:
    Developer → GitHub → CI/CD → ECR
    ========================================================================== */
+
+
+/* ==========================================================================
+   EKS TOOLBAR TYPOGRAPHY
+   ========================================================================== */
+
+.eks-topology
+.schematic-toolbar
+> div:first-child > span,
+.eks-topology
+.schematic-toolbar
+> span {
+    font-size:
+        0.74rem;
+}
+
+
+.eks-topology
+.schematic-toolbar
+> div:first-child > strong,
+.eks-topology
+.schematic-toolbar
+> strong {
+    font-size:
+        0.86rem;
+}
 
 
 /* ==========================================================================
@@ -8505,7 +8484,7 @@ html[data-theme="light"]
         var(--font-mono);
 
     font-size:
-        0.58rem;
+        0.68rem;
 
     font-weight:
         800;
@@ -8746,7 +8725,7 @@ html[data-theme="light"]
         var(--font-mono);
 
     font-size:
-        0.54rem;
+        0.65rem;
 
     font-weight:
         800;
@@ -8761,7 +8740,7 @@ html[data-theme="light"]
         var(--k8s-text);
 
     font-size:
-        0.75rem;
+        0.88rem;
 
     line-height:
         1.3;
@@ -8794,6 +8773,10 @@ html[data-theme="light"]
 
     opacity:
         0.75;
+
+    text-shadow:
+        0 0 6px
+        rgba(255, 153, 0, 0.35);
 
     animation:
         eksSignalPulse
@@ -8836,12 +8819,6 @@ html[data-theme="light"]
 
 
 /* Keep arrow above line */
-
-.eks-ingress > span {
-    text-shadow:
-        0 0 6px
-        rgba(255, 153, 0, 0.35);
-}
 
 
 /* ==========================================================================
@@ -9022,7 +8999,7 @@ html[data-theme="light"]
         var(--font-mono);
 
     font-size:
-        0.56rem;
+        0.67rem;
 
     font-weight:
         800;
@@ -9037,7 +9014,7 @@ html[data-theme="light"]
         var(--k8s-text);
 
     font-size:
-        0.78rem;
+        0.90rem;
 }
 
 
@@ -9049,7 +9026,7 @@ html[data-theme="light"]
         var(--font-mono);
 
     font-size:
-        0.6rem;
+        0.70rem;
 
     font-weight:
         700;
@@ -9162,7 +9139,7 @@ html[data-theme="light"]
         var(--font-mono);
 
     font-size:
-        0.55rem;
+        0.66rem;
 
     font-weight:
         800;
@@ -9174,7 +9151,7 @@ html[data-theme="light"]
         var(--k8s-text);
 
     font-size:
-        0.86rem;
+        1rem;
 }
 
 
@@ -9274,7 +9251,7 @@ html[data-theme="light"]
         var(--font-mono);
 
     font-size:
-        0.52rem;
+        0.64rem;
 
     font-weight:
         800;
@@ -9289,7 +9266,7 @@ html[data-theme="light"]
         var(--font-mono);
 
     font-size:
-        0.48rem;
+        0.60rem;
 }
 
 
@@ -9356,7 +9333,7 @@ html[data-theme="light"]
         var(--font-mono);
 
     font-size:
-        0.52rem;
+        0.64rem;
 
     font-weight:
         800;
@@ -9420,7 +9397,7 @@ button[data-aws="pod"] {
         var(--font-mono);
 
     font-size:
-        0.58rem;
+        0.70rem;
 
     font-weight:
         800;
@@ -9519,7 +9496,7 @@ button::before {
         var(--font-mono);
 
     font-size:
-        0.48rem;
+        0.61rem;
 
     font-weight:
         800;
@@ -9531,7 +9508,7 @@ button::before {
         var(--k8s-text);
 
     font-size:
-        0.67rem;
+        0.80rem;
 
     line-height:
         1.25;
@@ -9583,7 +9560,7 @@ button::before {
         var(--font-mono);
 
     font-size:
-        0.52rem;
+        0.62rem;
 
     font-weight:
         800;
@@ -9607,7 +9584,7 @@ button::before {
         var(--font-mono);
 
     font-size:
-        0.6rem;
+        0.72rem;
 
     font-weight:
         800;
@@ -9737,6 +9714,26 @@ button::before {
 .schematic-readout span {
     color:
         var(--theory-aws);
+
+    font-size:
+        0.72rem;
+}
+
+
+.eks-topology
+.schematic-readout strong {
+    font-size:
+        1rem;
+}
+
+
+.eks-topology
+.schematic-readout p {
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.65;
 }
 
 
@@ -10787,7 +10784,6 @@ html[data-theme="light"]
     }
 
 
-
     /* ----------------------------------------------------------------------
        Kubernetes Cluster — Purple Architecture
        ---------------------------------------------------------------------- */
@@ -11177,7 +11173,6 @@ html[data-theme="light"]
     }
 
 }
-
 
 
 /* ==========================================================================
@@ -11694,7 +11689,6 @@ html[data-theme="light"]
 }
 
 
-
 /* ==========================================================================
    24. REDUCED MOTION — THEORY ONLY
    ========================================================================== */
@@ -11747,3 +11741,4 @@ html[data-theme="light"]
         transition: none !important;
     }
 } 
+

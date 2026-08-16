@@ -1,0 +1,3325 @@
+/* ==========================================================================
+   BLUE FOX DEFENSE
+   ENTERPRISE SECURITY COMPLIANCE LAB
+   RMF LANDING PAGE — VERSION 3
+
+   This file intentionally uses the existing portfolio color language:
+   blue + purple + pink.
+
+   Shared shell:
+   ../../css/styles.css
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. PAGE TOKENS
+   ========================================================================== */
+
+body.rmf-lab-page {
+
+    --rmf-accent-blue:
+        var(--blue);
+
+    --rmf-accent-purple:
+        var(--purple);
+
+    --rmf-accent-pink:
+        var(--pink);
+
+    --rmf-cyan:
+        #63d7ff;
+
+    --rmf-green:
+        #5ee6a8;
+
+    --rmf-line:
+        color-mix(
+            in srgb,
+            var(--blue) 24%,
+            var(--border)
+        );
+
+    --rmf-line-strong:
+        color-mix(
+            in srgb,
+            var(--purple) 34%,
+            var(--border)
+        );
+
+    --rmf-panel:
+        color-mix(
+            in srgb,
+            var(--surface) 91%,
+            transparent
+        );
+
+    --rmf-grid:
+        rgba(
+            124,
+            141,
+            255,
+            0.045
+        );
+
+}
+
+
+/* ==========================================================================
+   02. SHARED SHELL
+   ========================================================================== */
+
+.rmf-lab-page main {
+    overflow:
+        clip;
+}
+
+
+.rmf-lab-page section[id] {
+    scroll-margin-top:
+        calc(
+            var(--header-height) +
+            1.8rem
+        );
+}
+
+
+.rmf-brand__logo {
+
+    width:
+        46px;
+
+    height:
+        46px;
+
+    object-fit:
+        contain;
+
+}
+
+
+.rmf-footer-logo {
+    object-fit:
+        contain;
+}
+
+
+/* ==========================================================================
+   03. HERO
+   ========================================================================== */
+
+.rmf-hero {
+
+    position:
+        relative;
+
+    min-height:
+        100svh;
+
+    padding:
+        calc(
+            var(--header-height) +
+            3.5rem
+        )
+        0
+        4.5rem;
+
+    overflow:
+        hidden;
+
+}
+
+
+.rmf-hero__grid {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background-image:
+        linear-gradient(
+            var(--rmf-grid) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            var(--rmf-grid) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        48px
+        48px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            #000 8%,
+            transparent 98%
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+.rmf-hero__glow {
+
+    position:
+        absolute;
+
+    width:
+        34rem;
+
+    height:
+        34rem;
+
+    border-radius:
+        50%;
+
+    filter:
+        blur(
+            95px
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+.rmf-hero__glow--blue {
+
+    top:
+        -5%;
+
+    right:
+        -8%;
+
+    background:
+        rgba(
+            76,
+            167,
+            255,
+            0.12
+        );
+
+}
+
+
+.rmf-hero__glow--purple {
+
+    top:
+        34%;
+
+    left:
+        35%;
+
+    background:
+        rgba(
+            149,
+            108,
+            255,
+            0.08
+        );
+
+}
+
+
+.rmf-hero__glow--pink {
+
+    bottom:
+        -14%;
+
+    left:
+        -10%;
+
+    background:
+        rgba(
+            240,
+            84,
+            200,
+            0.07
+        );
+
+}
+
+
+.rmf-hero__layout {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            0,
+            1.1fr
+        )
+        minmax(
+            400px,
+            0.9fr
+        );
+
+    align-items:
+        center;
+
+    gap:
+        clamp(
+            3rem,
+            7vw,
+            6rem
+        );
+
+}
+
+
+/* Hero Copy */
+
+.rmf-eyebrow {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.65rem;
+
+    margin-bottom:
+        1.1rem;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.8rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.06em;
+
+}
+
+
+.rmf-eyebrow i {
+
+    width:
+        36px;
+
+    height:
+        1px;
+
+    background:
+        var(--gradient-brand);
+
+}
+
+
+.rmf-live-dot {
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--rmf-green);
+
+    box-shadow:
+        0 0 14px
+        rgba(
+            94,
+            230,
+            168,
+            0.55
+        );
+
+}
+
+
+.rmf-hero__title {
+
+    margin:
+        0;
+
+    max-width:
+        780px;
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            4rem,
+            7vw,
+            7rem
+        );
+
+    font-weight:
+        600;
+
+    line-height:
+        0.92;
+
+    letter-spacing:
+        -0.06em;
+
+}
+
+
+.rmf-gradient-text {
+
+    display:
+        block;
+
+    color:
+        transparent;
+
+    background:
+        var(--gradient-brand);
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+}
+
+
+.rmf-hero__description {
+
+    max-width:
+        690px;
+
+    margin:
+        1.55rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        1.1rem;
+
+    line-height:
+        1.78;
+
+}
+
+
+.rmf-hero__actions {
+
+    margin-top:
+        2rem;
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.8rem;
+
+}
+
+
+.rmf-hero__note {
+
+    margin:
+        1.5rem
+        0
+        0;
+
+    padding-top:
+        1rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        auto
+        1fr;
+
+    gap:
+        0.75rem;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+.rmf-hero__note span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+/* ==========================================================================
+   04. HERO MISSION CARD
+   ========================================================================== */
+
+.rmf-mission-card {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--rmf-line-strong);
+
+    border-radius:
+        1.15rem;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(
+                149,
+                108,
+                255,
+                0.10
+            ),
+            transparent 42%
+        ),
+        var(--rmf-panel);
+
+    box-shadow:
+        0 30px 80px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+
+}
+
+
+.rmf-mission-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        8%;
+
+    width:
+        84%;
+
+    height:
+        2px;
+
+    background:
+        var(--gradient-brand);
+
+}
+
+
+/* Window Top */
+
+.rmf-mission-card__top {
+
+    min-height:
+        58px;
+
+    padding:
+        0
+        1rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        auto
+        1fr
+        auto;
+
+    align-items:
+        center;
+
+    gap:
+        0.9rem;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--page-alt) 78%,
+            transparent
+        );
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+}
+
+
+.rmf-window-dots {
+
+    display:
+        flex;
+
+    gap:
+        0.3rem;
+
+}
+
+
+.rmf-window-dots i {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+}
+
+
+.rmf-window-dots i:nth-child(1) {
+    background:
+        var(--blue);
+}
+
+
+.rmf-window-dots i:nth-child(2) {
+    background:
+        var(--purple);
+}
+
+
+.rmf-window-dots i:nth-child(3) {
+    background:
+        var(--pink);
+}
+
+
+.rmf-mission-card__top > span {
+    color:
+        var(--text-muted);
+}
+
+
+.rmf-mission-card__top > strong {
+
+    color:
+        var(--rmf-green);
+
+    font-size:
+        0.68rem;
+
+}
+
+
+/* Visual */
+
+.rmf-mission-card__visual {
+
+    position:
+        relative;
+
+    min-height:
+        290px;
+
+    padding:
+        1.5rem;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    align-content:
+        center;
+
+    text-align:
+        center;
+
+    overflow:
+        hidden;
+
+}
+
+
+.rmf-mission-card__orbit {
+
+    position:
+        absolute;
+
+    border:
+        1px solid
+        rgba(
+            149,
+            108,
+            255,
+            0.20
+        );
+
+    border-radius:
+        50%;
+
+}
+
+
+.rmf-mission-card__orbit--one {
+
+    width:
+        230px;
+
+    height:
+        230px;
+
+}
+
+
+.rmf-mission-card__orbit--two {
+
+    width:
+        300px;
+
+    height:
+        300px;
+
+    border-color:
+        rgba(
+            76,
+            167,
+            255,
+            0.10
+        );
+
+}
+
+
+.rmf-mission-card__logo-shell {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        120px;
+
+    height:
+        120px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        rgba(
+            149,
+            108,
+            255,
+            0.24
+        );
+
+    border-radius:
+        1.2rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.08
+            ),
+            rgba(
+                240,
+                84,
+                200,
+                0.04
+            )
+        );
+
+    box-shadow:
+        0 0 45px
+        rgba(
+            149,
+            108,
+            255,
+            0.12
+        );
+
+}
+
+
+.rmf-mission-card__logo-shell img {
+
+    width:
+        94px;
+
+    height:
+        94px;
+
+    object-fit:
+        contain;
+
+}
+
+
+.rmf-mission-card__visual > span,
+.rmf-mission-card__visual > strong,
+.rmf-mission-card__visual > small {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+}
+
+
+.rmf-mission-card__visual > span {
+
+    margin-top:
+        1rem;
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.74rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-mission-card__visual > strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        1.55rem;
+
+}
+
+
+.rmf-mission-card__visual > small {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.85rem;
+
+}
+
+
+/* Detail Grid */
+
+.rmf-mission-card__details {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    border-top:
+        1px solid
+        var(--border);
+
+}
+
+
+.rmf-mission-card__details > div {
+
+    min-height:
+        88px;
+
+    padding:
+        0.95rem;
+
+    display:
+        grid;
+
+    align-content:
+        center;
+
+    gap:
+        0.25rem;
+
+}
+
+
+.rmf-mission-card__details > div:nth-child(odd) {
+
+    border-right:
+        1px solid
+        var(--border);
+
+}
+
+
+.rmf-mission-card__details > div:nth-child(-n + 2) {
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.rmf-mission-card__details span {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.7rem;
+
+}
+
+
+.rmf-mission-card__details strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        0.9rem;
+
+}
+
+
+.rmf-status-active {
+    color:
+        var(--rmf-green)
+        !important;
+}
+
+
+.rmf-mission-card__footer {
+
+    min-height:
+        48px;
+
+    padding:
+        0
+        1rem;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        0.7rem;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+}
+
+
+.rmf-mission-card__footer i {
+
+    width:
+        34px;
+
+    height:
+        1px;
+
+    background:
+        var(--gradient-brand);
+
+}
+
+/* ==========================================================================
+   05. RMF LIFECYCLE NAVIGATION
+   ========================================================================== */
+
+
+/* Main Shell */
+
+.rmf-lifecycle-shell {
+
+    position:
+        relative;
+
+    z-index:
+        3;
+
+    margin-top:
+        3rem;
+
+    padding:
+        clamp(
+            1.5rem,
+            3vw,
+            2rem
+        );
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--rmf-line-strong);
+
+    border-radius:
+        1.1rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(76, 167, 255, 0.025),
+            rgba(149, 108, 255, 0.025),
+            rgba(240, 84, 200, 0.018)
+        ),
+        color-mix(
+            in srgb,
+            var(--surface) 94%,
+            transparent
+        );
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.10);
+
+}
+
+
+/* Accent Line */
+
+.rmf-lifecycle-shell::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        8%;
+
+    width:
+        84%;
+
+    height:
+        2px;
+
+    background:
+        var(--gradient-brand);
+
+}
+
+
+
+/* ==========================================================================
+   LIFECYCLE HEADING
+   ========================================================================== */
+
+.rmf-lifecycle-shell__heading {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(320px, 0.65fr);
+
+    align-items:
+        end;
+
+    gap:
+        clamp(
+            1.5rem,
+            4vw,
+            4rem
+        );
+
+}
+
+
+.rmf-lifecycle-shell__heading span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.07em;
+
+}
+
+
+.rmf-lifecycle-shell__heading h2 {
+
+    margin:
+        0.35rem
+        0
+        0;
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            2.25rem,
+            4vw,
+            3.5rem
+        );
+
+    font-weight:
+        600;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -0.045em;
+
+}
+
+
+.rmf-lifecycle-shell__heading p {
+
+    margin:
+        0;
+
+    max-width:
+        500px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        1rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+
+/* ==========================================================================
+   LIFECYCLE TRACK
+   ========================================================================== */
+
+.rmf-lifecycle-track {
+
+    position:
+        relative;
+
+    margin-top:
+        2rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            7,
+            minmax(125px, 1fr)
+        );
+
+    gap:
+        0;
+
+    overflow-x:
+        auto;
+
+    padding:
+        0.25rem
+        0
+        0.75rem;
+
+}
+
+
+
+/* Connection Line */
+
+.rmf-lifecycle-line {
+
+    position:
+        absolute;
+
+    top:
+        54px;
+
+    left:
+        7%;
+
+    right:
+        7%;
+
+    height:
+        2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--purple),
+            var(--pink)
+        );
+
+    opacity:
+        0.55;
+
+}
+
+
+
+/* ==========================================================================
+   INDIVIDUAL PHASE
+   ========================================================================== */
+
+.rmf-phase-node {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    min-width:
+        125px;
+
+    padding:
+        0.25rem
+        0.6rem
+        0.8rem;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    text-align:
+        center;
+
+    border-radius:
+        0.75rem;
+
+    transition:
+        background 180ms ease,
+        transform 180ms ease,
+        box-shadow 180ms ease;
+
+}
+
+
+.rmf-phase-node:hover {
+
+    transform:
+        translateY(-4px);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(76, 167, 255, 0.055),
+            rgba(149, 108, 255, 0.035),
+            transparent
+        );
+
+}
+
+
+.rmf-phase-node:focus-visible {
+
+    outline:
+        2px solid
+        var(--purple);
+
+    outline-offset:
+        3px;
+
+}
+
+
+
+/* ==========================================================================
+   NUMBER + NODE
+   ========================================================================== */
+
+.rmf-phase-node__top {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+}
+
+
+.rmf-phase-node__number {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-phase-node__marker {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    margin-top:
+        0.65rem;
+
+    display:
+        block;
+
+    border:
+        6px solid
+        var(--surface);
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--purple),
+            var(--pink)
+        );
+
+    box-shadow:
+        0 0 0 1px
+        rgba(149, 108, 255, 0.28),
+        0 0 20px
+        rgba(149, 108, 255, 0.16);
+
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease;
+
+}
+
+
+.rmf-phase-node:hover
+.rmf-phase-node__marker {
+
+    transform:
+        scale(1.12);
+
+    box-shadow:
+        0 0 0 1px
+        rgba(149, 108, 255, 0.48),
+        0 0 28px
+        rgba(149, 108, 255, 0.28);
+
+}
+
+
+
+/* ==========================================================================
+   PHASE TEXT
+   ========================================================================== */
+
+.rmf-phase-node strong {
+
+    margin-top:
+        0.75rem;
+
+    color:
+        var(--text);
+
+    font-size:
+        1rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.rmf-phase-node small {
+
+    margin-top:
+        0.2rem;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.7rem;
+
+    line-height:
+        1.4;
+
+}
+
+
+
+/* ==========================================================================
+   LIFECYCLE FOOTER
+   ========================================================================== */
+
+.rmf-lifecycle-shell__footer {
+
+    margin-top:
+        0.75rem;
+
+    padding-top:
+        0.9rem;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        0.75rem;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.rmf-lifecycle-shell__footer i {
+
+    width:
+        clamp(
+            28px,
+            5vw,
+            65px
+        );
+
+    height:
+        1px;
+
+    background:
+        var(--gradient-brand);
+
+}
+
+
+
+/* ==========================================================================
+   TABLET
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+    .rmf-lifecycle-shell__heading {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0.75rem;
+
+    }
+
+
+    .rmf-lifecycle-shell__heading p {
+
+        max-width:
+            700px;
+
+    }
+
+}
+
+
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
+@media (max-width: 640px) {
+
+    .rmf-lifecycle-shell {
+
+        padding:
+            1.1rem;
+
+    }
+
+
+    .rmf-lifecycle-track {
+
+        grid-template-columns:
+            repeat(
+                7,
+                145px
+            );
+
+    }
+
+
+    .rmf-phase-node {
+
+        min-width:
+            145px;
+
+    }
+
+
+    .rmf-lifecycle-shell__footer {
+
+        justify-content:
+            flex-start;
+
+        overflow-x:
+            auto;
+
+        white-space:
+            nowrap;
+
+    }
+
+}
+
+
+/* ==========================================================================
+   06. SHARED SECTIONS
+   ========================================================================== */
+
+.rmf-section {
+
+    padding:
+        var(--section-space)
+        0;
+
+}
+
+
+.rmf-section--soft {
+
+    border-top:
+        1px solid
+        var(--border);
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--page-alt) 76%,
+            transparent
+        );
+
+}
+
+
+.rmf-section-heading {
+
+    margin-bottom:
+        2rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        60px
+        1fr;
+
+    gap:
+        1rem;
+
+    align-items:
+        start;
+
+}
+
+
+.rmf-section-heading > span {
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        0.65rem;
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.9rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-section-heading p {
+
+    margin:
+        0;
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.06em;
+
+}
+
+
+.rmf-section-heading h2 {
+
+    margin:
+        0.35rem
+        0
+        0;
+
+    max-width:
+        900px;
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            2.25rem,
+            4vw,
+            3.8rem
+        );
+
+    letter-spacing:
+        -0.045em;
+
+}
+
+
+/* ==========================================================================
+   07. SCENARIO
+   ========================================================================== */
+
+.rmf-scenario-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        1rem;
+
+}
+
+
+.rmf-scenario-card {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    padding:
+        1.5rem;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        0.95rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.045
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.03
+            ),
+            transparent 70%
+        ),
+        var(--rmf-panel);
+
+}
+
+
+.rmf-scenario-card--system {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                149,
+                108,
+                255,
+                0.05
+            ),
+            rgba(
+                240,
+                84,
+                200,
+                0.025
+            ),
+            transparent 70%
+        ),
+        var(--rmf-panel);
+
+}
+
+
+.rmf-scenario-card__top {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        70px
+        1fr;
+
+    align-items:
+        center;
+
+    gap:
+        1rem;
+
+}
+
+
+.rmf-scenario-card__top img {
+
+    width:
+        64px;
+
+    height:
+        64px;
+
+    object-fit:
+        contain;
+
+}
+
+
+.rmf-system-icon {
+
+    width:
+        64px;
+
+    height:
+        64px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        0.85rem;
+
+    color:
+        var(--purple);
+
+    background:
+        rgba(
+            149,
+            108,
+            255,
+            0.05
+        );
+
+}
+
+
+.rmf-system-icon svg {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    fill:
+        none;
+
+    stroke:
+        currentColor;
+
+    stroke-width:
+        1.5;
+
+}
+
+
+.rmf-scenario-card__top span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-scenario-card h3 {
+
+    margin:
+        0.25rem
+        0
+        0;
+
+    color:
+        var(--text);
+
+    font-size:
+        1.45rem;
+
+}
+
+
+.rmf-scenario-card > p {
+
+    margin:
+        1.2rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        1rem;
+
+    line-height:
+        1.75;
+
+}
+
+
+.rmf-scenario-card__tags {
+
+    margin-top:
+        1.15rem;
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.45rem;
+
+}
+
+
+.rmf-scenario-card__tags span {
+
+    padding:
+        0.35rem
+        0.55rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        999px;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+}
+
+
+.rmf-fiction-banner {
+
+    margin:
+        1rem
+        0
+        0;
+
+    padding:
+        0.95rem
+        1rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.7rem;
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+.rmf-fiction-banner strong {
+    color:
+        var(--text);
+}
+
+
+/* ==========================================================================
+   08. SOP
+   ========================================================================== */
+
+.rmf-sop-layout {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            0,
+            1.15fr
+        )
+        minmax(
+            360px,
+            0.85fr
+        );
+
+    gap:
+        1rem;
+
+}
+
+
+.rmf-sop-document,
+.rmf-operating-model {
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        0.9rem;
+
+    background:
+        var(--rmf-panel);
+
+}
+
+
+.rmf-sop-document__header {
+
+    min-height:
+        76px;
+
+    padding:
+        1rem;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        1rem;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.055
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.04
+            )
+        );
+
+}
+
+
+.rmf-sop-document__header > div {
+
+    display:
+        grid;
+
+    gap:
+        0.1rem;
+
+}
+
+
+.rmf-sop-document__header span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-sop-document__header strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        1.15rem;
+
+}
+
+
+.rmf-sop-document__header small {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+}
+
+
+.rmf-sop-document__section {
+
+    padding:
+        1rem;
+
+}
+
+
+.rmf-sop-document__section + .rmf-sop-document__section {
+
+    border-top:
+        1px solid
+        var(--border);
+
+}
+
+
+.rmf-sop-document__section span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.74rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-sop-document__section p {
+
+    margin:
+        0.55rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.98rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* Operating Model */
+
+.rmf-operating-model {
+
+    padding:
+        1.2rem;
+
+}
+
+
+.rmf-operating-model > span {
+
+    color:
+        var(--pink);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.74rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-operating-model h3 {
+
+    margin:
+        0.4rem
+        0
+        1rem;
+
+    color:
+        var(--text);
+
+    font-size:
+        1.55rem;
+
+    line-height:
+        1.3;
+
+}
+
+
+.rmf-operating-model__flow {
+
+    display:
+        grid;
+
+    gap:
+        0.65rem;
+
+}
+
+
+.rmf-operating-model__flow > div {
+
+    min-height:
+        100px;
+
+    padding:
+        0.85rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        34px
+        1fr;
+
+    align-items:
+        start;
+
+    column-gap:
+        0.7rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.65rem;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.rmf-operating-model__flow i {
+
+    grid-row:
+        1 / span 2;
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--purple),
+            var(--pink)
+        );
+
+    color:
+        white;
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.66rem;
+
+    font-style:
+        normal;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-operating-model__flow strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        0.9rem;
+
+}
+
+
+.rmf-operating-model__flow p {
+
+    margin:
+        0.25rem
+        0
+        0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.82rem;
+
+    line-height:
+        1.55;
+
+}
+
+
+/* ==========================================================================
+   09. ROLES
+   ========================================================================== */
+
+.rmf-role-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            5,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.65rem;
+
+}
+
+
+.rmf-role-grid article {
+
+    min-height:
+        220px;
+
+    padding:
+        1rem;
+
+    display:
+        grid;
+
+    align-content:
+        start;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        0.8rem;
+
+    background:
+        var(--rmf-panel);
+
+}
+
+
+.rmf-role-grid span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-role-grid strong {
+
+    margin-top:
+        1rem;
+
+    color:
+        var(--text);
+
+    font-size:
+        1rem;
+
+}
+
+
+.rmf-role-grid p {
+
+    margin:
+        0.55rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* ==========================================================================
+   10. PROCEDURE TABLE
+   ========================================================================== */
+
+.rmf-procedure-table {
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        0.9rem;
+
+    background:
+        var(--rmf-panel);
+
+}
+
+
+.rmf-procedure-table__head,
+.rmf-procedure-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            150px,
+            0.55fr
+        )
+        minmax(
+            0,
+            1.4fr
+        )
+        minmax(
+            0,
+            1.15fr
+        )
+        44px;
+
+    gap:
+        1rem;
+
+    align-items:
+        center;
+
+}
+
+
+.rmf-procedure-table__head {
+
+    min-height:
+        52px;
+
+    padding:
+        0
+        1rem;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.05
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.035
+            )
+        );
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-procedure-row {
+
+    min-height:
+        124px;
+
+    padding:
+        1rem;
+
+    transition:
+        background 180ms ease;
+
+}
+
+
+.rmf-procedure-row + .rmf-procedure-row {
+
+    border-top:
+        1px solid
+        var(--border);
+
+}
+
+
+.rmf-procedure-row:hover {
+
+    background:
+        rgba(
+            149,
+            108,
+            255,
+            0.035
+        );
+
+}
+
+
+.rmf-procedure-row > div {
+
+    display:
+        grid;
+
+    gap:
+        0.2rem;
+
+}
+
+
+.rmf-procedure-row > div span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-procedure-row > div strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        1rem;
+
+}
+
+
+.rmf-procedure-row p {
+
+    margin:
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.94rem;
+
+    line-height:
+        1.62;
+
+}
+
+
+.rmf-procedure-row b {
+
+    justify-self:
+        center;
+
+    color:
+        var(--pink);
+
+    font-family:
+        var(--font-mono);
+
+}
+
+
+/* ==========================================================================
+   11. REFERENCES
+   ========================================================================== */
+
+.rmf-reference-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        1rem;
+
+}
+
+
+.rmf-reference-card {
+
+    padding:
+        1.2rem;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        0.9rem;
+
+    background:
+        var(--rmf-panel);
+
+}
+
+
+.rmf-reference-card > span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.74rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-reference-card dl {
+
+    margin:
+        1rem
+        0
+        0;
+
+    display:
+        grid;
+
+    gap:
+        0.55rem;
+
+}
+
+
+.rmf-reference-card dl > div {
+
+    min-height:
+        66px;
+
+    padding:
+        0.75rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            165px,
+            0.8fr
+        )
+        1fr;
+
+    align-items:
+        center;
+
+    gap:
+        0.8rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.6rem;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.rmf-reference-card dt {
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.rmf-reference-card dd {
+
+    margin:
+        0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.88rem;
+
+}
+
+
+.rmf-record-list {
+
+    margin-top:
+        1rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.55rem;
+
+}
+
+
+.rmf-record-list div {
+
+    min-height:
+        66px;
+
+    padding:
+        0.75rem;
+
+    display:
+        grid;
+
+    align-content:
+        center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.6rem;
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--text);
+
+    font-size:
+        0.88rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.rmf-reference-card > p {
+
+    margin:
+        1rem
+        0
+        0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* ==========================================================================
+   12. LIGHT THEME
+   ========================================================================== */
+
+html[data-theme="light"]
+.rmf-mission-card,
+html[data-theme="light"]
+.rmf-lifecycle-shell,
+html[data-theme="light"]
+.rmf-scenario-card,
+html[data-theme="light"]
+.rmf-sop-document,
+html[data-theme="light"]
+.rmf-operating-model,
+html[data-theme="light"]
+.rmf-role-grid article,
+html[data-theme="light"]
+.rmf-procedure-table,
+html[data-theme="light"]
+.rmf-reference-card {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.92
+        );
+
+}
+
+
+/* ==========================================================================
+   13. RESPONSIVE — SMALL LAPTOP
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+
+    .rmf-hero__layout {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            3rem;
+
+    }
+
+
+    .rmf-mission-card {
+
+        max-width:
+            780px;
+
+    }
+
+
+    .rmf-lifecycle-shell__heading {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0.7rem;
+
+    }
+
+
+    .rmf-sop-layout {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .rmf-role-grid {
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+}
+
+
+/* ==========================================================================
+   14. RESPONSIVE — TABLET
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+    .rmf-scenario-grid,
+    .rmf-reference-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .rmf-role-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+
+    .rmf-procedure-table__head {
+
+        display:
+            none;
+
+    }
+
+
+    .rmf-procedure-row {
+
+        grid-template-columns:
+            130px
+            1fr
+            38px;
+
+    }
+
+
+    .rmf-procedure-row > p:first-of-type {
+
+        grid-column:
+            2;
+
+    }
+
+
+    .rmf-procedure-row > p:last-of-type {
+
+        grid-column:
+            2;
+
+        padding-top:
+            0.5rem;
+
+        border-top:
+            1px solid
+            var(--border);
+
+    }
+
+
+    .rmf-procedure-row b {
+
+        grid-column:
+            3;
+
+        grid-row:
+            1;
+
+    }
+
+}
+
+
+/* ==========================================================================
+   15. RESPONSIVE — MOBILE
+   ========================================================================== */
+
+@media (max-width: 640px) {
+
+    .rmf-hero {
+
+        min-height:
+            auto;
+
+        padding-top:
+            calc(
+                var(--header-height) +
+                2.4rem
+            );
+
+    }
+
+
+    .rmf-hero__title {
+
+        font-size:
+            clamp(
+                3.4rem,
+                16vw,
+                5.2rem
+            );
+
+    }
+
+
+    .rmf-hero__description {
+
+        font-size:
+            1rem;
+
+    }
+
+
+    .rmf-hero__actions {
+
+        display:
+            grid;
+
+    }
+
+
+    .rmf-hero__actions .button {
+
+        width:
+            100%;
+
+    }
+
+
+    .rmf-hero__note {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .rmf-mission-card__details {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .rmf-mission-card__details > div:nth-child(odd) {
+
+        border-right:
+            0;
+
+    }
+
+
+    .rmf-mission-card__details > div + div {
+
+        border-top:
+            1px solid
+            var(--border);
+
+    }
+
+
+    .rmf-section {
+
+        padding:
+            4.5rem
+            0;
+
+    }
+
+
+    .rmf-section-heading {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .rmf-role-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .rmf-procedure-row {
+
+        grid-template-columns:
+            1fr
+            34px;
+
+    }
+
+
+    .rmf-procedure-row > p:first-of-type,
+    .rmf-procedure-row > p:last-of-type {
+
+        grid-column:
+            1 / -1;
+
+    }
+
+
+    .rmf-procedure-row b {
+
+        grid-column:
+            2;
+
+        grid-row:
+            1;
+
+    }
+
+
+    .rmf-reference-card dl > div {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0.2rem;
+
+    }
+
+
+    .rmf-record-list {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* ==========================================================================
+   16. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .rmf-phase-node,
+    .rmf-procedure-row {
+
+        transition:
+            none;
+
+    }
+
+}

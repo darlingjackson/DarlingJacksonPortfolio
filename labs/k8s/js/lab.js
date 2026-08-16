@@ -2753,60 +2753,46 @@ timeline?.addEventListener(
     }
 );
 
-        /* ==================================================================
-           20. OPEN INITIAL MINI LAB
-           ================================================================== */
+                /* ==================================================================
+                OPEN MINI LAB FROM DIRECT LINK ONLY
+                ================================================================== */
 
-        function openInitialLab() {
+                function openInitialLab() {
 
-            const hash =
-                window.location.hash;
-
-
-            let target =
-                null;
+                    const hash =
+                        window.location.hash;
 
 
-            if (
-                hash &&
-                hash.startsWith(
-                    "#section-"
-                )
-            ) {
+                    if (
+                        !hash ||
+                        !hash.startsWith(
+                            "#section-"
+                        )
+                    ) {
+                        return;
+                    }
 
-                target =
-                    document.querySelector(
-                        hash
+
+                    const target =
+                        document.querySelector(
+                            hash
+                        );
+
+
+                    if (!target) {
+                        return;
+                    }
+
+
+                    setModuleOpen(
+                        target,
+                        true
                     );
 
-            }
+                }
 
 
-            if (!target) {
-
-                target =
-                    document.querySelector(
-                        ".lab-module.is-current"
-                    );
-
-            }
-
-
-            if (target) {
-
-                setModuleOpen(
-                    target,
-                    true
-                );
-
-            }
-
-        }
-
-
-        openInitialLab();
-
-
+                openInitialLab();
 
         /* ==================================================================
            21. FILTERS
