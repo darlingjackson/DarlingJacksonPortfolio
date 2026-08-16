@@ -30,129 +30,170 @@ document.addEventListener(
         const labSections = [
 
 
-            /* ==============================================================
-               SECTION 01
-               GETTING STARTED
-               ============================================================== */
+/* ==============================================================
+   SECTION 01
+   GETTING STARTED
+   ============================================================== */
 
-            {
+{
 
-                number:
-                    1,
+    number:
+        1,
 
-                title:
-                    "Getting Started",
+    title:
+        "Getting Started",
 
-                phase:
-                    "docker",
+    phase:
+        "docker",
 
-                lessons:
-                    "14 / 16 lessons",
+    lessons:
+        "14 / 16 lessons",
 
-                duration:
-                    "1h 10m",
+    duration:
+        "1h 10m",
 
-                status:
-                    "verified",
+    status:
+        "verified",
 
-                current:
-                    false,
-
-
-                objective:
-                    "Prepare my Windows 11 system for Docker development and verify that the environment works by building and running my first containerized application.",
+    current:
+        false,
 
 
-                tools: [
+    /* ----------------------------------------------------------
+       OBJECTIVE
+       ---------------------------------------------------------- */
 
-                    {
-                        name:
-                            "Windows 11",
-
-                        detail:
-                            "Host Operating System",
-
-                        icon:
-                            "logos:microsoft-windows-icon"
-                    },
-
-                    {
-                        name:
-                            "Docker Desktop",
-
-                        detail:
-                            "Container Platform",
-
-                        icon:
-                            "logos:docker-icon"
-                    },
-
-                    {
-                        name:
-                            "Visual Studio Code",
-
-                        detail:
-                            "Already Installed",
-
-                        icon:
-                            "logos:visual-studio-code"
-                    },
-
-                    {
-                        name:
-                            "Docker Extension",
-
-                        detail:
-                            "VS Code Add-on",
-
-                        icon:
-                            "logos:docker-icon"
-                    }
-
-                ],
+    objective:
+        "Prepare my Windows 11 development environment for Docker and verify the setup by building an image, creating a container, publishing the application port, and successfully running my first containerized application.",
 
 
-                completed: [
 
-                    "Confirmed Visual Studio Code was already installed and ready to use.",
+    /* ----------------------------------------------------------
+       TOOLS
+       ---------------------------------------------------------- */
 
-                    "Installed Docker Desktop on Windows 11.",
+    tools: [
 
-                    "Installed the Docker extension for Visual Studio Code.",
+        {
+            name:
+                "Windows 11",
 
-                    "Confirmed Docker was available from the command line.",
+            detail:
+                "Host Operating System",
 
-                    "Created the Lab-001 workspace for the first hands-on exercise.",
+            icon:
+                "logos:microsoft-windows-icon"
+        },
 
-                    "Worked with app.mjs, helpers.mjs, package.json, and a Dockerfile.",
+        {
+            name:
+                "Docker Desktop",
 
-                    "Completed the Get Your Hands Dirty exercise.",
+            detail:
+                "Container Platform",
 
-                    "Built my first Docker image.",
+            icon:
+                "logos:docker-icon"
+        },
 
-                    "Created my first container from the image.",
+        {
+            name:
+                "Visual Studio Code",
 
-                    "Published container port 3000 to localhost.",
+            detail:
+                "Development Environment",
 
-                    "Opened localhost:3000 and verified that the application loaded successfully.",
+            icon:
+                "logos:visual-studio-code"
+        },
 
-                    "Captured the successful running container as lab evidence."
+        {
+            name:
+                "Docker Extension",
 
-                ],
+            detail:
+                "VS Code Container Integration",
 
+            icon:
+                "logos:docker-icon"
+        }
 
-                commands: [
-
-                    "docker --version",
-
-                    "docker build .",
-
-                    "docker run -p 3000:3000 <IMAGE_ID>"
-
-                ],
+    ],
 
 
-                dockerfile:
+
+    /* ----------------------------------------------------------
+       WORK COMPLETED
+       ---------------------------------------------------------- */
+
+    completed: [
+
+        "Confirmed Visual Studio Code was already installed and ready to use.",
+
+        "Installed Docker Desktop on Windows 11.",
+
+        "Installed the Docker extension for Visual Studio Code.",
+
+        "Started Docker Desktop from the command line.",
+
+        "Used docker info to verify that the Docker client and Docker engine were communicating correctly.",
+
+        "Created the Lab-001 workspace for the first hands-on container exercise.",
+
+        "Worked with app.mjs, helpers.mjs, package.json, and my first Dockerfile.",
+
+        "Completed the Get Your Hands Dirty exercise.",
+
+        "Built my first Docker image and tagged it as lab-001.",
+
+        "Created a named container called lab-001-container.",
+
+        "Published container port 3000 to port 3000 on my local Windows machine.",
+
+        "Opened localhost:3000 and verified that the application was running from inside the Docker container.",
+
+        "Used the Docker extension in Visual Studio Code to view the running container and Docker image.",
+
+        "Captured the running application and VS Code Docker container view as lab evidence.",
+
+        "Stopped the container after verification to release localhost port 3000."
+
+    ],
+
+
+
+    /* ----------------------------------------------------------
+       COMMAND LOG
+
+       Successful workflow only.
+       Troubleshooting commands are documented separately below.
+       ---------------------------------------------------------- */
+
+    commands: [
+
+        "docker desktop start",
+
+        "docker info",
+
+        "docker build -t lab-001 .",
+
+        "docker run --name lab-001-container -p 3000:3000 lab-001",
+
+        "docker stop lab-001-container",
+
+        "docker ps",
+
+        "docker ps -a"
+
+    ],
+
+
+
+    /* ----------------------------------------------------------
+       DOCKERFILE
+       ---------------------------------------------------------- */
+
+    dockerfile:
 `FROM node:14
 
 WORKDIR /app
@@ -168,45 +209,116 @@ EXPOSE 3000
 CMD ["node", "app.mjs"]`,
 
 
-                files: [
 
-                    "app.mjs",
-                    "helpers.mjs",
-                    "package.json",
-                    "dockerfile",
-                    "first-container.png"
+    /* ----------------------------------------------------------
+       LAB FILES
+       ---------------------------------------------------------- */
 
-                ],
+    files: [
 
+        "app.mjs",
 
-                issues:
-                    [],
+        "helpers.mjs",
 
+        "package.json",
 
-                screenshot: {
+        "dockerfile",
 
-                    src:
-                        "images/first-container.png",
+        "first-container.png"
 
-                    alt:
-                        "First Docker container successfully running on localhost port 3000",
+    ],
 
-                    label:
-                        "LAB-001 // FIRST CONTAINER",
+            /* ----------------------------------------------------------
+        TROUBLESHOOTING
+        Actual issues encountered during Lab-001
+        ---------------------------------------------------------- */
 
-                    title:
-                        "First Container Successfully Running",
+        issues: [
 
-                    caption:
-                        "The application loaded successfully at localhost:3000, confirming that Docker Desktop, the image build, container creation, port publishing, and the Node.js application were working together."
+            {
+                problem:
+                    "PowerShell initially did not recognize the docker command.",
 
-                },
+                resolution:
+                    "Confirmed that Docker was installed by locating docker.exe under the Docker Desktop installation. After restarting Visual Studio Code and later restarting the workstation, the Docker CLI became available from the integrated PowerShell terminal.",
 
-
-                takeaway:
-                    "This exercise connected the first major Docker concepts: application files are the source, the Dockerfile contains the image build instructions, Docker creates an image from those instructions, and a container is a running instance created from that image."
-
+                lesson:
+                    "Docker can be installed on the system even when the terminal does not yet recognize the docker command. The CLI executable, terminal environment, and Docker engine are separate pieces of the setup."
             },
+
+
+            {
+                problem:
+                    "The VS Code Containers extension could not connect to Docker and displayed: Failed to connect. Is Docker running?",
+
+                resolution:
+                    "Verified that Docker Desktop was installed and running, then confirmed Docker engine communication from the terminal. Once Docker Desktop and the engine were available, the Containers extension connected successfully.",
+
+                lesson:
+                    "The VS Code Docker extension does not run Docker itself. It connects to the Docker environment, so Docker Desktop and the Docker engine must be running before containers and images can be displayed."
+            },
+
+
+            {
+                problem:
+                    "Docker commands failed because the Docker engine was not running when I returned to the lab.",
+
+                resolution:
+                    "Started Docker Desktop from PowerShell with docker desktop start and then used docker info to confirm that the Docker client could communicate with the Docker engine.",
+
+                lesson:
+                    "Having the Docker CLI installed does not mean the Docker engine is currently running. docker info is a useful way to verify end-to-end communication."
+            },
+
+
+            {
+                problem:
+                    "The command docker build -t Lab-001 . failed with an invalid tag error.",
+
+                resolution:
+                    "Changed the image name to lowercase and rebuilt it successfully with docker build -t lab-001 .",
+
+                lesson:
+                    "Docker repository and image names must be lowercase."
+            }
+
+        ],
+
+
+
+    /* ----------------------------------------------------------
+       LAB EVIDENCE
+       ---------------------------------------------------------- */
+
+    screenshot: {
+
+        src:
+            "images/first-container.png",
+
+        alt:
+            "First Docker container running on localhost 3000 with the Docker Containers extension open in Visual Studio Code",
+
+        label:
+            "LAB-001 // CONTAINER VERIFICATION",
+
+        title:
+            "First Docker Container Running Successfully",
+
+        caption:
+            "The application is running at localhost:3000 while the Docker extension in Visual Studio Code shows the active container and the lab-001 image. This verifies the complete Lab-001 workflow from image build to running container."
+
+    },
+
+
+
+    /* ----------------------------------------------------------
+       TAKEAWAY
+       ---------------------------------------------------------- */
+
+    takeaway:
+        "This lab gave me my first complete Docker workflow. I started Docker Desktop, verified the Docker engine, used a Dockerfile to build the lab-001 image, created the lab-001-container from that image, published port 3000, verified the application in the browser and through the VS Code Docker extension, and then stopped the container when I was finished."
+
+},
 
 
 
@@ -1000,7 +1112,6 @@ CMD ["node", "app.mjs"]`,
 
             },
 
-
             eks: {
 
                 number:
@@ -1013,10 +1124,9 @@ CMD ["node", "app.mjs"]`,
                     "SECTIONS 15 — 16",
 
                 icon:
-                    "logos:aws"
+                    "simple-icons:amazonwebservices"
 
             }
-
         };
 
 
@@ -2270,22 +2380,51 @@ CMD ["node", "app.mjs"]`,
 
 
 
-                    <div
-                        class="lab-module__details"
-                        id="lab-panel-${number}"
-                        hidden
-                    >
+                   <div
+    class="lab-module__details"
+    id="lab-panel-${number}"
+    hidden
+>
 
-                        ${section.status === "queued"
-                            ? renderQueuedDetails(
-                                section
-                            )
-                            : renderCompletedDetails(
-                                section
-                            )
-                        }
+    ${section.status === "queued"
+        ? renderQueuedDetails(
+            section
+        )
+        : renderCompletedDetails(
+            section
+        )
+    }
 
-                    </div>
+
+            <!-- =================================================
+                BOTTOM CLOSE CONTROL
+            ================================================== -->
+
+            <div class="lab-module__footer">
+
+                <button
+                    class="lab-close-button"
+                    type="button"
+                    data-lab-close
+                >
+
+                    <span aria-hidden="true">
+                        ↑
+                    </span>
+
+                    <strong>
+                        CLOSE MINI LAB
+                    </strong>
+
+                    <small>
+                        Return to section overview
+                    </small>
+
+                </button>
+
+            </div>
+
+        </div>
 
 
                 </article>
@@ -2546,7 +2685,73 @@ CMD ["node", "app.mjs"]`,
             }
         );
 
+/* ==================================================================
+   BOTTOM MINI LAB CLOSE BUTTON
 
+   Allows the user to collapse a long mini lab without scrolling
+   back to the card header manually.
+   ================================================================== */
+
+timeline?.addEventListener(
+    "click",
+    event => {
+
+        const closeButton =
+            event.target.closest(
+                "[data-lab-close]"
+            );
+
+
+        if (!closeButton) {
+            return;
+        }
+
+
+        const module =
+            closeButton.closest(
+                ".lab-module"
+            );
+
+
+        if (!module) {
+            return;
+        }
+
+
+        /*
+         * Collapse the mini lab using the same accordion
+         * function used by the top section control.
+         */
+
+        setModuleOpen(
+            module,
+            false
+        );
+
+
+        /*
+         * Bring the section header back into view after the
+         * long content collapses.
+         */
+
+        window.requestAnimationFrame(
+            () => {
+
+                module.scrollIntoView(
+                    {
+                        behavior:
+                            "smooth",
+
+                        block:
+                            "start"
+                    }
+                );
+
+            }
+        );
+
+    }
+);
 
         /* ==================================================================
            20. OPEN INITIAL MINI LAB
