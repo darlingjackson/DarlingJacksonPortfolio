@@ -16,7 +16,7 @@
 
     <meta
         name="description"
-        content="Select phase of the Blue Fox Defense Enterprise Security Compliance Lab."
+        content="Implement phase of the Blue Fox Defense Enterprise Security Compliance Lab."
     >
 
     <meta
@@ -31,7 +31,7 @@
     >
 
     <title>
-        Select | Enterprise Security Compliance Lab
+        Implement | Enterprise Security Compliance Lab
     </title>
 
 
@@ -103,7 +103,7 @@
              ↓
          Shared RMF phase skeleton
              ↓
-         Select-only visuals
+         Implement-only visuals
     ========================================================== -->
 
     <link
@@ -123,7 +123,7 @@
 
     <link
         rel="stylesheet"
-        href="css/phases/select-phase.css"
+        href="css/phases/implement-phase.css"
     >
 
 </head>
@@ -131,7 +131,7 @@
 
 <body
     class="rmf-lab-page rmf-phase-page"
-    data-current-phase="select"
+    data-current-phase="implement"
 >
 
     <!-- =========================================================
@@ -191,13 +191,10 @@
 
             <nav
                 class="desktop-nav"
-                aria-label="Select phase navigation"
+                aria-label="Implement phase navigation"
             >
 
-                <a
-                    class="nav-link"
-                    href="index.html"
-                >
+                <a class="nav-link" href="index.html">
                     Lab
                 </a>
 
@@ -205,7 +202,7 @@
                     class="nav-link is-active"
                     href="#phase-overview"
                 >
-                    Select
+                    Implement
                 </a>
 
                 <a
@@ -280,7 +277,7 @@
     <nav
         class="mobile-navigation"
         id="mobileNavigation"
-        aria-label="Mobile Select phase navigation"
+        aria-label="Mobile Implement phase navigation"
         aria-hidden="true"
     >
 
@@ -291,11 +288,11 @@
             </a>
 
             <a href="#phase-overview">
-                Select Overview
+                Implement Overview
             </a>
 
             <a href="#phase-workflow">
-                Selection Activities
+                Implementation Activities
             </a>
 
             <a href="#phase-deliverables">
@@ -326,7 +323,7 @@
 
 
         <!-- =====================================================
-             SELECT HERO
+             IMPLEMENT HERO
         ====================================================== -->
 
         <section class="phase-hero">
@@ -359,14 +356,14 @@
                         <span>/</span>
                         RMF
                         <span>/</span>
-                        Select
+                        Implement
                     </a>
 
 
                     <div class="phase-hero__phase-id">
 
                         <span>
-                            03
+                            04
                         </span>
 
                         <i></i>
@@ -379,22 +376,22 @@
 
 
                     <h1>
-                        Select
+                        Implement
                     </h1>
 
 
                     <p class="phase-hero__lead">
-                        Select, tailor, allocate, and document the controls
-                        needed to protect the Foxhole Portal commensurate with risk.
+                        Put the selected controls into operation and document
+                        how they are actually implemented.
                     </p>
 
 
                     <p class="phase-hero__summary">
-                        During Select, Blue Fox Defense uses the approved Moderate
-                        categorization and existing risk context to choose the starting
-                        control baseline, document tailoring decisions, assign control
-                        responsibility, develop the system security plan, and establish
-                        the system-level continuous monitoring strategy.
+                        During Implement, Blue Fox Defense configures system-specific
+                        safeguards, integrates shared and inherited services, applies
+                        secure configuration guidance, captures implementation evidence,
+                        and updates the Foxhole Portal security plan to reflect the
+                        system as implemented.
                     </p>
 
 
@@ -406,13 +403,13 @@
                         </div>
 
                         <div>
-                            <span>CATEGORIZATION</span>
-                            <strong>Moderate</strong>
+                            <span>CONTROL BASELINE</span>
+                            <strong>Moderate / Tailored</strong>
                         </div>
 
                         <div>
                             <span>PHASE</span>
-                            <strong>03 of 07</strong>
+                            <strong>04 of 07</strong>
                         </div>
 
                     </div>
@@ -435,7 +432,7 @@
                         </div>
 
                         <span>
-                            RMF://03-SELECT
+                            RMF://04-IMPLEMENT
                         </span>
 
                         <strong>
@@ -454,13 +451,13 @@
                             </span>
 
                             <h2>
-                                Define the protections.
+                                Turn plans into safeguards.
                             </h2>
 
                             <p>
-                                Build a defensible control set and document how the
-                                Foxhole Portal and its supporting environment will satisfy
-                                the selected security and privacy requirements.
+                                Implement the selected controls across the Foxhole Portal
+                                and supporting environment, then update the security plan
+                                so it accurately describes the deployed safeguards.
                             </p>
 
                         </div>
@@ -470,22 +467,22 @@
 
                             <div>
                                 <span>STARTING POINT</span>
-                                <strong>Approved Moderate categorization</strong>
+                                <strong>Approved control set + security plan</strong>
                             </div>
 
                             <div>
                                 <span>PRIMARY WORK</span>
-                                <strong>Baseline + Tailoring + Allocation</strong>
+                                <strong>Configure + Integrate + Document</strong>
                             </div>
 
                             <div>
                                 <span>PHASE OUTPUT</span>
-                                <strong>Approved security and privacy plans</strong>
+                                <strong>Implemented controls + updated plan</strong>
                             </div>
 
                             <div>
                                 <span>EXIT GATE</span>
-                                <strong>Ready for Implement</strong>
+                                <strong>Ready for Assess</strong>
                             </div>
 
                         </div>
@@ -497,8 +494,8 @@
                                 NEXT PHASE
                             </span>
 
-                            <a href="implement.html">
-                                04 // Implement
+                            <a href="assess.html">
+                                05 // Assess
                             </a>
 
                         </div>
@@ -535,7 +532,7 @@
 
                     <div class="phase-lifecycle__current">
                         <span>CURRENT PHASE</span>
-                        <strong>03 // Select</strong>
+                        <strong>04 // Implement</strong>
                     </div>
 
                 </div>
@@ -666,7 +663,7 @@
 
 
         <!-- =====================================================
-             PHASE OVERVIEW + CONTROL SELECTION MODEL
+             PHASE OVERVIEW + IMPLEMENTATION MODEL
         ====================================================== -->
 
         <section
@@ -683,175 +680,228 @@
                     </div>
 
                     <div>
-                        <span>SELECT // PHASE OVERVIEW</span>
+                        <span>IMPLEMENT // PHASE OVERVIEW</span>
                         <h2>
-                            Turn the approved categorization into a defensible control set.
+                            Move from planned controls to deployed safeguards.
                         </h2>
                         <p>
-                            Select starts with the Moderate impact determination from Categorize
-                            and translates that risk context into a tailored, allocated, and
-                            documented set of security and privacy controls.
+                            Implement uses the approved control set and planned
+                            implementation statements from Select, applies the safeguards
+                            to the Foxhole Portal environment, and updates the security
+                            plan to describe what is actually in place.
                         </p>
                     </div>
 
                 </header>
 
 
-                <!-- Control Selection Model -->
+                <!-- Implementation Flow -->
 
-                <div class="select-model reveal">
+                <div class="implement-model reveal">
 
-                    <article class="select-model__stage">
-                        <span>01 // BASELINE</span>
-                        <strong>Start with the Baseline</strong>
+                    <article class="implement-model__stage">
+                        <span>01 // TRANSLATE</span>
+                        <strong>Translate the Plan</strong>
                         <p>
-                            Use the approved Moderate categorization to identify the
-                            starting control baseline for the Foxhole Portal.
+                            Convert approved control requirements and planned
+                            implementation statements into actionable engineering work.
                         </p>
-                        <small>CONTROL BASELINE</small>
+                        <small>IMPLEMENTATION TASKS</small>
                     </article>
 
 
-                    <article class="select-model__stage">
-                        <span>02 // TAILOR</span>
-                        <strong>Tailor to the System</strong>
+                    <article class="implement-model__stage">
+                        <span>02 // CONFIGURE</span>
+                        <strong>Apply Safeguards</strong>
                         <p>
-                            Apply scoping, parameterization, overlays, and risk-based
-                            adjustments while documenting the rationale for changes.
+                            Configure system-specific controls and applicable secure
+                            configuration settings within the authorization boundary.
                         </p>
-                        <small>TAILORED BASELINE</small>
+                        <small>DEPLOYED CONTROLS</small>
                     </article>
 
 
-                    <article class="select-model__stage">
-                        <span>03 // ALLOCATE</span>
-                        <strong>Assign Responsibility</strong>
+                    <article class="implement-model__stage">
+                        <span>03 // INTEGRATE</span>
+                        <strong>Connect Shared Services</strong>
                         <p>
-                            Designate controls as system-specific, hybrid, or common
-                            and allocate responsibility to the appropriate elements.
+                            Integrate hybrid and inherited safeguards provided by
+                            enterprise identity, logging, infrastructure, and other services.
                         </p>
-                        <small>CONTROL ALLOCATION</small>
+                        <small>CONTROL INHERITANCE</small>
                     </article>
 
 
-                    <article class="select-model__stage">
-                        <span>04 // DOCUMENT</span>
-                        <strong>Plan the Implementation</strong>
+                    <article class="implement-model__stage">
+                        <span>04 // EVIDENCE</span>
+                        <strong>Capture the Evidence</strong>
                         <p>
-                            Record planned implementations, ownership, inheritance,
-                            dependencies, and tailoring decisions in the system plan.
+                            Record configurations, screenshots, logs, exports, and other
+                            artifacts that demonstrate how safeguards were implemented.
                         </p>
-                        <small>SECURITY PLAN</small>
+                        <small>IMPLEMENTATION EVIDENCE</small>
                     </article>
 
 
-                    <article class="select-model__stage">
-                        <span>05 // MONITOR</span>
-                        <strong>Establish Monitoring</strong>
+                    <article class="implement-model__stage">
+                        <span>05 // DOCUMENT</span>
+                        <strong>Update the Security Plan</strong>
                         <p>
-                            Define how selected controls and system risk will be monitored
-                            over time and prepare the plans for review and approval.
+                            Replace planned language with implementation details and
+                            prepare the record set for independent control assessment.
                         </p>
-                        <small>MONITORING STRATEGY</small>
+                        <small>UPDATED SECURITY PLAN</small>
                     </article>
 
                 </div>
 
 
-                <!-- Allocation View -->
+                <!-- Implementation Workbench -->
 
-                <div class="select-allocation reveal">
+                <div class="implement-workbench reveal">
 
-                    <div class="select-allocation__heading">
+                    <div class="implement-workbench__heading">
 
                         <div>
-                            <span>FOXHOLE PORTAL // CONTROL ALLOCATION</span>
-                            <h3>Who is responsible for the control?</h3>
+                            <span>FOXHOLE PORTAL // IMPLEMENTATION WORKBENCH</span>
+                            <h3>How are the selected protections put into operation?</h3>
                             <p>
-                                Selected controls are not automatically implemented by the
-                                application team. Select identifies whether responsibility is
-                                system-specific, shared, or inherited from a common control provider.
+                                The case study groups representative implementation work
+                                by security capability. Detailed control-level implementation
+                                statements and evidence remain in the authorization records.
                             </p>
                         </div>
 
-                        <div class="select-allocation__status">
-                            <span>STARTING BASELINE</span>
-                            <strong>MODERATE</strong>
+                        <div class="implement-workbench__status">
+                            <span>IMPLEMENTATION STATE</span>
+                            <strong>DEPLOYED</strong>
                         </div>
 
                     </div>
 
 
-                    <div class="select-allocation__grid">
+                    <div class="implement-control-grid">
 
-                        <article>
-                            <span class="select-allocation__badge">SYSTEM-SPECIFIC</span>
-                            <h4>Portal-Owned Controls</h4>
+                        <article class="implement-control">
+                            <div class="implement-control__top">
+                                <span>ACCESS + IDENTITY</span>
+                                <strong>SYSTEM / HYBRID</strong>
+                            </div>
+                            <h4>Identity & Access Safeguards</h4>
                             <p>
-                                Controls implemented entirely by the Foxhole Portal team
-                                within the defined authorization boundary.
+                                Role-based access, least privilege, privileged administration,
+                                and enterprise authentication are configured for portal users.
                             </p>
-                            <small>DIRECT IMPLEMENTATION</small>
+                            <small>IMPLEMENTED</small>
                         </article>
 
 
-                        <article>
-                            <span class="select-allocation__badge">HYBRID</span>
-                            <h4>Shared Responsibility</h4>
+                        <article class="implement-control">
+                            <div class="implement-control__top">
+                                <span>AUDIT + ACCOUNTABILITY</span>
+                                <strong>HYBRID</strong>
+                            </div>
+                            <h4>Audit & Logging</h4>
                             <p>
-                                Controls where implementation responsibility is divided
-                                between the portal team and enterprise service providers.
+                                Security-relevant events are generated by the portal and
+                                forwarded to approved enterprise logging and monitoring services.
                             </p>
-                            <small>SHARED IMPLEMENTATION</small>
+                            <small>IMPLEMENTED</small>
                         </article>
 
 
-                        <article>
-                            <span class="select-allocation__badge">COMMON</span>
-                            <h4>Inherited Controls</h4>
+                        <article class="implement-control">
+                            <div class="implement-control__top">
+                                <span>CONFIGURATION</span>
+                                <strong>SYSTEM-SPECIFIC</strong>
+                            </div>
+                            <h4>Secure Configuration</h4>
                             <p>
-                                Controls provided by an enterprise common-control provider
-                                and inherited by the Foxhole Portal where applicable.
+                                Hardened configurations and applicable security configuration
+                                guidance are applied to in-scope technologies and components.
                             </p>
-                            <small>INHERITED IMPLEMENTATION</small>
+                            <small>IMPLEMENTED</small>
+                        </article>
+
+
+                        <article class="implement-control">
+                            <div class="implement-control__top">
+                                <span>COMMUNICATIONS</span>
+                                <strong>SYSTEM-SPECIFIC</strong>
+                            </div>
+                            <h4>Protected Communications</h4>
+                            <p>
+                                Approved encryption and protected connections are configured
+                                for relevant data flows, administrative access, and interfaces.
+                            </p>
+                            <small>IMPLEMENTED</small>
+                        </article>
+
+
+                        <article class="implement-control">
+                            <div class="implement-control__top">
+                                <span>INTEGRITY</span>
+                                <strong>SYSTEM / HYBRID</strong>
+                            </div>
+                            <h4>Vulnerability & Integrity</h4>
+                            <p>
+                                Patching, vulnerability management, malware protection, and
+                                integrity-related services are integrated into portal operations.
+                            </p>
+                            <small>IMPLEMENTED</small>
+                        </article>
+
+
+                        <article class="implement-control">
+                            <div class="implement-control__top">
+                                <span>RESILIENCE</span>
+                                <strong>HYBRID</strong>
+                            </div>
+                            <h4>Recovery & Availability</h4>
+                            <p>
+                                Backup, recovery, contingency, and supporting enterprise
+                                resilience mechanisms are documented for the portal environment.
+                            </p>
+                            <small>IMPLEMENTED</small>
                         </article>
 
                     </div>
 
 
-                    <div class="select-selection-summary">
+                    <div class="implement-summary">
 
                         <div>
-                            <span>IMPACT LEVEL</span>
-                            <strong>Moderate</strong>
+                            <span>CONTROL SET</span>
+                            <strong>Tailored</strong>
                         </div>
 
                         <div>
-                            <span>BASELINE</span>
-                            <strong>Selected</strong>
+                            <span>IMPLEMENTATION</span>
+                            <strong>Deployed</strong>
                         </div>
 
                         <div>
-                            <span>TAILORING</span>
+                            <span>INHERITANCE</span>
                             <strong>Documented</strong>
                         </div>
 
                         <div>
-                            <span>ALLOCATION</span>
-                            <strong>Assigned</strong>
+                            <span>EVIDENCE</span>
+                            <strong>Indexed</strong>
                         </div>
 
                         <div>
-                            <span>PLAN STATUS</span>
-                            <strong>Approved</strong>
+                            <span>SECURITY PLAN</span>
+                            <strong>Updated</strong>
                         </div>
 
                     </div>
 
-                    <p class="select-allocation__note">
-                        Case-study approach: the interface summarizes the Select decisions.
-                        Detailed control-level selection, tailoring rationale, allocation,
-                        and planned implementation information belongs in the supporting records.
+
+                    <p class="implement-workbench__note">
+                        Case-study note: these capability groups summarize representative
+                        implementation work. They do not replace the individual NIST SP 800-53
+                        control implementation statements maintained in the supporting records.
                     </p>
 
                 </div>
@@ -862,7 +912,7 @@
 
 
         <!-- =====================================================
-             SELECT WORKFLOW
+             IMPLEMENT WORKFLOW
         ====================================================== -->
 
         <section
@@ -879,11 +929,12 @@
                     </div>
 
                     <div>
-                        <span>SELECT // EXECUTION</span>
-                        <h2>Control Selection Activities</h2>
+                        <span>IMPLEMENT // EXECUTION</span>
+                        <h2>Implementation Activities</h2>
                         <p>
-                            Six activities move the case study from baseline selection through
-                            tailoring, allocation, planning, continuous monitoring, and approval.
+                            Five activities move the case study from approved implementation
+                            plans through configuration, integration, evidence capture,
+                            documentation updates, and handoff to Assess.
                         </p>
                     </div>
 
@@ -901,7 +952,7 @@
 
 
         <!-- =====================================================
-             SELECT DOCUMENTATION
+             IMPLEMENT DOCUMENTATION
         ====================================================== -->
 
         <section
@@ -918,12 +969,13 @@
                     </div>
 
                     <div>
-                        <span>SELECT // AUTHORIZATION RECORDS</span>
+                        <span>IMPLEMENT // AUTHORIZATION RECORDS</span>
                         <h2>Working Documentation</h2>
                         <p>
-                            These records capture the selected baseline, tailoring decisions,
-                            control allocation, planned implementation approach, and monitoring
-                            strategy used to prepare the Foxhole Portal for Implement.
+                            These records show what was implemented, how the system
+                            configuration supports the selected safeguards, what evidence
+                            was captured, and how the security plan changed from planned
+                            implementation to actual implementation.
                         </p>
                     </div>
 
@@ -958,12 +1010,13 @@
                     </div>
 
                     <div>
-                        <span>SELECT // PHASE CLOSEOUT</span>
-                        <h2>Control decisions and readiness.</h2>
+                        <span>IMPLEMENT // PHASE CLOSEOUT</span>
+                        <h2>Implementation decisions and readiness.</h2>
                         <p>
-                            Before moving forward, the team records the control-selection
-                            decisions and verifies that the approved plans provide enough
-                            direction for implementation activities to begin.
+                            Before moving forward, the team confirms that the selected
+                            controls have been implemented or their inherited implementation
+                            has been documented, evidence is organized, and the security plan
+                            reflects the system as deployed.
                         </p>
                     </div>
 
@@ -976,7 +1029,7 @@
 
                         <div class="phase-panel-heading">
                             <span>DECISION LOG</span>
-                            <strong>Selection Decisions</strong>
+                            <strong>Implementation Decisions</strong>
                         </div>
 
                         <div class="phase-decision-table-wrap">
@@ -1005,22 +1058,23 @@
 
                         <div class="phase-panel-heading">
                             <span>EXIT GATE</span>
-                            <strong>Ready for Implement</strong>
+                            <strong>Ready for Assess</strong>
                         </div>
 
                         <p class="phase-exit-panel__intro">
-                            Select is ready to close when the control baseline, tailoring,
-                            control designation and allocation, planned implementations,
-                            monitoring strategy, and plan approval are sufficiently documented.
+                            Implement is ready to close when selected safeguards are in
+                            place, shared and inherited dependencies are documented,
+                            implementation evidence is organized, and the security plan
+                            accurately reflects the deployed system.
                         </p>
 
                         <ul class="phase-exit-checklist">
-                            <li><span>✓</span>Control baseline selected</li>
-                            <li><span>✓</span>Tailoring decisions documented</li>
-                            <li><span>✓</span>Controls designated and allocated</li>
-                            <li><span>✓</span>Planned implementations documented</li>
-                            <li><span>✓</span>Continuous monitoring strategy established</li>
-                            <li><span>✓</span>Security and privacy plans reviewed and approved</li>
+                            <li><span>✓</span>System-specific safeguards implemented</li>
+                            <li><span>✓</span>Hybrid and inherited implementations documented</li>
+                            <li><span>✓</span>Applicable secure configurations applied</li>
+                            <li><span>✓</span>Implementation evidence captured and indexed</li>
+                            <li><span>✓</span>Security plan updated with actual implementation details</li>
+                            <li><span>✓</span>Implementation record prepared for assessment</li>
                         </ul>
 
                         <div class="phase-exit-panel__status">
@@ -1045,12 +1099,12 @@
              2. Next RMF Phase
 
              Reference content is rendered by shared phase.js.
-             Select-specific data lives in select-phase.js.
+             Implement-specific data lives in implement-phase.js.
         ====================================================== -->
 
         <section
             class="phase-endcap"
-            aria-label="Select references and next RMF phase"
+            aria-label="Implement references and next RMF phase"
         >
 
             <div class="container phase-endcap__grid">
@@ -1072,13 +1126,13 @@
                         </span>
 
                         <h2 id="phaseReferencesTitle">
-                            Standards used during Select.
+                            Standards used during Implement.
                         </h2>
 
                         <p>
-                            RMF, control catalog, baseline, minimum-security,
-                            continuous-monitoring, and DoD guidance used to structure
-                            the Select work in this fictional case study.
+                            RMF, control implementation, secure configuration,
+                            checklist, DoD technical-hardening, and DoD RMF guidance
+                            used to structure the Implement work in this fictional case study.
                         </p>
 
                     </header>
@@ -1098,25 +1152,26 @@
 
                 <a
                     class="phase-endcap__card phase-endcap__card--next reveal"
-                    href="implement.html"
+                    href="assess.html"
                 >
 
                     <div class="phase-endcap__next-content">
 
                         <span class="phase-endcap__eyebrow">
-                            NEXT RMF PHASE // 04
+                            NEXT RMF PHASE // 05
                         </span>
 
                         <div>
 
                             <h2>
-                                Implement
+                                Assess
                             </h2>
 
                             <p>
-                                Put the selected and tailored controls into operation,
-                                configure the system and supporting services, and document
-                                how each control is actually implemented across the Foxhole Portal.
+                                Evaluate the implemented controls to determine whether
+                                they are in place, operating as intended, and producing
+                                the required security and privacy outcomes for the
+                                Foxhole Portal.
                             </p>
 
                         </div>
@@ -1258,15 +1313,15 @@
          - Governing references
          - Lifecycle keyboard navigation
 
-         select-phase.js:
-         - Select activities
-         - Select authorization records
-         - Select decisions
-         - Select governing references
+         implement-phase.js:
+         - Implement activities
+         - Implement authorization records
+         - Implement decisions
+         - Implement governing references
     ========================================================== -->
 
     <script src="js/phases/phase.js"></script>
-    <script src="js/phases/select-phase.js"></script>
+    <script src="js/phases/implement-phase.js"></script>
     <script src="../../js/script.js"></script>
 
 </body>

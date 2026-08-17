@@ -16,7 +16,7 @@
 
     <meta
         name="description"
-        content="Select phase of the Blue Fox Defense Enterprise Security Compliance Lab."
+        content="Monitor phase of the Blue Fox Defense Enterprise Security Compliance Lab."
     >
 
     <meta
@@ -31,7 +31,7 @@
     >
 
     <title>
-        Select | Enterprise Security Compliance Lab
+        Monitor | Enterprise Security Compliance Lab
     </title>
 
 
@@ -96,63 +96,30 @@
 
     <!-- =========================================================
          STYLES
-
-         Main portfolio
-             ↓
-         Shared RMF lab
-             ↓
-         Shared RMF phase skeleton
-             ↓
-         Select-only visuals
     ========================================================== -->
 
-    <link
-        rel="stylesheet"
-        href="../../css/styles.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/rmf.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/phases/phase.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="css/phases/select-phase.css"
-    >
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="css/rmf.css">
+    <link rel="stylesheet" href="css/phases/phase.css">
+    <link rel="stylesheet" href="css/phases/monitor-phase.css">
 
 </head>
 
 
 <body
     class="rmf-lab-page rmf-phase-page"
-    data-current-phase="select"
+    data-current-phase="monitor"
 >
 
     <!-- =========================================================
          PAGE PROGRESS
     ========================================================== -->
 
-    <div
-        class="page-progress"
-        aria-hidden="true"
-    >
-        <span
-            class="page-progress__bar"
-            id="pageProgressBar"
-        ></span>
+    <div class="page-progress" aria-hidden="true">
+        <span class="page-progress__bar" id="pageProgressBar"></span>
     </div>
 
-
-    <a
-        class="skip-link"
-        href="#mainContent"
-    >
+    <a class="skip-link" href="#mainContent">
         Skip to main content
     </a>
 
@@ -161,10 +128,7 @@
          SHARED PORTFOLIO HEADER
     ========================================================== -->
 
-    <header
-        class="site-header"
-        id="siteHeader"
-    >
+    <header class="site-header" id="siteHeader">
 
         <div class="site-header__inner">
 
@@ -191,43 +155,14 @@
 
             <nav
                 class="desktop-nav"
-                aria-label="Select phase navigation"
+                aria-label="Monitor phase navigation"
             >
 
-                <a
-                    class="nav-link"
-                    href="index.html"
-                >
-                    Lab
-                </a>
-
-                <a
-                    class="nav-link is-active"
-                    href="#phase-overview"
-                >
-                    Select
-                </a>
-
-                <a
-                    class="nav-link"
-                    href="#phase-workflow"
-                >
-                    Workflow
-                </a>
-
-                <a
-                    class="nav-link"
-                    href="#phase-deliverables"
-                >
-                    Documents
-                </a>
-
-                <a
-                    class="nav-link"
-                    href="#phase-closeout"
-                >
-                    Closeout
-                </a>
+                <a class="nav-link" href="index.html">Lab</a>
+                <a class="nav-link is-active" href="#phase-overview">Monitor</a>
+                <a class="nav-link" href="#phase-workflow">Workflow</a>
+                <a class="nav-link" href="#phase-deliverables">Documents</a>
+                <a class="nav-link" href="#phase-closeout">Cycle Review</a>
 
             </nav>
 
@@ -245,10 +180,7 @@
                     <span class="theme-toggle__moon" aria-hidden="true">☾</span>
                 </button>
 
-                <a
-                    class="resume-button"
-                    href="../../index.html"
-                >
+                <a class="resume-button" href="../../index.html">
                     Portfolio
                     <span aria-hidden="true">↗</span>
                 </a>
@@ -280,36 +212,17 @@
     <nav
         class="mobile-navigation"
         id="mobileNavigation"
-        aria-label="Mobile Select phase navigation"
+        aria-label="Mobile Monitor phase navigation"
         aria-hidden="true"
     >
 
         <div class="mobile-navigation__inner">
-
-            <a href="index.html">
-                Lab
-            </a>
-
-            <a href="#phase-overview">
-                Select Overview
-            </a>
-
-            <a href="#phase-workflow">
-                Selection Activities
-            </a>
-
-            <a href="#phase-deliverables">
-                Documentation
-            </a>
-
-            <a href="#phase-closeout">
-                Closeout
-            </a>
-
-            <a href="../../index.html">
-                Portfolio
-            </a>
-
+            <a href="index.html">Lab</a>
+            <a href="#phase-overview">Monitor Overview</a>
+            <a href="#phase-workflow">Monitoring Activities</a>
+            <a href="#phase-deliverables">Documentation</a>
+            <a href="#phase-closeout">Monitoring Cycle Review</a>
+            <a href="../../index.html">Portfolio</a>
         </div>
 
     </nav>
@@ -319,82 +232,55 @@
          MAIN
     ========================================================== -->
 
-    <main
-        id="mainContent"
-        tabindex="-1"
-    >
+    <main id="mainContent" tabindex="-1">
 
 
         <!-- =====================================================
-             SELECT HERO
+             MONITOR HERO
         ====================================================== -->
 
         <section class="phase-hero">
 
-            <div
-                class="phase-hero__grid"
-                aria-hidden="true"
-            ></div>
-
-            <div
-                class="phase-hero__glow phase-hero__glow--blue"
-                aria-hidden="true"
-            ></div>
-
-            <div
-                class="phase-hero__glow phase-hero__glow--purple"
-                aria-hidden="true"
-            ></div>
+            <div class="phase-hero__grid" aria-hidden="true"></div>
+            <div class="phase-hero__glow phase-hero__glow--blue" aria-hidden="true"></div>
+            <div class="phase-hero__glow phase-hero__glow--purple" aria-hidden="true"></div>
 
 
             <div class="container phase-hero__layout">
 
                 <div class="phase-hero__content reveal">
 
-                    <a
-                        class="phase-breadcrumb"
-                        href="index.html"
-                    >
+                    <a class="phase-breadcrumb" href="index.html">
                         Enterprise Security Compliance Lab
                         <span>/</span>
                         RMF
                         <span>/</span>
-                        Select
+                        Monitor
                     </a>
 
 
                     <div class="phase-hero__phase-id">
-
-                        <span>
-                            03
-                        </span>
-
+                        <span>07</span>
                         <i></i>
-
-                        <strong>
-                            CURRENT RMF PHASE
-                        </strong>
-
+                        <strong>CURRENT RMF PHASE</strong>
                     </div>
 
 
-                    <h1>
-                        Select
-                    </h1>
+                    <h1>Monitor</h1>
 
 
                     <p class="phase-hero__lead">
-                        Select, tailor, allocate, and document the controls
-                        needed to protect the Foxhole Portal commensurate with risk.
+                        Maintain ongoing awareness of the system's security
+                        and privacy posture so risk decisions stay current.
                     </p>
 
 
                     <p class="phase-hero__summary">
-                        During Select, Blue Fox Defense uses the approved Moderate
-                        categorization and existing risk context to choose the starting
-                        control baseline, document tailoring decisions, assign control
-                        responsibility, develop the system security plan, and establish
-                        the system-level continuous monitoring strategy.
+                        During Monitor, Blue Fox Defense tracks system and environmental
+                        changes, performs ongoing control assessments, analyzes new risk,
+                        updates authorization records, reports the Foxhole Portal's posture,
+                        supports ongoing authorization decisions, and maintains a path for
+                        secure disposal when the system eventually leaves service.
                     </p>
 
 
@@ -406,13 +292,13 @@
                         </div>
 
                         <div>
-                            <span>CATEGORIZATION</span>
-                            <strong>Moderate</strong>
+                            <span>AUTHORIZATION</span>
+                            <strong>Active / Risk Accepted</strong>
                         </div>
 
                         <div>
                             <span>PHASE</span>
-                            <strong>03 of 07</strong>
+                            <strong>07 of 07</strong>
                         </div>
 
                     </div>
@@ -434,13 +320,8 @@
                             <i></i>
                         </div>
 
-                        <span>
-                            RMF://03-SELECT
-                        </span>
-
-                        <strong>
-                            COMPLETE
-                        </strong>
+                        <span>RMF://07-MONITOR</span>
+                        <strong>ACTIVE</strong>
 
                     </div>
 
@@ -449,18 +330,15 @@
 
                         <div class="phase-brief__heading">
 
-                            <span>
-                                PHASE MISSION
-                            </span>
+                            <span>PHASE MISSION</span>
 
-                            <h2>
-                                Define the protections.
-                            </h2>
+                            <h2>Keep risk awareness current.</h2>
 
                             <p>
-                                Build a defensible control set and document how the
-                                Foxhole Portal and its supporting environment will satisfy
-                                the selected security and privacy requirements.
+                                Continuously collect and analyze information about
+                                system changes, control effectiveness, vulnerabilities,
+                                corrective actions, and risk so authorization decisions
+                                remain informed over time.
                             </p>
 
                         </div>
@@ -470,37 +348,30 @@
 
                             <div>
                                 <span>STARTING POINT</span>
-                                <strong>Approved Moderate categorization</strong>
+                                <strong>Authorized system + monitoring strategy</strong>
                             </div>
 
                             <div>
                                 <span>PRIMARY WORK</span>
-                                <strong>Baseline + Tailoring + Allocation</strong>
+                                <strong>Observe + Assess + Respond</strong>
                             </div>
 
                             <div>
                                 <span>PHASE OUTPUT</span>
-                                <strong>Approved security and privacy plans</strong>
+                                <strong>Current security &amp; privacy posture</strong>
                             </div>
 
                             <div>
-                                <span>EXIT GATE</span>
-                                <strong>Ready for Implement</strong>
+                                <span>OPERATING STATE</span>
+                                <strong>Ongoing authorization</strong>
                             </div>
 
                         </div>
 
 
                         <div class="phase-brief__next">
-
-                            <span>
-                                NEXT PHASE
-                            </span>
-
-                            <a href="implement.html">
-                                04 // Implement
-                            </a>
-
+                            <span>RMF STATE</span>
+                            <a href="#phase-overview">CONTINUOUS // MONITOR</a>
                         </div>
 
                     </div>
@@ -513,18 +384,12 @@
 
 
         <!-- =====================================================
-             SHARED RMF LIFECYCLE NAVIGATION
+             SHARED RMF LIFECYCLE
         ====================================================== -->
 
-        <section
-            class="phase-lifecycle"
-            aria-label="RMF lifecycle navigation"
-        >
+        <section class="phase-lifecycle" aria-label="RMF lifecycle navigation">
 
-            <div
-                class="container rmf-lifecycle-shell reveal"
-                id="rmf-lifecycle"
-            >
+            <div class="container rmf-lifecycle-shell reveal" id="rmf-lifecycle">
 
                 <div class="rmf-lifecycle-shell__heading">
 
@@ -535,28 +400,17 @@
 
                     <div class="phase-lifecycle__current">
                         <span>CURRENT PHASE</span>
-                        <strong>03 // Select</strong>
+                        <strong>07 // Monitor</strong>
                     </div>
 
                 </div>
 
 
-                <nav
-                    class="rmf-lifecycle-track"
-                    aria-label="Risk Management Framework phases"
-                >
+                <nav class="rmf-lifecycle-track" aria-label="Risk Management Framework phases">
 
-                    <div
-                        class="rmf-lifecycle-line"
-                        aria-hidden="true"
-                    ></div>
+                    <div class="rmf-lifecycle-line" aria-hidden="true"></div>
 
-
-                    <a
-                        class="rmf-phase-node"
-                        href="prepare.html"
-                        data-rmf-phase="prepare"
-                    >
+                    <a class="rmf-phase-node" href="prepare.html" data-rmf-phase="prepare">
                         <div class="rmf-phase-node__top">
                             <span class="rmf-phase-node__number">01</span>
                             <span class="rmf-phase-node__marker"></span>
@@ -565,12 +419,7 @@
                         <small>Establish context</small>
                     </a>
 
-
-                    <a
-                        class="rmf-phase-node"
-                        href="categorize.html"
-                        data-rmf-phase="categorize"
-                    >
+                    <a class="rmf-phase-node" href="categorize.html" data-rmf-phase="categorize">
                         <div class="rmf-phase-node__top">
                             <span class="rmf-phase-node__number">02</span>
                             <span class="rmf-phase-node__marker"></span>
@@ -579,12 +428,7 @@
                         <small>Determine impact</small>
                     </a>
 
-
-                    <a
-                        class="rmf-phase-node"
-                        href="select.html"
-                        data-rmf-phase="select"
-                    >
+                    <a class="rmf-phase-node" href="select.html" data-rmf-phase="select">
                         <div class="rmf-phase-node__top">
                             <span class="rmf-phase-node__number">03</span>
                             <span class="rmf-phase-node__marker"></span>
@@ -593,12 +437,7 @@
                         <small>Define protections</small>
                     </a>
 
-
-                    <a
-                        class="rmf-phase-node"
-                        href="implement.html"
-                        data-rmf-phase="implement"
-                    >
+                    <a class="rmf-phase-node" href="implement.html" data-rmf-phase="implement">
                         <div class="rmf-phase-node__top">
                             <span class="rmf-phase-node__number">04</span>
                             <span class="rmf-phase-node__marker"></span>
@@ -607,12 +446,7 @@
                         <small>Apply controls</small>
                     </a>
 
-
-                    <a
-                        class="rmf-phase-node"
-                        href="assess.html"
-                        data-rmf-phase="assess"
-                    >
+                    <a class="rmf-phase-node" href="assess.html" data-rmf-phase="assess">
                         <div class="rmf-phase-node__top">
                             <span class="rmf-phase-node__number">05</span>
                             <span class="rmf-phase-node__marker"></span>
@@ -621,12 +455,7 @@
                         <small>Verify effectiveness</small>
                     </a>
 
-
-                    <a
-                        class="rmf-phase-node"
-                        href="authorize.html"
-                        data-rmf-phase="authorize"
-                    >
+                    <a class="rmf-phase-node" href="authorize.html" data-rmf-phase="authorize">
                         <div class="rmf-phase-node__top">
                             <span class="rmf-phase-node__number">06</span>
                             <span class="rmf-phase-node__marker"></span>
@@ -635,12 +464,7 @@
                         <small>Make the risk decision</small>
                     </a>
 
-
-                    <a
-                        class="rmf-phase-node"
-                        href="monitor.html"
-                        data-rmf-phase="monitor"
-                    >
+                    <a class="rmf-phase-node" href="monitor.html" data-rmf-phase="monitor">
                         <div class="rmf-phase-node__top">
                             <span class="rmf-phase-node__number">07</span>
                             <span class="rmf-phase-node__marker"></span>
@@ -666,192 +490,269 @@
 
 
         <!-- =====================================================
-             PHASE OVERVIEW + CONTROL SELECTION MODEL
+             PHASE OVERVIEW
         ====================================================== -->
 
-        <section
-            class="phase-section"
-            id="phase-overview"
-        >
+        <section class="phase-section" id="phase-overview">
 
             <div class="container">
 
                 <header class="phase-section__heading reveal">
 
-                    <div class="phase-section__number">
-                        01
-                    </div>
+                    <div class="phase-section__number">01</div>
 
                     <div>
-                        <span>SELECT // PHASE OVERVIEW</span>
-                        <h2>
-                            Turn the approved categorization into a defensible control set.
-                        </h2>
+                        <span>MONITOR // PHASE OVERVIEW</span>
+                        <h2>Authorization is maintained through continuous awareness.</h2>
                         <p>
-                            Select starts with the Moderate impact determination from Categorize
-                            and translates that risk context into a tailored, allocated, and
-                            documented set of security and privacy controls.
+                            Monitor is not a one-time closeout activity. The system
+                            and its environment continue to change, so risk information,
+                            control effectiveness, corrective actions, and authorization
+                            records must remain current.
                         </p>
                     </div>
 
                 </header>
 
 
-                <!-- Control Selection Model -->
+                <!-- Monitoring Flow -->
 
-                <div class="select-model reveal">
+                <div class="monitor-model reveal">
 
-                    <article class="select-model__stage">
-                        <span>01 // BASELINE</span>
-                        <strong>Start with the Baseline</strong>
+                    <article class="monitor-model__stage">
+                        <span>01 // OBSERVE</span>
+                        <strong>Track Change</strong>
                         <p>
-                            Use the approved Moderate categorization to identify the
-                            starting control baseline for the Foxhole Portal.
+                            Watch the system and environment for changes that may
+                            affect security, privacy, architecture, or risk.
                         </p>
-                        <small>CONTROL BASELINE</small>
+                        <small>CHANGE AWARENESS</small>
                     </article>
 
-
-                    <article class="select-model__stage">
-                        <span>02 // TAILOR</span>
-                        <strong>Tailor to the System</strong>
+                    <article class="monitor-model__stage">
+                        <span>02 // ASSESS</span>
+                        <strong>Reassess Controls</strong>
                         <p>
-                            Apply scoping, parameterization, overlays, and risk-based
-                            adjustments while documenting the rationale for changes.
+                            Perform ongoing assessments at the frequencies defined
+                            by the continuous monitoring strategy.
                         </p>
-                        <small>TAILORED BASELINE</small>
+                        <small>CONTROL EFFECTIVENESS</small>
                     </article>
 
-
-                    <article class="select-model__stage">
-                        <span>03 // ALLOCATE</span>
-                        <strong>Assign Responsibility</strong>
+                    <article class="monitor-model__stage">
+                        <span>03 // RESPOND</span>
+                        <strong>Address Risk</strong>
                         <p>
-                            Designate controls as system-specific, hybrid, or common
-                            and allocate responsibility to the appropriate elements.
+                            Analyze monitoring results, vulnerabilities, findings,
+                            and POA&amp;M status and respond to risk as needed.
                         </p>
-                        <small>CONTROL ALLOCATION</small>
+                        <small>RISK RESPONSE</small>
                     </article>
 
-
-                    <article class="select-model__stage">
-                        <span>04 // DOCUMENT</span>
-                        <strong>Plan the Implementation</strong>
+                    <article class="monitor-model__stage">
+                        <span>04 // UPDATE</span>
+                        <strong>Refresh the Record</strong>
                         <p>
-                            Record planned implementations, ownership, inheritance,
-                            dependencies, and tailoring decisions in the system plan.
+                            Update plans, assessment information, POA&amp;M data,
+                            and other authorization records when conditions change.
                         </p>
-                        <small>SECURITY PLAN</small>
+                        <small>PACKAGE UPDATES</small>
                     </article>
 
-
-                    <article class="select-model__stage">
-                        <span>05 // MONITOR</span>
-                        <strong>Establish Monitoring</strong>
+                    <article class="monitor-model__stage">
+                        <span>05 // REPORT</span>
+                        <strong>Support Ongoing Authorization</strong>
                         <p>
-                            Define how selected controls and system risk will be monitored
-                            over time and prepare the plans for review and approval.
+                            Report system posture and give decision-makers current
+                            information to determine whether risk remains acceptable.
                         </p>
-                        <small>MONITORING STRATEGY</small>
+                        <small>ONGOING AUTHORIZATION</small>
                     </article>
 
                 </div>
 
 
-                <!-- Allocation View -->
+                <!-- Monitoring Console -->
 
-                <div class="select-allocation reveal">
+                <div class="monitor-console reveal">
 
-                    <div class="select-allocation__heading">
+                    <div class="monitor-console__heading">
 
                         <div>
-                            <span>FOXHOLE PORTAL // CONTROL ALLOCATION</span>
-                            <h3>Who is responsible for the control?</h3>
+                            <span>FOXHOLE PORTAL // CONTINUOUS MONITORING</span>
+                            <h3>Current security and privacy posture.</h3>
                             <p>
-                                Selected controls are not automatically implemented by the
-                                application team. Select identifies whether responsibility is
-                                system-specific, shared, or inherited from a common control provider.
+                                This fictional monitoring snapshot demonstrates how
+                                change information, assessment results, vulnerabilities,
+                                corrective actions, and authorization status can be
+                                presented together for ongoing risk decisions.
                             </p>
                         </div>
 
-                        <div class="select-allocation__status">
-                            <span>STARTING BASELINE</span>
-                            <strong>MODERATE</strong>
+                        <div class="monitor-console__pulse">
+                            <i></i>
+                            <span>MONITORING STATE</span>
+                            <strong>ACTIVE</strong>
                         </div>
 
                     </div>
 
 
-                    <div class="select-allocation__grid">
+                    <div class="monitor-metrics">
 
-                        <article>
-                            <span class="select-allocation__badge">SYSTEM-SPECIFIC</span>
-                            <h4>Portal-Owned Controls</h4>
-                            <p>
-                                Controls implemented entirely by the Foxhole Portal team
-                                within the defined authorization boundary.
-                            </p>
-                            <small>DIRECT IMPLEMENTATION</small>
+                        <article class="monitor-metric">
+                            <span>AUTHORIZATION</span>
+                            <strong>ACTIVE</strong>
+                            <small>Risk remains acceptable</small>
                         </article>
 
-
-                        <article>
-                            <span class="select-allocation__badge">HYBRID</span>
-                            <h4>Shared Responsibility</h4>
-                            <p>
-                                Controls where implementation responsibility is divided
-                                between the portal team and enterprise service providers.
-                            </p>
-                            <small>SHARED IMPLEMENTATION</small>
+                        <article class="monitor-metric">
+                            <span>CRITICAL / HIGH</span>
+                            <strong>0 / 0</strong>
+                            <small>Current case-study findings</small>
                         </article>
 
+                        <article class="monitor-metric">
+                            <span>MEDIUM</span>
+                            <strong>02</strong>
+                            <small>Tracked vulnerabilities</small>
+                        </article>
 
-                        <article>
-                            <span class="select-allocation__badge">COMMON</span>
-                            <h4>Inherited Controls</h4>
-                            <p>
-                                Controls provided by an enterprise common-control provider
-                                and inherited by the Foxhole Portal where applicable.
-                            </p>
-                            <small>INHERITED IMPLEMENTATION</small>
+                        <article class="monitor-metric">
+                            <span>OPEN POA&amp;M</span>
+                            <strong>00</strong>
+                            <small>Prior item validated and closed</small>
+                        </article>
+
+                        <article class="monitor-metric">
+                            <span>RECENT CHANGES</span>
+                            <strong>01</strong>
+                            <small>Reviewed for security impact</small>
                         </article>
 
                     </div>
 
 
-                    <div class="select-selection-summary">
+                    <div class="monitor-streams">
 
-                        <div>
-                            <span>IMPACT LEVEL</span>
-                            <strong>Moderate</strong>
+                        <article class="monitor-stream">
+                            <div class="monitor-stream__top">
+                                <span>SYSTEM + ENVIRONMENT</span>
+                                <strong>CHANGE REVIEWED</strong>
+                            </div>
+                            <h4>Portal Application Release</h4>
+                            <p>
+                                A fictional Foxhole Portal application update was
+                                reviewed for authorization-boundary, information-type,
+                                control-implementation, and risk impact.
+                            </p>
+                            <div class="monitor-stream__footer">
+                                <span>IMPACT</span>
+                                <strong>No material categorization change</strong>
+                            </div>
+                        </article>
+
+                        <article class="monitor-stream">
+                            <div class="monitor-stream__top">
+                                <span>ONGOING ASSESSMENT</span>
+                                <strong>COMPLETE</strong>
+                            </div>
+                            <h4>Control Effectiveness Review</h4>
+                            <p>
+                                Selected access, logging, configuration, vulnerability,
+                                and contingency safeguards were reassessed using
+                                monitoring evidence and targeted validation.
+                            </p>
+                            <div class="monitor-stream__footer">
+                                <span>RESULT</span>
+                                <strong>Controls remain effective</strong>
+                            </div>
+                        </article>
+
+                        <article class="monitor-stream">
+                            <div class="monitor-stream__top">
+                                <span>POA&amp;M + RISK RESPONSE</span>
+                                <strong>CLOSED</strong>
+                            </div>
+                            <h4>Evidence Traceability</h4>
+                            <p>
+                                The remaining authorization POA&amp;M item was corrected,
+                                supporting evidence was linked to the implementation
+                                statement, and the corrective action was validated.
+                            </p>
+                            <div class="monitor-stream__footer">
+                                <span>STATUS</span>
+                                <strong>Corrective action verified</strong>
+                            </div>
+                        </article>
+
+                        <article class="monitor-stream">
+                            <div class="monitor-stream__top">
+                                <span>VULNERABILITY POSTURE</span>
+                                <strong>TRACKED</strong>
+                            </div>
+                            <h4>Routine Vulnerability Review</h4>
+                            <p>
+                                Current scan results contain no critical or high
+                                case-study findings. Two medium items remain within
+                                established remediation timelines.
+                            </p>
+                            <div class="monitor-stream__footer">
+                                <span>RISK RESPONSE</span>
+                                <strong>Mitigate on schedule</strong>
+                            </div>
+                        </article>
+
+                    </div>
+
+
+                    <div class="monitor-authorization">
+
+                        <div class="monitor-authorization__signal" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
 
-                        <div>
-                            <span>BASELINE</span>
-                            <strong>Selected</strong>
+                        <div class="monitor-authorization__content">
+                            <span>ONGOING AUTHORIZATION REVIEW</span>
+                            <h4>Authorization remains active.</h4>
+                            <p>
+                                The monitoring results do not identify a material
+                                change that would make the previously accepted risk
+                                unacceptable in this fictional case study.
+                            </p>
                         </div>
 
-                        <div>
-                            <span>TAILORING</span>
-                            <strong>Documented</strong>
-                        </div>
-
-                        <div>
-                            <span>ALLOCATION</span>
-                            <strong>Assigned</strong>
-                        </div>
-
-                        <div>
-                            <span>PLAN STATUS</span>
-                            <strong>Approved</strong>
+                        <div class="monitor-authorization__status">
+                            <span>RISK STATE</span>
+                            <strong>ACCEPTABLE</strong>
                         </div>
 
                     </div>
 
-                    <p class="select-allocation__note">
-                        Case-study approach: the interface summarizes the Select decisions.
-                        Detailed control-level selection, tailoring rationale, allocation,
-                        and planned implementation information belongs in the supporting records.
+
+                    <div class="monitor-disposal">
+
+                        <div>
+                            <span>LIFECYCLE CONDITION // SYSTEM DISPOSAL</span>
+                            <strong>Not initiated.</strong>
+                        </div>
+
+                        <p>
+                            If the Foxhole Portal is removed from operation, Blue Fox
+                            Defense would execute the applicable disposal actions for
+                            system components, information, records, accounts, and
+                            authorization documentation.
+                        </p>
+
+                    </div>
+
+
+                    <p class="monitor-console__note">
+                        Case-study note: all monitoring events, metrics, vulnerability
+                        counts, and authorization outcomes shown here are fictional and
+                        exist only to demonstrate an ongoing RMF monitoring workflow.
                     </p>
 
                 </div>
@@ -862,38 +763,28 @@
 
 
         <!-- =====================================================
-             SELECT WORKFLOW
+             MONITOR WORKFLOW
         ====================================================== -->
 
-        <section
-            class="phase-section phase-section--soft"
-            id="phase-workflow"
-        >
+        <section class="phase-section phase-section--soft" id="phase-workflow">
 
             <div class="container">
 
                 <header class="phase-section__heading reveal">
-
-                    <div class="phase-section__number">
-                        02
-                    </div>
-
+                    <div class="phase-section__number">02</div>
                     <div>
-                        <span>SELECT // EXECUTION</span>
-                        <h2>Control Selection Activities</h2>
+                        <span>MONITOR // EXECUTION</span>
+                        <h2>Monitoring Activities</h2>
                         <p>
-                            Six activities move the case study from baseline selection through
-                            tailoring, allocation, planning, continuous monitoring, and approval.
+                            Seven activities cover system and environmental changes,
+                            ongoing assessments, risk response, authorization-record
+                            updates, posture reporting, ongoing authorization, and
+                            eventual system disposal when required.
                         </p>
                     </div>
-
                 </header>
 
-
-                <div
-                    class="phase-activity-timeline"
-                    id="phaseActivities"
-                ></div>
+                <div class="phase-activity-timeline" id="phaseActivities"></div>
 
             </div>
 
@@ -901,39 +792,28 @@
 
 
         <!-- =====================================================
-             SELECT DOCUMENTATION
+             MONITOR DOCUMENTATION
         ====================================================== -->
 
-        <section
-            class="phase-section"
-            id="phase-deliverables"
-        >
+        <section class="phase-section" id="phase-deliverables">
 
             <div class="container">
 
                 <header class="phase-section__heading reveal">
-
-                    <div class="phase-section__number">
-                        03
-                    </div>
-
+                    <div class="phase-section__number">03</div>
                     <div>
-                        <span>SELECT // AUTHORIZATION RECORDS</span>
+                        <span>MONITOR // AUTHORIZATION RECORDS</span>
                         <h2>Working Documentation</h2>
                         <p>
-                            These records capture the selected baseline, tailoring decisions,
-                            control allocation, planned implementation approach, and monitoring
-                            strategy used to prepare the Foxhole Portal for Implement.
+                            These records capture ongoing changes, assessment results,
+                            risk responses, authorization-package updates, security and
+                            privacy posture reporting, and the current ongoing
+                            authorization determination.
                         </p>
                     </div>
-
                 </header>
 
-
-                <div
-                    class="phase-artifact-grid"
-                    id="phaseArtifacts"
-                ></div>
+                <div class="phase-artifact-grid" id="phaseArtifacts"></div>
 
             </div>
 
@@ -941,32 +821,24 @@
 
 
         <!-- =====================================================
-             PHASE CLOSEOUT
+             MONITORING CYCLE REVIEW
         ====================================================== -->
 
-        <section
-            class="phase-section phase-section--soft"
-            id="phase-closeout"
-        >
+        <section class="phase-section phase-section--soft" id="phase-closeout">
 
             <div class="container">
 
                 <header class="phase-section__heading reveal">
-
-                    <div class="phase-section__number">
-                        04
-                    </div>
-
+                    <div class="phase-section__number">04</div>
                     <div>
-                        <span>SELECT // PHASE CLOSEOUT</span>
-                        <h2>Control decisions and readiness.</h2>
+                        <span>MONITOR // CYCLE REVIEW</span>
+                        <h2>Current posture and ongoing authorization.</h2>
                         <p>
-                            Before moving forward, the team records the control-selection
-                            decisions and verifies that the approved plans provide enough
-                            direction for implementation activities to begin.
+                            Monitor does not end while the Foxhole Portal remains
+                            operational. Each monitoring cycle refreshes the information
+                            needed to determine whether the accepted risk remains valid.
                         </p>
                     </div>
-
                 </header>
 
 
@@ -976,13 +848,11 @@
 
                         <div class="phase-panel-heading">
                             <span>DECISION LOG</span>
-                            <strong>Selection Decisions</strong>
+                            <strong>Monitoring Decisions</strong>
                         </div>
 
                         <div class="phase-decision-table-wrap">
-
                             <table class="phase-decision-table">
-
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -991,11 +861,8 @@
                                         <th>Status</th>
                                     </tr>
                                 </thead>
-
                                 <tbody id="phaseDecisionLog"></tbody>
-
                             </table>
-
                         </div>
 
                     </div>
@@ -1004,28 +871,31 @@
                     <aside class="phase-exit-panel reveal">
 
                         <div class="phase-panel-heading">
-                            <span>EXIT GATE</span>
-                            <strong>Ready for Implement</strong>
+                            <span>OPERATING STATE</span>
+                            <strong>Continue Monitoring</strong>
                         </div>
 
                         <p class="phase-exit-panel__intro">
-                            Select is ready to close when the control baseline, tailoring,
-                            control designation and allocation, planned implementations,
-                            monitoring strategy, and plan approval are sufficiently documented.
+                            The current monitoring cycle supports continued operation
+                            because system changes were reviewed, controls remain
+                            effective, corrective actions were addressed, the
+                            authorization record was refreshed, and the risk remains
+                            acceptable.
                         </p>
 
                         <ul class="phase-exit-checklist">
-                            <li><span>✓</span>Control baseline selected</li>
-                            <li><span>✓</span>Tailoring decisions documented</li>
-                            <li><span>✓</span>Controls designated and allocated</li>
-                            <li><span>✓</span>Planned implementations documented</li>
-                            <li><span>✓</span>Continuous monitoring strategy established</li>
-                            <li><span>✓</span>Security and privacy plans reviewed and approved</li>
+                            <li><span>✓</span>System and environment changes reviewed</li>
+                            <li><span>✓</span>Ongoing control assessments completed</li>
+                            <li><span>✓</span>Monitoring results analyzed and addressed</li>
+                            <li><span>✓</span>Prior POA&amp;M item validated and closed</li>
+                            <li><span>✓</span>Authorization records updated</li>
+                            <li><span>✓</span>Security and privacy posture reported</li>
+                            <li><span>✓</span>Residual risk remains acceptable</li>
                         </ul>
 
                         <div class="phase-exit-panel__status">
-                            <span>PHASE STATUS</span>
-                            <strong>COMPLETE</strong>
+                            <span>MONITORING STATUS</span>
+                            <strong>ONGOING</strong>
                         </div>
 
                     </aside>
@@ -1039,26 +909,14 @@
 
         <!-- =====================================================
              PHASE CLOSING CARDS
-
-             Shared two-card layout:
-             1. Governing References
-             2. Next RMF Phase
-
-             Reference content is rendered by shared phase.js.
-             Select-specific data lives in select-phase.js.
         ====================================================== -->
 
         <section
             class="phase-endcap"
-            aria-label="Select references and next RMF phase"
+            aria-label="Monitor references and RMF lifecycle status"
         >
 
             <div class="container phase-endcap__grid">
-
-
-                <!-- =============================================
-                     GOVERNING REFERENCES
-                ============================================== -->
 
                 <section
                     class="phase-endcap__card phase-endcap__card--references reveal"
@@ -1066,70 +924,39 @@
                 >
 
                     <header class="phase-endcap__references-heading">
-
-                        <span>
-                            GOVERNING REFERENCES
-                        </span>
-
-                        <h2 id="phaseReferencesTitle">
-                            Standards used during Select.
-                        </h2>
-
+                        <span>GOVERNING REFERENCES</span>
+                        <h2 id="phaseReferencesTitle">Standards used during Monitor.</h2>
                         <p>
-                            RMF, control catalog, baseline, minimum-security,
-                            continuous-monitoring, and DoD guidance used to structure
-                            the Select work in this fictional case study.
+                            RMF, information-security continuous monitoring,
+                            control-assessment, and DoD guidance used to structure
+                            the Monitor work in this fictional case study.
                         </p>
-
                     </header>
 
-
-                    <div
-                        class="phase-reference-list"
-                        id="phaseReferences"
-                    ></div>
+                    <div class="phase-reference-list" id="phaseReferences"></div>
 
                 </section>
 
 
-                <!-- =============================================
-                     NEXT RMF PHASE
-                ============================================== -->
-
                 <a
                     class="phase-endcap__card phase-endcap__card--next reveal"
-                    href="implement.html"
+                    href="index.html"
                 >
 
                     <div class="phase-endcap__next-content">
-
-                        <span class="phase-endcap__eyebrow">
-                            NEXT RMF PHASE // 04
-                        </span>
-
+                        <span class="phase-endcap__eyebrow">RMF LIFECYCLE // CONTINUOUS</span>
                         <div>
-
-                            <h2>
-                                Implement
-                            </h2>
-
+                            <h2>Ongoing Authorization</h2>
                             <p>
-                                Put the selected and tailored controls into operation,
-                                configure the system and supporting services, and document
-                                how each control is actually implemented across the Foxhole Portal.
+                                Monitoring results continue to inform risk decisions
+                                throughout the system life cycle. Return to the lab
+                                overview to review the complete Blue Fox Defense RMF
+                                authorization workflow.
                             </p>
-
                         </div>
-
                     </div>
 
-
-                    <div
-                        class="phase-endcap__arrow"
-                        aria-hidden="true"
-                    >
-                        →
-                    </div>
+                    <div class="phase-endcap__arrow" aria-hidden="true">↻</div>
 
                 </a>
 
@@ -1144,10 +971,7 @@
          SHARED PORTFOLIO FOOTER
     ========================================================== -->
 
-    <footer
-        class="site-footer"
-        id="connect"
-    >
+    <footer class="site-footer" id="connect">
 
         <div class="container">
 
@@ -1249,24 +1073,10 @@
 
     <!-- =========================================================
          JAVASCRIPT
-
-         Shared phase.js:
-         - Current RMF phase
-         - Activities
-         - Artifacts
-         - Decision log
-         - Governing references
-         - Lifecycle keyboard navigation
-
-         select-phase.js:
-         - Select activities
-         - Select authorization records
-         - Select decisions
-         - Select governing references
     ========================================================== -->
 
     <script src="js/phases/phase.js"></script>
-    <script src="js/phases/select-phase.js"></script>
+    <script src="js/phases/monitor-phase.js"></script>
     <script src="../../js/script.js"></script>
 
 </body>

@@ -1,0 +1,1156 @@
+/* ==========================================================================
+   BLUE FOX DEFENSE
+   AUTHORIZE PHASE — PHASE-SPECIFIC STYLES
+
+   LOCATION:
+   css/phases/authorize-phase.css
+
+   Loaded after:
+   ../../css/styles.css
+   ../rmf.css
+   phase.css
+
+   Keep this file limited to visuals unique to Authorize.
+   Shared RMF phase structure belongs in phase.css.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. AUTHORIZATION MODEL
+   ========================================================================== */
+
+.authorize-model {
+
+    position:
+        relative;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            5,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.65rem;
+
+}
+
+
+.authorize-model__stage {
+
+    position:
+        relative;
+
+    min-height:
+        235px;
+
+    padding:
+        1rem;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        0.8rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.04
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.025
+            ),
+            transparent
+        ),
+        var(--rmf-panel);
+
+}
+
+
+.authorize-model__stage:not(:last-child)::after {
+
+    content:
+        "→";
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    right:
+        -0.95rem;
+
+    z-index:
+        3;
+
+    width:
+        1.25rem;
+
+    height:
+        1.25rem;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        var(--rmf-line-strong);
+
+    border-radius:
+        50%;
+
+    background:
+        var(--rmf-panel);
+
+    color:
+        var(--pink);
+
+    font-size:
+        0.76rem;
+
+    transform:
+        translateY(
+            -50%
+        );
+
+}
+
+
+.authorize-model__stage > span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.authorize-model__stage strong {
+
+    margin-top:
+        1.25rem;
+
+    color:
+        var(--text);
+
+    font-size:
+        1.02rem;
+
+    line-height:
+        1.35;
+
+}
+
+
+.authorize-model__stage p {
+
+    margin:
+        0.55rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.86rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+.authorize-model__stage small {
+
+    margin-top:
+        auto;
+
+    padding-top:
+        1rem;
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+}
+
+
+/* ==========================================================================
+   02. AUTHORIZATION WORKBENCH
+   ========================================================================== */
+
+.authorize-workbench {
+
+    margin-top:
+        1rem;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--rmf-line);
+
+    border-radius:
+        1rem;
+
+    background:
+        radial-gradient(
+            circle at 90% 8%,
+            rgba(
+                149,
+                108,
+                255,
+                0.08
+            ),
+            transparent 28%
+        ),
+        var(--rmf-panel);
+
+}
+
+
+.authorize-workbench__heading {
+
+    padding:
+        1.2rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            0,
+            1fr
+        )
+        auto;
+
+    align-items:
+        start;
+
+    gap:
+        1.5rem;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.authorize-workbench__heading > div:first-child > span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.authorize-workbench__heading h3 {
+
+    margin:
+        0.4rem
+        0
+        0;
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            1.65rem,
+            3vw,
+            2.4rem
+        );
+
+    letter-spacing:
+        -0.035em;
+
+}
+
+
+.authorize-workbench__heading p {
+
+    max-width:
+        760px;
+
+    margin:
+        0.55rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.65;
+
+}
+
+
+.authorize-workbench__status {
+
+    min-width:
+        165px;
+
+    padding:
+        0.75rem
+        0.9rem;
+
+    display:
+        grid;
+
+    gap:
+        0.2rem;
+
+    border:
+        1px solid
+        rgba(
+            94,
+            230,
+            168,
+            0.22
+        );
+
+    border-radius:
+        0.7rem;
+
+    background:
+        rgba(
+            94,
+            230,
+            168,
+            0.04
+        );
+
+    text-align:
+        right;
+
+}
+
+
+.authorize-workbench__status span {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.66rem;
+
+}
+
+
+.authorize-workbench__status strong {
+
+    color:
+        var(--rmf-green);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.82rem;
+
+}
+
+
+/* ==========================================================================
+   03. AUTHORIZATION PACKAGE
+   ========================================================================== */
+
+.authorize-package {
+
+    padding:
+        0.8rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        0.65rem;
+
+}
+
+
+.authorize-package__item {
+
+    min-height:
+        205px;
+
+    padding:
+        0.95rem;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.75rem;
+
+    background:
+        var(--surface-soft);
+
+}
+
+
+.authorize-package__item > span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.authorize-package__item strong {
+
+    display:
+        block;
+
+    margin-top:
+        1rem;
+
+    color:
+        var(--text);
+
+    font-size:
+        1rem;
+
+    line-height:
+        1.35;
+
+}
+
+
+.authorize-package__item p {
+
+    margin:
+        0.55rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.84rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* ==========================================================================
+   04. RISK DETERMINATION
+   ========================================================================== */
+
+.authorize-risk {
+
+    margin:
+        0
+        0.8rem
+        0.8rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            0,
+            1.35fr
+        )
+        minmax(
+            300px,
+            0.65fr
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        0.8rem;
+
+    overflow:
+        hidden;
+
+}
+
+
+.authorize-risk__summary {
+
+    padding:
+        1.15rem;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(
+                76,
+                167,
+                255,
+                0.05
+            ),
+            rgba(
+                149,
+                108,
+                255,
+                0.035
+            ),
+            transparent
+        );
+
+}
+
+
+.authorize-risk__summary > span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.authorize-risk__summary h4 {
+
+    max-width:
+        720px;
+
+    margin:
+        0.5rem
+        0
+        0;
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            1.35rem,
+            2.5vw,
+            2rem
+        );
+
+    line-height:
+        1.2;
+
+}
+
+
+.authorize-risk__summary p {
+
+    max-width:
+        760px;
+
+    margin:
+        0.65rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.86rem;
+
+    line-height:
+        1.65;
+
+}
+
+
+.authorize-risk__metrics {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    border-left:
+        1px solid
+        var(--border);
+
+}
+
+
+.authorize-risk__metrics > div {
+
+    padding:
+        0.8rem;
+
+    display:
+        grid;
+
+    align-content:
+        center;
+
+    gap:
+        0.15rem;
+
+}
+
+
+.authorize-risk__metrics > div:nth-child(odd) {
+
+    border-right:
+        1px solid
+        var(--border);
+
+}
+
+
+.authorize-risk__metrics > div:nth-child(-n + 2) {
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.authorize-risk__metrics span {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.62rem;
+
+}
+
+
+.authorize-risk__metrics strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        0.86rem;
+
+}
+
+
+/* ==========================================================================
+   05. AUTHORIZATION DECISION
+   ========================================================================== */
+
+.authorize-decision {
+
+    margin:
+        0
+        0.8rem
+        0.8rem;
+
+    padding:
+        1rem;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        auto
+        minmax(
+            0,
+            1fr
+        )
+        auto;
+
+    align-items:
+        center;
+
+    gap:
+        1rem;
+
+    border:
+        1px solid
+        rgba(
+            94,
+            230,
+            168,
+            0.22
+        );
+
+    border-radius:
+        0.8rem;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(
+                94,
+                230,
+                168,
+                0.045
+            ),
+            rgba(
+                76,
+                167,
+                255,
+                0.025
+            ),
+            transparent
+        );
+
+}
+
+
+.authorize-decision__seal {
+
+    width:
+        62px;
+
+    height:
+        62px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        rgba(
+            94,
+            230,
+            168,
+            0.32
+        );
+
+    border-radius:
+        50%;
+
+    color:
+        var(--rmf-green);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.9rem;
+
+    font-weight:
+        800;
+
+    box-shadow:
+        0 0 30px
+        rgba(
+            94,
+            230,
+            168,
+            0.08
+        );
+
+}
+
+
+.authorize-decision__content > span {
+
+    color:
+        var(--blue-light);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        800;
+
+}
+
+
+.authorize-decision__content h4 {
+
+    margin:
+        0.3rem
+        0
+        0;
+
+    color:
+        var(--text);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        1.5rem;
+
+}
+
+
+.authorize-decision__content p {
+
+    max-width:
+        720px;
+
+    margin:
+        0.45rem
+        0
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.84rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+.authorize-decision__status {
+
+    min-width:
+        120px;
+
+    padding:
+        0.7rem;
+
+    display:
+        grid;
+
+    gap:
+        0.15rem;
+
+    border:
+        1px solid
+        rgba(
+            94,
+            230,
+            168,
+            0.2
+        );
+
+    border-radius:
+        0.65rem;
+
+    text-align:
+        right;
+
+}
+
+
+.authorize-decision__status span {
+
+    color:
+        var(--text-muted);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.62rem;
+
+}
+
+
+.authorize-decision__status strong {
+
+    color:
+        var(--rmf-green);
+
+    font-family:
+        var(--font-mono);
+
+    font-size:
+        0.8rem;
+
+}
+
+
+.authorize-workbench__note {
+
+    margin:
+        0;
+
+    padding:
+        0.9rem
+        1rem;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.8rem;
+
+    line-height:
+        1.55;
+
+}
+
+
+/* ==========================================================================
+   06. LIGHT THEME
+   ========================================================================== */
+
+html[data-theme="light"]
+.authorize-model__stage,
+html[data-theme="light"]
+.authorize-workbench {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.93
+        );
+
+}
+
+
+/* ==========================================================================
+   07. RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1150px) {
+
+    .authorize-model {
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+
+    .authorize-model__stage:not(:last-child)::after {
+
+        display:
+            none;
+
+    }
+
+
+    .authorize-package {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+
+    .authorize-risk {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .authorize-risk__metrics {
+
+        border-left:
+            0;
+
+        border-top:
+            1px solid
+            var(--border);
+
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .authorize-model {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .authorize-workbench__heading {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .authorize-workbench__status {
+
+        width:
+            100%;
+
+        text-align:
+            left;
+
+    }
+
+
+    .authorize-package {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .authorize-risk__metrics {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .authorize-risk__metrics > div,
+    .authorize-risk__metrics > div:nth-child(odd),
+    .authorize-risk__metrics > div:nth-child(-n + 2) {
+
+        border-right:
+            0;
+
+        border-bottom:
+            1px solid
+            var(--border);
+
+    }
+
+
+    .authorize-risk__metrics > div:last-child {
+
+        border-bottom:
+            0;
+
+    }
+
+
+    .authorize-decision {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .authorize-decision__status {
+
+        width:
+            100%;
+
+        text-align:
+            left;
+
+    }
+
+}

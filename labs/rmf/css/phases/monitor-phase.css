@@ -1,0 +1,504 @@
+/* ========================================================================== 
+   BLUE FOX DEFENSE
+   MONITOR PHASE — PHASE-SPECIFIC STYLES
+
+   LOCATION:
+   css/phases/monitor-phase.css
+
+   Loaded after:
+   ../../css/styles.css
+   ../rmf.css
+   phase.css
+
+   Keep this file limited to visuals unique to Monitor.
+   Shared RMF phase structure belongs in phase.css.
+   ========================================================================== */
+
+
+/* ========================================================================== 
+   01. MONITORING MODEL
+   ========================================================================== */
+
+.monitor-model {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.monitor-model__stage {
+    position: relative;
+    min-height: 235px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--rmf-line);
+    border-radius: 0.8rem;
+    background:
+        linear-gradient(145deg, rgba(76,167,255,0.04), rgba(149,108,255,0.025), transparent),
+        var(--rmf-panel);
+}
+
+.monitor-model__stage:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    top: 50%;
+    right: -0.95rem;
+    z-index: 3;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--rmf-line-strong);
+    border-radius: 50%;
+    background: var(--rmf-panel);
+    color: var(--pink);
+    font-size: 0.76rem;
+    transform: translateY(-50%);
+}
+
+.monitor-model__stage > span {
+    color: var(--blue-light);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.monitor-model__stage strong {
+    margin-top: 1.25rem;
+    color: var(--text);
+    font-size: 1.02rem;
+    line-height: 1.35;
+}
+
+.monitor-model__stage p {
+    margin: 0.55rem 0 0;
+    color: var(--text-soft);
+    font-size: 0.86rem;
+    line-height: 1.6;
+}
+
+.monitor-model__stage small {
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+}
+
+
+/* ========================================================================== 
+   02. MONITOR CONSOLE
+   ========================================================================== */
+
+.monitor-console {
+    margin-top: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--rmf-line);
+    border-radius: 1rem;
+    background:
+        radial-gradient(circle at 88% 10%, rgba(76,167,255,0.08), transparent 28%),
+        radial-gradient(circle at 15% 90%, rgba(149,108,255,0.06), transparent 32%),
+        var(--rmf-panel);
+}
+
+.monitor-console__heading {
+    padding: 1.2rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.monitor-console__heading > div:first-child > span {
+    color: var(--blue-light);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.monitor-console__heading h3 {
+    margin: 0.4rem 0 0;
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: clamp(1.65rem, 3vw, 2.4rem);
+    letter-spacing: -0.035em;
+}
+
+.monitor-console__heading p {
+    max-width: 780px;
+    margin: 0.55rem 0 0;
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+.monitor-console__pulse {
+    min-width: 165px;
+    padding: 0.8rem 0.9rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 0.6rem;
+    row-gap: 0.15rem;
+    border: 1px solid rgba(94,230,168,0.22);
+    border-radius: 0.7rem;
+    background: rgba(94,230,168,0.035);
+}
+
+.monitor-console__pulse i {
+    grid-row: 1 / 3;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--rmf-green);
+    box-shadow: 0 0 0 5px rgba(94,230,168,0.08), 0 0 24px rgba(94,230,168,0.32);
+    animation: monitorPulse 1.8s ease-in-out infinite;
+}
+
+.monitor-console__pulse span {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+}
+
+.monitor-console__pulse strong {
+    color: var(--rmf-green);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+}
+
+@keyframes monitorPulse {
+    0%, 100% { opacity: 0.55; transform: scale(0.92); }
+    50% { opacity: 1; transform: scale(1.08); }
+}
+
+
+/* ========================================================================== 
+   03. POSTURE METRICS
+   ========================================================================== */
+
+.monitor-metrics {
+    padding: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.6rem;
+}
+
+.monitor-metric {
+    min-height: 118px;
+    padding: 0.85rem;
+    display: grid;
+    align-content: center;
+    gap: 0.25rem;
+    border: 1px solid var(--border);
+    border-radius: 0.72rem;
+    background: var(--surface-soft);
+}
+
+.monitor-metric span {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+}
+
+.monitor-metric strong {
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+}
+
+.monitor-metric:first-child strong,
+.monitor-metric:nth-child(2) strong,
+.monitor-metric:nth-child(4) strong {
+    color: var(--rmf-green);
+}
+
+.monitor-metric small {
+    color: var(--text-soft);
+    font-size: 0.72rem;
+    line-height: 1.4;
+}
+
+
+/* ========================================================================== 
+   04. MONITORING STREAMS
+   ========================================================================== */
+
+.monitor-streams {
+    padding: 0 0.8rem 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.monitor-stream {
+    min-height: 240px;
+    padding: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: var(--surface-soft);
+}
+
+.monitor-stream__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.monitor-stream__top span {
+    color: var(--blue-light);
+    font-family: var(--font-mono);
+    font-size: 0.67rem;
+    font-weight: 800;
+}
+
+.monitor-stream__top strong {
+    color: var(--rmf-green);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-align: right;
+}
+
+.monitor-stream h4 {
+    margin: 1rem 0 0;
+    color: var(--text);
+    font-size: 1.05rem;
+}
+
+.monitor-stream p {
+    margin: 0.5rem 0 0;
+    color: var(--text-soft);
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
+.monitor-stream__footer {
+    margin-top: auto;
+    padding-top: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.8rem;
+    border-top: 1px solid var(--border);
+}
+
+.monitor-stream__footer span {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+}
+
+.monitor-stream__footer strong {
+    color: var(--text);
+    font-size: 0.76rem;
+    text-align: right;
+}
+
+
+/* ========================================================================== 
+   05. ONGOING AUTHORIZATION
+   ========================================================================== */
+
+.monitor-authorization {
+    margin: 0 0.8rem 0.8rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(94,230,168,0.22);
+    border-radius: 0.8rem;
+    background: linear-gradient(100deg, rgba(94,230,168,0.045), rgba(76,167,255,0.025), transparent);
+}
+
+.monitor-authorization__signal {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    padding: 13px;
+    border: 1px solid rgba(94,230,168,0.28);
+    border-radius: 50%;
+}
+
+.monitor-authorization__signal span {
+    width: 5px;
+    border-radius: 999px;
+    background: var(--rmf-green);
+}
+
+.monitor-authorization__signal span:nth-child(1) { height: 32%; }
+.monitor-authorization__signal span:nth-child(2) { height: 60%; }
+.monitor-authorization__signal span:nth-child(3) { height: 90%; }
+
+.monitor-authorization__content > span {
+    color: var(--blue-light);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 800;
+}
+
+.monitor-authorization__content h4 {
+    margin: 0.3rem 0 0;
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+.monitor-authorization__content p {
+    max-width: 720px;
+    margin: 0.45rem 0 0;
+    color: var(--text-soft);
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
+.monitor-authorization__status {
+    min-width: 128px;
+    padding: 0.7rem;
+    display: grid;
+    gap: 0.15rem;
+    border: 1px solid rgba(94,230,168,0.2);
+    border-radius: 0.65rem;
+    text-align: right;
+}
+
+.monitor-authorization__status span {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+}
+
+.monitor-authorization__status strong {
+    color: var(--rmf-green);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+}
+
+
+/* ========================================================================== 
+   06. SYSTEM DISPOSAL CONDITION
+   ========================================================================== */
+
+.monitor-disposal {
+    margin: 0 0.8rem 0.8rem;
+    padding: 0.95rem 1rem;
+    display: grid;
+    grid-template-columns: minmax(220px, 0.4fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 1.25rem;
+    border: 1px dashed var(--border-strong);
+    border-radius: 0.75rem;
+}
+
+.monitor-disposal span {
+    color: var(--purple);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 800;
+}
+
+.monitor-disposal strong {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.monitor-disposal p {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 0.82rem;
+    line-height: 1.55;
+}
+
+.monitor-console__note {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.55;
+}
+
+
+/* ========================================================================== 
+   07. LIGHT THEME
+   ========================================================================== */
+
+html[data-theme="light"] .monitor-model__stage,
+html[data-theme="light"] .monitor-console {
+    background: rgba(255,255,255,0.93);
+}
+
+
+/* ========================================================================== 
+   08. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .monitor-console__pulse i { animation: none; }
+}
+
+
+/* ========================================================================== 
+   09. RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1150px) {
+    .monitor-model {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .monitor-model__stage:not(:last-child)::after {
+        display: none;
+    }
+
+    .monitor-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 850px) {
+    .monitor-streams {
+        grid-template-columns: 1fr;
+    }
+
+    .monitor-disposal {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .monitor-model {
+        grid-template-columns: 1fr;
+    }
+
+    .monitor-console__heading {
+        grid-template-columns: 1fr;
+    }
+
+    .monitor-console__pulse {
+        width: 100%;
+    }
+
+    .monitor-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .monitor-authorization {
+        grid-template-columns: 1fr;
+    }
+
+    .monitor-authorization__status {
+        width: 100%;
+        text-align: left;
+    }
+}

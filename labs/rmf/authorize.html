@@ -16,7 +16,7 @@
 
     <meta
         name="description"
-        content="Select phase of the Blue Fox Defense Enterprise Security Compliance Lab."
+        content="Authorize phase of the Blue Fox Defense Enterprise Security Compliance Lab."
     >
 
     <meta
@@ -31,7 +31,7 @@
     >
 
     <title>
-        Select | Enterprise Security Compliance Lab
+        Authorize | Enterprise Security Compliance Lab
     </title>
 
 
@@ -103,7 +103,7 @@
              ↓
          Shared RMF phase skeleton
              ↓
-         Select-only visuals
+         Authorize-only visuals
     ========================================================== -->
 
     <link
@@ -123,7 +123,7 @@
 
     <link
         rel="stylesheet"
-        href="css/phases/select-phase.css"
+        href="css/phases/authorize-phase.css"
     >
 
 </head>
@@ -131,7 +131,7 @@
 
 <body
     class="rmf-lab-page rmf-phase-page"
-    data-current-phase="select"
+    data-current-phase="authorize"
 >
 
     <!-- =========================================================
@@ -191,13 +191,10 @@
 
             <nav
                 class="desktop-nav"
-                aria-label="Select phase navigation"
+                aria-label="Authorize phase navigation"
             >
 
-                <a
-                    class="nav-link"
-                    href="index.html"
-                >
+                <a class="nav-link" href="index.html">
                     Lab
                 </a>
 
@@ -205,7 +202,7 @@
                     class="nav-link is-active"
                     href="#phase-overview"
                 >
-                    Select
+                    Authorize
                 </a>
 
                 <a
@@ -280,7 +277,7 @@
     <nav
         class="mobile-navigation"
         id="mobileNavigation"
-        aria-label="Mobile Select phase navigation"
+        aria-label="Mobile Authorize phase navigation"
         aria-hidden="true"
     >
 
@@ -291,11 +288,11 @@
             </a>
 
             <a href="#phase-overview">
-                Select Overview
+                Authorize Overview
             </a>
 
             <a href="#phase-workflow">
-                Selection Activities
+                Authorization Activities
             </a>
 
             <a href="#phase-deliverables">
@@ -326,7 +323,7 @@
 
 
         <!-- =====================================================
-             SELECT HERO
+             AUTHORIZE HERO
         ====================================================== -->
 
         <section class="phase-hero">
@@ -359,14 +356,14 @@
                         <span>/</span>
                         RMF
                         <span>/</span>
-                        Select
+                        Authorize
                     </a>
 
 
                     <div class="phase-hero__phase-id">
 
                         <span>
-                            03
+                            06
                         </span>
 
                         <i></i>
@@ -379,22 +376,22 @@
 
 
                     <h1>
-                        Select
+                        Authorize
                     </h1>
 
 
                     <p class="phase-hero__lead">
-                        Select, tailor, allocate, and document the controls
-                        needed to protect the Foxhole Portal commensurate with risk.
+                        Make the formal risk decision based on the
+                        authorization package and remaining system risk.
                     </p>
 
 
                     <p class="phase-hero__summary">
-                        During Select, Blue Fox Defense uses the approved Moderate
-                        categorization and existing risk context to choose the starting
-                        control baseline, document tailoring decisions, assign control
-                        responsibility, develop the system security plan, and establish
-                        the system-level continuous monitoring strategy.
+                        During Authorize, Blue Fox Defense assembles the Foxhole Portal
+                        authorization package, analyzes residual risk, determines and
+                        documents the appropriate risk response, records the authorizing
+                        official's decision, and communicates the authorization status
+                        for ongoing monitoring.
                     </p>
 
 
@@ -406,13 +403,13 @@
                         </div>
 
                         <div>
-                            <span>CATEGORIZATION</span>
-                            <strong>Moderate</strong>
+                            <span>OPEN POA&amp;M ITEMS</span>
+                            <strong>01</strong>
                         </div>
 
                         <div>
                             <span>PHASE</span>
-                            <strong>03 of 07</strong>
+                            <strong>06 of 07</strong>
                         </div>
 
                     </div>
@@ -435,7 +432,7 @@
                         </div>
 
                         <span>
-                            RMF://03-SELECT
+                            RMF://06-AUTHORIZE
                         </span>
 
                         <strong>
@@ -454,13 +451,13 @@
                             </span>
 
                             <h2>
-                                Define the protections.
+                                Decide whether the risk is acceptable.
                             </h2>
 
                             <p>
-                                Build a defensible control set and document how the
-                                Foxhole Portal and its supporting environment will satisfy
-                                the selected security and privacy requirements.
+                                Give the authorizing official the information needed
+                                to understand residual risk and make an accountable,
+                                risk-based authorization decision.
                             </p>
 
                         </div>
@@ -470,22 +467,22 @@
 
                             <div>
                                 <span>STARTING POINT</span>
-                                <strong>Approved Moderate categorization</strong>
+                                <strong>Assessment results + POA&amp;M</strong>
                             </div>
 
                             <div>
                                 <span>PRIMARY WORK</span>
-                                <strong>Baseline + Tailoring + Allocation</strong>
+                                <strong>Package + Analyze + Decide</strong>
                             </div>
 
                             <div>
                                 <span>PHASE OUTPUT</span>
-                                <strong>Approved security and privacy plans</strong>
+                                <strong>Authorization decision</strong>
                             </div>
 
                             <div>
                                 <span>EXIT GATE</span>
-                                <strong>Ready for Implement</strong>
+                                <strong>Ready for Monitor</strong>
                             </div>
 
                         </div>
@@ -497,8 +494,8 @@
                                 NEXT PHASE
                             </span>
 
-                            <a href="implement.html">
-                                04 // Implement
+                            <a href="monitor.html">
+                                07 // Monitor
                             </a>
 
                         </div>
@@ -535,7 +532,7 @@
 
                     <div class="phase-lifecycle__current">
                         <span>CURRENT PHASE</span>
-                        <strong>03 // Select</strong>
+                        <strong>06 // Authorize</strong>
                     </div>
 
                 </div>
@@ -666,7 +663,7 @@
 
 
         <!-- =====================================================
-             PHASE OVERVIEW + CONTROL SELECTION MODEL
+             PHASE OVERVIEW + AUTHORIZATION MODEL
         ====================================================== -->
 
         <section
@@ -683,175 +680,245 @@
                     </div>
 
                     <div>
-                        <span>SELECT // PHASE OVERVIEW</span>
+                        <span>AUTHORIZE // PHASE OVERVIEW</span>
                         <h2>
-                            Turn the approved categorization into a defensible control set.
+                            Turn assessment results into an accountable risk decision.
                         </h2>
                         <p>
-                            Select starts with the Moderate impact determination from Categorize
-                            and translates that risk context into a tailored, allocated, and
-                            documented set of security and privacy controls.
+                            Authorize brings the security plan, assessment results,
+                            POA&amp;M, and risk context together so the authorizing official
+                            can determine whether the Foxhole Portal's remaining risk
+                            is acceptable.
                         </p>
                     </div>
 
                 </header>
 
 
-                <!-- Control Selection Model -->
+                <!-- Authorization Flow -->
 
-                <div class="select-model reveal">
+                <div class="authorize-model reveal">
 
-                    <article class="select-model__stage">
-                        <span>01 // BASELINE</span>
-                        <strong>Start with the Baseline</strong>
+                    <article class="authorize-model__stage">
+                        <span>01 // PACKAGE</span>
+                        <strong>Assemble the Package</strong>
                         <p>
-                            Use the approved Moderate categorization to identify the
-                            starting control baseline for the Foxhole Portal.
+                            Present the executive summary, security plan,
+                            assessment results, and relevant POA&amp;M information.
                         </p>
-                        <small>CONTROL BASELINE</small>
+                        <small>AUTHORIZATION PACKAGE</small>
                     </article>
 
 
-                    <article class="select-model__stage">
-                        <span>02 // TAILOR</span>
-                        <strong>Tailor to the System</strong>
+                    <article class="authorize-model__stage">
+                        <span>02 // ANALYZE</span>
+                        <strong>Determine Residual Risk</strong>
                         <p>
-                            Apply scoping, parameterization, overlays, and risk-based
-                            adjustments while documenting the rationale for changes.
+                            Analyze assessment results, open deficiencies,
+                            system context, mission impact, and risk information.
                         </p>
-                        <small>TAILORED BASELINE</small>
+                        <small>RISK DETERMINATION</small>
                     </article>
 
 
-                    <article class="select-model__stage">
-                        <span>03 // ALLOCATE</span>
-                        <strong>Assign Responsibility</strong>
+                    <article class="authorize-model__stage">
+                        <span>03 // RESPOND</span>
+                        <strong>Define the Risk Response</strong>
                         <p>
-                            Designate controls as system-specific, hybrid, or common
-                            and allocate responsibility to the appropriate elements.
+                            Decide how identified risk will be accepted,
+                            mitigated, avoided, shared, transferred, or monitored.
                         </p>
-                        <small>CONTROL ALLOCATION</small>
+                        <small>RISK RESPONSE</small>
                     </article>
 
 
-                    <article class="select-model__stage">
-                        <span>04 // DOCUMENT</span>
-                        <strong>Plan the Implementation</strong>
+                    <article class="authorize-model__stage">
+                        <span>04 // DECIDE</span>
+                        <strong>Record the Decision</strong>
                         <p>
-                            Record planned implementations, ownership, inheritance,
-                            dependencies, and tailoring decisions in the system plan.
+                            The authorizing official approves or denies
+                            authorization based on the risk determination.
                         </p>
-                        <small>SECURITY PLAN</small>
+                        <small>AUTHORIZATION DECISION</small>
                     </article>
 
 
-                    <article class="select-model__stage">
-                        <span>05 // MONITOR</span>
-                        <strong>Establish Monitoring</strong>
+                    <article class="authorize-model__stage">
+                        <span>05 // REPORT</span>
+                        <strong>Communicate Authorization</strong>
                         <p>
-                            Define how selected controls and system risk will be monitored
-                            over time and prepare the plans for review and approval.
+                            Record and communicate the authorization status
+                            and conditions needed for ongoing risk management.
                         </p>
-                        <small>MONITORING STRATEGY</small>
+                        <small>AUTHORIZATION REPORTING</small>
                     </article>
 
                 </div>
 
 
-                <!-- Allocation View -->
+                <!-- Authorization Workbench -->
 
-                <div class="select-allocation reveal">
+                <div class="authorize-workbench reveal">
 
-                    <div class="select-allocation__heading">
+                    <div class="authorize-workbench__heading">
 
                         <div>
-                            <span>FOXHOLE PORTAL // CONTROL ALLOCATION</span>
-                            <h3>Who is responsible for the control?</h3>
+                            <span>FOXHOLE PORTAL // AUTHORIZATION WORKBENCH</span>
+                            <h3>What information supports the risk decision?</h3>
                             <p>
-                                Selected controls are not automatically implemented by the
-                                application team. Select identifies whether responsibility is
-                                system-specific, shared, or inherited from a common control provider.
+                                The authorizing official reviews the package as a whole:
+                                what the system is, how it is protected, what the assessment
+                                found, what remains open, and how Blue Fox Defense plans
+                                to manage the remaining risk.
                             </p>
                         </div>
 
-                        <div class="select-allocation__status">
-                            <span>STARTING BASELINE</span>
-                            <strong>MODERATE</strong>
+                        <div class="authorize-workbench__status">
+                            <span>CASE-STUDY DECISION</span>
+                            <strong>AUTHORIZED</strong>
                         </div>
 
                     </div>
 
 
-                    <div class="select-allocation__grid">
+                    <!-- Authorization Package -->
 
-                        <article>
-                            <span class="select-allocation__badge">SYSTEM-SPECIFIC</span>
-                            <h4>Portal-Owned Controls</h4>
+                    <div class="authorize-package">
+
+                        <article class="authorize-package__item">
+                            <span>PACKAGE // 01</span>
+                            <strong>Executive Summary</strong>
                             <p>
-                                Controls implemented entirely by the Foxhole Portal team
-                                within the defined authorization boundary.
+                                Condenses system purpose, categorization, major risk
+                                considerations, assessment results, and the recommended
+                                authorization position.
                             </p>
-                            <small>DIRECT IMPLEMENTATION</small>
                         </article>
 
-
-                        <article>
-                            <span class="select-allocation__badge">HYBRID</span>
-                            <h4>Shared Responsibility</h4>
+                        <article class="authorize-package__item">
+                            <span>PACKAGE // 02</span>
+                            <strong>System Security Plan</strong>
                             <p>
-                                Controls where implementation responsibility is divided
-                                between the portal team and enterprise service providers.
+                                Describes the Foxhole Portal, authorization boundary,
+                                selected controls, implementation responsibilities,
+                                and implemented safeguards.
                             </p>
-                            <small>SHARED IMPLEMENTATION</small>
                         </article>
 
-
-                        <article>
-                            <span class="select-allocation__badge">COMMON</span>
-                            <h4>Inherited Controls</h4>
+                        <article class="authorize-package__item">
+                            <span>PACKAGE // 03</span>
+                            <strong>Security Assessment Report</strong>
                             <p>
-                                Controls provided by an enterprise common-control provider
-                                and inherited by the Foxhole Portal where applicable.
+                                Provides assessment scope, methods, evidence-based
+                                determinations, findings, and recommendations.
                             </p>
-                            <small>INHERITED IMPLEMENTATION</small>
+                        </article>
+
+                        <article class="authorize-package__item">
+                            <span>PACKAGE // 04</span>
+                            <strong>Plan of Action &amp; Milestones</strong>
+                            <p>
+                                Identifies the remaining evidence-traceability deficiency,
+                                corrective action, owner, milestones, and completion target.
+                            </p>
                         </article>
 
                     </div>
 
 
-                    <div class="select-selection-summary">
+                    <!-- Risk Decision -->
 
-                        <div>
-                            <span>IMPACT LEVEL</span>
-                            <strong>Moderate</strong>
+                    <div class="authorize-risk">
+
+                        <div class="authorize-risk__summary">
+
+                            <span>RISK DETERMINATION</span>
+
+                            <h4>
+                                Residual risk is acceptable for operation
+                                with continued POA&amp;M tracking.
+                            </h4>
+
+                            <p>
+                                The assessment identified two representative findings.
+                                The secure-configuration deviation was corrected and
+                                retested during Assess. The remaining documentation and
+                                evidence-traceability deficiency does not prevent operation
+                                in this fictional case study and remains subject to
+                                corrective-action tracking and ongoing monitoring.
+                            </p>
+
                         </div>
 
-                        <div>
-                            <span>BASELINE</span>
-                            <strong>Selected</strong>
-                        </div>
 
-                        <div>
-                            <span>TAILORING</span>
-                            <strong>Documented</strong>
-                        </div>
+                        <div class="authorize-risk__metrics">
 
-                        <div>
-                            <span>ALLOCATION</span>
-                            <strong>Assigned</strong>
-                        </div>
+                            <div>
+                                <span>SECURITY CATEGORY</span>
+                                <strong>MODERATE</strong>
+                            </div>
 
-                        <div>
-                            <span>PLAN STATUS</span>
-                            <strong>Approved</strong>
+                            <div>
+                                <span>ASSESSMENT FINDINGS</span>
+                                <strong>02</strong>
+                            </div>
+
+                            <div>
+                                <span>REMEDIATED</span>
+                                <strong>01</strong>
+                            </div>
+
+                            <div>
+                                <span>OPEN POA&amp;M</span>
+                                <strong>01</strong>
+                            </div>
+
                         </div>
 
                     </div>
 
-                    <p class="select-allocation__note">
-                        Case-study approach: the interface summarizes the Select decisions.
-                        Detailed control-level selection, tailoring rationale, allocation,
-                        and planned implementation information belongs in the supporting records.
+
+                    <!-- Authorization Decision -->
+
+                    <div class="authorize-decision">
+
+                        <div class="authorize-decision__seal" aria-hidden="true">
+                            AO
+                        </div>
+
+                        <div class="authorize-decision__content">
+
+                            <span>
+                                AUTHORIZATION DECISION
+                            </span>
+
+                            <h4>
+                                Approved for operation.
+                            </h4>
+
+                            <p>
+                                For this fictional Blue Fox Defense case study,
+                                the Authorizing Official accepts the documented
+                                residual risk and authorizes the Foxhole Portal
+                                to operate while the remaining POA&amp;M item is
+                                tracked through the Monitor phase.
+                            </p>
+
+                        </div>
+
+                        <div class="authorize-decision__status">
+                            <span>STATUS</span>
+                            <strong>APPROVED</strong>
+                        </div>
+
+                    </div>
+
+
+                    <p class="authorize-workbench__note">
+                        Case-study note: the authorization decision and residual-risk
+                        determination shown here are fictional portfolio artifacts used
+                        to demonstrate the RMF workflow. They do not represent an actual
+                        government authorization or ATO.
                     </p>
 
                 </div>
@@ -862,7 +929,7 @@
 
 
         <!-- =====================================================
-             SELECT WORKFLOW
+             AUTHORIZE WORKFLOW
         ====================================================== -->
 
         <section
@@ -879,11 +946,12 @@
                     </div>
 
                     <div>
-                        <span>SELECT // EXECUTION</span>
-                        <h2>Control Selection Activities</h2>
+                        <span>AUTHORIZE // EXECUTION</span>
+                        <h2>Authorization Activities</h2>
                         <p>
-                            Six activities move the case study from baseline selection through
-                            tailoring, allocation, planning, continuous monitoring, and approval.
+                            Five activities move the case study from package assembly
+                            through risk determination, risk response, formal authorization,
+                            and authorization reporting.
                         </p>
                     </div>
 
@@ -901,7 +969,7 @@
 
 
         <!-- =====================================================
-             SELECT DOCUMENTATION
+             AUTHORIZE DOCUMENTATION
         ====================================================== -->
 
         <section
@@ -918,12 +986,13 @@
                     </div>
 
                     <div>
-                        <span>SELECT // AUTHORIZATION RECORDS</span>
+                        <span>AUTHORIZE // AUTHORIZATION RECORDS</span>
                         <h2>Working Documentation</h2>
                         <p>
-                            These records capture the selected baseline, tailoring decisions,
-                            control allocation, planned implementation approach, and monitoring
-                            strategy used to prepare the Foxhole Portal for Implement.
+                            These records organize the authorization package,
+                            the residual-risk analysis and response, the formal
+                            authorization decision, and the reporting record used
+                            to transition the system into ongoing monitoring.
                         </p>
                     </div>
 
@@ -958,12 +1027,13 @@
                     </div>
 
                     <div>
-                        <span>SELECT // PHASE CLOSEOUT</span>
-                        <h2>Control decisions and readiness.</h2>
+                        <span>AUTHORIZE // PHASE CLOSEOUT</span>
+                        <h2>Decision, accountability, and transition.</h2>
                         <p>
-                            Before moving forward, the team records the control-selection
-                            decisions and verifies that the approved plans provide enough
-                            direction for implementation activities to begin.
+                            Before Authorize closes, the risk decision is recorded,
+                            the authorization status is communicated, unresolved risk
+                            remains visible, and the system transitions into ongoing
+                            monitoring.
                         </p>
                     </div>
 
@@ -976,7 +1046,7 @@
 
                         <div class="phase-panel-heading">
                             <span>DECISION LOG</span>
-                            <strong>Selection Decisions</strong>
+                            <strong>Authorization Decisions</strong>
                         </div>
 
                         <div class="phase-decision-table-wrap">
@@ -1005,22 +1075,23 @@
 
                         <div class="phase-panel-heading">
                             <span>EXIT GATE</span>
-                            <strong>Ready for Implement</strong>
+                            <strong>Ready for Monitor</strong>
                         </div>
 
                         <p class="phase-exit-panel__intro">
-                            Select is ready to close when the control baseline, tailoring,
-                            control designation and allocation, planned implementations,
-                            monitoring strategy, and plan approval are sufficiently documented.
+                            Authorize is ready to close when the authorization package
+                            has been reviewed, residual risk and risk responses are
+                            documented, the authorization decision is recorded, and
+                            the status is communicated for ongoing monitoring.
                         </p>
 
                         <ul class="phase-exit-checklist">
-                            <li><span>✓</span>Control baseline selected</li>
-                            <li><span>✓</span>Tailoring decisions documented</li>
-                            <li><span>✓</span>Controls designated and allocated</li>
-                            <li><span>✓</span>Planned implementations documented</li>
-                            <li><span>✓</span>Continuous monitoring strategy established</li>
-                            <li><span>✓</span>Security and privacy plans reviewed and approved</li>
+                            <li><span>✓</span>Authorization package assembled and reviewed</li>
+                            <li><span>✓</span>Residual risk analyzed and documented</li>
+                            <li><span>✓</span>Risk response established</li>
+                            <li><span>✓</span>Authorization decision recorded</li>
+                            <li><span>✓</span>Open POA&amp;M item retained for monitoring</li>
+                            <li><span>✓</span>Authorization status communicated</li>
                         </ul>
 
                         <div class="phase-exit-panel__status">
@@ -1039,18 +1110,11 @@
 
         <!-- =====================================================
              PHASE CLOSING CARDS
-
-             Shared two-card layout:
-             1. Governing References
-             2. Next RMF Phase
-
-             Reference content is rendered by shared phase.js.
-             Select-specific data lives in select-phase.js.
         ====================================================== -->
 
         <section
             class="phase-endcap"
-            aria-label="Select references and next RMF phase"
+            aria-label="Authorize references and next RMF phase"
         >
 
             <div class="container phase-endcap__grid">
@@ -1072,13 +1136,14 @@
                         </span>
 
                         <h2 id="phaseReferencesTitle">
-                            Standards used during Select.
+                            Standards used during Authorize.
                         </h2>
 
                         <p>
-                            RMF, control catalog, baseline, minimum-security,
-                            continuous-monitoring, and DoD guidance used to structure
-                            the Select work in this fictional case study.
+                            RMF, enterprise-risk, risk-assessment,
+                            federal information-security, and DoD guidance
+                            used to structure the Authorize work in this
+                            fictional case study.
                         </p>
 
                     </header>
@@ -1098,25 +1163,26 @@
 
                 <a
                     class="phase-endcap__card phase-endcap__card--next reveal"
-                    href="implement.html"
+                    href="monitor.html"
                 >
 
                     <div class="phase-endcap__next-content">
 
                         <span class="phase-endcap__eyebrow">
-                            NEXT RMF PHASE // 04
+                            NEXT RMF PHASE // 07
                         </span>
 
                         <div>
 
                             <h2>
-                                Implement
+                                Monitor
                             </h2>
 
                             <p>
-                                Put the selected and tailored controls into operation,
-                                configure the system and supporting services, and document
-                                how each control is actually implemented across the Foxhole Portal.
+                                Maintain ongoing awareness of the Foxhole Portal's
+                                security and privacy posture by tracking system changes,
+                                control effectiveness, vulnerabilities, POA&amp;M progress,
+                                and risk over time.
                             </p>
 
                         </div>
@@ -1249,24 +1315,10 @@
 
     <!-- =========================================================
          JAVASCRIPT
-
-         Shared phase.js:
-         - Current RMF phase
-         - Activities
-         - Artifacts
-         - Decision log
-         - Governing references
-         - Lifecycle keyboard navigation
-
-         select-phase.js:
-         - Select activities
-         - Select authorization records
-         - Select decisions
-         - Select governing references
     ========================================================== -->
 
     <script src="js/phases/phase.js"></script>
-    <script src="js/phases/select-phase.js"></script>
+    <script src="js/phases/authorize-phase.js"></script>
     <script src="../../js/script.js"></script>
 
 </body>
